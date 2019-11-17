@@ -1,6 +1,7 @@
+{% set isDebug = craft.app.request.getParam('debug') %}
 {% spaceless %}
 <!DOCTYPE html>
-<html lang="en-US" state="hard-loading">
+<html lang="{{ currentSite.language }}" state="hard-loading" {% if isDebug and currentUser and currentUser['admin'] %}debug="true"{% endif %} data-csrf="{{ craft.app.request.csrfToken }}" data-cachebust="{{ craft.app.config.general.cacheBustTimestamp }}">
     <head>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta charset="utf-8" />
@@ -413,7 +414,7 @@
             <div>
                 <span>
                     {{ "Loading resources:"|t }}
-                    <resource-counter style="display:inline-block;">3</resource-counter><span style="font-size:0.75rem;display:inline-block;margin:0 0.25rem;transform:translateY(-2px);">/</span><resource-total style="display:inline-block;">20</resource-total>
+                    <resource-counter style="display:inline-block;">0</resource-counter><span style="font-size:0.75rem;display:inline-block;margin:0 0.25rem;transform:translateY(-2px);">/</span><resource-total style="display:inline-block;">?</resource-total>
                 </span>
                 <page-loading-bar>
                     <bar-one></bar-one>

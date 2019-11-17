@@ -1,0 +1,15 @@
+{
+    "name": "craftcms-pwa",
+    "version": "0.1.0",
+    "license": "MIT",
+    "scripts": {
+        "prep": "rm -rf ./public/assets && mkdir ./public/assets && rm -rf ./_compiled",
+        "compile": "tsc",
+        "cleanup": "rm -rf ./_compiled",
+        "build": "npm run prep && npm run compile && node ./tools/script-scrubber.js && node ./tools/cachebust.js && npm run cleanup"
+    },
+    "devDependencies": {
+        "glob": "^7.1.6",
+        "typescript": "^3.7.2"
+    }
+}

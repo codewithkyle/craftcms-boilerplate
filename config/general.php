@@ -8,7 +8,7 @@
  * @see \craft\config\GeneralConfig
  */
 
-return [
+$customConfig = [
     // Global settings
     '*' => [
         'defaultWeekStartDay' => 1,
@@ -50,3 +50,11 @@ return [
         ],
     ],
 ];
+
+// If a local config file exists, merge any local config settings
+if (is_array($customLocalConfig = include('cachebust.php'))) {
+    $customGlobalConfig = array_merge($customConfig['*'], $customLocalConfig);
+    $customConfig['*'] = $customGlobalConfig;
+}
+
+return $customConfig;

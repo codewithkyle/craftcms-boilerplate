@@ -1,0 +1,17 @@
+{
+    "compilerOptions": {
+        "outDir": "_compiled",
+        "allowJs": true,
+        "checkJs": true,
+        "target": "es2019",
+        "module": "es6",
+        "lib": [
+            "dom",
+            "esnext"
+        ]
+    },
+    "include": [
+        "templates",
+        "core"
+    ]
+}

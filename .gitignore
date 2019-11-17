@@ -1,3 +1,5 @@
+# General
+# --------
 /.env
 /.idea
 /vendor
@@ -5,3 +7,7 @@
 /node_modules
 /public/uploads/*
 !/public/uploads/.gitkeep
+
+# Assets
+# --------
+/public/assets
