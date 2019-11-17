@@ -3,3 +3,5 @@
 /vendor
 .DS_Store
 /node_modules
+/public/uploads/*
+!/public/uploads/.gitkeep

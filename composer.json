@@ -1,6 +1,15 @@
 {
   "require": {
+    "aelvan/imager": "v2.3.0",
+    "chasegiunta/scss": "1.0.0",
     "craftcms/cms": "^3.0.0",
+    "craftcms/element-api": "2.6.0",
+    "craftcms/redactor": "2.4.0",
+    "ether/logs": "3.0.2",
+    "ether/seo": "3.6.2",
+    "ether/splash": "3.0.5",
+    "nystudio107/craft-eagerbeaver": "1.0.4",
+    "verbb/smith": "1.0.0",
     "vlucas/phpdotenv": "^3.4.0"
   },
   "autoload": {

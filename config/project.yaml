@@ -1,3 +1,4 @@
+dateModified: 1573998248
 email:
   fromEmail: codingwithkyle@gmail.com
   fromName: 'Craft PWA'
@@ -5,6 +6,74 @@ email:
 fieldGroups:
   0e5caedc-3ce5-4116-8378-d114d694a4b9:
     name: Common
+plugins:
+  imager:
+    edition: standard
+    enabled: true
+    schemaVersion: 2.0.0
+  logs:
+    edition: standard
+    enabled: true
+    schemaVersion: 3.0.0
+  eager-beaver:
+    edition: standard
+    enabled: true
+    schemaVersion: 1.0.0
+  seo:
+    edition: standard
+    enabled: true
+    schemaVersion: 3.1.0
+    settings:
+      sitemapName: sitemap
+      sitemapLimit: '1000'
+      titleSuffix: null
+      title:
+        -
+          key: '1'
+          locked: '0'
+          template: '{title}'
+        -
+          key: '2'
+          locked: '1'
+          template: ' - {{ siteName }}'
+      description: ''
+      socialImage: null
+      metaTemplate: ''
+      robots:
+        - ''
+        - ''
+        - ''
+        - ''
+        - ''
+        - ''
+      robotsTxt: "{# Sitemap URL #}\r\nSitemap: {{ url(seo.sitemapName ~ '.xml') }}\r\n\r\n{# Disallows #}\r\n{% if craft.app.config.env != 'production' %}\r\n\r\n{# Disallow access to everything when NOT in production #}\r\nUser-agent: *\r\nDisallow: /\r\n\r\n{% else %}\r\n\r\n{# Disallow access to cpresources/ when live #}\r\nUser-agent: *\r\nDisallow: /cpresources/\r\n\r\n{% endif %}"
+      facebookAppId: ''
+      twitterHandle: ''
+  splash:
+    edition: standard
+    enabled: true
+    schemaVersion: 3.0.0
+    settings:
+      volume: '1'
+      authorField: ''
+      authorUrlField: ''
+      colorField: ''
+  element-api:
+    edition: standard
+    enabled: true
+    schemaVersion: 1.0.0
+  redactor:
+    edition: standard
+    enabled: true
+    schemaVersion: 2.3.0
+  scss:
+    edition: standard
+    enabled: true
+    schemaVersion: 1.0.0
+  smith:
+    edition: standard
+    enabled: true
+    schemaVersion: 1.0.0
 siteGroups:
   671e778d-487b-49da-b257-052f3d032d54:
     name: 'Craft PWA'
@@ -30,3 +99,13 @@ users:
   defaultGroup: null
   photoVolumeUid: null
   photoSubpath: ''
+volumes:
+  70427868-1571-42b8-8751-e98127021aa8:
+    name: Images
+    handle: images
+    type: craft\volumes\Local
+    hasUrls: true
+    url: '@web/uploads/images'
+    settings:
+      path: '@webroot/uploads/images'
+    sortOrder: 1
