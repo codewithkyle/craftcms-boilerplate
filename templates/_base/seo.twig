@@ -1,0 +1,48 @@
+{# SEO Start #}
+	{# Tip: You can pass the handle of your SEO field - getSeoField('mySeoFieldHandle') #}
+	{% set seo = getSeoField() %}
+	{% if seo is null or seo.title == '' %}
+		{% set seo = craft.seo.custom('', '', false) %}
+        <title>{{ seo.title|trim(' -') }}</title>
+	{% else %}
+        <title>{{ seo.title }}</title>
+    {% endif -%}
+
+	{% set locale = craft.app.locale %}
+	{% set locales = craft.app.i18n.siteLocaleIds|without(locale) %}
+
+	<meta name="description" content="{{ seo.description }}" />
+
+	{% set fb = seo.social.facebook -%}
+	<meta property="fb:app_id" content="{{ fb.handle }}">
+	<meta property="og:url" content="{{ craft.app.request.absoluteUrl }}" />
+	<meta property="og:type" content="website" />
+	<meta property="og:title" content="{{ fb.title }}" />
+	<meta property="og:image" content="{{ craft.seo.facebookImage(fb.image) }}" />
+	<meta property="og:image:width" content="1200" />
+	<meta property="og:image:height" content="630" />
+	<meta property="og:description" content="{{ fb.description }}" />
+	<meta property="og:site_name" content="{{ siteName }}" />
+	<meta property="og:locale" content="{{ locale|replace('-', '_') }}" />
+	{% for locale in locales -%}
+		<meta property="og:locale:alternate" content="{{ locale|replace('-', '_') }}" />
+	{% endfor %}
+
+	{% set tw = seo.social.twitter -%}
+	<meta name="twitter:card" content="summary_large_image" />
+	<meta name="twitter:site" content="{{ tw.handle }}" />
+	<meta name="twitter:url" content="{{ craft.app.request.absoluteUrl }}" />
+	<meta name="twitter:title" content="{{ tw.title }}" />
+	<meta name="twitter:description" content="{{ tw.description }}" />
+	<meta name="twitter:image" content="{{ craft.seo.twitterImage(tw.image) }}" />
+
+	{% if seo.robots -%}
+		<meta name="robots" content="{{ seo.robots }}" />
+	{% endif %}
+	{%- if seo.expiry -%}
+		<meta name="robots" content="unavailable_after: {{ seo.expiry }}" />
+	{% endif %}
+
+	<link rel="home" href="{{ siteUrl }}" />
+	<link rel="canonical" href="{{ seo.canonical }}">
+{# SEO End #}

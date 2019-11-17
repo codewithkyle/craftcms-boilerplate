@@ -1,13 +1,16 @@
 {% set isDebug = craft.app.request.getParam('debug') %}
 {% spaceless %}
 <!DOCTYPE html>
-<html lang="{{ currentSite.language }}" state="hard-loading" {% if isDebug and currentUser and currentUser['admin'] %}debug="true"{% endif %} data-csrf="{{ craft.app.request.csrfToken }}" data-cachebust="{{ craft.app.config.general.cacheBustTimestamp }}">
+<html lang="{{ currentSite.language }}" state="hard-loading" {% if isDebug and currentUser and currentUser['admin'] or craft.app.config.env == 'dev' or craft.app.config.env == 'staging'  %}debug="true"{% endif %} data-csrf="{{ craft.app.request.csrfToken }}" data-cachebust="{{ craft.app.config.general.cacheBustTimestamp }}">
     <head>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
         <meta name="referrer" content="origin-when-cross-origin" />
         {% hook 'seo' %}
+
+        <link rel="preload" href="runtime.js" as="script">
+        <link rel="preload" href="env.js" as="script">
         
         <!-- Critical CSS -->
         <style>
@@ -407,6 +410,8 @@
                 }
             </style>
         </noscript>
+
+        <script type="module" src="{{ alias('@rootUrl')|trim('/') }}/assets/bootstrap.js"></script>
     </head>
     <body>
         {# Full screen loading animation #}

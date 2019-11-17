@@ -4,7 +4,7 @@
         "allowJs": true,
         "checkJs": true,
         "target": "es2019",
-        "module": "es6",
+        "module": "esnext",
         "lib": [
             "dom",
             "esnext"
@@ -12,6 +12,9 @@
     },
     "include": [
         "templates",
-        "core"
+        "workers",
+        "controllers",
+        "packages",
+        "globals.d.ts"
     ]
 }
