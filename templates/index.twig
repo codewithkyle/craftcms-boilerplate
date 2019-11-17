@@ -1,42 +1,33 @@
-<!DOCTYPE html>
-<html lang="en-US">
-<head>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta charset="utf-8" />
-    <title>Welcome to Craft CMS</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
-    <meta name="referrer" content="origin-when-cross-origin" />
-    {% hook 'seo' %}
-    <style>
-        :root
-        {
-            font-size: 100%;
-        }
+{% extends "_base/page" %}
 
-        html
-        {
-            height: 100vh;
-            overflow-y: auto;
-            width: 100vw;
-            display: block;
-        }
-
-        body
-        {
-            margin: 0;
-            padding: 0;
-            background-color: #fff;
-            color: #333;
-            display: block;
-            min-height: 100%;
-            width: 100%;
-            font-size: 1rem;
-            -webkit-text-size-adjust: 100%;
-            font-family: system-ui, BlinkMacSystemFont, -apple-system, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
-        }
-    </style>
-</head>
-<body>
-    Hello world!
-</body>
-</html>
+{% block content %}
+    <article>
+        <seciton>
+            <h1>Lorem ipsum dolor sit amet</h1>
+            <h2>Lorem ipsum dolor sit amet</h2>
+            <h3>Lorem ipsum dolor sit amet</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+        </seciton>
+        <seciton>
+            <ul>
+                <li>Lorem ipsum dolor sit amet consectetur adipiscing elit</li>
+                <li>Lorem ipsum dolor sit amet consectetur adipiscing elit</li>
+                <li>Lorem ipsum dolor sit amet consectetur adipiscing elit</li>
+                <li>Lorem ipsum dolor sit amet consectetur adipiscing elit</li>
+            </ul>
+            <img width="580" src="https://images.unsplash.com/photo-1573900941478-7cc800f708f3?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=580&q=80" loading="lazy">
+        </seciton>
+        <seciton>
+            <h3>Lorem ipsum dolor sit amet</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+            <ol>
+                <li>Lorem ipsum dolor sit amet consectetur adipiscing elit</li>
+                <li>Lorem ipsum dolor sit amet consectetur adipiscing elit</li>
+                <li>Lorem ipsum dolor sit amet consectetur adipiscing elit</li>
+                <li>Lorem ipsum dolor sit amet consectetur adipiscing elit</li>
+                <li>Lorem ipsum dolor sit amet consectetur adipiscing elit</li>
+                <li>Lorem ipsum dolor sit amet consectetur adipiscing elit</li>
+            </ol>
+        </seciton>
+    </article>
+{% endblock %}

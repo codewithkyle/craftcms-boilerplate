@@ -1,0 +1,401 @@
+{% spaceless %}
+<!DOCTYPE html>
+<html lang="en-US" state="hard-loading">
+    <head>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
+        <meta name="referrer" content="origin-when-cross-origin" />
+        {% hook 'seo' %}
+        
+        <!-- Critical CSS -->
+        <style>
+            :root
+            {
+                font-size: 100%;
+            }
+
+            *
+            {
+                position: relative;
+                box-sizing: border-box;
+                margin: 0;
+                padding: 0;
+                font-size: 1rem;
+                line-height: 1;
+                font-weight: inherit;
+                font-family: inherit;
+            }
+
+            html
+            {
+                height: 100vh;
+                overflow-y: auto;
+                width: 100vw;
+                display: block;
+            }
+
+            body
+            {
+                margin: 0;
+                padding: 0;
+                background-color: #fff;
+                color: #333;
+                display: block;
+                min-height: 100%;
+                width: 100%;
+                font-size: 1rem;
+                font-weight: 400;
+                -webkit-text-size-adjust: 100%;
+                font-family: system-ui, BlinkMacSystemFont, -apple-system, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+            }
+
+            ul li,
+            ol li
+            {
+                line-height: 1.618;
+                list-style-position: inside;
+            }
+        </style>
+
+        <!-- Loading animations -->
+        <style>
+            page-loading
+            {
+                width: 100vw;
+                height: 100vh;
+                display: flex;
+                position: fixed;
+                top: 0;
+                left: 0;
+                justify-content: center;
+                align-items: center;
+                flex-flow: column wrap;
+                background-color: #fafafa;
+                color: rgba(51,51,51,0.87);
+                font-size: 1.25rem;
+                z-index: 1000000;
+                user-select: none;
+                pointer-events: none;
+                cursor: wait;
+                text-align: center;
+                visibility: hidden;
+                opacity: 0;
+            }
+
+            html[state="hard-loading"] page-loading
+            {
+                visibility: visible;
+                opacity: 1;
+            }
+
+            page-loading span
+            {
+                line-height: 1.618;
+                display: block;
+                font-size: 1.125rem;
+                font-weight: 400;
+                font-family: system-ui, BlinkMacSystemFont, -apple-system, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+                white-space: nowrap;
+            }
+
+            page-loading page-loading-bar
+            {
+                width: 200px;
+                height: 4px;
+                position: relative;
+                background: #e4e7eb;
+                overflow: hidden;
+                display: inline-block;
+            }
+
+            page-loading page-loading-bar bar-one
+            {
+                left: -145%;
+                position: absolute;
+                box-sizing: border-box;
+                width: 100%;
+                height: 100%;
+                animation: primaryBar 2s infinite linear;
+            }
+
+            page-loading page-loading-bar bar-one::before
+            {
+                content: "";
+                background: #cbd2d9;
+                display: inline-block;
+                box-sizing: border-box;
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                animation: primaryScale 2s infinite linear;
+            }
+
+            page-loading page-loading-bar bar-two
+            {
+                left: -100%;
+                position: absolute;
+                width: 100%;
+                box-sizing: border-box;
+                height: 100%;
+                animation: secondaryBar 2s infinite linear;
+            }
+
+            page-loading page-loading-bar bar-two::before
+            {
+                content: "";
+                background: #cbd2d9;
+                display: inline-block;
+                box-sizing: border-box;
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                animation: secondaryScale 2s infinite linear;
+            }
+
+            page-transition
+            {
+                width: 100vw;
+                height: 4px;
+                position: fixed;
+                top: 0;
+                left: 0;
+                z-index: 99999;
+                transform: translate3d(0, -101%, 0);
+                transition: transform 125ms cubic-bezier(0.4, 0.0, 0.6, 1);
+                background: #fafafa;
+                overflow: hidden;
+                display: inline-block;
+                opacity: 0;
+                user-select: none;
+                pointer-events: none;
+            }
+
+            html[state="soft-loading"] *{
+                cursor: wait !important;
+            }
+
+            html[state="soft-loading"] page-transition{
+                transform: translate3d(0, 0, 0);
+                opacity: 1;
+                transition: transform 150ms cubic-bezier(0.0, 0.0, 0.2, 1);
+            }
+
+            html[state="soft-loading"] page-transition transition-bar-one{
+                animation: primaryBar 2s infinite linear;
+            }
+
+            html[state="soft-loading"] page-transition transition-bar-one:before{
+                animation: primaryScale 2s infinite linear;
+            }
+
+            html[state="soft-loading"] page-transition transition-bar-two{
+                animation: secondaryBar 2s infinite linear;
+            }
+
+            html[state="soft-loading"] page-transition transition-bar-two:before{
+                animation: secondaryScale 2s infinite linear;
+            }
+
+            page-transition transition-bar-one{
+                left: -145%;
+                position: absolute;
+                width: 100%;
+                height: 100%;
+            }
+
+            page-transition transition-bar-one::before{
+                content: "";
+                background: #3b83f9;
+                display: inline-block;
+                position: absolute;
+                width: 100%;
+                height: 100%;
+            }
+
+            page-transition transition-bar-two{
+                left: -54%;
+                position: absolute;
+                width: 100%;
+                height: 100%;
+            }
+
+            page-transition transition-bar-two::before{
+                content: "";
+                background: #3b83f9;
+                display: inline-block;
+                position: absolute;
+                width: 100%;
+                height: 100%;
+            }
+
+            @keyframes primaryBar{
+                0%{
+                    transform: translateX(0);
+                }
+                20%{
+                    transform: translateX(0);
+                    animation-timing-function: cubic-bezier(.5,0,.70173,.49582);
+                }
+                59%{
+                    transform: translateX(83.67142%);
+                    animation-timing-function: cubic-bezier(.30244,.38135,.55,.95635);
+                }
+                100%{
+                    transform: translateX(200.61106%);
+                }
+            }
+
+            @keyframes secondaryBar{
+                0%{
+                    transform: translateX(0);
+                    animation-timing-function: cubic-bezier(.15,0,.51506,.40969);
+                }
+                25%{
+                    animation-timing-function: cubic-bezier(.31033,.28406,.8,.73371);
+                    transform: translateX(37.65191%);
+                }
+                48.35%{
+                    animation-timing-function: cubic-bezier(.4,.62704,.6,.90203);
+                    transform: translateX(84.38617%);
+                }
+                100%{
+                    transform: translateX(160.27778%);
+                }
+            }
+
+            @keyframes primaryScale{
+                0%{
+                    transform: scaleX(.08);
+                }
+                36%{
+                    animation-timing-function: cubic-bezier(.33473,.12482,.78584,1);
+                    transform: scaleX(.08);
+                }
+                69%{
+                    animation-timing-function: cubic-bezier(.06,.11,.6,1);
+                    transform: scaleX(.66148);
+                }
+                100%{
+                    transform: scaleX(.08);
+                }
+            }
+
+            @keyframes secondaryScale{
+                0%{
+                    animation-timing-function: cubic-bezier(.20503,.05705,.57661,.45397);
+                    transform: scaleX(.08);
+                }
+                19%{
+                    animation-timing-function: cubic-bezier(.15231,.19643,.64837,1.00432);
+                    transform: scaleX(.4571);
+                }
+                44%{
+                    animation-timing-function: cubic-bezier(.25776,-.00316,.21176,1.38179);
+                    transform: scaleX(.72796);
+                }
+                100%{
+                    transform: scaleX(.08);
+                }
+            }
+        </style>
+
+        <!-- Base noscript CSS -->
+        <noscript>
+            <style>
+                page-loading
+                {
+                    display: none;
+                }
+
+                body
+                {
+                    padding: 6rem 1rem;
+                    background-color: #fafafa;
+                    color: rgba(51,51,51,0.87);
+                }
+
+                main
+                {
+                    width: 640px;
+                    max-width: 100%;
+                    margin: 0 auto;
+                }
+
+                article,
+                section
+                {
+                    display: block;
+                }
+
+                h1,
+                h2,
+                h3,
+                p,
+                ul,
+                ol,
+                img
+                {
+                    margin-bottom: 2rem;
+                }
+
+                h1
+                {
+                    font-size: 3rem;
+                }
+
+                h2
+                {
+                    font-size: 2rem;
+                }
+
+                h3
+                {
+                    font-size: 1.5rem
+                }
+
+                p
+                {
+                    line-height: 1.618;
+                }
+
+                img
+                {
+                    display: block;
+                    margin: 0 auto 2rem;
+                }
+
+                @media (prefers-color-scheme: dark)
+                {
+                    body
+                    {
+                        background-color: #232323;
+                        color: #fff;
+                    }
+                }
+            </style>
+        </noscript>
+    </head>
+    <body>
+        {# Full screen loading animation #}
+        <page-loading>
+            <div>
+                <span>
+                    {{ "Loading resources:"|t }}
+                    <resource-counter style="display:inline-block;">3</resource-counter><span style="font-size:0.75rem;display:inline-block;margin:0 0.25rem;transform:translateY(-2px);">/</span><resource-total style="display:inline-block;">20</resource-total>
+                </span>
+                <page-loading-bar>
+                    <bar-one></bar-one>
+                    <bar-two></bar-two>
+                </page-loading-bar>
+            </div>
+        </page-loading>
+        {# Infinite progress bar loading animation #}
+        <page-transition>
+            <transition-bar-one></transition-bar-one>
+            <transition-bar-two></transition-bar-two>
+        </page-transition>
+        {% block page %}{% endblock %}
+    </body>
+</html>
+{% endspaceless %}
