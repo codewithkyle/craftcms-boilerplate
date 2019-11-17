@@ -1,0 +1,32 @@
+email:
+  fromEmail: codingwithkyle@gmail.com
+  fromName: 'Craft PWA'
+  transportType: craft\mail\transportadapters\Sendmail
+fieldGroups:
+  0e5caedc-3ce5-4116-8378-d114d694a4b9:
+    name: Common
+siteGroups:
+  671e778d-487b-49da-b257-052f3d032d54:
+    name: 'Craft PWA'
+sites:
+  5d0fd958-be72-4405-989e-030f329741df:
+    baseUrl: $DEFAULT_SITE_URL
+    handle: default
+    hasUrls: true
+    language: en-US
+    name: 'Craft PWA'
+    primary: true
+    siteGroup: 671e778d-487b-49da-b257-052f3d032d54
+    sortOrder: 1
+system:
+  edition: solo
+  name: 'Craft PWA'
+  live: true
+  schemaVersion: 3.3.3
+  timeZone: America/Los_Angeles
+users:
+  requireEmailVerification: true
+  allowPublicRegistration: false
+  defaultGroup: null
+  photoVolumeUid: null
+  photoSubpath: ''
