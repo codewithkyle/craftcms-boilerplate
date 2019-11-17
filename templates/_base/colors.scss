@@ -1,0 +1,17 @@
+:root
+{
+    --font: #333;
+    --background: #fff;
+
+    --loading-bar: #00BFFF;
+    --loading-bar-background: #eee;
+    --loading-background: #fafafa;
+    --loading-font: #333;
+
+    @media (prefers-color-scheme: dark)
+    {
+        --loading-font: #fff;
+        --loading-bar-background: #454545;
+        --loading-background: #232323;
+    }
+}

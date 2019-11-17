@@ -14,7 +14,26 @@
             :root
             {
                 font-size: 100%;
+                
+                --font: #333;
+                --background: #fff;
+
                 --loading-bar: #00BFFF;
+                --loading-bar-background: #eee;
+                --loading-background: #fafafa;
+                --loading-font: #333;
+            }
+
+            @media (prefers-color-scheme: dark)
+            {
+                :root
+                {
+                    --font: #fff;
+                    --background: #232323;
+                    --loading-bar-background: #454545;
+                    --loading-background: #232323;
+                    --loading-font: #fff;
+                }
             }
 
             *
@@ -41,8 +60,8 @@
             {
                 margin: 0;
                 padding: 0;
-                background-color: #fff;
-                color: #333;
+                background-color: var(--background);
+                color: var(--font);
                 display: block;
                 min-height: 100%;
                 width: 100%;
@@ -57,15 +76,6 @@
             {
                 line-height: 1.618;
                 list-style-position: inside;
-            }
-
-            @media (prefers-color-scheme: dark)
-            {
-                body
-                {
-                    background-color: #232323;
-                    color: #fff;
-                }
             }
         </style>
 
@@ -82,8 +92,8 @@
                 justify-content: center;
                 align-items: center;
                 flex-flow: column wrap;
-                background-color: #fafafa;
-                color: rgba(51,51,51,0.87);
+                background-color: var(--loading-background);
+                color: var(--font);
                 font-size: 1.25rem;
                 z-index: 1000000;
                 user-select: none;
@@ -108,6 +118,8 @@
                 font-weight: 400;
                 font-family: system-ui, BlinkMacSystemFont, -apple-system, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
                 white-space: nowrap;
+                opacity: 0.87;
+                color: var(--loading-font);
             }
 
             page-loading page-loading-bar
@@ -134,7 +146,7 @@
             page-loading page-loading-bar bar-one::before
             {
                 content: "";
-                background-color: #eee;
+                background-color: var(--loading-bar-background);
                 display: inline-block;
                 box-sizing: border-box;
                 position: absolute;
@@ -156,13 +168,27 @@
             page-loading page-loading-bar bar-two::before
             {
                 content: "";
-                background-color: #eee;
+                background-color: var(--loading-bar-background);
                 display: inline-block;
                 box-sizing: border-box;
                 position: absolute;
                 width: 100%;
                 height: 100%;
                 animation: secondaryScale 2s infinite linear;
+            }
+
+            page-loading resource-counter,
+            page-loading resource-total
+            {
+                display: inline-block;
+            }
+
+            page-loading span.-slash
+            {
+                font-size:0.75rem;
+                display:inline-block;
+                margin:0 0.25rem;
+                transform:translateY(-2px);
             }
 
             page-transition
@@ -175,7 +201,7 @@
                 z-index: 99999;
                 transform: translate3d(0, -101%, 0);
                 transition: transform 125ms cubic-bezier(0.4, 0.0, 0.6, 1);
-                background-color: #eee;
+                background-color: var(--loading-bar-background);
                 overflow: hidden;
                 display: inline-block;
                 opacity: 0;
@@ -310,26 +336,6 @@
                     transform: scaleX(.08);
                 }
             }
-
-            @media (prefers-color-scheme: dark)
-            {
-                page-loading
-                {
-                    background-color: #232323;
-                    color: #fff;
-                }
-
-                page-loading page-loading-bar bar-one::before,
-                page-loading page-loading-bar bar-two::before
-                {
-                    background-color: #454545;
-                }
-
-                page-transition
-                {
-                    background-color: #232323;
-                }
-            }
         </style>
 
         <!-- Base noscript CSS -->
@@ -418,10 +424,7 @@
         {# Full screen loading animation #}
         <page-loading>
             <div>
-                <span>
-                    {{ "Loading resources:"|t }}
-                    <resource-counter style="display:inline-block;">0</resource-counter><span style="font-size:0.75rem;display:inline-block;margin:0 0.25rem;transform:translateY(-2px);">/</span><resource-total style="display:inline-block;">?</resource-total>
-                </span>
+                <span>Loading page</span>
                 <page-loading-bar>
                     <bar-one></bar-one>
                     <bar-two></bar-two>

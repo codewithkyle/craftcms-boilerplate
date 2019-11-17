@@ -13,15 +13,12 @@ class Runtime
 {
     private _bodyParserWorker : Worker;
     private _io : IntersectionObserver;
-
-    private _counter : HTMLElement;
-    private _counterTotal : HTMLElement;
+    private _loadingMessage : HTMLElement;
 
     constructor()
     {
         this._bodyParserWorker = new Worker(`${ window.location.origin }/assets/body-parser.js`);
-        this._counter = document.body.querySelector('resource-counter');
-        this._counterTotal = document.body.querySelector('resource-total');
+        this._loadingMessage = document.body.querySelector('page-loading span');
         window.addEventListener('load', this.handleLoadEvent);
     }
 
@@ -47,6 +44,7 @@ class Runtime
 
     private init() : void
     {
+        this._loadingMessage.innerHTML = 'Collecting resources';
         broadcaster.hookup('runtime', this.inbox.bind(this));
         this._bodyParserWorker.postMessage({
             type: 'eager',
@@ -82,8 +80,7 @@ class Runtime
         switch (response.type)
         {
             case 'eager':
-                this._counter.innerHTML = '0';
-                this._counterTotal.innerHTML = `${ response.files.length }`;
+                this._loadingMessage.innerHTML = `Loading resource: <resource-counter>0</resource-counter<span class="-slash">/</span><resource-total>${ response.files.length }</resource-total>`;
                 this.fetchResources(response.files).then(() => {
                     document.documentElement.setAttribute('state', 'idling');
                     this._bodyParserWorker.postMessage({
@@ -127,7 +124,7 @@ class Runtime
                     el.href = `${ window.location.origin }/assets/${ filename }.css`;
                     el.addEventListener('load', () => {
                         loaded++;
-                        this._counter.innerHTML = `${ loaded }`;
+                        this._loadingMessage.innerHTML = `Loading resource: <resource-counter>${ loaded }</resource-counter<span class="-slash">/</span><resource-total>${ resourceList.length }</resource-total>`;
                         if (loaded === resourceList.length)
                         {
                             resolve();
@@ -137,6 +134,7 @@ class Runtime
                 else
                 {
                     loaded++;
+                    this._loadingMessage.innerHTML = `Loading resource: <resource-counter>${ loaded }</resource-counter<span class="-slash">/</span><resource-total>${ resourceList.length }</resource-total>`;
                     if (loaded === resourceList.length)
                     {
                         resolve();
