@@ -8,7 +8,7 @@
  * @see \craft\config\GeneralConfig
  */
 
-$customConfig = [
+return [
     // Global settings
     '*' => [
         'defaultWeekStartDay' => 1,
@@ -16,6 +16,7 @@ $customConfig = [
         'cpTrigger' => 'webmaster',
         'securityKey' => getenv('SECURITY_KEY'),
         'useProjectConfigFile' => true,
+        'prefix' => getenv('DB_TABLE_PREFIX')
     ],
 
     // Dev environment settings
@@ -50,11 +51,3 @@ $customConfig = [
         ],
     ],
 ];
-
-// If a local config file exists, merge any local config settings
-if (is_array($customLocalConfig = include('cachebust.php'))) {
-    $customGlobalConfig = array_merge($customConfig['*'], $customLocalConfig);
-    $customConfig['*'] = $customGlobalConfig;
-}
-
-return $customConfig;

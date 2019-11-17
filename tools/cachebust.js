@@ -1,13 +1,13 @@
 const fs = require('fs');
 
-fs.readFile('config/cachebust.php', (error, buffer) => {
+fs.readFile('public/service-worker.js', (error, buffer) => {
     if (error)
     {
         console.log(error);
         return;
     }
-    let data = buffer.toString().replace(/\d+/g, Date.now());
-    fs.writeFile('config/cachebust.php', data, (error) => {
+    let data = buffer.toString().replace(/const currentTimestamp.*\;/g, `const currentTimestamp = '${ Date.now() }';`);
+    fs.writeFile('public/service-worker.js', data, (error) => {
         if (error)
         {
             console.log(error);

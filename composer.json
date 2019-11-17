@@ -14,7 +14,7 @@
   },
   "autoload": {
     "psr-4": {
-      "modules\\": "modules/"
+      "modules\\pwamodule\\": "modules/pwamodule/src/"
     }
   },
   "config": {
