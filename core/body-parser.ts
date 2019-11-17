@@ -55,7 +55,6 @@ function parseLazyLoadedCSS(body:string)
         {
             const resourceOjb:ResourceObject = {
                 filename: files[i],
-                extension: 'css'
             };
             uniqueFiles.push(resourceOjb);
         }
@@ -99,7 +98,6 @@ function parseEagerLoadedCSS(body:string)
         {
             const resourceOjb:ResourceObject = {
                 filename: files[i],
-                extension: 'css'
             };
             uniqueFiles.push(resourceOjb);
         }

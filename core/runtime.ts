@@ -1,4 +1,5 @@
 import { env, debug } from './env';
+import { broadcaster } from './broadcaster';
 
 interface WorkerResponse
 {
@@ -21,15 +22,35 @@ class Runtime
         this._bodyParserWorker = new Worker(`${ window.location.origin }/assets/body-parser.js`);
         this._counter = document.body.querySelector('resource-counter');
         this._counterTotal = document.body.querySelector('resource-total');
+        window.addEventListener('load', this.handleLoadEvent);
     }
 
     private intersectionCallback:IntersectionObserverCallback = this.handleIntersection.bind(this);
+    private handleLoadEvent:EventListener = this.init.bind(this);
 
-    public init() : void
+    private inbox(data:MessageData) : void
     {
+        const { type } = data;
+        switch (type)
+        {
+            case 'load':
+                this.fetchResources(data.resources);
+                break;
+            default:
+                if (debug)
+                {
+                    console.warn(`Undefined runtime message type: ${ type }`);
+                }
+                return;
+        }
+    }
+
+    private init() : void
+    {
+        broadcaster.hookup('runtime', this.inbox.bind(this));
         this._bodyParserWorker.postMessage({
             type: 'eager',
-            body: document.body.innerHTML
+            body: document.body.innerHTML,
         });
         this._bodyParserWorker.onmessage = this.handleWorkerMessage.bind(this);
         this._io = new IntersectionObserver(this.intersectionCallback);
@@ -84,30 +105,7 @@ class Runtime
         }
     }
 
-    private async fetchFile(element:Element, filename:string, filetype:string)
-    {
-        const url = `${ window.location.origin }/assets/${ filename }.${ filetype }`;
-        switch (filetype)
-        {
-            case 'css':
-                element.setAttribute('rel', 'stylesheet');
-                element.setAttribute('href', url);
-                break;
-            case 'js':
-                element.setAttribute('type', 'module');
-                element.setAttribute('src', url);
-                break;
-            case 'mjs':
-                element.setAttribute('type', 'module');
-                element.setAttribute('src', url);
-                break;
-            default:
-                console.warn(`Unknown file type requested: ${ filename }.${ filetype }`);
-                break;
-        }
-    }
-
-    public fetchResources(resourceList:Array<ResourceObject>) : Promise<{}>
+    private fetchResources(resourceList:Array<ResourceObject>) : Promise<{}>
     {
         return new Promise((resolve) => {
             if (resourceList.length === 0)
@@ -119,14 +117,14 @@ class Runtime
             for (let i = 0; i < resourceList.length; i++)
             {
                 const filename = resourceList[i].filename;
-                const filetype = resourceList[i].extension;
-                const element:string = (resourceList[i].extension === 'css') ? 'link' : 'script';
-                let el = document.head.querySelector(`${ element }[file="${ filename }.${ filetype }"]`);
+                let el = document.head.querySelector(`link[file="${ filename }.css"]`) as HTMLLinkElement;
                 if (!el)
                 {
-                    el = document.createElement(element);
-                    el.setAttribute('file', `${ filename }.${ filetype }`);
+                    el = document.createElement('link');
+                    el.setAttribute('file', `${ filename }.css`);
                     document.head.append(el);
+                    el.setAttribute('rel', 'stylesheet');
+                    el.href = `${ window.location.origin }/assets/${ filename }.css`;
                     el.addEventListener('load', () => {
                         loaded++;
                         this._counter.innerHTML = `${ loaded }`;
@@ -135,8 +133,6 @@ class Runtime
                             resolve();
                         }
                     });
-                    
-                    this.fetchFile(el, filename, filetype);
                 }
                 else
                 {

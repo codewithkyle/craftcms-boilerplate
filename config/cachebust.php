@@ -5,5 +5,5 @@
  */
 return [
     // This is would be where your local cache busting values will be written
-    'cacheBustTimestamp' => '1574010710644'
+    'cacheBustTimestamp' => '1574017174236'
 ];
