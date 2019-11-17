@@ -13,6 +13,7 @@
             :root
             {
                 font-size: 100%;
+                --loading-bar: #00BFFF;
             }
 
             *
@@ -55,6 +56,15 @@
             {
                 line-height: 1.618;
                 list-style-position: inside;
+            }
+
+            @media (prefers-color-scheme: dark)
+            {
+                body
+                {
+                    background-color: #232323;
+                    color: #fff;
+                }
             }
         </style>
 
@@ -104,9 +114,10 @@
                 width: 200px;
                 height: 4px;
                 position: relative;
-                background: #e4e7eb;
+                background-color: var(--loading-bar);
                 overflow: hidden;
                 display: inline-block;
+                box-shadow: inset 0 0 2px rgba(51,51,51,0.15);
             }
 
             page-loading page-loading-bar bar-one
@@ -122,7 +133,7 @@
             page-loading page-loading-bar bar-one::before
             {
                 content: "";
-                background: #cbd2d9;
+                background-color: #eee;
                 display: inline-block;
                 box-sizing: border-box;
                 position: absolute;
@@ -144,7 +155,7 @@
             page-loading page-loading-bar bar-two::before
             {
                 content: "";
-                background: #cbd2d9;
+                background-color: #eee;
                 display: inline-block;
                 box-sizing: border-box;
                 position: absolute;
@@ -156,14 +167,14 @@
             page-transition
             {
                 width: 100vw;
-                height: 4px;
+                height: 0.125rem;
                 position: fixed;
                 top: 0;
                 left: 0;
                 z-index: 99999;
                 transform: translate3d(0, -101%, 0);
                 transition: transform 125ms cubic-bezier(0.4, 0.0, 0.6, 1);
-                background: #fafafa;
+                background-color: #eee;
                 overflow: hidden;
                 display: inline-block;
                 opacity: 0;
@@ -206,7 +217,7 @@
 
             page-transition transition-bar-one::before{
                 content: "";
-                background: #3b83f9;
+                background-color: var(--loading-bar);
                 display: inline-block;
                 position: absolute;
                 width: 100%;
@@ -222,7 +233,7 @@
 
             page-transition transition-bar-two::before{
                 content: "";
-                background: #3b83f9;
+                background-color: var(--loading-bar);
                 display: inline-block;
                 position: absolute;
                 width: 100%;
@@ -296,6 +307,26 @@
                 }
                 100%{
                     transform: scaleX(.08);
+                }
+            }
+
+            @media (prefers-color-scheme: dark)
+            {
+                page-loading
+                {
+                    background-color: #232323;
+                    color: #fff;
+                }
+
+                page-loading page-loading-bar bar-one::before,
+                page-loading page-loading-bar bar-two::before
+                {
+                    background-color: #454545;
+                }
+
+                page-transition
+                {
+                    background-color: #232323;
                 }
             }
         </style>
