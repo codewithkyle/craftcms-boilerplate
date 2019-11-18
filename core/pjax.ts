@@ -35,7 +35,7 @@ class Pjax {
 	}
 
 	private checkPageRevision() {
-		console.log('Checking if the cached page is stale, and i changed');
+		console.log('Checking if the cached page is stale');
 	}
 }
 new Pjax();

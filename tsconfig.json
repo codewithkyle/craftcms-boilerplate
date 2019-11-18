@@ -1,21 +1,11 @@
 {
-    "compilerOptions": {
-        "outDir": "_compiled",
-        "allowJs": true,
-        "checkJs": true,
-        "target": "es2019",
-        "module": "esnext",
-        "lib": [
-            "dom",
-            "esnext"
-        ]
-    },
-    "include": [
-        "templates",
-        "workers",
-        "controllers",
-        "packages",
-        "core",
-        "globals.d.ts"
-    ]
+	"compilerOptions": {
+		"outDir": "_compiled",
+		"allowJs": true,
+		"checkJs": true,
+		"target": "es2019",
+		"module": "esnext",
+		"lib": ["dom", "esnext"]
+	},
+	"include": ["templates", "controllers", "packages", "core", "globals.d.ts"]
 }

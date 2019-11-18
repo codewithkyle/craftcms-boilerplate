@@ -14,16 +14,12 @@ class Runtime {
 	private _loadingMessage: HTMLElement;
 
 	constructor() {
-		this._bodyParserWorker = new Worker(
-			`${window.location.origin}/assets/body-parser.js`,
-		);
+		this._bodyParserWorker = new Worker(`${window.location.origin}/assets/runtime-worker.js`);
 		this._loadingMessage = document.body.querySelector('page-loading span');
 		window.addEventListener('load', this.handleLoadEvent);
 	}
 
-	private intersectionCallback: IntersectionObserverCallback = this.handleIntersection.bind(
-		this,
-	);
+	private intersectionCallback: IntersectionObserverCallback = this.handleIntersection.bind(this);
 	private handleLoadEvent: EventListener = this.init.bind(this);
 
 	private inbox(data: MessageData): void {
@@ -54,10 +50,7 @@ class Runtime {
 		this._io = new IntersectionObserver(this.intersectionCallback);
 	}
 
-	private upgradeToWebComponent(
-		customElementTagName: string,
-		customElement: Element,
-	): void {
+	private upgradeToWebComponent(customElementTagName: string, customElement: Element): void {
 		import(`./${customElementTagName}.js`).then(() => {
 			customElement.setAttribute('state', 'mounted');
 		});
@@ -67,14 +60,9 @@ class Runtime {
 		for (let i = 0; i < entries.length; i++) {
 			if (entries[i].isIntersecting) {
 				this._io.unobserve(entries[i].target);
-				const customElement = entries[i].target.tagName
-					.toLowerCase()
-					.trim();
+				const customElement = entries[i].target.tagName.toLowerCase().trim();
 				if (customElements.get(customElement) === undefined) {
-					this.upgradeToWebComponent(
-						customElement,
-						entries[i].target,
-					);
+					this.upgradeToWebComponent(customElement, entries[i].target);
 				} else {
 					entries[i].target.setAttribute('state', 'mounted');
 				}
@@ -103,9 +91,7 @@ class Runtime {
 				});
 				break;
 			default:
-				console.warn(
-					`Unknown response type from Body Parser worker: ${response.type}`,
-				);
+				console.warn(`Unknown response type from Body Parser worker: ${response.type}`);
 				break;
 		}
 	}
@@ -119,9 +105,7 @@ class Runtime {
 			let loaded = 0;
 			for (let i = 0; i < resourceList.length; i++) {
 				const filename = resourceList[i].filename;
-				let el = document.head.querySelector(
-					`link[file="${filename}.css"]`,
-				) as HTMLLinkElement;
+				let el = document.head.querySelector(`link[file="${filename}.css"]`) as HTMLLinkElement;
 				if (!el) {
 					el = document.createElement('link');
 					el.setAttribute('file', `${filename}.css`);
@@ -147,14 +131,10 @@ class Runtime {
 	}
 
 	private handleWebComponents(): void {
-		const customElements = Array.from(
-			document.body.querySelectorAll('[web-component]:not([state])'),
-		);
+		const customElements = Array.from(document.body.querySelectorAll('[web-component]:not([state])'));
 		for (let i = 0; i < customElements.length; i++) {
 			const element = customElements[i];
-			const loadType = element.getAttribute(
-				'loading',
-			) as WebComponentLoad;
+			const loadType = element.getAttribute('loading') as WebComponentLoad;
 
 			if (loadType === 'eager') {
 				const customElement = element.tagName.toLowerCase().trim();
