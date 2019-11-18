@@ -33,6 +33,9 @@ class Runtime
             case 'load':
                 this.fetchResources(data.resources);
                 break;
+            case 'mount-components':
+                this.handleWebComponents();
+                break;
             default:
                 if (debug)
                 {
@@ -57,7 +60,7 @@ class Runtime
     private upgradeToWebComponent(customElementTagName:string, customElement:Element) : void
     {
         import(`./${ customElementTagName }.js`).then(() => {
-            customElement.setAttribute('state', 'loaded');
+            customElement.setAttribute('state', 'mounted');
         });
     }
 
@@ -69,7 +72,14 @@ class Runtime
             {
                 this._io.unobserve(entries[i].target);
                 const customElement = entries[i].target.tagName.toLowerCase().trim();
-                this.upgradeToWebComponent(customElement, entries[i].target);
+                if (customElements.get(customElement) === undefined)
+                {
+                    this.upgradeToWebComponent(customElement, entries[i].target);
+                }
+                else
+                {
+                    entries[i].target.setAttribute('state', 'mounted');
+                }
             }
         }
     }

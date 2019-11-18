@@ -1,4 +1,4 @@
-const currentTimestamp = '1574022569123';
+const currentTimestamp = '1574080526425';
 
 self.addEventListener('fetch', (event) => {
   const isCP = event.request.url.match(/(\/webmaster\/)|(\/cpresources\/)|(index\.php)/gi);
@@ -40,3 +40,4 @@ self.addEventListener('fetch', (event) => {
     );
   }
 });
+
