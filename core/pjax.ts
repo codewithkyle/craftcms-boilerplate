@@ -2,22 +2,52 @@ import { broadcaster } from './broadcaster';
 import { debug } from './env';
 
 interface PjaxState {
-	currentPageRevision: number;
+	currentPageRevision: string;
 	currentPageUrl: string;
-	currentPageId: number;
+	currentPageId: string;
 }
 
 class Pjax {
 	private state: PjaxState;
+	private worker: Worker;
+	private serviceWorker: ServiceWorker;
 
 	constructor() {
 		this.state = {
-			currentPageRevision: parseInt(document.documentElement.dataset.pageRevision),
+			currentPageRevision: document.documentElement.dataset.pageRevision,
 			currentPageUrl: window.location.href,
-			currentPageId: parseInt(document.documentElement.dataset.pageId),
+			currentPageId: document.documentElement.dataset.pageId,
 		};
+		this.worker = null;
+		this.serviceWorker = null;
+		this.init();
+	}
+
+	private init(): void {
 		broadcaster.hookup('pjax', this.inbox.bind(this));
-		broadcaster.message('pjax', { type: 'revision-check' });
+		this.worker = new Worker(`${window.location.origin}/assets/pjax-worker.js`);
+		this.worker.onmessage = this.handleWorkerMessage.bind(this);
+		navigator.serviceWorker
+			.register(`${window.location.origin}/service-worker.js`, { scope: '/' })
+			.then((reg) => {
+				if (navigator.serviceWorker.controller) {
+					import(`${window.location.origin}/cachebust.js`)
+						.then((module) => {
+							this.serviceWorker = navigator.serviceWorker.controller;
+							this.serviceWorker.postMessage({
+								type: 'cachebust',
+								cachebust: module.currentTimestamp,
+							});
+							broadcaster.message('pjax', { type: 'revision-check' });
+						})
+						.catch((error) => {
+							console.log('The cachebust import will always fail when offline.');
+						});
+				}
+			})
+			.catch((error) => {
+				console.error('Registration failed with ' + error);
+			});
 	}
 
 	private inbox(data: MessageData): void {
@@ -34,8 +64,29 @@ class Pjax {
 		}
 	}
 
+	private handleWorkerMessage(e: MessageEvent): void {
+		const { type } = e.data;
+		switch (type) {
+			case 'revision-check':
+				if (e.data.status !== 200) {
+					console.log('New revision is available!');
+				}
+				break;
+			default:
+				if (debug) {
+					console.error(`Undefined Pjax Worker response message type: ${type}`);
+				}
+				break;
+		}
+	}
+
 	private checkPageRevision() {
-		console.log('Checking if the cached page is stale');
+		this.worker.postMessage({
+			type: 'revision-check',
+			pageId: this.state.currentPageId,
+			revision: this.state.currentPageRevision,
+			url: this.state.currentPageUrl,
+		});
 	}
 }
 new Pjax();

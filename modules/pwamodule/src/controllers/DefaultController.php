@@ -42,14 +42,18 @@ class DefaultController extends Controller
     public function actionCheckRevision()
     {
         $request = Craft::$app->getRequest();
-        $entryId = $request->getBodyParam('id');
+        $entryId = $request->getParam('id');
         $table = Craft::$app->config->general->prefix . '_revisions';
         $result = (new \yii\db\Query())
-                ->select(['num'])
-                ->from($table)
-                ->where(['sourceId' => $entryId])
-                ->orderBy('num desc')
-                ->one();
-        return $result['num'];
+					->select(['num'])
+					->from($table)
+					->where(['sourceId' => $entryId])
+					->orderBy('num desc')
+					->one();
+		$response = [
+			'success' => true,
+			'revision' => $result['num']
+		];
+        return json_encode($response);
     }
 }

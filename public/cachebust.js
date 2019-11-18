@@ -1,1 +1,1 @@
-export const currentTimestamp = '1574086160370';
+export const currentTimestamp = '1574119977500';

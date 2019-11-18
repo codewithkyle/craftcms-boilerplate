@@ -201,82 +201,6 @@
                 transform:translateY(-2px);
             }
 
-            page-transition
-            {
-                width: 100vw;
-                height: 0.125rem;
-                position: fixed;
-                top: 0;
-                left: 0;
-                z-index: 99999;
-                transform: translate3d(0, -101%, 0);
-                transition: transform 125ms cubic-bezier(0.4, 0.0, 0.6, 1);
-                background-color: var(--loading-bar-background);
-                overflow: hidden;
-                display: inline-block;
-                opacity: 0;
-                user-select: none;
-                pointer-events: none;
-            }
-
-            html[state="soft-loading"] *{
-                cursor: wait !important;
-            }
-
-            html[state="soft-loading"] page-transition{
-                transform: translate3d(0, 0, 0);
-                opacity: 1;
-                transition: transform 150ms cubic-bezier(0.0, 0.0, 0.2, 1);
-            }
-
-            html[state="soft-loading"] page-transition transition-bar-one{
-                animation: primaryBar 2s infinite linear;
-            }
-
-            html[state="soft-loading"] page-transition transition-bar-one:before{
-                animation: primaryScale 2s infinite linear;
-            }
-
-            html[state="soft-loading"] page-transition transition-bar-two{
-                animation: secondaryBar 2s infinite linear;
-            }
-
-            html[state="soft-loading"] page-transition transition-bar-two:before{
-                animation: secondaryScale 2s infinite linear;
-            }
-
-            page-transition transition-bar-one{
-                left: -145%;
-                position: absolute;
-                width: 100%;
-                height: 100%;
-            }
-
-            page-transition transition-bar-one::before{
-                content: "";
-                background-color: var(--loading-bar);
-                display: inline-block;
-                position: absolute;
-                width: 100%;
-                height: 100%;
-            }
-
-            page-transition transition-bar-two{
-                left: -54%;
-                position: absolute;
-                width: 100%;
-                height: 100%;
-            }
-
-            page-transition transition-bar-two::before{
-                content: "";
-                background-color: var(--loading-bar);
-                display: inline-block;
-                position: absolute;
-                width: 100%;
-                height: 100%;
-            }
-
             @keyframes primaryBar{
                 0%{
                     transform: translateX(0);
@@ -348,97 +272,70 @@
             }
         </style>
 
-        <!-- Base noscript CSS -->
+		<!-- noscript CSS -->
         <noscript>
-            <style>
-                page-loading
-                {
-                    display: none;
-                }
+			<style>	
+				page-loading {
+					display: none;
+				}
 
-                body
-                {
-                    padding: 6rem 1rem;
-                    background-color: #fafafa;
-                    color: rgba(51,51,51,0.87);
-                }
+				body {
+					padding: 6rem 1rem;
+					background-color: #fafafa;
+					color: rgba(51, 51, 51, 0.87);
+				}
 
-                main
-                {
-                    width: 640px;
-                    max-width: 100%;
-                    margin: 0 auto;
-                }
+				main {
+					width: 640px;
+					max-width: 100%;
+					margin: 0 auto;
+				}
 
-                article,
-                section
-                {
-                    display: block;
-                }
+				article,
+				section {
+					display: block;
+				}
 
-                h1,
-                h2,
-                h3,
-                p,
-                ul,
-                ol,
-                img
-                {
-                    margin-bottom: 2rem;
-                }
+				h1,
+				h2,
+				h3,
+				p,
+				ul,
+				ol,
+				img {
+					margin-bottom: 2rem;
+				}
 
-                h1
-                {
-                    font-size: 3rem;
-                }
+				h1 {
+					font-size: 3rem;
+				}
 
-                h2
-                {
-                    font-size: 2rem;
-                }
+				h2 {
+					font-size: 2rem;
+				}
 
-                h3
-                {
-                    font-size: 1.5rem
-                }
+				h3 {
+					font-size: 1.5rem;
+				}
 
-                p
-                {
-                    line-height: 1.618;
-                }
+				p {
+					line-height: 1.618;
+				}
 
-                img
-                {
-                    display: block;
-                    margin: 0 auto 2rem;
-                }
+				img {
+					display: block;
+					margin: 0 auto 2rem;
+				}
 
-                @media (prefers-color-scheme: dark)
-                {
-                    body
-                    {
-                        background-color: #232323;
-                        color: #fff;
-                    }
-                }
-            </style>
+				@media (prefers-color-scheme: dark) {
+					body {
+						background-color: #232323;
+						color: #fff;
+					}
+				}
+			</style>
         </noscript>
 
-        <script type="module">
-            if ('serviceWorker' in navigator)
-            {
-                navigator.serviceWorker.register("{{ alias('@rootUrl')|trim('/') }}/service-worker.js",{ scope: '/' })
-                .then((reg) => {
-					if (navigator.serviceWorker.controller) {
-						import('{{ alias('@rootUrl')|trim('/') }}/cachebust.js').then((module) => {
-							navigator.serviceWorker.controller.postMessage({ cachebust: module.currentTimestamp });
-						});
-					}
-				}).catch((error) => {
-                    console.error('Registration failed with ' + error);
-                });
-            }
-        </script>
         <link rel="preload" href="{{ alias('@rootUrl')|trim('/') }}/assets/env.js" as="script" crossorigin>
         <link rel="preload" href="{{ alias('@rootUrl')|trim('/') }}/assets/broadcaster.js" as="script" crossorigin>
         <link rel="preload" href="{{ alias('@rootUrl')|trim('/') }}/assets/broadcast-worker.js" as="worker" crossorigin>

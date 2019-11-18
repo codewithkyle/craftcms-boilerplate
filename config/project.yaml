@@ -1,4 +1,4 @@
-dateModified: 1574027967
+dateModified: 1574114909
 email:
   fromEmail: codingwithkyle@gmail.com
   fromName: 'Craft PWA'
@@ -23,6 +23,34 @@ fields:
       charLimit: ''
       columnType: text
     contentColumnType: text
+    fieldGroup: 0e5caedc-3ce5-4116-8378-d114d694a4b9
+  eb6a6693-6c19-4c32-a16a-5216a0b1fb71:
+    name: Image
+    handle: image
+    instructions: ''
+    searchable: true
+    translationMethod: site
+    translationKeyFormat: null
+    type: craft\fields\Assets
+    settings:
+      useSingleFolder: ''
+      defaultUploadLocationSource: 'volume:70427868-1571-42b8-8751-e98127021aa8'
+      defaultUploadLocationSubpath: ''
+      singleUploadLocationSource: 'volume:70427868-1571-42b8-8751-e98127021aa8'
+      singleUploadLocationSubpath: ''
+      restrictFiles: '1'
+      allowedKinds:
+        - image
+      sources:
+        - 'volume:70427868-1571-42b8-8751-e98127021aa8'
+      source: null
+      targetSiteId: null
+      viewMode: large
+      limit: '1'
+      selectionLabel: 'Add an Image'
+      localizeRelations: false
+      validateRelatedElements: '1'
+    contentColumnType: string
     fieldGroup: 0e5caedc-3ce5-4116-8378-d114d694a4b9
 plugins:
   imager:
@@ -123,6 +151,9 @@ sections:
                   406c623a-99fa-40d8-a82c-41d7433bd86d:
                     required: false
                     sortOrder: 1
+                  eb6a6693-6c19-4c32-a16a-5216a0b1fb71:
+                    required: false
+                    sortOrder: 2
 siteGroups:
   671e778d-487b-49da-b257-052f3d032d54:
     name: Default

@@ -1,7 +1,9 @@
 let currentTimestamp = 'initial';
 
 self.addEventListener('fetch', (event) => {
-	const noCache = event.request.url.match(/(\/webmaster\/)|(\/cpresources\/)|(index\.php)|(cachebust\.js)/gi);
+	const noCache = event.request.url.match(
+		/(\/webmaster\/)|(\/cpresources\/)|(index\.php)|(cachebust\.js)|(\/pwa\/)/gi,
+	);
 	if (noCache) {
 		event.respondWith(
 			fetch(event.request).then((response) => {
@@ -16,7 +18,7 @@ self.addEventListener('fetch', (event) => {
 				}
 
 				return fetch(event.request).then((response) => {
-					if (!response || response.status !== 200 || response.type !== 'basic' || response.redirected) {
+					if (!response || response.status !== 200 || response.type !== 'basic') {
 						return response;
 					}
 
@@ -33,16 +35,22 @@ self.addEventListener('fetch', (event) => {
 });
 
 self.addEventListener('message', (event) => {
-	if (event.data.cachebust) {
-		currentTimestamp = event.data.cachebust;
-		caches.keys().then((cacheNames) => {
-			return Promise.all(
-				cacheNames.map((cacheName) => {
-					if (cacheName !== currentTimestamp) {
-						return caches.delete(cacheName);
-					}
-				}),
-			);
-		});
+	const { type } = event.data;
+	switch (type) {
+		case 'cachebust':
+			currentTimestamp = event.data.cachebust;
+			caches.keys().then((cacheNames) => {
+				return Promise.all(
+					cacheNames.map((cacheName) => {
+						if (cacheName !== currentTimestamp) {
+							return caches.delete(cacheName);
+						}
+					}),
+				);
+			});
+			break;
+		default:
+			console.error(`Unknown Service Worker message type: ${type}`);
+			break;
 	}
 });
