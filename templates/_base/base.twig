@@ -428,7 +428,13 @@
             if ('serviceWorker' in navigator)
             {
                 navigator.serviceWorker.register("{{ alias('@rootUrl')|trim('/') }}/service-worker.js",{ scope: '/' })
-                .then((reg) => {}).catch((error) => {
+                .then((reg) => {
+					if (navigator.serviceWorker.controller) {
+						import('{{ alias('@rootUrl')|trim('/') }}/cachebust.js').then((module) => {
+							navigator.serviceWorker.controller.postMessage({ cachebust: module.currentTimestamp });
+						});
+					}
+				}).catch((error) => {
                     console.error('Registration failed with ' + error);
                 });
             }
@@ -438,6 +444,7 @@
         <link rel="preload" href="{{ alias('@rootUrl')|trim('/') }}/assets/broadcast-worker.js" as="worker" crossorigin>
         <link rel="preload" href="{{ alias('@rootUrl')|trim('/') }}/assets/body-parser.js" as="worker" crossorigin>
         <script type="module" src="{{ alias('@rootUrl')|trim('/') }}/assets/runtime.js"></script>
+		<script type="module" src="{{ alias('@rootUrl')|trim('/') }}/assets/pjax.js"></script>
     </head>
     <body>
         {# Full screen loading animation #}

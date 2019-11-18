@@ -13,9 +13,11 @@
         "glob": "^7.1.6",
         "minify": "^4.1.3",
         "node-sass": "^4.13.0",
+        "prettier": "^1.19.1",
         "rollup": "^1.27.0",
         "rollup-plugin-commonjs": "^10.1.0",
         "rollup-plugin-node-resolve": "^5.2.0",
+        "tslint": "^5.20.1",
         "typescript": "^3.7.2"
     },
     "dependencies": {

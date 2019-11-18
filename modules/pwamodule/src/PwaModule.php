@@ -91,36 +91,11 @@ class PwaModule extends Module
         parent::init();
         self::$instance = $this;
 
-        if (Craft::$app->getRequest()->getIsCpRequest()) {
-            Event::on(
-                View::class,
-                View::EVENT_BEFORE_RENDER_TEMPLATE,
-                function (TemplateEvent $event) {
-                    try {
-                        Craft::$app->getView()->registerAssetBundle(PwaModuleAsset::class);
-                    } catch (InvalidConfigException $e) {
-                        Craft::error(
-                            'Error registering AssetBundle - '.$e->getMessage(),
-                            __METHOD__
-                        );
-                    }
-                }
-            );
-        }
-
         Event::on(
             UrlManager::class,
             UrlManager::EVENT_REGISTER_SITE_URL_RULES,
             function (RegisterUrlRulesEvent $event) {
-                $event->rules['siteActionTrigger1'] = 'modules/pwa-module/default';
-            }
-        );
-
-        Event::on(
-            UrlManager::class,
-            UrlManager::EVENT_REGISTER_CP_URL_RULES,
-            function (RegisterUrlRulesEvent $event) {
-                $event->rules['cpActionTrigger1'] = 'modules/pwa-module/default/do-something';
+                $event->rules['/api/revision-check'] = 'modules/pwa-module/default/check-revision';
             }
         );
 
