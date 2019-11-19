@@ -1,4 +1,4 @@
-dateModified: 1574114909
+dateModified: 1574199393
 email:
   fromEmail: codingwithkyle@gmail.com
   fromName: 'Craft PWA'
@@ -23,6 +23,26 @@ fields:
       charLimit: ''
       columnType: text
     contentColumnType: text
+    fieldGroup: 0e5caedc-3ce5-4116-8378-d114d694a4b9
+  465974f7-5f33-43a3-9b61-1745b076e8ba:
+    name: 'Channel Entry'
+    handle: channelEntry
+    instructions: ''
+    searchable: true
+    translationMethod: site
+    translationKeyFormat: null
+    type: craft\fields\Entries
+    settings:
+      sources:
+        - 'section:78afc566-1070-436c-bfed-09da14d2a064'
+      source: null
+      targetSiteId: null
+      viewMode: null
+      limit: '1'
+      selectionLabel: ''
+      localizeRelations: false
+      validateRelatedElements: '1'
+    contentColumnType: string
     fieldGroup: 0e5caedc-3ce5-4116-8378-d114d694a4b9
   eb6a6693-6c19-4c32-a16a-5216a0b1fb71:
     name: Image
@@ -151,9 +171,32 @@ sections:
                   406c623a-99fa-40d8-a82c-41d7433bd86d:
                     required: false
                     sortOrder: 1
+                  465974f7-5f33-43a3-9b61-1745b076e8ba:
+                    required: false
+                    sortOrder: 3
                   eb6a6693-6c19-4c32-a16a-5216a0b1fb71:
                     required: false
                     sortOrder: 2
+  78afc566-1070-436c-bfed-09da14d2a064:
+    name: Channel
+    handle: channel
+    type: channel
+    enableVersioning: true
+    propagationMethod: all
+    siteSettings:
+      5d0fd958-be72-4405-989e-030f329741df:
+        enabledByDefault: true
+        hasUrls: false
+        uriFormat: ''
+        template: null
+    entryTypes:
+      a01ac065-74f4-4bf8-bcfc-4e573f931860:
+        name: Channel
+        handle: channel
+        hasTitleField: true
+        titleLabel: Title
+        titleFormat: null
+        sortOrder: 1
 siteGroups:
   671e778d-487b-49da-b257-052f3d032d54:
     name: Default

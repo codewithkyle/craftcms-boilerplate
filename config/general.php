@@ -16,7 +16,6 @@ return [
         'cpTrigger' => 'webmaster',
         'securityKey' => getenv('SECURITY_KEY'),
         'useProjectConfigFile' => true,
-        'prefix' => getenv('DB_TABLE_PREFIX')
     ],
 
     // Dev environment settings

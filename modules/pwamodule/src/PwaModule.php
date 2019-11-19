@@ -27,6 +27,11 @@ use yii\base\Event;
 use yii\base\InvalidConfigException;
 use yii\base\Module;
 
+use craft\services\Elements;
+use craft\events\ElementEvent;
+use craft\elements\Entry;
+use craft\services\Revisions;
+
 /**
  * Class PwaModule
  *
@@ -108,6 +113,17 @@ class PwaModule extends Module
                 $variable->set('pwa', PwaModuleVariable::class);
             }
         );
+
+        Event::on(
+            Elements::class, 
+            Elements::EVENT_AFTER_SAVE_ELEMENT, 
+            function(ElementEvent $event) {
+                if ($event->element instanceof Entry) {
+                    $entry = $event->element;
+                    $entries = Entry::find()->relatedTo($entry)->all();
+                    // TODO: Figure out how to update entries
+                }
+        });
 
         Craft::info(
             Craft::t(

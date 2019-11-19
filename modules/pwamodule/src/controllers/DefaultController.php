@@ -14,6 +14,8 @@ use modules\pwamodule\PwaModule;
 
 use Craft;
 use craft\web\Controller;
+use craft\db\Query;
+use craft\db\Table;
 
 /**
  * @author    Kyle Andrews
@@ -43,16 +45,16 @@ class DefaultController extends Controller
     {
         $request = Craft::$app->getRequest();
         $entryId = $request->getParam('id');
-        $table = Craft::$app->config->general->prefix . '_revisions';
-        $result = (new \yii\db\Query())
-					->select(['num'])
-					->from($table)
-					->where(['sourceId' => $entryId])
-					->orderBy('num desc')
-					->one();
+        $lastRevisionNum = (new Query())
+                            ->select(['num'])
+                            ->from([Table::REVISIONS])
+                            ->where(['sourceId' => $entryId])
+                            ->orderBy(['num' => SORT_DESC])
+                            ->limit(1)
+                            ->scalar();
 		$response = [
 			'success' => true,
-			'revision' => $result['num']
+			'revision' => $lastRevisionNum
 		];
         return json_encode($response);
     }
