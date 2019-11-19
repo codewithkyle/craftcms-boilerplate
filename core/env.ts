@@ -10,9 +10,7 @@ class Env {
 		this.memory = null;
 		this.cpu = window.navigator.hardwareConcurrency;
 		this.connection = '4g';
-		this.isDebug = document.documentElement.getAttribute('debug')
-			? true
-			: false;
+		this.isDebug = document.documentElement.getAttribute('debug') ? true : false;
 
 		this._tickets = [];
 
@@ -30,6 +28,10 @@ class Env {
 				console.warn(error);
 			}
 		}
+
+		if (!this.memory) {
+			this.memory = 4;
+		}
 	}
 
 	/**
@@ -38,9 +40,7 @@ class Env {
 	 */
 	public stopLoading(ticket: string): void {
 		if (!ticket || typeof ticket !== 'string') {
-			console.error(
-				`A ticket with the typeof 'string' is required to end the loading state.`,
-			);
+			console.error(`A ticket with the typeof 'string' is required to end the loading state.`);
 			return;
 		}
 
@@ -75,11 +75,7 @@ class Env {
 	public uuid(): string {
 		return new Array(4)
 			.fill(0)
-			.map(() =>
-				Math.floor(Math.random() * Number.MAX_SAFE_INTEGER).toString(
-					16,
-				),
-			)
+			.map(() => Math.floor(Math.random() * Number.MAX_SAFE_INTEGER).toString(16))
 			.join('-');
 	}
 }

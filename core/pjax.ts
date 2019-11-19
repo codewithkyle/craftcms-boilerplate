@@ -1,5 +1,5 @@
 import { broadcaster } from './broadcaster';
-import { debug } from './env';
+import { debug, env } from './env';
 
 interface PjaxState {
 	currentPageRevision: string;
@@ -34,6 +34,7 @@ class Pjax {
 					import(`${window.location.origin}/cachebust.js`)
 						.then((module) => {
 							this.serviceWorker = navigator.serviceWorker.controller;
+							navigator.serviceWorker.onmessage = this.handleServiceWorkerMessage.bind(this);
 							this.serviceWorker.postMessage({
 								type: 'cachebust',
 								cachebust: module.currentTimestamp,
@@ -64,12 +65,30 @@ class Pjax {
 		}
 	}
 
+	private handleServiceWorkerMessage(e: MessageEvent): void {
+		const { type } = e.data;
+		switch (type) {
+			case 'page-refresh':
+				console.log('Page was refreshed');
+				break;
+			default:
+				if (debug) {
+					console.error(`Undefined Service Worker response message type: ${type}`);
+				}
+				break;
+		}
+	}
+
 	private handleWorkerMessage(e: MessageEvent): void {
 		const { type } = e.data;
 		switch (type) {
 			case 'revision-check':
 				if (e.data.status !== 200) {
-					console.log('New revision is available!');
+					this.serviceWorker.postMessage({
+						type: 'page-refresh',
+						url: e.data.url,
+						network: env.connection,
+					});
 				}
 				break;
 			default:

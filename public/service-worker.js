@@ -38,19 +38,63 @@ self.addEventListener('message', (event) => {
 	const { type } = event.data;
 	switch (type) {
 		case 'cachebust':
-			currentTimestamp = event.data.cachebust;
-			caches.keys().then((cacheNames) => {
-				return Promise.all(
-					cacheNames.map((cacheName) => {
-						if (cacheName !== currentTimestamp) {
-							return caches.delete(cacheName);
-						}
-					}),
-				);
-			});
+			cachebust(event.data.cachebust);
+			break;
+		case 'page-refresh':
+			updatePageCache(event.data.url, event.data.network);
 			break;
 		default:
 			console.error(`Unknown Service Worker message type: ${type}`);
 			break;
 	}
 });
+
+function cachebust(timestamp) {
+	currentTimestamp = timestamp;
+	caches.keys().then((cacheNames) => {
+		return Promise.all(
+			cacheNames.map((cacheName) => {
+				if (cacheName !== currentTimestamp) {
+					return caches.delete(cacheName);
+				}
+			}),
+		);
+	});
+}
+
+async function updatePageCache(url, network) {
+	try {
+		const request = new Request(url);
+		const cachedResponse = await caches.match(request);
+		await new Promise((resolve) => {
+			caches.open(currentTimestamp).then((cache) => {
+				cache.delete(request).then(() => {
+					resolve();
+				});
+			});
+		});
+		if (network === '4g') {
+			await new Promise((resolve) => {
+				fetch(request).then((response) => {
+					if (!response || response.status !== 200 || response.type !== 'basic') {
+						resolve();
+					}
+					caches.open(currentTimestamp).then((cache) => {
+						cache.put(request, response);
+						resolve();
+					});
+				});
+			});
+		}
+		const clients = await self.clients.matchAll();
+		clients.map((client) => {
+			if (client.visibilityState === 'visible' && client.url === url) {
+				client.postMessage({
+					type: 'page-refresh',
+				});
+			}
+		});
+	} catch (error) {
+		console.error(error);
+	}
+}

@@ -26,6 +26,7 @@ class PjaxWorker {
 						self.postMessage({
 							type: 'revision-check',
 							status: 201,
+							url: url,
 						});
 					}
 				} else {
