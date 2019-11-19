@@ -21,6 +21,7 @@
         "typescript": "^3.7.2"
     },
     "dependencies": {
+        "@codewithkyle/notifyjs": "^0.2.0",
         "uuid": "^3.3.3"
     }
 }

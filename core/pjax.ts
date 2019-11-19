@@ -1,5 +1,6 @@
 import { broadcaster } from './broadcaster';
 import { debug, env } from './env';
+import { NotificationManager, notify } from '../packages/notifyjs.js';
 
 interface PjaxState {
 	currentPageRevision: string;
@@ -69,7 +70,20 @@ class Pjax {
 		const { type } = e.data;
 		switch (type) {
 			case 'page-refresh':
-				console.log('Page was refreshed');
+				notify({
+					message: 'A new version of this page is available.',
+					closeable: true,
+					force: true,
+					duration: Infinity,
+					buttons: [
+						{
+							label: 'Reload',
+							callback: () => {
+								window.location.reload();
+							},
+						},
+					],
+				});
 				break;
 			default:
 				if (debug) {
