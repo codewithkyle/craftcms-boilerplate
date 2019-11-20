@@ -22,6 +22,8 @@ use craft\web\View;
 use craft\web\UrlManager;
 use craft\web\twig\variables\CraftVariable;
 use craft\events\RegisterUrlRulesEvent;
+use craft\events\RegisterComponentTypesEvent;
+use craft\services\Fields;
 
 use yii\base\Event;
 use yii\base\InvalidConfigException;
@@ -96,6 +98,15 @@ class PwaModule extends Module
         parent::init();
         self::$instance = $this;
 
+        // Register our fields
+        Event::on(
+            Fields::class,
+            Fields::EVENT_REGISTER_FIELD_TYPES,
+            function (RegisterComponentTypesEvent $event) {
+                $event->types[] = \modules\pwamodule\fields\PWACacheField::class;
+            }
+        );
+
         Event::on(
             UrlManager::class,
             UrlManager::EVENT_REGISTER_SITE_URL_RULES,
@@ -113,17 +124,6 @@ class PwaModule extends Module
                 $variable->set('pwa', PwaModuleVariable::class);
             }
         );
-
-        Event::on(
-            Elements::class, 
-            Elements::EVENT_AFTER_SAVE_ELEMENT, 
-            function(ElementEvent $event) {
-                if ($event->element instanceof Entry) {
-                    $entry = $event->element;
-                    $entries = Entry::find()->relatedTo($entry)->all();
-                    // TODO: Figure out how to update entries
-                }
-        });
 
         Craft::info(
             Craft::t(
