@@ -61,11 +61,12 @@ class DefaultController extends Controller
 
     public function actionCachebust()
     {
+        $settings = Craft::$app->globals->getSetByHandle('pwaSettings');
         $response = [
             'success' => true,
             'resourcesCache' => Craft::$app->config->general->resourcesCache,
-            'pagesCache' => '',
-            'pagesCacheDuration' => '', 
+            'pagesCache' => $settings->pwaOfflineCachebust,
+            'pagesCacheDuration' => $settings->pwaCacheDuration, 
         ];
         return json_encode($response);
     }

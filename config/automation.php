@@ -7,5 +7,5 @@
 
 return [
     // This is would be where your local cache busting values will be written
-    'resourcesCache' => '1574292403491'
+    'resourcesCache' => '1574292943098'
 ];
