@@ -112,6 +112,7 @@ class PwaModule extends Module
             UrlManager::EVENT_REGISTER_SITE_URL_RULES,
             function (RegisterUrlRulesEvent $event) {
                 $event->rules['/pwa/revision-check'] = 'pwa-module/default/check-revision';
+                $event->rules['/pwa/cachebust'] = 'pwa-module/default/cachebust';
             }
         );
 

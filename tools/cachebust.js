@@ -1,12 +1,12 @@
 const fs = require('fs');
 
-fs.readFile('public/cachebust.js', (error, buffer) => {
+fs.readFile('config/automation.php', (error, buffer) => {
 	if (error) {
 		console.log(error);
 		return;
 	}
 	let data = buffer.toString().replace(/\d+/g, `${Date.now()}`);
-	fs.writeFile('public/cachebust.js', data, (error) => {
+	fs.writeFile('config/automation.php', data, (error) => {
 		if (error) {
 			console.log(error);
 			return;

@@ -33,7 +33,7 @@ class DefaultController extends Controller
      *         The actions must be in 'kebab-case'
      * @access protected
      */
-    protected $allowAnonymous = ['check-revision'];
+    protected $allowAnonymous = ['check-revision', 'cachebust'];
 
     // Public Methods
     // =========================================================================
@@ -56,6 +56,17 @@ class DefaultController extends Controller
 			'success' => true,
 			'revision' => $lastRevisionNum
 		];
+        return json_encode($response);
+    }
+
+    public function actionCachebust()
+    {
+        $response = [
+            'success' => true,
+            'resourcesCache' => Craft::$app->config->general->resourcesCache,
+            'pagesCache' => '',
+            'pagesCacheDuration' => '', 
+        ];
         return json_encode($response);
     }
 }

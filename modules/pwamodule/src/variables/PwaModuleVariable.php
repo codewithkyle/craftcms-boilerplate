@@ -33,7 +33,6 @@ class PwaModuleVariable
      */
     public function revision($entryId)
     {
-        $table = Craft::$app->config->general->prefix . '_revisions';
         $lastRevisionNum = (new Query())
                             ->select(['num'])
                             ->from([Table::REVISIONS])

@@ -32,19 +32,12 @@ class Pjax {
 			.register(`${window.location.origin}/service-worker.js`, { scope: '/' })
 			.then((reg) => {
 				if (navigator.serviceWorker.controller) {
-					import(`${window.location.origin}/cachebust.js`)
-						.then((module) => {
-							this.serviceWorker = navigator.serviceWorker.controller;
-							navigator.serviceWorker.onmessage = this.handleServiceWorkerMessage.bind(this);
-							this.serviceWorker.postMessage({
-								type: 'cachebust',
-								cachebust: module.currentTimestamp,
-							});
-							broadcaster.message('pjax', { type: 'revision-check' });
-						})
-						.catch((error) => {
-							console.log('The cachebust import will always fail when offline.');
-						});
+					this.serviceWorker = navigator.serviceWorker.controller;
+					this.serviceWorker.postMessage({
+						type: 'cachebust',
+					});
+					navigator.serviceWorker.onmessage = this.handleServiceWorkerMessage.bind(this);
+					broadcaster.message('pjax', { type: 'revision-check' });
 				}
 			})
 			.catch((error) => {
