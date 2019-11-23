@@ -2,7 +2,7 @@
   "require": {
     "aelvan/imager": "v2.3.0",
     "chasegiunta/scss": "1.0.0",
-    "craftcms/cms": "^3.0.0",
+    "craftcms/cms": "3.3.16.1",
     "craftcms/element-api": "2.6.0",
     "craftcms/redactor": "2.4.0",
     "ether/logs": "3.0.2",

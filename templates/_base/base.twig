@@ -355,10 +355,10 @@
 			</style>
         </noscript>
 
-        <link rel="preload" href="{{ alias('@rootUrl')|trim('/') }}/assets/env.js" as="script" crossorigin>
-        <link rel="preload" href="{{ alias('@rootUrl')|trim('/') }}/assets/broadcaster.js" as="script" crossorigin>
-        <link rel="preload" href="{{ alias('@rootUrl')|trim('/') }}/assets/broadcast-worker.js" as="worker" crossorigin>
-        <link rel="preload" href="{{ alias('@rootUrl')|trim('/') }}/assets/runtime-worker.js" as="worker" crossorigin>
+        <link rel="preload" href="{{ alias('@rootUrl')|trim('/') }}/assets/env.js" as="script">
+        <link rel="preload" href="{{ alias('@rootUrl')|trim('/') }}/assets/broadcaster.js" as="script">
+        <link rel="preload" href="{{ alias('@rootUrl')|trim('/') }}/assets/notify.js" as="script">
+        <link rel="preload" href="{{ alias('@rootUrl')|trim('/') }}/assets/snackbar.css">
         <script type="module" src="{{ alias('@rootUrl')|trim('/') }}/assets/runtime.js"></script>
 		<script type="module" src="{{ alias('@rootUrl')|trim('/') }}/assets/pjax.js"></script>
     </head>
