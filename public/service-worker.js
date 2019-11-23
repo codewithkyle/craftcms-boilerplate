@@ -1,8 +1,8 @@
 let resourcesCacheId = 'initial';
 
 self.addEventListener('fetch', (event) => {
-	const noCache = event.request.url.match(/(\/webmaster\/)|(\/cpresources\/)|(index\.php)|(cachebust)|(\/pwa\/)/gi);
-	if (noCache) {
+	const noCache = event.request.url.match(/(\/webmaster\/)|(\/cpresources\/)|(index\.php)|(cachebust)|(\/pwa\/)|(\.json)$/gi);
+	if (noCache || event.request.method !== 'GET') {
 		event.respondWith(
 			fetch(event.request).then((response) => {
 				return response;
@@ -51,6 +51,9 @@ async function cachebust() {
 	const request = await fetch(`/pwa/cachebust`, {
 		cache: 'no-cache',
 		credentials: 'include',
+		headers: new Headers({
+			'Accept': 'application/json',
+		})
 	});
 	if (request.ok) {
 		const response = await request.json();
@@ -65,6 +68,10 @@ async function cachebust() {
 					}),
 				);
 			});
+		}
+		else
+		{
+			console.error(response.error);
 		}
 	}
 }

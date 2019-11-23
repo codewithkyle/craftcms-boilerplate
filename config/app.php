@@ -16,7 +16,11 @@ return [
     'modules' => [
         'pwa-module' => [
             'class' => \modules\pwamodule\PwaModule::class,
-            'components' => [],
+            'components' => [
+                'pwaModuleService' => [
+                    'class' => 'modules\pwamodule\services\PwaModuleService',
+                ],
+            ],
         ],
     ],
     'bootstrap' => ['pwa-module'],

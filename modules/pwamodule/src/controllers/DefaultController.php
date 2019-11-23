@@ -16,6 +16,7 @@ use Craft;
 use craft\web\Controller;
 use craft\db\Query;
 use craft\db\Table;
+use craft\base\Model;
 
 /**
  * @author    Kyle Andrews
@@ -33,41 +34,14 @@ class DefaultController extends Controller
      *         The actions must be in 'kebab-case'
      * @access protected
      */
-    protected $allowAnonymous = ['check-revision', 'cachebust'];
+    protected $allowAnonymous = ['cachebust'];
 
     // Public Methods
     // =========================================================================
 
-    /**
-     * @return mixed
-     */
-    public function actionCheckRevision()
-    {
-        $request = Craft::$app->getRequest();
-        $entryId = $request->getParam('id');
-        $lastRevisionNum = (new Query())
-                            ->select(['num'])
-                            ->from([Table::REVISIONS])
-                            ->where(['sourceId' => $entryId])
-                            ->orderBy(['num' => SORT_DESC])
-                            ->limit(1)
-                            ->scalar();
-		$response = [
-			'success' => true,
-			'revision' => $lastRevisionNum
-		];
-        return json_encode($response);
-    }
-
     public function actionCachebust()
     {
-        $settings = Craft::$app->globals->getSetByHandle('pwaSettings');
-        $response = [
-            'success' => true,
-            'resourcesCache' => Craft::$app->config->general->resourcesCache,
-            'pagesCache' => $settings->pwaOfflineCachebust,
-            'pagesCacheDuration' => $settings->pwaCacheDuration, 
-        ];
+        $response = PwaModule::getInstance()->pwaModuleService->cachebust();
         return json_encode($response);
     }
 }

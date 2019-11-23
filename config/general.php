@@ -8,7 +8,7 @@
  * @see \craft\config\GeneralConfig
  */
 
-$customConfig =  [
+return [
     // Global settings
     '*' => [
         'defaultWeekStartDay' => 1,
@@ -50,10 +50,3 @@ $customConfig =  [
         ],
     ],
 ];
-
-if (is_array($customLocalConfig = include('automation.php'))) {
-    $customGlobalConfig = array_merge($customConfig['*'], $customLocalConfig);
-    $customConfig['*'] = $customGlobalConfig;
-}
-
-return $customConfig;

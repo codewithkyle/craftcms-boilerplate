@@ -8,9 +8,18 @@
 {% elseif category is defined %}
     {% set page = category %}
 {% endif %}
+
+{# Tell the browser to cache this page for 30 days #}
+{% set expiry = now|date_modify('+30 days') %}
+
+{% header "Cache-Control: max-age=" ~ (expiry.timestamp - now.timestamp) %}
+{% header "Pragma: cache" %}
+{% header "Expires: " ~ expiry|date('D, d M Y H:i:s', 'GMT') ~ " GMT" %}
+{% header "ETag: " ~ now|date('U') %}
+
 {% spaceless %}
 <!DOCTYPE html>
-<html lang="{{ currentSite.language }}" state="hard-loading" {% if isDebug and currentUser and currentUser['admin'] or craft.app.config.env == 'dev' or craft.app.config.env == 'staging'  %}debug="true"{% endif %} data-csrf="{{ craft.app.request.csrfToken }}" data-page-id="{{ page.id }}" data-page-revision="{{ craft.pwa.revision(page.id) ?? 0 }}">
+<html lang="{{ currentSite.language }}" state="hard-loading" {% if isDebug and currentUser and currentUser['admin'] or craft.app.config.env == 'dev' or craft.app.config.env == 'staging'  %}debug="true"{% endif %} data-csrf="{{ craft.app.request.csrfToken }}" data-entry-id="{{ page.id }}">
     <head>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta charset="utf-8" />

@@ -1,11 +1,9 @@
 import { broadcaster } from './broadcaster';
 import { debug, env } from './env';
-import { NotificationManager, notify } from '../packages/notifyjs.js';
+import { notify } from '../packages/notifyjs.js';
 
 interface PjaxState {
-	currentPageRevision: string;
-	currentPageUrl: string;
-	currentPageId: string;
+	entryId: string;
 }
 
 class Pjax {
@@ -15,9 +13,7 @@ class Pjax {
 
 	constructor() {
 		this.state = {
-			currentPageRevision: document.documentElement.dataset.pageRevision,
-			currentPageUrl: window.location.href,
-			currentPageId: document.documentElement.dataset.pageId,
+			entryId: document.documentElement.dataset.entryId,
 		};
 		this.worker = null;
 		this.serviceWorker = null;
@@ -109,9 +105,7 @@ class Pjax {
 	private checkPageRevision() {
 		this.worker.postMessage({
 			type: 'revision-check',
-			pageId: this.state.currentPageId,
-			revision: this.state.currentPageRevision,
-			url: this.state.currentPageUrl,
+			url: window.location.href,
 		});
 	}
 }

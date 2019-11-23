@@ -1,4 +1,4 @@
-dateModified: 1574289139
+dateModified: 1574509482
 email:
   fromEmail: codingwithkyle@gmail.com
   fromName: 'Craft PWA'
@@ -9,18 +9,6 @@ fieldGroups:
   e6513679-3785-4ac5-8742-6c367e948078:
     name: Settings
 fields:
-  3897648f-9935-4a88-996e-eb97e6e9d12c:
-    name: 'PWA Offline Cachebust'
-    handle: pwaOfflineCachebust
-    instructions: ''
-    searchable: false
-    translationMethod: none
-    translationKeyFormat: null
-    type: modules\pwamodule\fields\PWACacheField
-    settings:
-      cache: null
-    contentColumnType: string
-    fieldGroup: e6513679-3785-4ac5-8742-6c367e948078
   406c623a-99fa-40d8-a82c-41d7433bd86d:
     name: Test
     handle: test
@@ -58,24 +46,6 @@ fields:
       validateRelatedElements: '1'
     contentColumnType: string
     fieldGroup: 0e5caedc-3ce5-4116-8378-d114d694a4b9
-  56057874-6a09-483b-8447-114c5a472291:
-    name: 'PWA Cache Duration'
-    handle: pwaCacheDuration
-    instructions: 'Number of days the PWA should maintain an offline cache before resetting.'
-    searchable: false
-    translationMethod: none
-    translationKeyFormat: null
-    type: craft\fields\Number
-    settings:
-      defaultValue: '7'
-      min: '1'
-      max: '30'
-      decimals: 0
-      size: null
-      prefix: ''
-      suffix: ''
-    contentColumnType: smallint(2)
-    fieldGroup: e6513679-3785-4ac5-8742-6c367e948078
   eb6a6693-6c19-4c32-a16a-5216a0b1fb71:
     name: Image
     handle: image
@@ -114,13 +84,6 @@ globalSets:
           -
             name: Settings
             sortOrder: 1
-            fields:
-              3897648f-9935-4a88-996e-eb97e6e9d12c:
-                required: false
-                sortOrder: 2
-              56057874-6a09-483b-8447-114c5a472291:
-                required: true
-                sortOrder: 1
 plugins:
   imager:
     edition: standard

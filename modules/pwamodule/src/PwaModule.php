@@ -24,6 +24,11 @@ use craft\web\twig\variables\CraftVariable;
 use craft\events\RegisterUrlRulesEvent;
 use craft\events\RegisterComponentTypesEvent;
 use craft\services\Fields;
+use craft\events\RegisterCpNavItemsEvent;
+use craft\web\twig\variables\Cp;
+use craft\utilities\ClearCaches;
+use craft\helpers\FileHelper;
+use craft\events\RegisterCacheOptionsEvent;
 
 use yii\base\Event;
 use yii\base\InvalidConfigException;
@@ -52,6 +57,8 @@ class PwaModule extends Module
      * @var PwaModule
      */
     public static $instance;
+
+    public $hasCpSettings = true;
 
     // Public Methods
     // =========================================================================
@@ -98,31 +105,12 @@ class PwaModule extends Module
         parent::init();
         self::$instance = $this;
 
-        // Register our fields
-        Event::on(
-            Fields::class,
-            Fields::EVENT_REGISTER_FIELD_TYPES,
-            function (RegisterComponentTypesEvent $event) {
-                $event->types[] = \modules\pwamodule\fields\PWACacheField::class;
-            }
-        );
-
+        // Register our site routes
         Event::on(
             UrlManager::class,
             UrlManager::EVENT_REGISTER_SITE_URL_RULES,
             function (RegisterUrlRulesEvent $event) {
-                $event->rules['/pwa/revision-check'] = 'pwa-module/default/check-revision';
                 $event->rules['/pwa/cachebust'] = 'pwa-module/default/cachebust';
-            }
-        );
-
-        Event::on(
-            CraftVariable::class,
-            CraftVariable::EVENT_INIT,
-            function (Event $event) {
-                /** @var CraftVariable $variable */
-                $variable = $event->sender;
-                $variable->set('pwa', PwaModuleVariable::class);
             }
         );
 

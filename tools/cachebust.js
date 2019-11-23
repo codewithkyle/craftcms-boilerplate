@@ -1,12 +1,15 @@
 const fs = require('fs');
 
-fs.readFile('config/automation.php', (error, buffer) => {
+fs.readFile('config/pwa.php', (error, buffer) => {
 	if (error) {
 		console.log(error);
 		return;
 	}
-	let data = buffer.toString().replace(/\d+/g, `${Date.now()}`);
-	fs.writeFile('config/automation.php', data, (error) => {
+	const timestamp = Date.now();
+	let data = buffer.toString();
+	data = data.replace(/\'resourcesCache\'.*\,/g, `'resourcesCache' => '${ timestamp }',`);
+	data = data.replace(/\'pagesCache\'.*\,/g, `'pagesCache' => '${ timestamp }',`);
+	fs.writeFile('config/pwa.php', data, (error) => {
 		if (error) {
 			console.log(error);
 			return;
