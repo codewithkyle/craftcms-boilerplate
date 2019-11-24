@@ -1,4 +1,5 @@
-let resourcesCacheId = 'initial';
+let resourcesCacheId = 'resouces-initial';
+let contentCacheId = 'content-initial';
 
 self.addEventListener('fetch', (event) => {
 	const noCache = event.request.url.match(/(\/webmaster\/)|(\/cpresources\/)|(index\.php)|(cachebust)|(\/pwa\/)|(\.json)$/gi);
@@ -8,7 +9,12 @@ self.addEventListener('fetch', (event) => {
 				return response;
 			}),
 		);
-	} else {
+	}
+	else
+	{
+		const isResource = event.request.url.match(/(\.js)$|(\.css)$/gi);
+		const cacheName = (isResource) ? resourcesCacheId : contentCacheId;
+
 		event.respondWith(
 			caches.match(event.request).then((response) => {
 				if (response) {
@@ -22,7 +28,7 @@ self.addEventListener('fetch', (event) => {
 
 					var responseToCache = response.clone();
 
-					caches.open(resourcesCacheId).then((cache) => {
+					caches.open(cacheName).then((cache) => {
 						cache.put(event.request, responseToCache);
 					});
 					return response;
@@ -58,11 +64,12 @@ async function cachebust() {
 	if (request.ok) {
 		const response = await request.json();
 		if (response.success) {
-			resourcesCacheId = response.resourcesCache;
+			resourcesCacheId = `resources-${ response.resourcesCache }`;
+			contentCacheId = `content-${ response.contentCache }`;
 			caches.keys().then((cacheNames) => {
 				return Promise.all(
 					cacheNames.map((cacheName) => {
-						if (cacheName !== resourcesCacheId) {
+						if (cacheName !== resourcesCacheId && cacheName !== contentCacheId) {
 							return caches.delete(cacheName);
 						}
 					}),

@@ -40,8 +40,9 @@ class PwaModuleService extends Component
                 $response = [
                     'success' => true,
                     'resourcesCache' => $settings['resourcesCache'],
-                    'pagesCache' => $settings['pagesCache'],
-                    'pagesCacheDuration' => $settings['pagesCacheDuration'], 
+                    'contentCache' => $settings['contentCache'],
+                    'contentCacheDuration' => $settings['contentCacheDuration'],
+                    'maximumContentPrompts' => $settings['maximumContentPrompts']
                 ];
             }
             else
