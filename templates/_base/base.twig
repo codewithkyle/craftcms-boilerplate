@@ -355,10 +355,9 @@
 			</style>
         </noscript>
 
-        <link rel="preload" href="{{ alias('@rootUrl')|trim('/') }}/assets/env.js" as="script">
-        <link rel="preload" href="{{ alias('@rootUrl')|trim('/') }}/assets/broadcaster.js" as="script">
-        <link rel="preload" href="{{ alias('@rootUrl')|trim('/') }}/assets/notify.js" as="script">
-        <link rel="preload" href="{{ alias('@rootUrl')|trim('/') }}/assets/snackbar.css">
+        <link rel="preload" href="{{ alias('@rootUrl')|trim('/') }}/assets/env.js" as="script" crossorigin="anonymous">
+        <link rel="preload" href="{{ alias('@rootUrl')|trim('/') }}/assets/broadcaster.js" as="script" crossorigin="anonymous">
+        <link rel="preload" href="{{ alias('@rootUrl')|trim('/') }}/assets/notify.js" as="script" crossorigin="anonymous">
         <script type="module" src="{{ alias('@rootUrl')|trim('/') }}/assets/runtime.js"></script>
 		<script type="module" src="{{ alias('@rootUrl')|trim('/') }}/assets/pjax.js"></script>
     </head>

@@ -1,6 +1,6 @@
 import { broadcaster } from './broadcaster';
 import { debug, env } from './env';
-import { notify } from '../packages/notifyjs.js';
+import { notify } from '../packages/notify.js';
 
 interface PjaxState {
 	entryId: string;
