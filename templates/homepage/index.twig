@@ -1,8 +1,13 @@
-{% extends "_base/page" %} {% block content %} {% cache %}
+{% extends "_base/page" %}
+{% block content %}
+{% cache %}
 <article>
 	<seciton>
 		<h1>{{ entry.test }}</h1>
-		<h2>{{ entry.channelEntry[0].title }}</h2>
+		{% if entry.channelEntry[0]|length %}
+			<h2>{{ entry.channelEntry[0].title }}</h2>
+		{% endif %}
+		<h2>Lorem ipsum dolor sit amet</h2>
 		<h3>Lorem ipsum dolor sit amet</h3>
 		<p>
 			Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
@@ -19,12 +24,16 @@
 			<li>Lorem ipsum dolor sit amet consectetur adipiscing elit</li>
 			<li>Lorem ipsum dolor sit amet consectetur adipiscing elit</li>
 		</ul>
-		<img
-			width="580"
-			src="{{ entry.image[0].url }}"
-			loading="lazy"
-			alt="a white motorcycle with blue trim inbetween two trees and infront of a large green bush"
-		/>
+		{% set entries = craft.entries({section: 'channel'}).all() %}
+		{% for customEntry in entries %}
+			<h3>{{ customEntry.title }}</h3>
+			<img
+				width="640"
+				src="{{ customEntry.image.one.url }}"
+				loading="lazy"
+				alt="{{ customEntry.title }}"
+			/>
+		{% endfor %}
 	</seciton>
 	<seciton>
 		<h3>Lorem ipsum dolor sit amet</h3>
@@ -45,4 +54,5 @@
 		</ol>
 	</seciton>
 </article>
-{% endcache %} {% endblock %}
+{% endcache %}
+{% endblock %}

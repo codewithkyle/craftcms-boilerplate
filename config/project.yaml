@@ -1,4 +1,4 @@
-dateModified: 1574509482
+dateModified: 1574600852
 email:
   fromEmail: codingwithkyle@gmail.com
   fromName: 'Craft PWA'
@@ -207,8 +207,18 @@ sections:
         handle: channel
         hasTitleField: true
         titleLabel: Title
-        titleFormat: null
+        titleFormat: ''
         sortOrder: 1
+        fieldLayouts:
+          2f62300d-a1f6-4b14-a9c0-51763d10669f:
+            tabs:
+              -
+                name: 'Tab 1'
+                sortOrder: 1
+                fields:
+                  eb6a6693-6c19-4c32-a16a-5216a0b1fb71:
+                    required: false
+                    sortOrder: 1
 siteGroups:
   671e778d-487b-49da-b257-052f3d032d54:
     name: Default

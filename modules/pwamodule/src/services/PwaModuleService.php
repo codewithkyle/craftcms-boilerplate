@@ -15,6 +15,8 @@ use modules\pwamodule\PwaModule;
 use Craft;
 use craft\base\Component;
 use craft\helpers\FileHelper;
+use yii\redis\Cache;
+use yii\redis\Connection;
 
 /**
  * @author    Kyle Andrews
@@ -59,5 +61,26 @@ class PwaModuleService extends Component
         }
         
         return $response;
+    }
+
+    public function updateRevisions(Array $entries)
+    {
+        $cache = new Cache();
+        $cache->redis->init();
+
+        foreach ($entries as $id)
+        {
+            if ($cache->exists($id))
+            {
+                $value = $cache->get($id);
+                $value = $value + 1;
+                $cache->set($id, $value);
+            }
+            else
+            {
+                $cache->set($id, '0');
+                return '0';
+            }
+        }
     }
 }

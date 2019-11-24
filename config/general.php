@@ -24,7 +24,7 @@ return [
         'siteUrl'               => getenv('DEV_URL'),
         'allowUpdates'          => true,
         'devMode'               => true,
-        'enableTemplateCaching' => false,
+        'enableTemplateCaching' => true,
         'aliases' => [
             '@rootUrl' => getenv('DEV_URL'),
         ],

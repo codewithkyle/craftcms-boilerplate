@@ -15,7 +15,8 @@
 {% header "Cache-Control: max-age=" ~ (expiry.timestamp - now.timestamp) %}
 {% header "Pragma: cache" %}
 {% header "Expires: " ~ expiry|date('D, d M Y H:i:s', 'GMT') ~ " GMT" %}
-{% header "ETag: " ~ now|date('U') %}
+{% header "Access-Control-Expose-Headers: etag" %}
+{% header "ETag: " ~ page.uid ~ '-' ~ craft.pwa.getCache(page.id) %}
 
 {% spaceless %}
 <!DOCTYPE html>

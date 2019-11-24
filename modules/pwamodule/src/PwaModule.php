@@ -105,7 +105,7 @@ class PwaModule extends Module
         parent::init();
         self::$instance = $this;
 
-        // Register our site routes
+        // Register site routes
         Event::on(
             UrlManager::class,
             UrlManager::EVENT_REGISTER_SITE_URL_RULES,
@@ -113,6 +113,34 @@ class PwaModule extends Module
                 $event->rules['/pwa/cachebust'] = 'pwa-module/default/cachebust';
             }
         );
+
+        // Register variables
+        Event::on(
+            CraftVariable::class,
+            CraftVariable::EVENT_INIT,
+            function (Event $event) {
+                /** @var CraftVariable $variable */
+                $variable = $event->sender;
+                $variable->set('pwa', PwaModuleVariable::class);
+            }
+        );
+
+        Event::on(
+            Elements::class, 
+            Elements::EVENT_AFTER_SAVE_ELEMENT, 
+            function(ElementEvent $event) {
+                if ($event->element instanceof Entry) {
+                    $entry = $event->element;
+                    $entryIds = array();
+                    $entryIds[] = $entry->id;
+                    $relatedEntries = Entry::find()->relatedTo($entry)->all();
+                    foreach ($relatedEntries as $relatedEntry)
+                    {
+                        $entryIds[] = $relatedEntry->id;
+                    }
+                    PwaModule::getInstance()->pwaModuleService->updateRevisions($entryIds);
+                }
+        });
 
         Craft::info(
             Craft::t(
