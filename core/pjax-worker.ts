@@ -40,7 +40,7 @@ class PjaxWorker {
 			newEtag = tag;
 			if (cachedETag)
 			{
-				this.checkETags(newEtag, cachedETag);
+				this.checkETags(newEtag, cachedETag, url);
 			}
 		})
 		.catch(() => {});
@@ -62,7 +62,7 @@ class PjaxWorker {
 			cachedETag = tag;
 			if (newEtag)
 			{
-				this.checkETags(newEtag, cachedETag);
+				this.checkETags(newEtag, cachedETag, url);
 			}
 		})
 		.catch(() => {});
@@ -73,11 +73,16 @@ class PjaxWorker {
 	 * @param newTag - `ETag` header from the Redis server.
 	 * @param cachedTag - `ETag` header from the service workers cached response.
 	 */
-	private checkETags(newTag:string, cachedTag:string)
+	private checkETags(newTag:string, cachedTag:string, url:string)
 	{
 		if (newTag !== cachedTag)
 		{
-			console.log('New version available');
+			// @ts-ignore
+			self.postMessage({
+				type: 'revision-check',
+				status: 'stale',
+				url: url
+			});
 		}
 	}
 }

@@ -42,10 +42,13 @@ self.addEventListener('message', (event) => {
 	const { type } = event.data;
 	switch (type) {
 		case 'cachebust':
-			cachebust();
+			cachebust(event.data.url);
 			break;
 		case 'page-refresh':
 			updatePageCache(event.data.url, event.data.network);
+			break;
+		case 'clear-content-cache':
+			clearContentCache();
 			break;
 		default:
 			console.error(`Unknown Service Worker message type: ${type}`);
@@ -53,7 +56,20 @@ self.addEventListener('message', (event) => {
 	}
 });
 
-async function cachebust() {
+function clearContentCache()
+{
+	caches.keys().then((cacheNames) => {
+		return Promise.all(
+			cacheNames.map((cacheName) => {
+				if (cacheName.match('content')) {
+					return caches.delete(cacheName);
+				}
+			}),
+		);
+	});
+}
+
+async function cachebust(url) {
 	const request = await fetch(`/pwa/cachebust`, {
 		cache: 'no-cache',
 		credentials: 'include',
@@ -75,6 +91,15 @@ async function cachebust() {
 					}),
 				);
 			});
+			const clients = await self.clients.matchAll();
+			clients.map((client) => {
+				if (client.visibilityState === 'visible' && client.url === url) {
+					client.postMessage({
+						type: 'set-max-prompts',
+						max: parseInt(response.maximumContentPrompts)
+					});
+				}
+			});
 		}
 		else
 		{
@@ -86,9 +111,8 @@ async function cachebust() {
 async function updatePageCache(url, network) {
 	try {
 		const request = new Request(url);
-		const cachedResponse = await caches.match(request);
 		await new Promise((resolve) => {
-			caches.open(resourcesCacheId).then((cache) => {
+			caches.open(contentCacheId).then((cache) => {
 				cache.delete(request).then(() => {
 					resolve();
 				});
@@ -96,11 +120,13 @@ async function updatePageCache(url, network) {
 		});
 		if (network === '4g') {
 			await new Promise((resolve) => {
-				fetch(request).then((response) => {
+				fetch(url, {
+					credentials: 'include',
+				}).then((response) => {
 					if (!response || response.status !== 200 || response.type !== 'basic') {
 						resolve();
 					}
-					caches.open(resourcesCacheId).then((cache) => {
+					caches.open(contentCacheId).then((cache) => {
 						cache.put(request, response);
 						resolve();
 					});

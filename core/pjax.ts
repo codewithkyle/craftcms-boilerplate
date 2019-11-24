@@ -21,6 +21,10 @@ class Pjax {
 	}
 
 	private init(): void {
+		if (!sessionStorage.getItem('prompts'))
+		{
+			sessionStorage.setItem('prompts', '0');
+		}
 		broadcaster.hookup('pjax', this.inbox.bind(this));
 		this.worker = new Worker(`${window.location.origin}/assets/pjax-worker.js`);
 		this.worker.onmessage = this.handleWorkerMessage.bind(this);
@@ -31,6 +35,7 @@ class Pjax {
 					this.serviceWorker = navigator.serviceWorker.controller;
 					this.serviceWorker.postMessage({
 						type: 'cachebust',
+						url: window.location.href
 					});
 					navigator.serviceWorker.onmessage = this.handleServiceWorkerMessage.bind(this);
 					broadcaster.message('pjax', { type: 'revision-check' });
@@ -59,6 +64,9 @@ class Pjax {
 		const { type } = e.data;
 		switch (type) {
 			case 'page-refresh':
+				let promptCount = parseInt(sessionStorage.getItem('prompts'));
+				promptCount = promptCount + 1;
+				sessionStorage.setItem('prompts', `${ promptCount }`);
 				notify({
 					message: 'A new version of this page is available.',
 					closeable: true,
@@ -74,6 +82,17 @@ class Pjax {
 					],
 				});
 				break;
+			case 'set-max-prompts':
+				sessionStorage.setItem('maxPrompts', `${ e.data.max }`);
+				const currentPromptCount = sessionStorage.getItem('prompts');
+				if (parseInt(currentPromptCount) >= e.data.max)
+				{
+					sessionStorage.setItem('prompts', '0');
+					this.serviceWorker.postMessage({
+						type: 'clear-content-cache'
+					});
+				}
+				break;
 			default:
 				if (debug) {
 					console.error(`Undefined Service Worker response message type: ${type}`);
@@ -86,7 +105,7 @@ class Pjax {
 		const { type } = e.data;
 		switch (type) {
 			case 'revision-check':
-				if (e.data.status !== 200) {
+				if (e.data.status === 'stale') {
 					this.serviceWorker.postMessage({
 						type: 'page-refresh',
 						url: e.data.url,
