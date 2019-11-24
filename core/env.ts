@@ -3,6 +3,7 @@ class Env {
 	public connection: NetworkType;
 	public cpu: number;
 	public memory: number | null;
+	public isProduciton: boolean;
 
 	private _tickets: Array<string>;
 
@@ -11,6 +12,7 @@ class Env {
 		this.cpu = window.navigator.hardwareConcurrency;
 		this.connection = '4g';
 		this.isDebug = document.documentElement.getAttribute('debug') ? true : false;
+		this.isProduciton = (document.documentElement.dataset.environment === 'production');
 
 		this._tickets = [];
 

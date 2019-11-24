@@ -29,7 +29,10 @@ class Pjax {
 		this.worker = new Worker(`${window.location.origin}/assets/pjax-worker.js`);
 		this.worker.onmessage = this.handleWorkerMessage.bind(this);
 		window.addEventListener('popstate', this.windowPopstateEvent);
-		navigator.serviceWorker
+		window.history.replaceState({ url: window.location.href }, document.title, window.location.href);
+		if ('serviceWorker' in navigator)
+		{
+			navigator.serviceWorker
 			.register(`${window.location.origin}/service-worker.js`, { scope: '/' })
 			.then((reg) => {
 				if (navigator.serviceWorker.controller) {
@@ -46,6 +49,11 @@ class Pjax {
 			.catch((error) => {
 				console.error('Registration failed with ' + error);
 			});
+		}
+		else
+		{
+			broadcaster.message('pjax', { type: 'hijack-links' });
+		}
 	}
 
 	private inbox(data: MessageData): void {
@@ -58,10 +66,10 @@ class Pjax {
 				this.collectLinks();
 				break;
 			case 'load':
-				this.navigate(data.url);
+				this.navigate(data.url, data?.history);
 				break;
 			case 'navigation-update':
-				this.updateHistory(data.title, data.url);
+				this.updateHistory(data.title, data.url, data.history);
 				this.collectLinks();
 				this.checkPageRevision();
 				break;
@@ -73,7 +81,7 @@ class Pjax {
 		}
 	}
 
-	private navigate(url:string): void
+	private navigate(url:string, history:string = 'push'): void
 	{
 		const ticket = env.startLoading();
 		const requestUid = uuid();
@@ -83,6 +91,7 @@ class Pjax {
 			ticket: ticket,
 			url: url,
 			requestUid: requestUid,
+			history: history,
 		});
 	}
 
@@ -94,15 +103,25 @@ class Pjax {
 			broadcaster.message('pjax', {
 				type: 'load',
 				url: e.state.url,
+				history: 'replace',
 			});
 		}
 	}
 
-	private updateHistory(title:string, url:string): void
+	private updateHistory(title:string, url:string, history): void
 	{
-		window.history.pushState({
-			url: url,
-		}, title, url);
+		if (history === 'replace')
+		{
+			window.history.replaceState({
+				url: url,
+			}, title, url);
+		}
+		else
+		{
+			window.history.pushState({
+				url: url,
+			}, title, url);
+		}
 	}
 
 	private handleLinkClick:EventListener = this.hijackRequest.bind(this);
@@ -121,7 +140,8 @@ class Pjax {
 		const unregisteredLinks = Array.from(document.body.querySelectorAll('a[href]:not([pjax-tracked]):not([no-transition]):not([target]):not(.no-transition)'));
 		if (unregisteredLinks.length)
 		{
-			unregisteredLinks.map((link) => {
+			unregisteredLinks.map((link:HTMLAnchorElement) => {
+				link.setAttribute('pjax-tracked', 'true');
 				link.addEventListener('click', this.handleLinkClick);
 			});
 		}
@@ -185,7 +205,7 @@ class Pjax {
 				{
 					if (e.data.status === 'ok')
 					{
-						this.swapPjaxContent(e.data.body, e.data.ticket, e.data.url);
+						this.swapPjaxContent(e.data.body, e.data.ticket, e.data.url, e.data.history);
 					}
 					else
 					{
@@ -213,7 +233,7 @@ class Pjax {
 		}
 	}
 
-	private swapPjaxContent(html:string, ticket:string, url:string)
+	private swapPjaxContent(html:string, ticket:string, url:string, history:string)
 	{
 		const tempDocument:HTMLDocument = document.implementation.createHTMLDocument('pjax-temp-document');
 		tempDocument.documentElement.innerHTML = html;
@@ -227,6 +247,7 @@ class Pjax {
 				type: 'navigation-update',
 				url: url,
 				title: tempDocument.title,
+				history: history,
 			});
 			env.stopLoading(ticket);
 		}

@@ -10,7 +10,7 @@ class PjaxWorker {
 				this.checkRevision(e.data.url);
 				break;
 			case 'pjax':
-				this.pjax(e.data.url, e.data.ticket, e.data.requestUid);
+				this.pjax(e.data.url, e.data.ticket, e.data.requestUid, e.data.history);
 				break;
 			default:
 				console.error(`Unknown Pjax Worker message type: ${type}`);
@@ -18,7 +18,7 @@ class PjaxWorker {
 		}
 	}
 
-	private async pjax(url:string, ticket:string, requestUid:string)
+	private async pjax(url:string, ticket:string, requestUid:string, history:string)
 	{
 		try
 		{
@@ -41,6 +41,7 @@ class PjaxWorker {
 					ticket: ticket,
 					requestUid: requestUid,
 					url: url,
+					history: history,
 				});
 			}
 			else
@@ -57,7 +58,14 @@ class PjaxWorker {
 		}
 		catch (error)
 		{
-
+			// @ts-ignore
+			self.postMessage({
+				type: 'pjax',
+				status: 'error',
+				error: error,
+				url: url,
+				requestUid: requestUid,
+			});
 		}
 	}
 
