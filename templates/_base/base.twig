@@ -20,7 +20,7 @@
 
 {% spaceless %}
 <!DOCTYPE html>
-<html lang="{{ currentSite.language }}" state="hard-loading" {% if isDebug and currentUser and currentUser['admin'] or craft.app.config.env == 'dev' or craft.app.config.env == 'staging'  %}debug="true"{% endif %} data-csrf="{{ craft.app.request.csrfToken }}" data-entry-id="{{ page.id }}">
+<html lang="{{ currentSite.language }}" state="hard-loading" {% if isDebug and currentUser and currentUser['admin'] or craft.app.config.env == 'dev' or craft.app.config.env == 'staging'  %}debug="true"{% endif %} data-csrf="{{ craft.app.request.csrfToken }}">
     <head>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta charset="utf-8" />
@@ -64,6 +64,8 @@
                 font-size: 1rem;
                 line-height: 1;
                 font-weight: inherit;
+                font-style: normal;
+                text-decoration: none;
 				font-family: inherit;
 				-webkit-tap-highlight-color: transparent;
             }

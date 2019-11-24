@@ -1,6 +1,15 @@
 {% extends "_base/base" %}
 
+{% set navigation = navigation.primaryNavigation.all() %}
+
 {% block page %}
+    <header>
+        <nav>
+            {% for link in navigation %}
+                <a href="{{ link.url }}">{{ link.title }}</a>
+            {% endfor %}
+        </nav>
+    </header>
     <main eager-load-css="colors transitions snackbar">
         {% block content %}{% endblock %}
     </main>

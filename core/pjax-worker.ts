@@ -9,9 +9,55 @@ class PjaxWorker {
 			case 'revision-check':
 				this.checkRevision(e.data.url);
 				break;
+			case 'pjax':
+				this.pjax(e.data.url, e.data.ticket, e.data.requestUid);
+				break;
 			default:
 				console.error(`Unknown Pjax Worker message type: ${type}`);
 				break;
+		}
+	}
+
+	private async pjax(url:string, ticket:string, requestUid:string)
+	{
+		try
+		{
+			const request = await fetch(url, {
+				method: 'GET',
+				credentials: 'include',
+				headers: new Headers({
+					'X-Requested-With': 'XMLHttpReqeust',
+					'X-Pjax': 'true',
+				})
+			});
+			if (request.ok && request.headers.get('Content-Type') && request.headers.get('Content-Type').match(/(text\/html)/gi))
+			{
+				const response = await request.text();
+				// @ts-ignore
+				self.postMessage({
+					type: 'pjax',
+					status: 'ok',
+					body: response,
+					ticket: ticket,
+					requestUid: requestUid,
+					url: url,
+				});
+			}
+			else
+			{
+				// @ts-ignore
+				self.postMessage({
+					type: 'pjax',
+					status: 'error',
+					error: request.statusText,
+					url: url,
+					requestUid: requestUid,
+				});
+			}
+		}
+		catch (error)
+		{
+
 		}
 	}
 

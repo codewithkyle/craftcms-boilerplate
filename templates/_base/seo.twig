@@ -2,15 +2,25 @@
 	{# Tip: You can pass the handle of your SEO field - getSeoField('mySeoFieldHandle') #}
 	{% set seo = getSeoField() %}
 	{% if seo is null or seo.title == '' %}
-		{% set seo = craft.seo.custom('', '', false) %}
-        <title>{{ seo.title|trim(' -') }}</title>
-	{% else %}
-        <title>{{ seo.title }}</title>
-    {% endif -%}
+		{% if entry is defined %}
+			{% set seo = craft.seo.custom(entry.title, '', false) %}
+			{% set title = seo.title %}
+		{% elseif category is defined %}
+			{% set seo = craft.seo.custom(category.title, '', false) %}
+			{% set title = seo.title %}
+		{% elseif product is defined %}
+			{% set seo = craft.seo.custom(product.title, '', false) %}
+			{% set title = seo.title %}
+		{% else %}
+			{% set seo = craft.seo.custom('MISSING', '', false) %}
+			{% set title = seo.title|replace('MISSING - ', '') %}
+		{% endif %}
+	{% endif -%}
 
 	{% set locale = craft.app.locale %}
 	{% set locales = craft.app.i18n.siteLocaleIds|without(locale) %}
 
+	<title>{{ title }}</title>
 	<meta name="description" content="{{ seo.description }}" />
 
 	{% set fb = seo.social.facebook -%}

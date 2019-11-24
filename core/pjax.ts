@@ -1,9 +1,9 @@
 import { broadcaster } from './broadcaster';
-import { debug, env } from './env';
+import { debug, env, uuid } from './env';
 import { notify } from '../packages/notify.js';
 
 interface PjaxState {
-	entryId: string;
+	activeRequestUid: string,
 }
 
 class Pjax {
@@ -13,7 +13,7 @@ class Pjax {
 
 	constructor() {
 		this.state = {
-			entryId: document.documentElement.dataset.entryId,
+			activeRequestUid: null,
 		};
 		this.worker = null;
 		this.serviceWorker = null;
@@ -28,6 +28,7 @@ class Pjax {
 		broadcaster.hookup('pjax', this.inbox.bind(this));
 		this.worker = new Worker(`${window.location.origin}/assets/pjax-worker.js`);
 		this.worker.onmessage = this.handleWorkerMessage.bind(this);
+		window.addEventListener('popstate', this.windowPopstateEvent);
 		navigator.serviceWorker
 			.register(`${window.location.origin}/service-worker.js`, { scope: '/' })
 			.then((reg) => {
@@ -39,6 +40,7 @@ class Pjax {
 					});
 					navigator.serviceWorker.onmessage = this.handleServiceWorkerMessage.bind(this);
 					broadcaster.message('pjax', { type: 'revision-check' });
+					broadcaster.message('pjax', { type: 'hijack-links' });
 				}
 			})
 			.catch((error) => {
@@ -52,11 +54,76 @@ class Pjax {
 			case 'revision-check':
 				this.checkPageRevision();
 				break;
+			case 'hijack-links':
+				this.collectLinks();
+				break;
+			case 'load':
+				this.navigate(data.url);
+				break;
+			case 'navigation-update':
+				this.updateHistory(data.title, data.url);
+				this.collectLinks();
+				this.checkPageRevision();
+				break;
 			default:
 				if (debug) {
 					console.warn(`Undefined Pjax message type: ${type}`);
 				}
 				break;
+		}
+	}
+
+	private navigate(url:string): void
+	{
+		const ticket = env.startLoading();
+		const requestUid = uuid();
+		this.state.activeRequestUid = requestUid;
+		this.worker.postMessage({
+			type: 'pjax',
+			ticket: ticket,
+			url: url,
+			requestUid: requestUid,
+		});
+	}
+
+	private windowPopstateEvent:EventListener = this.hijackPopstate.bind(this);
+	private hijackPopstate(e:PopStateEvent): void
+	{
+		if (e.state?.url)
+		{
+			broadcaster.message('pjax', {
+				type: 'load',
+				url: e.state.url,
+			});
+		}
+	}
+
+	private updateHistory(title:string, url:string): void
+	{
+		window.history.pushState({
+			url: url,
+		}, title, url);
+	}
+
+	private handleLinkClick:EventListener = this.hijackRequest.bind(this);
+	private hijackRequest(e:Event): void
+	{
+		e.preventDefault();
+		const target = e.currentTarget as HTMLAnchorElement;
+		broadcaster.message('pjax', {
+			type: 'load',
+			url: target.href,
+		});
+	}
+
+	private collectLinks(): void
+	{
+		const unregisteredLinks = Array.from(document.body.querySelectorAll('a[href]:not([pjax-tracked]):not([no-transition]):not([target]):not(.no-transition)'));
+		if (unregisteredLinks.length)
+		{
+			unregisteredLinks.map((link) => {
+				link.addEventListener('click', this.handleLinkClick);
+			});
 		}
 	}
 
@@ -113,11 +180,59 @@ class Pjax {
 					});
 				}
 				break;
+			case 'pjax':
+				if (e.data.requestUid === this.state.activeRequestUid)
+				{
+					if (e.data.status === 'ok')
+					{
+						this.swapPjaxContent(e.data.body, e.data.ticket, e.data.url);
+					}
+					else
+					{
+						if (debug)
+						{
+							console.error(`Failed to fetch page: ${ e.data.url }. Server responded with: ${ e.data.error }`);
+						}
+						window.location.href = e.data.url;
+					}
+				}
+				else
+				{
+					env.stopLoading(e.data.ticket);
+					if (e.data.status !== 'ok' && debug)
+					{
+						console.error(`Failed to fetch page: ${ e.data.url }. Server responded with: ${ e.data.error }`);
+					}
+				}
+				break;
 			default:
 				if (debug) {
 					console.error(`Undefined Pjax Worker response message type: ${type}`);
 				}
 				break;
+		}
+	}
+
+	private swapPjaxContent(html:string, ticket:string, url:string)
+	{
+		const tempDocument:HTMLDocument = document.implementation.createHTMLDocument('pjax-temp-document');
+		tempDocument.documentElement.innerHTML = html;
+		const main = tempDocument.querySelector('main');
+		if (main)
+		{
+			const currentMain = document.body.querySelector('main');
+			currentMain.innerHTML = main.innerHTML;
+			document.title = tempDocument.title;
+			broadcaster.message('pjax', {
+				type: 'navigation-update',
+				url: url,
+				title: tempDocument.title,
+			});
+			env.stopLoading(ticket);
+		}
+		else
+		{
+			window.location.href = url;
 		}
 	}
 

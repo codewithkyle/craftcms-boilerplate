@@ -1,4 +1,4 @@
-dateModified: 1574600852
+dateModified: 1574626644
 email:
   fromEmail: codingwithkyle@gmail.com
   fromName: 'Craft PWA'
@@ -6,9 +6,28 @@ email:
 fieldGroups:
   0e5caedc-3ce5-4116-8378-d114d694a4b9:
     name: Common
-  e6513679-3785-4ac5-8742-6c367e948078:
-    name: Settings
 fields:
+  2b21fcbf-5341-43c3-a34e-8930968fa5cd:
+    name: Body
+    handle: body
+    instructions: ''
+    searchable: true
+    translationMethod: none
+    translationKeyFormat: null
+    type: craft\redactor\Field
+    settings:
+      redactorConfig: Standard.json
+      purifierConfig: ''
+      cleanupHtml: true
+      removeInlineStyles: '1'
+      removeEmptyTags: '1'
+      removeNbsp: '1'
+      purifyHtml: '1'
+      columnType: text
+      availableVolumes: ''
+      availableTransforms: '*'
+    contentColumnType: text
+    fieldGroup: 0e5caedc-3ce5-4116-8378-d114d694a4b9
   406c623a-99fa-40d8-a82c-41d7433bd86d:
     name: Test
     handle: test
@@ -46,6 +65,25 @@ fields:
       validateRelatedElements: '1'
     contentColumnType: string
     fieldGroup: 0e5caedc-3ce5-4116-8378-d114d694a4b9
+  97394d4b-065b-43a0-871d-537d30c81c65:
+    name: 'Primary Navigation'
+    handle: primaryNavigation
+    instructions: ''
+    searchable: false
+    translationMethod: site
+    translationKeyFormat: null
+    type: craft\fields\Entries
+    settings:
+      sources: '*'
+      source: null
+      targetSiteId: null
+      viewMode: null
+      limit: ''
+      selectionLabel: ''
+      localizeRelations: false
+      validateRelatedElements: '1'
+    contentColumnType: string
+    fieldGroup: 0e5caedc-3ce5-4116-8378-d114d694a4b9
   eb6a6693-6c19-4c32-a16a-5216a0b1fb71:
     name: Image
     handle: image
@@ -75,15 +113,19 @@ fields:
     contentColumnType: string
     fieldGroup: 0e5caedc-3ce5-4116-8378-d114d694a4b9
 globalSets:
-  5df37d85-f413-4496-867a-4e5d5ab7857f:
-    name: 'PWA Settings'
-    handle: pwaSettings
+  5dc50dc7-d2d3-4937-99d7-1ef59d1513f3:
+    name: Navigation
+    handle: navigation
     fieldLayouts:
-      3590aec2-d59e-4508-ad29-c64aa096fb85:
+      e596da79-ba50-4911-a44c-65fdfdd3cf69:
         tabs:
           -
-            name: Settings
+            name: Navigation
             sortOrder: 1
+            fields:
+              97394d4b-065b-43a0-871d-537d30c81c65:
+                required: false
+                sortOrder: 1
 plugins:
   imager:
     edition: standard
@@ -153,6 +195,39 @@ plugins:
     enabled: true
     schemaVersion: 1.0.0
 sections:
+  0b291d76-22bf-4e8e-a990-c9d6ace406a4:
+    name: Pages
+    handle: pages
+    type: structure
+    enableVersioning: true
+    propagationMethod: all
+    siteSettings:
+      5d0fd958-be72-4405-989e-030f329741df:
+        enabledByDefault: true
+        hasUrls: true
+        uriFormat: '{slug}'
+        template: pages/index
+    structure:
+      uid: b7395b45-5b5e-4e40-882e-d42b99553051
+      maxLevels: null
+    entryTypes:
+      3daff192-e1e6-4650-be94-6201755f0329:
+        name: Pages
+        handle: pages
+        hasTitleField: true
+        titleLabel: Title
+        titleFormat: ''
+        sortOrder: 1
+        fieldLayouts:
+          e2db16ca-569b-444e-87bb-7191838a0192:
+            tabs:
+              -
+                name: 'Tab 1'
+                sortOrder: 1
+                fields:
+                  2b21fcbf-5341-43c3-a34e-8930968fa5cd:
+                    required: false
+                    sortOrder: 1
   4fdd77f4-8702-4868-bcbe-e73165651f9d:
     name: Homepage
     handle: homepage

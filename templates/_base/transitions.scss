@@ -1,6 +1,6 @@
 page-transition {
 	width: 100vw;
-	height: 0.125rem;
+	height: 3px;
 	position: fixed;
 	top: 0;
 	left: 0;
@@ -8,7 +8,6 @@ page-transition {
 	transform: translate3d(0, -101%, 0);
 	transition: transform 125ms cubic-bezier(0.4, 0, 0.6, 1);
 	background-color: var(--loading-bar-background);
-	overflow: hidden;
 	display: inline-block;
 	opacity: 0;
 	user-select: none;
@@ -51,6 +50,7 @@ page-transition transition-bar-one {
 page-transition transition-bar-one::before {
 	content: '';
 	background-color: var(--loading-bar);
+	box-shadow: 0 0 3px var(--loading-bar-shadow);
 	display: inline-block;
 	position: absolute;
 	width: 100%;
@@ -67,6 +67,7 @@ page-transition transition-bar-two {
 page-transition transition-bar-two::before {
 	content: '';
 	background-color: var(--loading-bar);
+	box-shadow: 0 0 3px var(--loading-bar-shadow);
 	display: inline-block;
 	position: absolute;
 	width: 100%;
