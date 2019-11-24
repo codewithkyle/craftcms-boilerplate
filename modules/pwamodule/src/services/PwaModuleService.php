@@ -33,24 +33,24 @@ class PwaModuleService extends Component
      */
     public function cachebust()
     {
-        if ($settings = include(FileHelper::normalizePath(Craft::$app->getPath()->getConfigPath() . '/pwa.php')))
+        $settings = include(FileHelper::normalizePath(Craft::$app->getPath()->getConfigPath() . '/pwa.php'));
+        $cache = include(FileHelper::normalizePath(Craft::$app->getPath()->getRuntimePath() . '/pwa/cache.php'));
+        if ($settings)
         {
-            if (is_array($settings))
+            $response = [
+                'success' => true,
+                'resourcesCache' => $settings['resourcesCache'],
+                'contentCacheDuration' => $settings['contentCacheDuration'],
+                'maximumContentPrompts' => $settings['maximumContentPrompts']
+            ];
+
+            if ($cache)
             {
-                $response = [
-                    'success' => true,
-                    'resourcesCache' => $settings['resourcesCache'],
-                    'contentCache' => $settings['contentCache'],
-                    'contentCacheDuration' => $settings['contentCacheDuration'],
-                    'maximumContentPrompts' => $settings['maximumContentPrompts']
-                ];
+                $response['contentCache'] = $cache['contentCache'];
             }
             else
             {
-                $response = [
-                    'success' => false,
-                    'error' => 'pwa.php does not return an array'
-                ];
+                $response['contentCache'] = $settings['contentCache'];
             }
         }
         else
@@ -82,6 +82,22 @@ class PwaModuleService extends Component
                 $cache->set($id, '0');
                 return '0';
             }
+        }
+    }
+
+    public function setupContentCache()
+    {
+        $dirPath = FileHelper::normalizePath(Craft::$app->getPath()->getRuntimePath() . '/pwa');
+        if (!is_dir($dirPath))
+        {
+            mkdir($dirPath);
+        }
+
+        if (!file_exists($dirPath . '/cache.php'))
+        {
+            $file = fopen($dirPath . '/cache.php', "w");
+            fwrite($file,"<?php\nreturn [\n\t'contentCache' => '" . time() . "',\n];");
+            fclose($file);
         }
     }
 }

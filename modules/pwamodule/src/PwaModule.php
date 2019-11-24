@@ -125,6 +125,7 @@ class PwaModule extends Module
             }
         );
 
+        // Trigger revision updates when an element is saved
         Event::on(
             Elements::class, 
             Elements::EVENT_AFTER_SAVE_ELEMENT, 
@@ -141,6 +142,19 @@ class PwaModule extends Module
                     PwaModule::getInstance()->pwaModuleService->updateRevisions($entryIds);
                 }
         });
+
+        // Adds content cachebust file path to the list of things the Clear Caches tool can delete
+        Event::on(ClearCaches::class, ClearCaches::EVENT_REGISTER_CACHE_OPTIONS,
+            function (RegisterCacheOptionsEvent $event) {
+                $event->options[] = [
+                    'key' => 'pwa-offline-content-cache',
+                    'label' => Craft::t('pwa-module', 'PWA offline content cache'),
+                    'action' => FileHelper::normalizePath(Craft::$app->getPath()->getRuntimePath() . '/pwa/')
+                ];
+            }
+        );
+
+        PwaModule::getInstance()->pwaModuleService->setupContentCache();
 
         Craft::info(
             Craft::t(
