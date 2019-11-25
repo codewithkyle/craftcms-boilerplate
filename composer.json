@@ -9,6 +9,7 @@
     "ether/seo": "3.6.2",
     "ether/splash": "3.0.5",
     "nystudio107/craft-eagerbeaver": "1.0.4",
+    "sebastianlenz/linkfield": "1.0.19",
     "verbb/smith": "1.0.0",
     "vlucas/phpdotenv": "^3.4.0",
     "yiisoft/yii2-redis": "^2.0"

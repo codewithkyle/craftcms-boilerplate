@@ -5,10 +5,11 @@
 {% block page %}
     <header>
         <nav>
-            {% for link in navigation %}
-                <a href="{{ link.url }}">{{ link.title }}</a>
+            {% for block in navigation %}
+                {% set link = block.customLink %}
+                {{ link.getLink() }}
+                <br/>
             {% endfor %}
-            <a href="{{ siteUrl|trim('/') }}/pages/test">Test Page</a>
         </nav>
     </header>
     <main eager-load-css="colors transitions snackbar" data-id="1">

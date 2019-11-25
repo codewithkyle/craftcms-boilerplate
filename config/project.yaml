@@ -1,4 +1,4 @@
-dateModified: 1574626644
+dateModified: 1574699494
 email:
   fromEmail: codingwithkyle@gmail.com
   fromName: 'Craft PWA'
@@ -72,16 +72,12 @@ fields:
     searchable: false
     translationMethod: site
     translationKeyFormat: null
-    type: craft\fields\Entries
+    type: craft\fields\Matrix
     settings:
-      sources: '*'
-      source: null
-      targetSiteId: null
-      viewMode: null
-      limit: ''
-      selectionLabel: ''
-      localizeRelations: false
-      validateRelatedElements: '1'
+      minBlocks: ''
+      maxBlocks: ''
+      contentTable: '{{%matrixcontent_primarynavigation}}'
+      propagationMethod: all
     contentColumnType: string
     fieldGroup: 0e5caedc-3ce5-4116-8378-d114d694a4b9
   eb6a6693-6c19-4c32-a16a-5216a0b1fb71:
@@ -125,6 +121,75 @@ globalSets:
             fields:
               97394d4b-065b-43a0-871d-537d30c81c65:
                 required: false
+                sortOrder: 1
+matrixBlockTypes:
+  23cab073-61c2-4d88-b17b-86ec2d323da7:
+    field: 97394d4b-065b-43a0-871d-537d30c81c65
+    name: Link
+    handle: block
+    sortOrder: 1
+    fields:
+      46abdf61-5ce1-4eab-9df8-a5a3034b1449:
+        name: 'Custom Link'
+        handle: customLink
+        instructions: ''
+        searchable: false
+        translationMethod: none
+        translationKeyFormat: null
+        type: typedlinkfield\fields\LinkField
+        settings:
+          allowCustomText: '1'
+          allowedLinkNames:
+            2: category
+            3: entry
+            6: custom
+            7: email
+            8: tel
+            9: url
+          allowTarget: '1'
+          autoNoReferrer: ''
+          defaultLinkName: entry
+          defaultText: ''
+          enableAriaLabel: ''
+          enableTitle: ''
+          typeSettings:
+            asset:
+              sources: '*'
+              allowCustomQuery: ''
+            category:
+              sources: '*'
+              allowCustomQuery: ''
+            entry:
+              sources: '*'
+              allowCustomQuery: ''
+            site:
+              sites: '*'
+            user:
+              sources: '*'
+              allowCustomQuery: ''
+            custom:
+              disableValidation: ''
+              allowAliases: ''
+            email:
+              disableValidation: ''
+              allowAliases: ''
+            tel:
+              disableValidation: ''
+              allowAliases: ''
+            url:
+              disableValidation: ''
+              allowAliases: ''
+        contentColumnType: text
+        fieldGroup: null
+    fieldLayouts:
+      49d302d5-a36c-4bb6-8625-6496a789bc79:
+        tabs:
+          -
+            name: Content
+            sortOrder: 1
+            fields:
+              46abdf61-5ce1-4eab-9df8-a5a3034b1449:
+                required: true
                 sortOrder: 1
 plugins:
   imager:
@@ -191,6 +256,10 @@ plugins:
     enabled: true
     schemaVersion: 1.0.0
   smith:
+    edition: standard
+    enabled: true
+    schemaVersion: 1.0.0
+  typedlinkfield:
     edition: standard
     enabled: true
     schemaVersion: 1.0.0
