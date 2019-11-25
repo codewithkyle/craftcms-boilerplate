@@ -2,8 +2,9 @@ import { env, debug } from './env';
 import { broadcaster } from './broadcaster';
 
 interface WorkerResponse {
-	type: 'eager' | 'lazy';
+	type: 'eager' | 'lazy' | 'parse';
 	files: Array<ResourceObject>;
+	requestUid: string|null
 }
 
 type WebComponentLoad = null | 'lazy' | 'eager';
@@ -31,6 +32,9 @@ class Runtime {
 			case 'mount-components':
 				this.handleWebComponents();
 				break;
+			case 'parse':
+				this.parseHTML(data.body, data.requestUid);
+				break;
 			default:
 				if (debug) {
 					console.warn(`Undefined runtime message type: ${type}`);
@@ -48,6 +52,15 @@ class Runtime {
 		});
 		this._bodyParserWorker.onmessage = this.handleWorkerMessage.bind(this);
 		this._io = new IntersectionObserver(this.intersectionCallback);
+	}
+
+	private parseHTML(body:string, requestUid:string): void
+	{
+		this._bodyParserWorker.postMessage({
+			type: 'parse',
+			body: body,
+			requestUid: requestUid,
+		});
 	}
 
 	private upgradeToWebComponent(customElementTagName: string, customElement: Element): void {
@@ -82,12 +95,23 @@ class Runtime {
 						body: document.body.innerHTML,
 					});
 					this.handleWebComponents();
+					broadcaster.message('pjax', {
+						type: 'css-ready'
+					});
 				});
 				break;
 			case 'lazy':
 				const ticket = env.startLoading();
 				this.fetchResources(response.files).then(() => {
 					env.stopLoading(ticket);
+				});
+				break;
+			case 'parse':
+				this.fetchResources(response.files).then(() => {
+					broadcaster.message('pjax', {
+						type: 'css-ready',
+						requestUid: response.requestUid
+					});
 				});
 				break;
 			default:

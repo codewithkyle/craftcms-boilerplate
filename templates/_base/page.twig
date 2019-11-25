@@ -8,9 +8,10 @@
             {% for link in navigation %}
                 <a href="{{ link.url }}">{{ link.title }}</a>
             {% endfor %}
+            <a href="{{ siteUrl|trim('/') }}/pages/test">Test Page</a>
         </nav>
     </header>
-    <main eager-load-css="colors transitions snackbar">
+    <main eager-load-css="colors transitions snackbar" data-id="1">
         {% block content %}{% endblock %}
     </main>
 {% endblock %}

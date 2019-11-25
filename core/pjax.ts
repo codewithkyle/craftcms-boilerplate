@@ -10,6 +10,7 @@ class Pjax {
 	private state: PjaxState;
 	private worker: Worker;
 	private serviceWorker: ServiceWorker;
+	private transitionQueue: Array<any>;
 
 	constructor() {
 		this.state = {
@@ -17,6 +18,7 @@ class Pjax {
 		};
 		this.worker = null;
 		this.serviceWorker = null;
+		this.transitionQueue = [];
 		this.init();
 	}
 
@@ -43,17 +45,13 @@ class Pjax {
 					});
 					navigator.serviceWorker.onmessage = this.handleServiceWorkerMessage.bind(this);
 					broadcaster.message('pjax', { type: 'revision-check' });
-					broadcaster.message('pjax', { type: 'hijack-links' });
 				}
 			})
 			.catch((error) => {
 				console.error('Registration failed with ' + error);
 			});
 		}
-		else
-		{
-			broadcaster.message('pjax', { type: 'hijack-links' });
-		}
+		broadcaster.message('pjax', { type: 'hijack-links' });
 	}
 
 	private inbox(data: MessageData): void {
@@ -72,6 +70,9 @@ class Pjax {
 				this.updateHistory(data.title, data.url, data.history);
 				this.collectLinks();
 				this.checkPageRevision();
+				break;
+			case 'css-ready':
+				this.swapPjaxContent(data.requestUid);
 				break;
 			default:
 				if (debug) {
@@ -201,29 +202,7 @@ class Pjax {
 				}
 				break;
 			case 'pjax':
-				if (e.data.requestUid === this.state.activeRequestUid)
-				{
-					if (e.data.status === 'ok')
-					{
-						this.swapPjaxContent(e.data.body, e.data.ticket, e.data.url, e.data.history);
-					}
-					else
-					{
-						if (debug)
-						{
-							console.error(`Failed to fetch page: ${ e.data.url }. Server responded with: ${ e.data.error }`);
-						}
-						window.location.href = e.data.url;
-					}
-				}
-				else
-				{
-					env.stopLoading(e.data.ticket);
-					if (e.data.status !== 'ok' && debug)
-					{
-						console.error(`Failed to fetch page: ${ e.data.url }. Server responded with: ${ e.data.error }`);
-					}
-				}
+				this.handlePjaxResponse(e.data.requestUid, e.data.status, e.data.body, e.data.ticket, e.data.url, e.data.history, e.data?.error)
 				break;
 			default:
 				if (debug) {
@@ -233,28 +212,89 @@ class Pjax {
 		}
 	}
 
-	private swapPjaxContent(html:string, ticket:string, url:string, history:string)
+	private handlePjaxResponse(requestUid:string, status:string, body:string, ticket:string, url:string, history: string, error?:string)
 	{
-		const tempDocument:HTMLDocument = document.implementation.createHTMLDocument('pjax-temp-document');
-		tempDocument.documentElement.innerHTML = html;
-		const main = tempDocument.querySelector('main');
-		if (main)
+		if (requestUid === this.state.activeRequestUid)
 		{
-			const currentMain = document.body.querySelector('main');
-			currentMain.innerHTML = main.innerHTML;
-			document.title = tempDocument.title;
-			broadcaster.message('pjax', {
-				type: 'navigation-update',
-				url: url,
-				title: tempDocument.title,
-				history: history,
-			});
-			env.stopLoading(ticket);
+			if (status === 'ok')
+			{
+				const tempDocument:HTMLDocument = document.implementation.createHTMLDocument('pjax-temp-document');
+				tempDocument.documentElement.innerHTML = body;
+				const currentMain = document.body.querySelector('main');
+				const main = tempDocument.querySelector(`main[data-id="${ currentMain.dataset.id }"]`);
+				if (main && currentMain)
+				{
+					broadcaster.message('runtime', {
+						type: 'parse',
+						body: main.innerHTML,
+						requestUid: requestUid,
+					});
+					const newTransition = {
+						body: main.innerHTML,
+						title: tempDocument.title,
+						url: url,
+						history: history,
+						ticket: ticket,
+						requestUid: requestUid,
+					};
+					this.transitionQueue.push(newTransition);
+				}
+				else
+				{
+					if (debug)
+					{
+						console.error('Failed to find the new and current main elements');
+					}
+					window.location.href = url;
+				}
+			}
+			else
+			{
+				if (debug)
+				{
+					console.error(`Failed to fetch page: ${ url }. Server responded with: ${ error }`);
+				}
+				window.location.href = url;
+			}
 		}
 		else
 		{
-			window.location.href = url;
+			env.stopLoading(ticket);
+			if (status !== 'ok' && debug)
+			{
+				console.error(`Failed to fetch page: ${ url }. Server responded with: ${ error }`);
+			}
 		}
+	}
+
+	private swapPjaxContent(requestUid:string)
+	{
+		for (let i = 0; i < this.transitionQueue.length; i++)
+		{
+			if (this.transitionQueue[i].requestUid === requestUid)
+			{
+				const transition = this.transitionQueue[i];
+				if (this.state.activeRequestUid === requestUid)
+				{
+					const currentMain = document.body.querySelector('main');
+					currentMain.innerHTML = transition.body;
+					document.title = transition.title;
+					broadcaster.message('pjax', {
+						type: 'navigation-update',
+						url: transition.url,
+						title: transition.title,
+						history: transition.history,
+					});
+					broadcaster.message('runtime', {
+						type: 'mount-components',
+					});
+				}
+				env.stopLoading(transition.ticket);
+				this.transitionQueue.splice(i, 1);
+				return;
+			}
+		}
+
 	}
 
 	private checkPageRevision() {
