@@ -2,6 +2,7 @@
 {% set page = {
     'id': null,
     'revisionId': null,
+    'uid': null,
 } %}
 {% if entry is defined %}
     {% set page = entry %}
@@ -16,7 +17,9 @@
 {% header "Pragma: cache" %}
 {% header "Expires: " ~ expiry|date('D, d M Y H:i:s', 'GMT') ~ " GMT" %}
 {% header "Access-Control-Expose-Headers: etag" %}
-{% header "ETag: " ~ page.uid ~ '-' ~ craft.pwa.getCache(page.id) %}
+{% if page.uid %}
+    {% header "ETag: " ~ page.uid ~ '-' ~ craft.pwa.getCache(page.id) %}
+{% endif %}
 
 {% spaceless %}
 <!DOCTYPE html>
