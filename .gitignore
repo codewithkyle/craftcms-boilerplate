@@ -11,3 +11,4 @@
 # Assets
 # --------
 /public/assets
+/config/pwa-auto.php

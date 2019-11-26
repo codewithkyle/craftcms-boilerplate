@@ -34,23 +34,38 @@ class PwaModuleService extends Component
     public function cachebust()
     {
         $settings = include(FileHelper::normalizePath(Craft::$app->getPath()->getConfigPath() . '/pwa.php'));
+        $timestamps = include(FileHelper::normalizePath(Craft::$app->getPath()->getConfigPath() . '/pwa-auto.php'));
         $cache = include(FileHelper::normalizePath(Craft::$app->getPath()->getRuntimePath() . '/pwa/cache.php'));
         if ($settings)
         {
             $response = [
                 'success' => true,
-                'resourcesCache' => $settings['resourcesCache'],
                 'contentCacheDuration' => $settings['contentCacheDuration'],
                 'maximumContentPrompts' => $settings['maximumContentPrompts']
             ];
 
+            // Sets resources cache timestamp based on automated cache busting when possible
+            if ($timestamps)
+            {
+                $response['resourcesCache'] = $timestamps['resourcesCache'];
+            }
+            else
+            {
+                $response['resourcesCache'] = date('U');
+            }
+
+            // Sets content cache timestamp based on automated cache busting when possible
             if ($cache)
             {
                 $response['contentCache'] = $cache['contentCache'];
             }
+            else if ($timestamps)
+            {
+                $response['contentCache'] = $timestamps['contentCache'];
+            }
             else
             {
-                $response['contentCache'] = $settings['contentCache'];
+                $response['contentCache'] = date('U');
             }
         }
         else
