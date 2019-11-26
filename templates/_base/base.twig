@@ -391,9 +391,13 @@
             </div>
         </page-loading>
         {# Infinite progress bar loading animation #}
-        <page-transition>
+        <soft-loading>
             <transition-bar-one></transition-bar-one>
             <transition-bar-two></transition-bar-two>
+        </soft-loading>
+        {# Page loading animation #}
+        <page-transition>
+            <page-transition-bar></page-transition-bar>
         </page-transition>
         {% block page %}{% endblock %}
     </body>

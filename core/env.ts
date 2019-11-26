@@ -69,6 +69,26 @@ class Env {
 		return ticket;
 	}
 
+	public startPageTransition():void
+	{
+		document.documentElement.setAttribute('state', 'page-loading');
+	}
+
+	public endPageTransition():void
+	{
+		document.documentElement.setAttribute('state', 'page-loading-complete');
+		setTimeout(() => {
+			if (this._tickets.length)
+			{
+				document.documentElement.setAttribute('state', 'soft-loading');
+			}
+			else
+			{
+				document.documentElement.setAttribute('state', 'idling');
+			}
+		}, 600);
+	}
+
 	/**
 	 * Quick and dirty unique ID generation.
 	 * This method does not follow RFC 4122 and does not guarantee a universally unique ID.

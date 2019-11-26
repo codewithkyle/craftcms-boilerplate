@@ -1,4 +1,4 @@
-page-transition {
+soft-loading {
 	width: 100vw;
 	height: 3px;
 	position: fixed;
@@ -10,7 +10,8 @@ page-transition {
 	background-color: var(--loading-bar-background);
 	display: inline-block;
 	opacity: 0;
-	user-select: none;
+    user-select: none;
+    visibility: hidden;
 	pointer-events: none;
 }
 
@@ -18,36 +19,37 @@ html[state='soft-loading'] * {
 	cursor: wait !important;
 }
 
-html[state='soft-loading'] page-transition {
+html[state='soft-loading'] soft-loading {
 	transform: translate3d(0, 0, 0);
-	opacity: 1;
+    opacity: 1;
+    visibility: visible;
 	transition: transform 150ms cubic-bezier(0, 0, 0.2, 1);
 }
 
-html[state='soft-loading'] page-transition transition-bar-one {
+html[state='soft-loading'] soft-loading transition-bar-one {
 	animation: primaryBar 2s infinite linear;
 }
 
-html[state='soft-loading'] page-transition transition-bar-one:before {
+html[state='soft-loading'] soft-loading transition-bar-one:before {
 	animation: primaryScale 2s infinite linear;
 }
 
-html[state='soft-loading'] page-transition transition-bar-two {
+html[state='soft-loading'] soft-loading transition-bar-two {
 	animation: secondaryBar 2s infinite linear;
 }
 
-html[state='soft-loading'] page-transition transition-bar-two:before {
+html[state='soft-loading'] soft-loading transition-bar-two:before {
 	animation: secondaryScale 2s infinite linear;
 }
 
-page-transition transition-bar-one {
+soft-loading transition-bar-one {
 	left: -145%;
 	position: absolute;
 	width: 100%;
 	height: 100%;
 }
 
-page-transition transition-bar-one::before {
+soft-loading transition-bar-one::before {
 	content: '';
 	background-color: var(--loading-bar);
 	box-shadow: 0 0 3px var(--loading-bar-shadow);
@@ -57,14 +59,14 @@ page-transition transition-bar-one::before {
 	height: 100%;
 }
 
-page-transition transition-bar-two {
+soft-loading transition-bar-two {
 	left: -54%;
 	position: absolute;
 	width: 100%;
 	height: 100%;
 }
 
-page-transition transition-bar-two::before {
+soft-loading transition-bar-two::before {
 	content: '';
 	background-color: var(--loading-bar);
 	box-shadow: 0 0 3px var(--loading-bar-shadow);

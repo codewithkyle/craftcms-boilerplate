@@ -13,7 +13,6 @@ interface NavigaitonRequest
 	title?: string,
 	url: string,
 	history: 'push'|'replace',
-	ticket: string,
 	requestUid: string,
 }
 
@@ -198,14 +197,13 @@ class Pjax {
 	 */
 	private navigate(url:string, history:'push'|'replace' = 'push'): void
 	{
-		/** TODO: update loading animation to use custom Pjax hanging transition animation */
+		env.startPageTransition();
 		const requestUid = uuid();
 		this.state.activeRequestUid = requestUid;
 		const navigationRequest:NavigaitonRequest = {
 			url: url,
 			history: history,
 			requestUid: requestUid,
-			ticket: env.startLoading()
 		};
 		this.navigationRequestQueue.push(navigationRequest);
 		this.worker.postMessage({
@@ -344,7 +342,6 @@ class Pjax {
 		}
 		else
 		{
-			env.stopLoading(request.ticket);
 			this.removeNavigationRequest(request.requestUid);
 			if (status !== 'ok' && debug)
 			{
@@ -362,6 +359,8 @@ class Pjax {
 		const request = this.getNavigaitonRequest(requestUid);
 		if (request.requestUid === this.state.activeRequestUid)
 		{
+			env.endPageTransition();
+			
 			/** Updates content */
 			const currentMain = document.body.querySelector('main');
 			currentMain.innerHTML = request.body;
@@ -380,7 +379,6 @@ class Pjax {
 				type: 'mount-components',
 			});
 		}
-		env.stopLoading(request.ticket);
 		this.removeNavigationRequest(request.requestUid);
 	}
 
