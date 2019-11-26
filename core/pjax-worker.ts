@@ -1,8 +1,13 @@
+/** The Pjax Web Worker class. Used to handle page revision checking & navigation requests. */
 class PjaxWorker {
 	constructor() {
 		self.onmessage = this.handleMessage.bind(this);
 	}
 
+	/**
+	 * Handles the incoming messages sent from the Pjax class.
+	 * @param e - the `MessageEvent`
+	 */
 	private handleMessage(e: MessageEvent): void {
 		const { type } = e.data;
 		switch (type) {
@@ -10,7 +15,7 @@ class PjaxWorker {
 				this.checkRevision(e.data.url);
 				break;
 			case 'pjax':
-				this.pjax(e.data.url, e.data.ticket, e.data.requestUid, e.data.history);
+				this.pjax(e.data.url, e.data.requestId);
 				break;
 			default:
 				console.error(`Unknown Pjax Worker message type: ${type}`);
@@ -18,7 +23,12 @@ class PjaxWorker {
 		}
 	}
 
-	private async pjax(url:string, ticket:string, requestUid:string, history:string)
+	/**
+	 * Fetch the requested URL and respond with the fetch request body or the fetch errors.
+	 * @param url - the requested URL
+	 * @param requestId - the request ID
+	 */
+	private async pjax(url:string, requestId:string)
 	{
 		try
 		{
@@ -38,10 +48,8 @@ class PjaxWorker {
 					type: 'pjax',
 					status: 'ok',
 					body: response,
-					ticket: ticket,
-					requestUid: requestUid,
+					requestId: requestId,
 					url: url,
-					history: history,
 				});
 			}
 			else
@@ -52,7 +60,7 @@ class PjaxWorker {
 					status: 'error',
 					error: request.statusText,
 					url: url,
-					requestUid: requestUid,
+					requestId: requestId,
 				});
 			}
 		}
@@ -64,7 +72,7 @@ class PjaxWorker {
 				status: 'error',
 				error: error,
 				url: url,
-				requestUid: requestUid,
+				requestId: requestId,
 			});
 		}
 	}

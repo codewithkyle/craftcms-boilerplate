@@ -23,7 +23,16 @@
 
 {% spaceless %}
 <!DOCTYPE html>
-<html lang="{{ currentSite.language }}" state="hard-loading" {% if isDebug and currentUser and currentUser['admin'] or craft.app.config.env == 'dev' or craft.app.config.env == 'staging'  %}debug="true"{% endif %} data-csrf="{{ craft.app.request.csrfToken }}" data-environment="{{ craft.app.config.env }}">
+<html 
+    lang="{{ currentSite.language }}" 
+    state="hard-loading" 
+    {% if isDebug and currentUser and currentUser['admin'] or craft.app.config.env == 'dev' or craft.app.config.env == 'staging'  %}
+        debug="true"
+    {% endif %} 
+    data-csrf="{{ craft.app.request.csrfToken }}" 
+    data-environment="{{ craft.app.config.env }}" 
+    data-ga-id=""
+>
     <head>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta charset="utf-8" />

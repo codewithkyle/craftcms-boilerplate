@@ -139,6 +139,7 @@ class Broadcaster {
 	 * Register and hookup an inbox.
 	 * @param name - the name of the inbox
 	 * @param inbox - the function that will handle the inboxes incoming messages
+	 * @returns - inbox unique ID
 	 */
 	public hookup(name: string, inbox: Function): string {
 		const newInbox: Inbox = {
