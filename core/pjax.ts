@@ -1,16 +1,27 @@
 import { broadcaster } from './broadcaster';
 import { debug, env, uuid } from './env';
 import { notify } from '../packages/notify.js';
+import { sendPageView, setupGoogleAnalytics } from './gtags.js';
 
 interface PjaxState {
 	activeRequestUid: string,
+}
+
+interface Transition
+{
+	body: string,
+	title: string,
+	url: string,
+	history: 'push'|'replace',
+	ticket: string,
+	requestUid: string,
 }
 
 class Pjax {
 	private state: PjaxState;
 	private worker: Worker;
 	private serviceWorker: ServiceWorker;
-	private transitionQueue: Array<any>;
+	private transitionQueue: Array<Transition>;
 
 	constructor() {
 		this.state = {
@@ -27,6 +38,7 @@ class Pjax {
 		{
 			sessionStorage.setItem('prompts', '0');
 		}
+		setupGoogleAnalytics();
 		broadcaster.hookup('pjax', this.inbox.bind(this));
 		this.worker = new Worker(`${window.location.origin}/assets/pjax-worker.js`);
 		this.worker.onmessage = this.handleWorkerMessage.bind(this);
@@ -70,6 +82,7 @@ class Pjax {
 				this.updateHistory(data.title, data.url, data.history);
 				this.collectLinks();
 				this.checkPageRevision();
+				sendPageView(window.location.pathname);
 				break;
 			case 'css-ready':
 				this.swapPjaxContent(data.requestUid);
@@ -109,7 +122,7 @@ class Pjax {
 		}
 	}
 
-	private updateHistory(title:string, url:string, history): void
+	private updateHistory(title:string, url:string, history:'push'|'replace'): void
 	{
 		if (history === 'replace')
 		{
@@ -212,7 +225,7 @@ class Pjax {
 		}
 	}
 
-	private handlePjaxResponse(requestUid:string, status:string, body:string, ticket:string, url:string, history: string, error?:string)
+	private handlePjaxResponse(requestUid:string, status:string, body:string, ticket:string, url:string, history:'push'|'replace', error?:string)
 	{
 		if (requestUid === this.state.activeRequestUid)
 		{
@@ -229,7 +242,7 @@ class Pjax {
 						body: main.innerHTML,
 						requestUid: requestUid,
 					});
-					const newTransition = {
+					const newTransition:Transition = {
 						body: main.innerHTML,
 						title: tempDocument.title,
 						url: url,
