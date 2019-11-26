@@ -8,7 +8,7 @@
 /public/uploads/*
 !/public/uploads/.gitkeep
 
-# Assets
+# Remove if assets shouldn't be server-side compiled
 # --------
 /public/assets
 /config/pwa-auto.php
