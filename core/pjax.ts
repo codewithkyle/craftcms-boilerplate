@@ -21,6 +21,7 @@ class Pjax {
 	private worker: Worker;
 	private serviceWorker: ServiceWorker;
 	private navigationRequestQueue: Array<NavigaitonRequest>;
+	private io : IntersectionObserver;
 
 	constructor() {
 		this.state = {
@@ -29,6 +30,7 @@ class Pjax {
 		this.worker = null;
 		this.serviceWorker = null;
 		this.navigationRequestQueue = [];
+		this.io = new IntersectionObserver(this.handleIntersection);
 		this.init();
 	}
 
@@ -83,6 +85,10 @@ class Pjax {
 		window.history.replaceState({ url: window.location.href }, document.title, window.location.href);
 		/** Tell Pjax to hijack all viable links */
 		broadcaster.message('pjax', { type: 'hijack-links' });
+		/** Tell Pjax to prefetch links */
+		broadcaster.message('pjax', {
+			type: 'prefetch'
+		});
 	}
 
 	/**
@@ -109,6 +115,9 @@ class Pjax {
 				break;
 			case 'css-ready':
 				this.swapPjaxContent(data.requestUid);
+				break;
+			case 'prefetch':
+				this.prefetchLinks();
 				break;
 			default:
 				if (debug) {
@@ -351,7 +360,7 @@ class Pjax {
 	}
 
 	/**
-	 * 
+	 * Swaps the main elements inner HTML.
 	 * @param requestUid - the navigation request unique id
 	 */
 	private swapPjaxContent(requestUid:string)
@@ -418,11 +427,77 @@ class Pjax {
 	/**
 	 * Sends a `revision-check` message to the Pjax web worker.
 	 */
-	private checkPageRevision() {
+	private checkPageRevision():void {
 		this.worker.postMessage({
 			type: 'revision-check',
 			url: window.location.href,
 		});
 	}
+
+	/** Collect primary navigation links and tell the Pjax web worker to prefetch the pages. */
+	private prefetchLinks(): void
+	{
+		/** Require a service worker & at least a 3g connection to continue */
+		if (env.connection === '2g' || env.connection === 'slow-2g' && 'serviceWorker' in navigator)
+		{
+			return;
+		}
+		const urls:Array<string> = [];
+
+		/** Header links */
+		const headerLinks = Array.from(document.body.querySelectorAll('header a[href]'));
+		headerLinks.map((link:HTMLAnchorElement) => {
+			link.setAttribute('pjax-prefetched', 'true');
+			urls.push(link.href);
+		});
+
+		/** All other navigation links */
+		const navLinks = Array.from(document.body.querySelectorAll('nav a[href]:not([pjax-prefetched])'));
+		navLinks.map((link:HTMLAnchorElement) => {
+			link.setAttribute('pjax-prefetched', 'true');
+			urls.push(link.href);
+		});
+
+		/** Send the requested URLs to the Pjax web worker */
+		this.worker.postMessage({
+			type: 'prefetch',
+			urls: urls,
+		});
+
+		/** Require at least a 4g connection to continue */
+		if (env.connection === '3g')
+		{
+			return;
+		}
+
+		const allLinks = Array.from(document.body.querySelectorAll('a[href]:not([pjax-prefetched]):not([target])'));
+		allLinks.map((link:HTMLAnchorElement) => {
+			link.setAttribute('pjax-prefetched', 'true');
+			this.io.observe(link);
+		});
+	}
+
+	/**
+	 * Grabs the URLs from all of the observed anchor elements, unobserves the element, and sends the URLs to the Pjax web worker.
+	 * @param links - array of `IntersectionObserverEntry` objects
+	 */
+	private prefetchLink(links:Array<IntersectionObserverEntry>): void
+	{
+		const urls:Array<string> = [];
+		links.map((entry) => {
+			const link = entry.target as HTMLAnchorElement;
+			this.io.unobserve(link);
+			urls.push(link.href);
+		});
+		if (urls.push)
+		{
+			/** Send the requested URLs to the Pjax web worker */
+			this.worker.postMessage({
+				type: 'prefetch',
+				urls: urls,
+			});
+		}
+	}
+	private handleIntersection:IntersectionObserverCallback = this.prefetchLink.bind(this);
 }
 new Pjax();

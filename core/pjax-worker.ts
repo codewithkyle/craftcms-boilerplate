@@ -1,7 +1,10 @@
 /** The Pjax Web Worker class. Used to handle page revision checking & navigation requests. */
 class PjaxWorker {
+	private prefetchQueue: Array<string>;
+
 	constructor() {
 		self.onmessage = this.handleMessage.bind(this);
+		this.prefetchQueue = [];
 	}
 
 	/**
@@ -17,10 +20,47 @@ class PjaxWorker {
 			case 'pjax':
 				this.pjax(e.data.url, e.data.requestId);
 				break;
+			case 'prefetch':
+				const existingQueue = (this.prefetch.length);
+				this.prefetchQueue = [...this.prefetchQueue, ...e.data.urls];
+				if (!existingQueue)
+				{
+					this.prefetch();
+				}
+				break;
 			default:
 				console.error(`Unknown Pjax Worker message type: ${type}`);
 				break;
 		}
+	}
+
+	/**
+	 * Fetches the URL provided by the Pjax class.
+	 * The service worker will cache the response.
+	 */
+	private prefetch()
+	{
+		if (this.prefetchQueue.length === 0)
+		{
+			return;
+		}
+		const url = this.prefetchQueue[0];
+		this.prefetchQueue.splice(0, 1);
+		fetch(url, {
+				method: 'GET',
+				credentials: 'include',
+				headers: new Headers({
+					'X-Requested-With': 'XMLHttpReqeust',
+					'X-Pjax': 'true',
+				})
+			})
+			.then(()=>{})
+			.catch(()=>{})
+			.finally(()=>{
+				setTimeout(() => {
+					this.prefetch();
+				}, 150);
+			});
 	}
 
 	/**
