@@ -44,6 +44,11 @@ class Pjax {
 			sessionStorage.setItem('prompts', '0');
 		}
 
+		if (!localStorage.getItem('contentCache'))
+		{
+			localStorage.setItem('contentCache', `${ Date.now() }`);
+		}
+
 		/** Hookup Pjax's inbox */
 		broadcaster.hookup('pjax', this.inbox.bind(this));
 
@@ -68,7 +73,7 @@ class Pjax {
 					/** Tell the service worker to get the latest cachebust data */
 					this.serviceWorker.postMessage({
 						type: 'cachebust',
-						url: window.location.href
+						url: window.location.href,
 					});
 
 					/** Tell Pjax to check if the current page is stale */
@@ -112,6 +117,7 @@ class Pjax {
 				this.collectLinks();
 				this.checkPageRevision();
 				sendPageView(window.location.pathname, document.documentElement.dataset.gaId);
+				this.prefetchLinks();
 				break;
 			case 'css-ready':
 				this.swapPjaxContent(data.requestUid);
@@ -153,7 +159,7 @@ class Pjax {
 					],
 				});
 				break;
-			case 'set-max-prompts':
+			case 'cachebust':
 				sessionStorage.setItem('maxPrompts', `${ e.data.max }`);
 				const currentPromptCount = sessionStorage.getItem('prompts');
 				if (parseInt(currentPromptCount) >= e.data.max)
@@ -161,6 +167,16 @@ class Pjax {
 					sessionStorage.setItem('prompts', '0');
 					this.serviceWorker.postMessage({
 						type: 'clear-content-cache'
+					});
+				}
+				const contentCacheTimestap = parseInt(localStorage.getItem('contentCache'));
+				const difference = Date.now() - contentCacheTimestap;
+				const neededDifference = e.data.contentCacheExpires * 24 * 60 * 60 * 1000;
+				if (difference >= neededDifference)
+				{
+					localStorage.setItem('contentCache', `${ Date.now() }`);
+					this.serviceWorker.postMessage({
+						type: 'clear-content-cache',
 					});
 				}
 				break;

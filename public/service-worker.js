@@ -42,7 +42,7 @@ self.addEventListener('message', (event) => {
 	const { type } = event.data;
 	switch (type) {
 		case 'cachebust':
-			cachebust(event.data.url);
+			cachebust(event.data.url, event.data.contentCache);
 			break;
 		case 'page-refresh':
 			updatePageCache(event.data.url, event.data.network);
@@ -69,7 +69,7 @@ function clearContentCache()
 	});
 }
 
-async function cachebust(url) {
+async function cachebust(url, cachebust) {
 	const request = await fetch(`/pwa/cachebust`, {
 		cache: 'no-cache',
 		credentials: 'include',
@@ -95,8 +95,9 @@ async function cachebust(url) {
 			clients.map((client) => {
 				if (client.visibilityState === 'visible' && client.url === url) {
 					client.postMessage({
-						type: 'set-max-prompts',
-						max: parseInt(response.maximumContentPrompts)
+						type: 'cachebust',
+						max: parseInt(response.maximumContentPrompts),
+						contentCacheExpires: parseInt(response.contentCacheDuration)
 					});
 				}
 			});
