@@ -1,22 +1,22 @@
 /// <reference path="./messages.d.ts" />
 
 type InboxData = {
-	name: string;
-	address: number;
-	uid: string;
-};
+	name: string
+	address: number
+	uid: string
+}
 
 class BroadcastHelper {
-	private queuedMessages: Array<BroadcastWorkerMessage>;
-	private queueTimer: any;
-	private queueTimeout: number = 1000; // Milliseconds
-	private inboxes: Array<InboxData>;
+	private queuedMessages: Array<BroadcastWorkerMessage>
+	private queueTimer: any
+	private queueTimeout: number = 1000 // Milliseconds
+	private inboxes: Array<InboxData>
 
 	constructor() {
-		self.onmessage = this.handleMessage.bind(this);
-		this.queuedMessages = [];
-		this.queueTimer = null;
-		this.inboxes = [];
+		self.onmessage = this.handleMessage.bind(this)
+		this.queuedMessages = []
+		this.queueTimer = null
+		this.inboxes = []
 
 		// @ts-ignore
 		self.postMessage({
@@ -24,7 +24,7 @@ class BroadcastHelper {
 			data: {
 				type: 'ready',
 			},
-		});
+		})
 	}
 
 	/**
@@ -32,32 +32,32 @@ class BroadcastHelper {
 	 * @param data - an `InboxHookupMessage` object
 	 */
 	private addInbox(data: InboxHookupMessage): void {
-		const { name, inboxAddress } = data;
+		const { name, inboxAddress } = data
 		const inboxData: InboxData = {
 			name: name.trim().toLowerCase(),
 			address: inboxAddress,
 			uid: this.generateUUID(),
-		};
-		this.inboxes.push(inboxData);
+		}
+		this.inboxes.push(inboxData)
 	}
 
 	private removeInbox(data: InboxDisconnectMessage): void {
-		const { inboxAddress } = data;
+		const { inboxAddress } = data
 		for (let i = 0; i < this.inboxes.length; i++) {
 			if (this.inboxes[i].address === inboxAddress) {
-				this.inboxes.splice(i, 1);
-				break;
+				this.inboxes.splice(i, 1)
+				break
 			}
 		}
 	}
 
 	private updateAddressIndexes(data: InboxUpdateMessage): void {
-		const { addresses } = data;
+		const { addresses } = data
 		for (let i = 0; i < addresses.length; i++) {
 			for (let k = 0; k < this.inboxes.length; k++) {
 				if (addresses[i].oldAddressIndex === this.inboxes[i].address) {
-					this.inboxes[i].address = addresses[i].newAddressIndex;
-					break;
+					this.inboxes[i].address = addresses[i].newAddressIndex
+					break
 				}
 			}
 		}
@@ -67,7 +67,7 @@ class BroadcastHelper {
 			data: {
 				type: 'ready',
 			},
-		});
+		})
 	}
 
 	/**
@@ -77,27 +77,25 @@ class BroadcastHelper {
 	private inbox(data: MessageData) {
 		switch (data.type) {
 			case 'hookup':
-				this.addInbox(data as InboxHookupMessage);
-				break;
+				this.addInbox(data as InboxHookupMessage)
+				break
 			case 'disconnect':
-				this.removeInbox(data as InboxDisconnectMessage);
-				break;
+				this.removeInbox(data as InboxDisconnectMessage)
+				break
 			case 'update-addresses':
-				this.updateAddressIndexes(data as InboxUpdateMessage);
-				break;
+				this.updateAddressIndexes(data as InboxUpdateMessage)
+				break
 			case 'init':
-				this.handleUserDeviceInfo(data as UserDeviceInfoMessage);
-				break;
+				this.handleUserDeviceInfo(data as UserDeviceInfoMessage)
+				break
 			default:
-				console.warn(
-					`Unknown broadcast-worker message type: ${data.type}`,
-				);
-				break;
+				console.warn(`Unknown broadcast-worker message type: ${data.type}`)
+				break
 		}
 	}
 
 	private handleUserDeviceInfo(data: UserDeviceInfoMessage): void {
-		const { memory, isSafari } = data;
+		const { memory, isSafari } = data
 		if (memory <= 4) {
 			/** Tells broadcaster to cleanup disconnected inboxes every minute on low-end devices */
 			setInterval(() => {
@@ -107,8 +105,8 @@ class BroadcastHelper {
 					data: {
 						type: 'cleanup',
 					},
-				});
-			}, 60_000);
+				})
+			}, 60_000)
 		} else {
 			/** Tells broadcaster to cleanup disconnected inboxes every 5 minutes */
 			setInterval(() => {
@@ -118,8 +116,8 @@ class BroadcastHelper {
 					data: {
 						type: 'cleanup',
 					},
-				});
-			}, 300_000);
+				})
+			}, 300_000)
 		}
 
 		if (isSafari) {
@@ -131,8 +129,8 @@ class BroadcastHelper {
 					data: {
 						type: 'ping',
 					},
-				});
-			}, 3_000);
+				})
+			}, 3_000)
 		}
 	}
 
@@ -145,14 +143,14 @@ class BroadcastHelper {
 	 * @param message - the `BroadcastWorkerMessage` object
 	 */
 	private async lookup(message: BroadcastWorkerMessage) {
-		const { data, protocol } = message;
-		const recipient = message.recipient.trim().toLowerCase();
+		const { data, protocol } = message
+		const recipient = message.recipient.trim().toLowerCase()
 		try {
-			const inboxAddressIndexes: Array<number> = [];
+			const inboxAddressIndexes: Array<number> = []
 			for (let i = 0; i < this.inboxes.length; i++) {
-				const inbox = this.inboxes[i];
+				const inbox = this.inboxes[i]
 				if (inbox.name === recipient) {
-					inboxAddressIndexes.push(inbox.address);
+					inboxAddressIndexes.push(inbox.address)
 				}
 			}
 
@@ -162,25 +160,22 @@ class BroadcastHelper {
 					type: 'lookup',
 					data: data,
 					inboxIndexes: inboxAddressIndexes,
-				});
+				})
 			} else if (protocol === 'TCP' && message.messageId !== null) {
 				if (message?.attempts < message.maxAttempts) {
-					message.attempts += 1;
+					message.attempts += 1
 				} else if (message?.attempts === message.maxAttempts) {
-					this.dropMessageFromQueue(message.messageId);
+					this.dropMessageFromQueue(message.messageId)
 				} else {
-					message.attempts = 1;
-					this.queuedMessages.push(message);
+					message.attempts = 1
+					this.queuedMessages.push(message)
 					if (this.queueTimer === null) {
-						this.queueTimer = setTimeout(
-							this.flushMessageQueue.bind(this),
-							this.queueTimeout,
-						);
+						this.queueTimer = setTimeout(this.flushMessageQueue.bind(this), this.queueTimeout)
 					}
 				}
 			}
 		} catch (error) {
-			console.error(error);
+			console.error(error)
 		}
 	}
 
@@ -189,16 +184,13 @@ class BroadcastHelper {
 	 */
 	private flushMessageQueue(): void {
 		for (let i = 0; i < this.queuedMessages.length; i++) {
-			this.lookup(this.queuedMessages[i]);
+			this.lookup(this.queuedMessages[i])
 		}
 
 		if (this.queuedMessages.length) {
-			this.queueTimer = setTimeout(
-				this.flushMessageQueue.bind(this),
-				this.queueTimeout,
-			);
+			this.queueTimer = setTimeout(this.flushMessageQueue.bind(this), this.queueTimeout)
 		} else {
-			this.queueTimer = null;
+			this.queueTimer = null
 		}
 	}
 
@@ -209,8 +201,8 @@ class BroadcastHelper {
 	private dropMessageFromQueue(messageId: string): void {
 		for (let i = 0; i < this.queuedMessages.length; i++) {
 			if (this.queuedMessages[i].messageId === messageId) {
-				this.queuedMessages.splice(i, 1);
-				break;
+				this.queuedMessages.splice(i, 1)
+				break
 			}
 		}
 	}
@@ -220,18 +212,18 @@ class BroadcastHelper {
 	 * This method is an alias of `self.onmessage`
 	 * */
 	private handleMessage(e: MessageEvent) {
-		const { recipient, data } = e.data;
+		const { recipient, data } = e.data
 		switch (recipient) {
 			case 'broadcast-worker':
-				this.inbox(data);
-				break;
+				this.inbox(data)
+				break
 			case 'broadcaster':
 				// @ts-ignore
-				self.postMessage(e.data);
-				break;
+				self.postMessage(e.data)
+				break
 			default:
-				this.lookup(e.data);
-				break;
+				this.lookup(e.data)
+				break
 		}
 	}
 
@@ -243,13 +235,9 @@ class BroadcastHelper {
 	private generateUUID(): string {
 		return new Array(4)
 			.fill(0)
-			.map(() =>
-				Math.floor(Math.random() * Number.MAX_SAFE_INTEGER).toString(
-					16,
-				),
-			)
-			.join('-');
+			.map(() => Math.floor(Math.random() * Number.MAX_SAFE_INTEGER).toString(16))
+			.join('-')
 	}
 }
 
-new BroadcastHelper();
+new BroadcastHelper()
