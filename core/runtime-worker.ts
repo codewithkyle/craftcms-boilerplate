@@ -36,7 +36,18 @@ function respondWithFiles(responseType: 'eager' | 'lazy' | 'parse', fileNames: A
 function parseCSS(body:string, requestUid:string)
 {
 	/** Match all `load-css` attributes (eager-load-css and lazy-load-css) and returns the attributes value */
-	const matches = body.match(/(?<=load\-css\=[\'\"]).*?(?=[\'\"])/gi);
+	const matches = body.match(/(load\-css\=[\'\"].*?[\/\'\"])/gi);
+
+	if (matches === null || matches.length === 0)
+	{
+		respondWithFiles('parse', [], requestUid);
+		return;
+	}
+
+	for (let i = 0; i < matches.length; i++)
+	{
+		matches[i] = matches[i].replace(/(load\-css\=)|[\'\"]/gi, '');
+	}
 	
 	/** Gets all filenames from the matched attributes */
 	const files: Array<string> = [];
