@@ -49,7 +49,7 @@
         {% hook 'seo' %}
 
         <!-- Google Font -->
-        <link rel="preload" href="https://fonts.googleapis.com/css?family=Roboto:300,500,700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <!-- <link rel="preload" href="https://fonts.googleapis.com/css?family=Roboto:300,500,700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'"> -->
         
         <!-- Critical colors -->
         <style>
@@ -76,6 +76,17 @@
                     --loading-background: #232323;
                     --loading-font: #fff;
                 }
+            }
+        </style>
+
+        <!-- Font settings -->
+        <style>
+            :root
+            {
+                --thin: 200;
+                --regular: 400;
+                --medium: 600;
+                --heavy: 800;
             }
         </style>
 
@@ -119,8 +130,8 @@
                 width: 100%;
                 -webkit-text-size-adjust: 100%;
                 font-size: 1rem;
-                font-weight: 300;
-                font-family: 'Roboto', system-ui, BlinkMacSystemFont, -apple-system, 'Segoe UI', 'Roboto', 'Noto Sans', 'Ubuntu', 'Cantarell', 'Helvetica Neue', sans-serif;
+                font-weight: var(--regular);
+                font-family: system-ui, BlinkMacSystemFont, -apple-system, 'Segoe UI', 'Roboto', 'Noto Sans', 'Ubuntu', 'Cantarell', 'Helvetica Neue', sans-serif;
             }
 
             ul li,
@@ -138,16 +149,6 @@
 				border: none;
 				user-select: none;
 			}
-        </style>
-
-        <!-- Font settings -->
-        <style>
-            :root
-            {
-                --regular: 300;
-                --medium: 500;
-                --heavy: 700;
-            }
         </style>
 
         <!-- Loading animations -->
@@ -359,7 +360,7 @@
                 }
             </style>
             <link rel="stylesheet" href="{{ alias('@rootUrl')|trim('/') }}/assets/noscript.css">
-            <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,500,700&display=swap">
+            <!-- <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,500,700&display=swap"> -->
         </noscript>
 
         <!-- Global site tag (gtag.js) - Google Analytics -->
