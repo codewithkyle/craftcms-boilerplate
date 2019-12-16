@@ -12,7 +12,7 @@ class Env {
 	private _tickets: Array<string>;
 
 	constructor() {
-		this.memory = null;
+		this.memory = 4;
 		this.cpu = window.navigator.hardwareConcurrency;
 		this.connection = '4g';
 		this.isDebug = document.documentElement.getAttribute('debug') ? true : false;
@@ -26,27 +26,25 @@ class Env {
 	}
 
 	private init(): void {
-		try {
-			if ('connection' in navigator) {
-				// @ts-ignore
-				this.connection = window.navigator.connection.effectiveType;
-				// @ts-ignore
-				this.dataSaver = window.navigator.connection.saveData;
-			}
-			if ('deviceMemory' in navigator) {
-				// @ts-ignore
-				this.memory = window.navigator.deviceMemory;
-			}
-		} catch (error) {
-			if (this.isDebug) {
-				console.warn(error);
-			}
+		if ('connection' in navigator) {
+			// @ts-ignore
+			this.connection = window.navigator.connection.effectiveType;
+			// @ts-ignore
+			this.dataSaver = window.navigator.connection.saveData;
+			// @ts-ignore
+			navigator.connection.onchange = this.handleNetworkChange;
 		}
 
-		if (!this.memory) {
-			this.memory = 4;
+		if ('deviceMemory' in navigator) {
+			// @ts-ignore
+			this.memory = window.navigator.deviceMemory;
 		}
 	}
+
+	private handleNetworkChange: EventListener = () => {
+		// @ts-ignore
+		this.connection = window.navigator.connection.effectiveType;
+	};
 
 	/**
 	 * Attempts to set the DOM to the `idling` state. The DOM will only idle when all `startLoading()` methods have been resolved.
