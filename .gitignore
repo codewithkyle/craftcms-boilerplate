@@ -2,13 +2,14 @@
 # --------
 /.env
 /.idea
-/vendor
 .DS_Store
 /node_modules
 /public/uploads/*
 !/public/uploads/.gitkeep
+/public/imager
 
-# Remove if assets shouldn't be server-side compiled
+# Remove before launch
 # --------
+/vendor
 /public/assets
 /config/pwa-auto.php

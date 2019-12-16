@@ -2,167 +2,133 @@
 onmessage = (e: MessageEvent) => {
 	switch (e.data.type) {
 		case 'eager':
-			parseEagerLoadedCSS(e.data.body)
-			break
+			parseEagerLoadedCSS(e.data.body).then(files => {
+				// @ts-ignore
+				postMessage({
+					type: 'eager',
+					files: files,
+				});
+			});
+			break;
 		case 'lazy':
-			parseLazyLoadedCSS(e.data.body)
-			break
+			parseLazyLoadedCSS(e.data.body).then(files => {
+				// @ts-ignore
+				postMessage({
+					type: 'lazy',
+					files: files,
+				});
+			});
+			break;
 		case 'parse':
-			parseCSS(e.data.body, e.data.requestUid)
-			break
+			parseCSS(e.data.body).then(data => {
+				// @ts-ignore
+				postMessage({
+					type: 'parse',
+					pjaxFiles: data,
+					requestUid: e.data.requestUid,
+				});
+			});
+			break;
 	}
-}
-
-/**
- * Handles sending a message back to the Runtime class.
- * @param responseType - the parsing response type
- * @param fileNames - an array of `ResoucesObject` objects
- * @param requestUid - the navigation request unique id
- */
-function respondWithFiles(responseType: 'eager' | 'lazy' | 'parse', fileNames: Array<ResourceObject>, requestUid: string = null) {
-	// @ts-ignore
-	postMessage({
-		type: responseType,
-		files: fileNames,
-		requestUid: requestUid,
-	})
-}
+};
 
 /**
  * Parses HTML and collects all requested CSS files.
  * @param body - the body text to be parsed
  * @param requestUid - the navigation request unique id
  */
-function parseCSS(body: string, requestUid: string) {
-	/** Match all `load-css` attributes (eager-load-css and lazy-load-css) and returns the attributes value */
-	const matches = body.match(/(load\-css\=[\'\"].*?[\/\'\"])/gi)
-
-	if (matches === null || matches.length === 0) {
-		respondWithFiles('parse', [], requestUid)
-		return
-	}
-
-	for (let i = 0; i < matches.length; i++) {
-		matches[i] = matches[i].replace(/(load\-css\=)|[\'\"]/gi, '')
-	}
-
-	/** Gets all filenames from the matched attributes */
-	const files: Array<string> = []
-	if (matches) {
-		matches.map((match: string) => {
-			const filenames = match.trim().split(' ')
-			if (filenames) {
-				filenames.map(filename => {
-					const cleanFilename = filename
-						.trim()
-						.toLowerCase()
-						.replace(/(\.css)$|(\.scss)$/g, '')
-					if (cleanFilename !== '') {
-						files.push(cleanFilename)
-					}
-				})
-			}
-		})
-	}
-
-	/** Verify that the file names are unique */
-	const uniqueFiles: Array<ResourceObject> = []
-	for (let i = 0; i < files.length; i++) {
-		let isUnique = true
-		for (let k = 0; k < uniqueFiles.length; k++) {
-			if (files[i] === uniqueFiles[k].filename) {
-				isUnique = false
-			}
+async function parseCSS(body: string) {
+	const eagerCSSFiles = await parseEagerLoadedCSS(body);
+	const lazyCSSFiles = await parseLazyLoadedCSS(body);
+	const uniqueFiles = { eager: eagerCSSFiles, lazy: [] };
+	lazyCSSFiles.map(lazyFilename => {
+		if (!eagerCSSFiles.includes(lazyFilename)) {
+			uniqueFiles.lazy.push(lazyFilename);
 		}
-		if (isUnique) {
-			const resourceOjb: ResourceObject = {
-				filename: files[i],
-			}
-			uniqueFiles.push(resourceOjb)
-		}
-	}
-	respondWithFiles('parse', uniqueFiles, requestUid)
+	});
+	return uniqueFiles;
 }
 
 /**
  * Parses HTML for all `lazy-load-css` attributes and collects all unique file names.
  * @param body - the body text to be parsed
  */
-function parseLazyLoadedCSS(body: string) {
-	const matches = body.match(/(lazy-load-css\=[\'\"].*?[\'\"])/gi)
-	const files: Array<string> = []
+async function parseLazyLoadedCSS(body: string) {
+	const matches = body.match(/(lazy-load-css\=[\'\"].*?[\'\"])/gi);
+	if (matches === null || matches.length === 0) {
+		return [];
+	}
+	const files: Array<string> = [];
 	if (matches) {
 		matches.map((match: string) => {
-			const clean = match.replace(/(lazy-load-css\=[\'\"])|[\'\"]$/g, '')
-			const filenames = clean.trim().split(' ')
+			const clean = match.replace(/(lazy-load-css\=[\'\"])|[\'\"]$/g, '');
+			const filenames = clean.trim().split(/\s+/g);
 			if (filenames) {
 				filenames.map(filename => {
 					const cleanFilename = filename
 						.trim()
 						.toLowerCase()
-						.replace(/(\.css)$|(\.scss)$/g, '')
+						.replace(/(\.css)$|(\.scss)$/g, '');
 					if (cleanFilename !== '') {
-						files.push(cleanFilename)
+						files.push(cleanFilename);
 					}
-				})
+				});
 			}
-		})
+		});
 	}
-	const uniqueFiles: Array<ResourceObject> = []
+	const uniqueFiles: Array<string> = [];
 	for (let i = 0; i < files.length; i++) {
-		let isUnique = true
+		let isUnique = true;
 		for (let k = 0; k < uniqueFiles.length; k++) {
-			if (files[i] === uniqueFiles[k].filename) {
-				isUnique = false
+			if (files[i] === uniqueFiles[k]) {
+				isUnique = false;
 			}
 		}
 		if (isUnique) {
-			const resourceOjb: ResourceObject = {
-				filename: files[i],
-			}
-			uniqueFiles.push(resourceOjb)
+			uniqueFiles.push(files[i]);
 		}
 	}
-	respondWithFiles('lazy', uniqueFiles)
+	return uniqueFiles;
 }
 /**
  * Parses HTML for all `eager-load-css` attributes and collects all unique file names.
  * @param body - the body text to be parsed
  */
-function parseEagerLoadedCSS(body: string) {
-	const matches = body.match(/(eager-load-css\=[\'\"].*?[\'\"])/gi)
-	const files: Array<string> = []
+async function parseEagerLoadedCSS(body: string) {
+	const matches = body.match(/(eager-load-css\=[\'\"].*?[\'\"])/gi);
+	if (matches === null || matches.length === 0) {
+		return [];
+	}
+	const files: Array<string> = [];
 	if (matches) {
 		matches.map((match: string) => {
-			const clean = match.replace(/(eager-load-css\=[\'\"])|[\'\"]$/g, '')
-			const filenames = clean.trim().split(' ')
+			const clean = match.replace(/(eager-load-css\=[\'\"])|[\'\"]$/g, '');
+			const filenames = clean.trim().split(/\s+/g);
 			if (filenames) {
 				filenames.map(filename => {
 					const cleanFilename = filename
 						.trim()
 						.toLowerCase()
-						.replace(/(\.css)$|(\.scss)$/g, '')
+						.replace(/(\.css)$|(\.scss)$/g, '');
 					if (cleanFilename !== '') {
-						files.push(cleanFilename)
+						files.push(cleanFilename);
 					}
-				})
+				});
 			}
-		})
+		});
 	}
-	const uniqueFiles: Array<ResourceObject> = []
+	const uniqueFiles: Array<string> = [];
 	for (let i = 0; i < files.length; i++) {
-		let isUnique = true
+		let isUnique = true;
 		for (let k = 0; k < uniqueFiles.length; k++) {
-			if (files[i] === uniqueFiles[k].filename) {
-				isUnique = false
+			if (files[i] === uniqueFiles[k]) {
+				isUnique = false;
 			}
 		}
 		if (isUnique) {
-			const resourceOjb: ResourceObject = {
-				filename: files[i],
-			}
-			uniqueFiles.push(resourceOjb)
+			uniqueFiles.push(files[i]);
 		}
 	}
-	respondWithFiles('eager', uniqueFiles)
+
+	return uniqueFiles;
 }

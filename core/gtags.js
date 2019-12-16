@@ -6,14 +6,14 @@
  */
 export function setupGoogleAnalytics(id) {
 	if (!id) {
-		return
+		return;
 	}
-	window.dataLayer = window.dataLayer || []
+	window.dataLayer = window.dataLayer || [];
 	function gtag() {
-		dataLayer.push(arguments)
+		dataLayer.push(arguments);
 	}
-	gtag('js', new Date())
-	gtag('config', id)
+	gtag('js', new Date());
+	gtag('config', id);
 }
 
 /**
@@ -23,7 +23,7 @@ export function setupGoogleAnalytics(id) {
  */
 export function sendPageView(path, id) {
 	if (!path || !id) {
-		return
+		return;
 	}
-	gtag('config', id, { page_path: path })
+	gtag('config', id, { page_path: path });
 }

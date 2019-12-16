@@ -1,24 +1,25 @@
 :root
 {
-    --font: #333;
+    --white: #fff;
+    --off-white: #f7f7f7;
+    --light-grey: #ececec;
+    --black: #0f0f0f;
+    --off-black: hsl(0, 0%, 18%);
+
+    --font: hsl(0, 0%, 20%);
+
     --background: #fff;
 
-    --loading-bar: #00BFFF;
     --loading-bar-shadow: rgba(0, 191, 255, 0.87);
-    --loading-bar-background: #eee;
+    --loading-bar: #51b1f6;
+    --loading-bar-background: #163b52;
     --loading-background: #fafafa;
     --loading-font: #333;
 
     @media (prefers-color-scheme: dark)
     {
         --loading-font: #fff;
-        --loading-bar-background: #454545;
+        --loading-bar-background: #163b52;
         --loading-background: #232323;
     }
-
-    --primary: rgb(113, 25, 255);
-    --primary-hover: hsl(263, 100%, 60%);
-    --primary-active: hsl(263, 100%, 50%);
-    --primary-hover-opaque: rgba(113, 25, 255, 0.07);
-    --primary-active-opaque: rgba(113, 25, 255, 0.15);
 }

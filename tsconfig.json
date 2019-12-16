@@ -5,16 +5,8 @@
 		"checkJs": true,
 		"target": "es2019",
 		"module": "esnext",
-		"lib": [
-			"dom",
-			"esnext"
-		]
+		"lib": ["dom", "esnext"]
 	},
-	"include": [
-		"templates",
-		"controllers",
-		"packages",
-		"core",
-		"globals.d.ts"
-	]
+	"include": ["templates", "controllers", "packages", "core", "globals.d.ts"],
+	"exclude": ["vendor", "node_modules"]
 }

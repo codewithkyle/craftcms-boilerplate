@@ -1,50 +1,50 @@
 /// <reference path="./messages.d.ts" />
 
-import { uuid } from './env'
+import { uuid } from './env';
 
 type Inbox = {
-	callback: Function
-	disconnected?: boolean
-	uid: string
-}
+	callback: Function;
+	disconnected?: boolean;
+	uid: string;
+};
 
 class Broadcaster {
-	private worker: Worker
-	private inboxes: Array<Inbox>
-	private messageQueue: Array<BroadcastWorkerMessage>
+	private worker: Worker;
+	private inboxes: Array<Inbox>;
+	private messageQueue: Array<BroadcastWorkerMessage>;
 	private state: {
-		allowMessaging: boolean
-	}
+		allowMessaging: boolean;
+	};
 
 	constructor() {
-		this.worker = new Worker(`${window.location.origin}/assets/broadcast-worker.js`)
-		this.worker.onmessage = this.handleMessage.bind(this)
-		this.inboxes = []
-		this.messageQueue = []
+		this.worker = new Worker(`${window.location.origin}/assets/broadcast-worker.js`);
+		this.worker.onmessage = this.handleMessage.bind(this);
+		this.inboxes = [];
+		this.messageQueue = [];
 		this.state = {
 			allowMessaging: false,
-		}
+		};
 	}
 
 	/**
 	 * Set the broadcasters `workerReady` state to `true` and flush any queued messages.
 	 */
 	private flushMessageQueue(): void {
-		this.state.allowMessaging = true
+		this.state.allowMessaging = true;
 		if (this.messageQueue.length) {
 			for (let i = 0; i < this.messageQueue.length; i++) {
-				this.worker.postMessage(this.messageQueue[i])
+				this.worker.postMessage(this.messageQueue[i]);
 			}
 		}
-		this.messageQueue = []
+		this.messageQueue = [];
 	}
 
 	private sendDataToInboxes(inboxIndexes: Array<number>, data: MessageData): void {
 		for (let i = 0; i < inboxIndexes.length; i++) {
 			try {
-				this.inboxes[inboxIndexes[i]].callback(data)
+				this.inboxes[inboxIndexes[i]].callback(data);
 			} catch (error) {
-				this.disconnectInbox(this.inboxes[inboxIndexes[i]], inboxIndexes[i])
+				this.disconnectInbox(this.inboxes[inboxIndexes[i]], inboxIndexes[i]);
 			}
 		}
 	}
@@ -54,18 +54,18 @@ class Broadcaster {
 	 * This method is an alias of `this.worker.onmessage`
 	 */
 	private handleMessage(e: MessageEvent): void {
-		const data = e.data
+		const data = e.data;
 		if (data.recipient?.trim().toLowerCase() === 'broadcaster') {
-			this.inbox(data.data)
+			this.inbox(data.data);
 		} else {
-			this.sendDataToInboxes(data.inboxIndexes, data.data)
+			this.sendDataToInboxes(data.inboxIndexes, data.data);
 		}
 	}
 
 	private sendUserDeviceInformation(): void {
 		// @ts-ignore
-		const deviceMemory = window.navigator?.deviceMemory ?? 8
-		const isSafari = navigator.userAgent.search('Safari') >= 0 && navigator.userAgent.search('Chrome') < 0
+		const deviceMemory = window.navigator?.deviceMemory ?? 8;
+		const isSafari = navigator.userAgent.search('Safari') >= 0 && navigator.userAgent.search('Chrome') < 0;
 		const workerMessage: BroadcastWorkerMessage = {
 			recipient: 'broadcast-worker',
 			messageId: null,
@@ -75,28 +75,28 @@ class Broadcaster {
 				memory: deviceMemory,
 				isSafari: isSafari,
 			},
-		}
-		this.postMessageToWorker(workerMessage)
+		};
+		this.postMessageToWorker(workerMessage);
 	}
 
 	/**
 	 * The broadcaster's personal inbox.
 	 */
 	private inbox(data: MessageData): void {
-		const { type } = data
+		const { type } = data;
 		switch (type) {
 			case 'ready':
-				this.flushMessageQueue()
-				this.sendUserDeviceInformation()
-				break
+				this.flushMessageQueue();
+				this.sendUserDeviceInformation();
+				break;
 			case 'cleanup':
-				this.cleanup()
-				break
+				this.cleanup();
+				break;
 			case 'ping':
-				break
+				break;
 			default:
-				console.warn(`Unknown broadcaster message type: ${data.type}`)
-				break
+				console.warn(`Unknown broadcaster message type: ${data.type}`);
+				break;
 		}
 	}
 
@@ -113,11 +113,11 @@ class Broadcaster {
 			data: data,
 			messageId: uuid(),
 			protocol: protocol,
-		}
+		};
 		if (protocol === 'TCP') {
-			workerMessage.maxAttempts = maxAttempts
+			workerMessage.maxAttempts = maxAttempts;
 		}
-		this.postMessageToWorker(workerMessage)
+		this.postMessageToWorker(workerMessage);
 	}
 
 	/**
@@ -130,9 +130,9 @@ class Broadcaster {
 		const newInbox: Inbox = {
 			callback: inbox,
 			uid: uuid(),
-		}
-		const address = this.inboxes.length
-		this.inboxes.push(newInbox)
+		};
+		const address = this.inboxes.length;
+		this.inboxes.push(newInbox);
 		const workerMessage: BroadcastWorkerMessage = {
 			recipient: 'broadcast-worker',
 			messageId: null,
@@ -142,9 +142,9 @@ class Broadcaster {
 				name: name,
 				inboxAddress: address,
 			},
-		}
-		this.postMessageToWorker(workerMessage)
-		return newInbox.uid
+		};
+		this.postMessageToWorker(workerMessage);
+		return newInbox.uid;
 	}
 
 	/**
@@ -153,28 +153,28 @@ class Broadcaster {
 	 */
 	private postMessageToWorker(message: BroadcastWorkerMessage): void {
 		if (this.state.allowMessaging) {
-			this.worker.postMessage(message)
+			this.worker.postMessage(message);
 		} else {
-			this.messageQueue.push(message)
+			this.messageQueue.push(message);
 		}
 	}
 
 	private cleanup(): void {
-		this.state.allowMessaging = false
-		const updatedAddresses = []
-		const updatedInboxes = []
+		this.state.allowMessaging = false;
+		const updatedAddresses = [];
+		const updatedInboxes = [];
 		for (let i = 0; i < this.inboxes.length; i++) {
-			const inbox = this.inboxes[i]
+			const inbox = this.inboxes[i];
 			if (!inbox?.disconnected) {
 				const addressUpdate = {
 					oldAddressIndex: i,
 					newAddressIndex: updatedInboxes.length,
-				}
-				updatedInboxes.push(inbox)
-				updatedAddresses.push(addressUpdate)
+				};
+				updatedInboxes.push(inbox);
+				updatedAddresses.push(addressUpdate);
 			}
 		}
-		this.inboxes = updatedInboxes
+		this.inboxes = updatedInboxes;
 		const workerMessage: BroadcastWorkerMessage = {
 			recipient: 'broadcast-worker',
 			messageId: null,
@@ -183,8 +183,8 @@ class Broadcaster {
 				type: 'update-addresses',
 				addresses: updatedAddresses,
 			},
-		}
-		this.worker.postMessage(workerMessage)
+		};
+		this.worker.postMessage(workerMessage);
 	}
 
 	/**
@@ -193,17 +193,17 @@ class Broadcaster {
 	 */
 	public disconnect(inboxId: string): void {
 		for (let i = 0; i < this.inboxes.length; i++) {
-			const inbox = this.inboxes[i]
+			const inbox = this.inboxes[i];
 			if (inbox.uid === inboxId) {
-				this.disconnectInbox(inbox, i)
-				break
+				this.disconnectInbox(inbox, i);
+				break;
 			}
 		}
 	}
 
 	private disconnectInbox(inbox: Inbox, index: number): void {
-		inbox.disconnected = true
-		inbox.callback = () => {}
+		inbox.disconnected = true;
+		inbox.callback = () => {};
 		const workerMessage: BroadcastWorkerMessage = {
 			recipient: 'broadcast-worker',
 			messageId: null,
@@ -212,9 +212,9 @@ class Broadcaster {
 				type: 'disconnect',
 				inboxAddress: index,
 			},
-		}
-		this.postMessageToWorker(workerMessage)
+		};
+		this.postMessageToWorker(workerMessage);
 	}
 }
 
-export const broadcaster: Broadcaster = new Broadcaster()
+export const broadcaster: Broadcaster = new Broadcaster();

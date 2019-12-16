@@ -1,10 +1,10 @@
 /** The Pjax Web Worker class. Used to handle page revision checking & navigation requests. */
 class PjaxWorker {
-	private prefetchQueue: Array<string>
+	private prefetchQueue: Array<string>;
 
 	constructor() {
-		self.onmessage = this.handleMessage.bind(this)
-		this.prefetchQueue = []
+		self.onmessage = this.handleMessage.bind(this);
+		this.prefetchQueue = [];
 	}
 
 	/**
@@ -12,24 +12,24 @@ class PjaxWorker {
 	 * @param e - the `MessageEvent`
 	 */
 	private handleMessage(e: MessageEvent): void {
-		const { type } = e.data
+		const { type } = e.data;
 		switch (type) {
 			case 'revision-check':
-				this.checkRevision(e.data.url)
-				break
+				this.checkRevision(e.data.url);
+				break;
 			case 'pjax':
-				this.pjax(e.data.url, e.data.requestId)
-				break
+				this.pjax(e.data.url, e.data.requestId);
+				break;
 			case 'prefetch':
-				const existingQueue = this.prefetch.length
-				this.prefetchQueue = [...this.prefetchQueue, ...e.data.urls]
+				const existingQueue = this.prefetch.length;
+				this.prefetchQueue = [...this.prefetchQueue, ...e.data.urls];
 				if (!existingQueue) {
-					this.prefetch()
+					this.prefetch();
 				}
-				break
+				break;
 			default:
-				console.error(`Unknown Pjax Worker message type: ${type}`)
-				break
+				console.error(`Unknown Pjax Worker message type: ${type}`);
+				break;
 		}
 	}
 
@@ -39,10 +39,10 @@ class PjaxWorker {
 	 */
 	private prefetch() {
 		if (this.prefetchQueue.length === 0) {
-			return
+			return;
 		}
-		const url = this.prefetchQueue[0]
-		this.prefetchQueue.splice(0, 1)
+		const url = this.prefetchQueue[0];
+		this.prefetchQueue.splice(0, 1);
 		fetch(url, {
 			method: 'GET',
 			credentials: 'include',
@@ -55,9 +55,9 @@ class PjaxWorker {
 			.catch(() => {})
 			.finally(() => {
 				setTimeout(() => {
-					this.prefetch()
-				}, 150)
-			})
+					this.prefetch();
+				}, 150);
+			});
 	}
 
 	/**
@@ -74,9 +74,9 @@ class PjaxWorker {
 					'X-Requested-With': 'XMLHttpReqeust',
 					'X-Pjax': 'true',
 				}),
-			})
+			});
 			if (request.ok && request.headers.get('Content-Type') && request.headers.get('Content-Type').match(/(text\/html)/gi)) {
-				const response = await request.text()
+				const response = await request.text();
 				// @ts-ignore
 				self.postMessage({
 					type: 'pjax',
@@ -84,7 +84,7 @@ class PjaxWorker {
 					body: response,
 					requestId: requestId,
 					url: url,
-				})
+				});
 			} else {
 				// @ts-ignore
 				self.postMessage({
@@ -93,7 +93,7 @@ class PjaxWorker {
 					error: request.statusText,
 					url: url,
 					requestId: requestId,
-				})
+				});
 			}
 		} catch (error) {
 			// @ts-ignore
@@ -103,7 +103,7 @@ class PjaxWorker {
 				error: error,
 				url: url,
 				requestId: requestId,
-			})
+			});
 		}
 	}
 
@@ -112,29 +112,30 @@ class PjaxWorker {
 	 * @param url - the page URL that will be checked
 	 */
 	private checkRevision(url: string) {
-		let newEtag = null
-		let cachedETag = null
+		let newEtag = null;
+		let cachedETag = null;
 
 		/** Get the headers from the redis server */
 		new Promise((resolve, reject) => {
 			fetch(url, {
 				method: 'HEAD',
 				credentials: 'include',
+				cache: 'no-cache',
 			})
 				.then(request => {
-					resolve(request.headers.get('ETag'))
+					resolve(request.headers.get('ETag'));
 				})
 				.catch(() => {
-					reject()
-				})
+					reject();
+				});
 		})
 			.then(tag => {
-				newEtag = tag
+				newEtag = tag;
 				if (cachedETag) {
-					this.checkETags(newEtag, cachedETag, url)
+					this.checkETags(newEtag, cachedETag, url);
 				}
 			})
-			.catch(() => {})
+			.catch(() => {});
 
 		/** Get the cached response from the service worker */
 		new Promise((resolve, reject) => {
@@ -143,19 +144,19 @@ class PjaxWorker {
 				credentials: 'include',
 			})
 				.then(request => {
-					resolve(request.headers.get('ETag'))
+					resolve(request.headers.get('ETag'));
 				})
 				.catch(() => {
-					reject()
-				})
+					reject();
+				});
 		})
 			.then(tag => {
-				cachedETag = tag
+				cachedETag = tag;
 				if (newEtag) {
-					this.checkETags(newEtag, cachedETag, url)
+					this.checkETags(newEtag, cachedETag, url);
 				}
 			})
-			.catch(() => {})
+			.catch(() => {});
 	}
 
 	/**
@@ -170,8 +171,8 @@ class PjaxWorker {
 				type: 'revision-check',
 				status: 'stale',
 				url: url,
-			})
+			});
 		}
 	}
 }
-new PjaxWorker()
+new PjaxWorker();

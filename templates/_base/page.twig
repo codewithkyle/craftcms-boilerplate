@@ -1,18 +1,9 @@
 {% extends "_base/base" %}
 
-{% set navigation = navigation.primaryNavigation.all() %}
-
 {% block page %}
-    <header>
-        <nav>
-            {% for block in navigation %}
-                {% set link = block.customLink %}
-                {{ link.getLink() }}
-                <br/>
-            {% endfor %}
-        </nav>
-    </header>
+    {% include "_header" %}
     <main eager-load-css="colors page-transition soft-loading snackbar" data-id="1">
         {% block content %}{% endblock %}
     </main>
+    {% include "_footer" %}
 {% endblock %}

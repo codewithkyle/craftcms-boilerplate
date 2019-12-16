@@ -15,13 +15,15 @@
 			{% set seo = craft.seo.custom('MISSING', '', false) %}
 			{% set title = seo.title|replace('MISSING - ', '') %}
 		{% endif %}
+		<title>{{ title }}</title>
+	{% else %}
+		<title>{{ seo.title }}</title>
 	{% endif -%}
+		
+	<meta name="description" content="{{ seo.description }}" />
 
 	{% set locale = craft.app.locale %}
 	{% set locales = craft.app.i18n.siteLocaleIds|without(locale) %}
-
-	<title>{{ title }}</title>
-	<meta name="description" content="{{ seo.description }}" />
 
 	{% set fb = seo.social.facebook -%}
 	<meta property="fb:app_id" content="{{ fb.handle }}">
