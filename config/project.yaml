@@ -1,32 +1,33 @@
-dateModified: 1584448623
+dateModified: 1584452560
 email:
-  fromEmail: web@page.works
-  fromName: 'Craft Boilerplate'
+  fromEmail: codingwithkyle@gmail.com
+  fromName: Boilerplate
   transportType: craft\mail\transportadapters\Sendmail
 fieldGroups:
-  f5af2400-40de-41ae-8d1c-f6f8e0e4cd33:
+  225c7f29-a1ba-4281-a207-621cab6d37b7:
     name: Common
 fields:
-  cda061aa-272e-46e1-86a2-8b1bf4ab716e:
+  e3ddae84-8d6f-4b5c-b636-2eaaddaa0a0f:
     contentColumnType: text
-    fieldGroup: f5af2400-40de-41ae-8d1c-f6f8e0e4cd33
+    fieldGroup: 225c7f29-a1ba-4281-a207-621cab6d37b7
     handle: alternateDescription
-    instructions: 'Provide a brief description of the image or icon. This description is not be visible to users and will be read to users with vision impairments or disabilities if they are utilizing screen reader technology. This is required in order to be in compliance with the Americans with Disabilities Act.'
+    instructions: 'Provide a brief description of the image or icon. This description is not visible to users and will be read to users with vision impairments or disabilities if they are utilizing screen reading technology. This field is required in order to be in compliance with the Americans with Disabilities Act.'
     name: 'Alternate Description'
     searchable: true
     settings:
-      charLimit: ''
+      byteLimit: null
+      charLimit: null
       code: ''
-      columnType: text
+      columnType: null
       initialRows: '4'
       multiline: ''
       placeholder: ''
     translationKeyFormat: null
     translationMethod: none
     type: craft\fields\PlainText
-  d928b526-5d8e-4e33-b0d6-0f8757af070b:
+  f34e1148-6584-4d08-a0e3-3d253ef838b8:
     contentColumnType: text
-    fieldGroup: f5af2400-40de-41ae-8d1c-f6f8e0e4cd33
+    fieldGroup: 225c7f29-a1ba-4281-a207-621cab6d37b7
     handle: seo
     instructions: ''
     name: SEO
@@ -79,10 +80,6 @@ plugins:
     edition: standard
     enabled: true
     schemaVersion: 2.0.0
-  logs:
-    edition: standard
-    enabled: true
-    schemaVersion: 3.0.0
   matrixmate:
     edition: standard
     enabled: true
@@ -95,10 +92,6 @@ plugins:
     edition: standard
     enabled: true
     schemaVersion: 1.1.0
-  scss:
-    edition: standard
-    enabled: true
-    schemaVersion: 1.0.0
   seo:
     edition: standard
     enabled: true
@@ -111,32 +104,27 @@ plugins:
     edition: standard
     enabled: true
     schemaVersion: 3.0.0
-    settings:
-      authorField: ''
-      authorUrlField: ''
-      colorField: ''
-      volume: '1'
   typedlinkfield:
     edition: standard
     enabled: true
     schemaVersion: 1.0.0
 siteGroups:
-  5bff79a3-9f01-4048-b15d-e5bfa085b40f:
-    name: 'Craft Boilerplate'
+  9cabe42f-fdb6-45c1-8bdd-67c0914303ff:
+    name: Boilerplate
 sites:
-  9d3d784a-1004-46ae-9e3d-d388b34a746f:
+  8d2ceaf6-270f-4376-a57e-b67d74fe3518:
     baseUrl: '@rootUrl'
     handle: default
     hasUrls: true
     language: en-US
-    name: 'Craft Boilerplate'
+    name: Boilerplate
     primary: true
-    siteGroup: 5bff79a3-9f01-4048-b15d-e5bfa085b40f
+    siteGroup: 9cabe42f-fdb6-45c1-8bdd-67c0914303ff
     sortOrder: 1
 system:
   edition: solo
   live: true
-  name: 'Craft Boilerplate'
+  name: Boilerplate
   schemaVersion: 3.4.10
   timeZone: America/Los_Angeles
 users:
@@ -146,16 +134,16 @@ users:
   photoVolumeUid: null
   requireEmailVerification: true
 volumes:
-  903fdafc-f40e-4653-9242-0c7d2bf927ae:
+  8b0fd7f7-2623-4a21-a578-698d8c0aef75:
     fieldLayouts:
-      ec539648-8861-4183-9aea-615ce175866b:
+      acae1f98-968a-47e4-9474-9929da0d5d16:
         tabs:
           -
             fields:
-              cda061aa-272e-46e1-86a2-8b1bf4ab716e:
+              e3ddae84-8d6f-4b5c-b636-2eaaddaa0a0f:
                 required: true
                 sortOrder: 1
-            name: Content
+            name: 'Meta Data'
             sortOrder: 1
     handle: images
     hasUrls: true
