@@ -42,5 +42,8 @@
 		"hooks": {
 			"pre-commit": "npm run precommit"
 		}
+	},
+	"snowpack": {
+		"webDependencies": {}
 	}
 }
