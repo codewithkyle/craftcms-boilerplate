@@ -23,7 +23,7 @@ return [
     //     'cache' => [
     //         'class' => yii\redis\Cache::class,
     //         'defaultDuration' => 86400,
-    //         'keyPrefix' => 'asuperuniquekey123',
+    //         'keyPrefix' => '',
     //     ],
     // ],
     'modules' => [
