@@ -7,6 +7,8 @@
 /public/uploads/*
 !/public/uploads/.gitkeep
 /public/imager
+_compiled
+_css
 
 # Remove before launch
 # --------

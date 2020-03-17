@@ -12,15 +12,24 @@
     {% set page = product %}
 {% endif %}
 
-{# Tell the browser to cache this page for 30 days #}
-{% set expiry = now|date_modify('+30 days') %}
+{% set requireLogin = craft.pwa.checkRequireLogin(page) %}
+{% if requireLogin and not currentUser%}
+    {% redirect '/login?redirect=' ~ craft.app.request.pathInfo %}
+{% elseif not requireLogin %}
+    {% set expiry = now|date_modify('+7 days') %}
+    {% header "Cache-Control: max-age=" ~ (expiry.timestamp - now.timestamp) %}
+    {% header "Pragma: cache" %}
+    {% header "Expires: " ~ expiry|date('D, d M Y H:i:s', 'GMT') ~ " GMT" %}
+    {% header "Access-Control-Expose-Headers: etag" %}
+    {% if page.uid %}
+        {% header "ETag: " ~ page.uid ~ '-' ~ craft.pwa.getCache(page.id) %}
+    {% endif %}
+{% endif %}
 
-{% header "Cache-Control: max-age=" ~ (expiry.timestamp - now.timestamp) %}
-{% header "Pragma: cache" %}
-{% header "Expires: " ~ expiry|date('D, d M Y H:i:s', 'GMT') ~ " GMT" %}
-{% header "Access-Control-Expose-Headers: etag" %}
-{% if page.uid %}
-    {% header "ETag: " ~ page.uid ~ '-' ~ craft.pwa.getCache(page.id) %}
+{% if craft.app.config.env == 'dev' or craft.app.config.env == 'staging' %}
+    {% if currentUser and currentUser['admin'] %}
+        {% header "Feature-Policy:  oversized-images 'self'(2.0) *(inf); unoptimized-lossy-images 'self'(0.5) *(inf); unoptimized-lossless-images 'self'(1) *(inf); unoptimized-lossless-images-strict 'self'(1) *(inf);" %}
+    {% endif %}
 {% endif %}
 
 {% if craft.imager.serverSupportsWebp() and craft.imager.clientSupportsWebp() %}
@@ -51,104 +60,30 @@
         <!-- Google Font -->
         <!-- <link rel="preload" href="https://fonts.googleapis.com/css?family=Roboto:300,500,700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'"> -->
         
-        <!-- Critical colors -->
+<!-- Critical colors -->
         <style>
             :root
             {
                 font-size: 100%;
                 
-                --font: #333;
+                --grey-800: #333;
                 --background: #fff;
-
                 --loading-bar: #51b1f6;
                 --loading-bar-background: #163b52;
                 --loading-background: #fafafa;
                 --loading-font: #333;
             }
-
             @media (prefers-color-scheme: dark)
             {
                 :root
                 {
-                    --font: #fff;
+                    --grey-800: #fff;
                     --background: #232323;
                     --loading-bar-background: #163b52;
                     --loading-background: #232323;
                     --loading-font: #fff;
                 }
             }
-        </style>
-
-        <!-- Font settings -->
-        <style>
-            :root
-            {
-                --thin: 200;
-                --regular: 400;
-                --medium: 600;
-                --heavy: 800;
-            }
-        </style>
-
-        <!-- Reset CSS -->
-        <style>
-            *
-            {
-                position: relative;
-                box-sizing: border-box;
-                margin: 0;
-                padding: 0;
-                font-size: 1rem;
-                line-height: 1;
-                font-weight: inherit;
-                font-style: normal;
-                text-decoration: none;
-				font-family: inherit;
-                -webkit-tap-highlight-color: transparent;
-                outline: none;
-                border: none;
-                box-shadow: none;
-                color: inherit;
-            }
-
-            html
-            {
-                height: 100vh;
-                overflow-y: auto;
-                width: 100vw;
-                display: block;
-            }
-
-            body
-            {
-                margin: 0;
-                padding: 0;
-                background-color: var(--background);
-                color: var(--font);
-                display: block;
-                min-height: 100%;
-                width: 100%;
-                -webkit-text-size-adjust: 100%;
-                font-size: 1rem;
-                font-weight: var(--regular);
-                font-family: system-ui, BlinkMacSystemFont, -apple-system, 'Segoe UI', 'Roboto', 'Noto Sans', 'Ubuntu', 'Cantarell', 'Helvetica Neue', sans-serif;
-            }
-
-            ul li,
-            ol li
-            {
-                line-height: 1.618;
-                list-style-position: inside;
-			}
-			
-			button
-			{
-				cursor: pointer;
-				background: transparent;
-				outline: none;
-				border: none;
-				user-select: none;
-			}
         </style>
 
         <!-- Loading animations -->
@@ -165,8 +100,8 @@
                 align-items: center;
                 flex-flow: column wrap;
                 background-color: var(--loading-background);
-                color: var(--font);
-                font-size: 1.25rem;
+                color: var(--grey-800);
+                font-size: var(--text-xl);
                 z-index: 1000000;
                 user-select: none;
                 pointer-events: none;
@@ -174,27 +109,26 @@
                 text-align: center;
                 visibility: hidden;
                 opacity: 0;
-                transition: all 150ms 150ms ease;
+                transition: all 150ms 150ms ease-in-out;
             }
-
             html[state="hard-loading"] page-loading
             {
                 visibility: visible;
                 opacity: 1;
             }
-
-            page-loading span
+            page-loading djinnjs-file-loading-message,
+            page-loading djinnjs-file-loading-value
             {
                 line-height: 1.618;
-                display: block;
-                font-size: 1.125rem;
+                display: inline-block;
+                margin: 0 0.25rem 0.5rem;
+                font-size: var(--text-lg);
                 font-weight: 400;
                 font-family: system-ui, BlinkMacSystemFont, -apple-system, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
                 white-space: nowrap;
                 opacity: 0.87;
                 color: var(--loading-font);
             }
-
             page-loading page-loading-bar
             {
                 width: 200px;
@@ -202,10 +136,9 @@
                 position: relative;
                 background-color: var(--loading-bar);
                 overflow: hidden;
-                display: inline-block;
+                display: block;
                 box-shadow: inset 0 0 2px rgba(51,51,51,0.15);
             }
-
             page-loading page-loading-bar bar-one
             {
                 left: -145%;
@@ -215,7 +148,6 @@
                 height: 100%;
                 animation: primaryBar 2s infinite linear;
             }
-
             page-loading page-loading-bar bar-one::before
             {
                 content: "";
@@ -227,7 +159,6 @@
                 height: 100%;
                 animation: primaryScale 2s infinite linear;
             }
-
             page-loading page-loading-bar bar-two
             {
                 left: -100%;
@@ -237,7 +168,6 @@
                 height: 100%;
                 animation: secondaryBar 2s infinite linear;
             }
-
             page-loading page-loading-bar bar-two::before
             {
                 content: "";
@@ -249,13 +179,11 @@
                 height: 100%;
                 animation: secondaryScale 2s infinite linear;
             }
-
             page-loading resource-counter,
             page-loading resource-total
             {
                 display: inline-block;
             }
-
             page-loading span.-slash
             {
                 font-size:0.75rem;
@@ -263,7 +191,6 @@
                 margin:0 0.25rem;
                 transform:translateY(-2px);
             }
-
             @keyframes primaryBar{
                 0%{
                     transform: translateX(0);
@@ -280,7 +207,6 @@
                     transform: translateX(200.61106%);
                 }
             }
-
             @keyframes secondaryBar{
                 0%{
                     transform: translateX(0);
@@ -298,7 +224,6 @@
                     transform: translateX(160.27778%);
                 }
             }
-
             @keyframes primaryScale{
                 0%{
                     transform: scaleX(.08);
@@ -315,7 +240,6 @@
                     transform: scaleX(.08);
                 }
             }
-
             @keyframes secondaryScale{
                 0%{
                     animation-timing-function: cubic-bezier(.20503,.05705,.57661,.45397);
@@ -360,21 +284,38 @@
                 }
             </style>
             <link rel="stylesheet" href="{{ alias('@rootUrl')|trim('/') }}/assets/noscript.css">
-            <!-- <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,500,700&display=swap"> -->
+            <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,500,700&display=swap">
         </noscript>
 
         <!-- Global site tag (gtag.js) - Google Analytics -->
         <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script> -->
 
-        <link rel="preload" href="{{ alias('@rootUrl')|trim('/') }}/assets/env.js" as="script" crossorigin="anonymous">
-        <link rel="preload" href="{{ alias('@rootUrl')|trim('/') }}/assets/broadcaster.js" as="script" crossorigin="anonymous">
-        <script type="module" src="{{ alias('@rootUrl')|trim('/') }}/assets/runtime.js"></script>
+        <!-- Web Components polyfill for Edge -->
+        <script>
+            if (/Edge/.test(navigator.userAgent)) {
+                document.write('<script src="https://unpkg.com/@webcomponents/webcomponentsjs@2.4.0/webcomponents-bundle.js"><\/script>');
+            }
+        </script>
+
+        <!-- Polyfill for Intersection Observer -->
+        <script>
+            if (!('IntersectionObserver' in window) || !('IntersectionObserverEntry' in window) || !('intersectionRatio' in window.IntersectionObserverEntry.prototype)) {
+                document.write('<script src="{{ alias('@rootUrl')|trim('/') }}/polyfills/intersection-observer.js"><\/script>');
+            }
+        </script>
+
+        <link rel="preload" href="{{ alias('@rootUrl')|trim('/') }}/assets/env.mjs" as="script" crossorigin="anonymous">
+        <link rel="preload" href="{{ alias('@rootUrl')|trim('/') }}/assets/broadcaster.mjs" as="script" crossorigin="anonymous">
+        <script type="module" src="{{ alias('@rootUrl')|trim('/') }}/assets/runtime.mjs"></script>
+
+        <script type="text/javascript" nomodule src="{{ alias('@rootUrl')|trim('/') }}/static/scripts/ie-warning.js"></script>
     </head>
-    <body>
+    <body style="width:100vw;overflow-x:hidden;display:block;">
         {# Full screen loading animation #}
         <page-loading>
             <div>
-                <span>Loading page</span>
+                <djinnjs-file-loading-message>Loading page</djinnjs-file-loading-message>
+                <djinnjs-file-loading-value></djinnjs-file-loading-value>
                 <page-loading-bar>
                     <bar-one></bar-one>
                     <bar-two></bar-two>
