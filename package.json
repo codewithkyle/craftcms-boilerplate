@@ -1,39 +1,42 @@
 {
 	"scripts": {
-		"prep": "rm -rf ./public/assets && mkdir ./public/assets && rm -rf ./_compiled",
+		"cleanup": "rm -rf ./_compiled && rm -rf ./_css",
+		"unpack": "snowpack",
 		"compile": "tsc",
-		"noscript": "node ./tools/noscript.js",
-		"cleanup": "rm -rf ./_compiled",
-		"build": "npm run prep && npm run compile && node ./tools/script-scrubber.js && node ./tools/cachebust.js && node ./tools/minify.js && mv public/assets/service-worker.js public/ && node ./tools/sass.js && npm run cleanup",
-		"predeploy": "npm run build && npm run noscript",
-		"bundle": "node ./tools/bundler.js",
-		"eslint": "eslint -c .eslintrc.js templates/**/*.ts && eslint -c .eslintrc.js controllers/**/*.ts",
+		"eslint": "eslint -c .eslintrc.js templates/**/*.ts",
 		"stylelint": "stylelint \"templates/**/*.scss\"",
 		"lint": "npm run eslint && npm run stylelint",
-		"precommit": "npm run eslint && npm run stylelint"
+		"prettier": "prettier --write \"templates/**/*.ts\"",
+		"precommit": "npm run eslint && npm run stylelint",
+		"predeploy": "npm run prettier && npm run eslint && npm run stylelint && npm run production",
+		"sass:dev": "cssmonster --e dev",
+		"sass:prod": "cssmosnter",
+		"build": "npm run cleanup && npm run compile && npm run sass:dev && djinnjs -e dev && npm run cleanup",
+		"production": "npm run cleanup && npm run compile && npm run sass:prod && djinnjs -e production && npm run cleanup"
 	},
 	"devDependencies": {
-		"@typescript-eslint/eslint-plugin": "^2.11.0",
-		"@typescript-eslint/parser": "^2.11.0",
-		"eslint": "^6.7.2",
-		"eslint-config-prettier": "^6.7.0",
+		"@typescript-eslint/eslint-plugin": "^2.24.0",
+		"@typescript-eslint/parser": "^2.24.0",
+		"eslint": "^6.8.0",
+		"eslint-config-prettier": "^6.10.0",
 		"eslint-plugin-prettier": "^3.1.2",
 		"glob": "^7.1.6",
 		"husky": "^3.1.0",
 		"minify": "^4.1.3",
-		"node-sass": "^4.13.0",
+		"node-sass": "^4.13.1",
 		"prettier": "1.19.1",
-		"rollup": "^1.27.13",
+		"rollup": "^1.32.1",
 		"rollup-plugin-commonjs": "^10.1.0",
 		"rollup-plugin-node-resolve": "^5.2.0",
-		"stylelint": "^12.0.0",
+		"snowpack": "^1.6.0",
+		"stylelint": "^12.0.1",
 		"stylelint-config-recommended": "^3.0.0",
 		"tslint": "^5.20.1",
-		"typescript": "^3.7.3"
+		"typescript": "^3.8.3"
 	},
 	"dependencies": {
-		"@codewithkyle/notifyjs": "^1.0.0",
-		"uuid": "^3.3.3"
+		"cssmonster": "^0.2.0",
+		"djinnjs": "0.0.21"
 	},
 	"husky": {
 		"hooks": {

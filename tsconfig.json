@@ -3,10 +3,11 @@
 		"outDir": "_compiled",
 		"allowJs": true,
 		"checkJs": true,
-		"target": "es2019",
-		"module": "esnext",
-		"lib": ["dom", "esnext"]
+		"target": "ES2019",
+		"module": "ESNext",
+		"lib": ["dom", "esnext"],
+		"moduleResolution": "Node"
 	},
-	"include": ["templates", "controllers", "packages", "core", "globals.d.ts"],
+	"include": ["templates", "web_modules"],
 	"exclude": ["vendor", "node_modules"]
 }
