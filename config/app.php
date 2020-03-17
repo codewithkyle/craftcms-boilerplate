@@ -13,19 +13,19 @@
  * built-in system components.
  */
 return [
-    'components' => [
-        'redis' => [
-            'class' => yii\redis\Connection::class,
-            'hostname' => 'localhost',
-            'port' => 6379,
-            'password' => getenv('REDIS_PASSWORD'),
-        ],
-        'cache' => [
-            'class' => yii\redis\Cache::class,
-            'defaultDuration' => 86400,
-            'keyPrefix' => 'asuperuniquekey123',
-        ],
-    ],
+    // 'components' => [
+    //     'redis' => [
+    //         'class' => yii\redis\Connection::class,
+    //         'hostname' => 'localhost',
+    //         'port' => 6379,
+    //         'password' => getenv('REDIS_PASSWORD'),
+    //     ],
+    //     'cache' => [
+    //         'class' => yii\redis\Cache::class,
+    //         'defaultDuration' => 86400,
+    //         'keyPrefix' => 'asuperuniquekey123',
+    //     ],
+    // ],
     'modules' => [
         'pwa-module' => [
             'class' => \modules\pwamodule\PwaModule::class,

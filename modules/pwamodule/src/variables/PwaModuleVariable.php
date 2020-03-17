@@ -44,4 +44,25 @@ class PwaModuleVariable
             return '0';
         }
     }
+
+    public function makeMD5Hash($string)
+    {
+        $hashed = md5($string);
+        return $hashed;
+    }
+
+    public function getPublicKey()
+    {
+        return Craft::$app->getenv('RECAPTCHA_PUBLIC_KEY');
+    }
+
+    public function checkRequireLogin($entry)
+    {
+        $requiresLogin = false;
+        if (!empty($entry) && isset($entry['requireLogin']))
+        {
+            $requiresLogin = PwaModule::getInstance()->pwaModuleService->checkRequireLogin($entry);
+        }
+        return $requiresLogin;
+    }
 }

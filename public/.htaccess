@@ -6,6 +6,28 @@
     </IfModule>
 </FilesMatch>
 
+<Files *.js.gz>
+  AddType "text/javascript" .gz
+  AddEncoding gzip .gz
+</Files>
+<Files *.css.gz>
+  AddType "text/css" .gz
+  AddEncoding gzip .gz
+</Files>
+
+<Files *.js.br>
+  AddType "text/javascript" .br
+  AddEncoding br .br
+</Files>
+<Files *.css.br>
+  AddType "text/css" .br
+  AddEncoding br .br
+</Files>
+
+<IfModule mod_mime.c>
+  AddType text/javascript js mjs
+</IfModule>
+
 <IfModule mod_expires.c>
     ExpiresActive On
     ExpiresByType image/jpg "access 1 year"
@@ -30,4 +52,12 @@
     RewriteCond %{REQUEST_FILENAME} !-d
     RewriteCond %{REQUEST_URI} !^/(favicon\.ico|apple-touch-icon.*\.png)$ [NC]
     RewriteRule (.+) index.php?p=$1 [QSA,L]
+
+    RewriteCond %{HTTP:Accept-Encoding} br
+    RewriteCond %{REQUEST_FILENAME}.br -f
+    RewriteRule ^(.*)$ $1.br [L]
+
+    RewriteCond %{HTTP:Accept-Encoding} gzip
+    RewriteCond %{REQUEST_FILENAME}.gz -f
+    RewriteRule ^(.*)$ $1.gz [L]
 </IfModule>

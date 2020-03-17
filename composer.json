@@ -1,9 +1,9 @@
 {
   "require": {
-    "aelvan/imager": "v2.3.0",
+    "aelvan/imager": "v2.4.0",
     "anubarak/craft-relabel": "1.3.4",
     "chasegiunta/scss": "1.0.0",
-    "craftcms/cms": "3.3.18.2",
+    "craftcms/cms": "3.4.9",
     "craftcms/redactor": "2.4.0",
     "ether/logs": "3.0.3",
     "ether/seo": "3.6.2",

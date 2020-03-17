@@ -1,4 +1,4 @@
-dateModified: 1576524502
+dateModified: 1584448623
 email:
   fromEmail: web@page.works
   fromName: 'Craft Boilerplate'
@@ -8,44 +8,31 @@ fieldGroups:
     name: Common
 fields:
   cda061aa-272e-46e1-86a2-8b1bf4ab716e:
-    name: 'Alternate Description'
-    handle: alternateDescription
-    instructions: 'Provide a brief description of the image or icon. This description is not be visible to users and will be read to users with vision impairments or disabilities if they are utilizing screen reader technology. This is required in order to be in compliance with the Americans with Disabilities Act.'
-    searchable: true
-    translationMethod: none
-    translationKeyFormat: null
-    type: craft\fields\PlainText
-    settings:
-      placeholder: ''
-      code: ''
-      multiline: ''
-      initialRows: '4'
-      charLimit: ''
-      columnType: text
     contentColumnType: text
     fieldGroup: f5af2400-40de-41ae-8d1c-f6f8e0e4cd33
+    handle: alternateDescription
+    instructions: 'Provide a brief description of the image or icon. This description is not be visible to users and will be read to users with vision impairments or disabilities if they are utilizing screen reader technology. This is required in order to be in compliance with the Americans with Disabilities Act.'
+    name: 'Alternate Description'
+    searchable: true
+    settings:
+      charLimit: ''
+      code: ''
+      columnType: text
+      initialRows: '4'
+      multiline: ''
+      placeholder: ''
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\PlainText
   d928b526-5d8e-4e33-b0d6-0f8757af070b:
-    name: SEO
+    contentColumnType: text
+    fieldGroup: f5af2400-40de-41ae-8d1c-f6f8e0e4cd33
     handle: seo
     instructions: ''
+    name: SEO
     searchable: false
-    translationMethod: none
-    translationKeyFormat: null
-    type: ether\seo\fields\SeoField
     settings:
-      titleSuffix: null
-      suffixAsPrefix: null
-      title:
-        -
-          key: '1'
-          locked: '0'
-          template: '{title}'
-        -
-          key: '2'
-          locked: '1'
-          template: ' - {{ siteName }}'
       description: ''
-      socialImage: ''
       hideSocial: ''
       robots:
         - ''
@@ -54,8 +41,35 @@ fields:
         - ''
         - ''
         - ''
-    contentColumnType: text
-    fieldGroup: f5af2400-40de-41ae-8d1c-f6f8e0e4cd33
+      socialImage: ''
+      suffixAsPrefix: null
+      title:
+        -
+          __assoc__:
+            -
+              - key
+              - '1'
+            -
+              - locked
+              - '0'
+            -
+              - template
+              - '{title}'
+        -
+          __assoc__:
+            -
+              - key
+              - '2'
+            -
+              - locked
+              - '1'
+            -
+              - template
+              - ' - {{ siteName }}'
+      titleSuffix: null
+    translationKeyFormat: null
+    translationMethod: none
+    type: ether\seo\fields\SeoField
 plugins:
   eager-beaver:
     edition: standard
@@ -93,25 +107,25 @@ plugins:
     edition: standard
     enabled: true
     schemaVersion: 1.0.0
-  typedlinkfield:
-    edition: standard
-    enabled: true
-    schemaVersion: 1.0.0
   splash:
     edition: standard
     enabled: true
     schemaVersion: 3.0.0
     settings:
-      volume: '1'
       authorField: ''
       authorUrlField: ''
       colorField: ''
+      volume: '1'
+  typedlinkfield:
+    edition: standard
+    enabled: true
+    schemaVersion: 1.0.0
 siteGroups:
   5bff79a3-9f01-4048-b15d-e5bfa085b40f:
     name: 'Craft Boilerplate'
 sites:
   9d3d784a-1004-46ae-9e3d-d388b34a746f:
-    baseUrl: $DEFAULT_SITE_URL
+    baseUrl: '@rootUrl'
     handle: default
     hasUrls: true
     language: en-US
@@ -121,33 +135,33 @@ sites:
     sortOrder: 1
 system:
   edition: solo
-  name: 'Craft Boilerplate'
   live: true
-  schemaVersion: 3.3.3
+  name: 'Craft Boilerplate'
+  schemaVersion: 3.4.10
   timeZone: America/Los_Angeles
 users:
-  requireEmailVerification: true
   allowPublicRegistration: false
   defaultGroup: null
-  photoVolumeUid: null
   photoSubpath: ''
+  photoVolumeUid: null
+  requireEmailVerification: true
 volumes:
   903fdafc-f40e-4653-9242-0c7d2bf927ae:
-    name: Images
-    handle: images
-    type: craft\volumes\Local
-    hasUrls: true
-    url: '@web/uploads/images'
-    settings:
-      path: '@webroot/uploads/images'
-    sortOrder: 1
     fieldLayouts:
       ec539648-8861-4183-9aea-615ce175866b:
         tabs:
           -
-            name: Content
-            sortOrder: 1
             fields:
               cda061aa-272e-46e1-86a2-8b1bf4ab716e:
                 required: true
                 sortOrder: 1
+            name: Content
+            sortOrder: 1
+    handle: images
+    hasUrls: true
+    name: Images
+    settings:
+      path: '@webroot/uploads/images'
+    sortOrder: 1
+    type: craft\volumes\Local
+    url: '@web/uploads/images'

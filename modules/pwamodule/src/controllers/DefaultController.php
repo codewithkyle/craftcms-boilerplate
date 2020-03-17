@@ -34,7 +34,7 @@ class DefaultController extends Controller
      *         The actions must be in 'kebab-case'
      * @access protected
      */
-    protected $allowAnonymous = ['cachebust'];
+    protected $allowAnonymous = ['cachebust', 'form-submit', 'get-csrf'];
 
     // Public Methods
     // =========================================================================
@@ -42,6 +42,29 @@ class DefaultController extends Controller
     public function actionCachebust()
     {
         $response = PwaModule::getInstance()->pwaModuleService->cachebust();
+        return json_encode($response);
+    }
+
+    public function actionFormSubmit()
+    {
+        $this->requirePostRequest();
+        $request = Craft::$app->getRequest();
+        $response = PwaModule::getInstance()->pwaModuleService->submitForm($request->getBodyParams()); 
+        
+        if ($request->getBodyParam('redirectUrl'))
+        {
+            return $this->redirect($request->getBodyParam('redirectUrl'));
+        }
+        return json_encode($response);
+    }
+
+    public function actionGetCsrf()
+    {
+        $this->requireAcceptsJson();
+        $response = [
+            'success' => true,
+            'csrf' => Craft::$app->request->getCsrfToken()
+        ];
         return json_encode($response);
     }
 }
