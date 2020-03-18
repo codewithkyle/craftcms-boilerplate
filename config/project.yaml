@@ -1,4 +1,4 @@
-dateModified: 1584452560
+dateModified: 1584537082
 email:
   fromEmail: codingwithkyle@gmail.com
   fromName: Boilerplate
@@ -108,6 +108,203 @@ plugins:
     edition: standard
     enabled: true
     schemaVersion: 1.0.0
+sections:
+  1cb268c1-1b36-4ad0-a69b-c0559d0a4ea0:
+    enableVersioning: true
+    entryTypes:
+      6637f267-6f2b-4888-a86f-2bea60127eab:
+        handle: footerNavigation
+        hasTitleField: true
+        name: 'Footer Navigation'
+        sortOrder: 1
+        titleFormat: null
+        titleLabel: Title
+    handle: footerNavigation
+    name: 'Footer Navigation'
+    propagationMethod: all
+    siteSettings:
+      8d2ceaf6-270f-4376-a57e-b67d74fe3518:
+        enabledByDefault: true
+        hasUrls: false
+        template: null
+        uriFormat: ''
+    structure:
+      maxLevels: 2
+      uid: 078fbb41-9b2a-4a5c-9d2c-43213ba64328
+    type: structure
+  2f1f0ea0-4b22-4e9d-bb51-9e1e32a94cba:
+    enableVersioning: true
+    entryTypes:
+      a8facf3b-667d-4971-b801-f9a131ffbdee:
+        fieldLayouts:
+          6a327dfc-42dc-4126-b5ec-12ba877b02fd:
+            tabs:
+              -
+                fields:
+                  f34e1148-6584-4d08-a0e3-3d253ef838b8:
+                    required: false
+                    sortOrder: 1
+                name: Settings
+                sortOrder: 1
+        handle: articles
+        hasTitleField: true
+        name: Articles
+        sortOrder: 1
+        titleFormat: ''
+        titleLabel: Title
+    handle: articles
+    name: Articles
+    propagationMethod: all
+    siteSettings:
+      8d2ceaf6-270f-4376-a57e-b67d74fe3518:
+        enabledByDefault: true
+        hasUrls: true
+        template: pages/index
+        uriFormat: 'blog/{slug}'
+    type: channel
+  762dff31-6995-4a69-a951-48d8e6cceb0e:
+    enableVersioning: true
+    entryTypes:
+      b2fe81aa-82f5-470b-ad93-b8f4ed7a4017:
+        fieldLayouts:
+          c926afb9-c34e-4e6b-b32d-70861cde8a20:
+            tabs:
+              -
+                fields:
+                  f34e1148-6584-4d08-a0e3-3d253ef838b8:
+                    required: false
+                    sortOrder: 1
+                name: Settings
+                sortOrder: 1
+        handle: homepage
+        hasTitleField: false
+        name: Homepage
+        sortOrder: 1
+        titleFormat: '{section.name|raw}'
+        titleLabel: ''
+    handle: homepage
+    name: Homepage
+    propagationMethod: all
+    siteSettings:
+      8d2ceaf6-270f-4376-a57e-b67d74fe3518:
+        enabledByDefault: true
+        hasUrls: true
+        template: pages/index
+        uriFormat: __home__
+    type: single
+  8b0866f1-b2f2-462b-a9ae-00de7bf5b915:
+    enableVersioning: true
+    entryTypes:
+      e7c25b2f-26d2-4c47-9e77-26c9f117796a:
+        handle: carouselHeroBlock
+        hasTitleField: true
+        name: Carousel
+        sortOrder: 2
+        titleFormat: ''
+        titleLabel: 'Block Name'
+      f6b980e5-5d54-43fd-af25-8b93714f9870:
+        handle: defaultHeroBlock
+        hasTitleField: true
+        name: Standard
+        sortOrder: 1
+        titleFormat: ''
+        titleLabel: 'Block Name'
+    handle: heroBlocks
+    name: 'Hero Blocks'
+    propagationMethod: all
+    siteSettings:
+      8d2ceaf6-270f-4376-a57e-b67d74fe3518:
+        enabledByDefault: true
+        hasUrls: false
+        template: null
+        uriFormat: ''
+    type: channel
+  b9215289-18df-43f7-8aec-9164cf035280:
+    enableVersioning: true
+    entryTypes:
+      952aafeb-e91d-4224-ad3f-797108e0743c:
+        handle: headerNavigation
+        hasTitleField: true
+        name: 'Header Navigation'
+        sortOrder: 1
+        titleFormat: null
+        titleLabel: Title
+    handle: headerNavigation
+    name: 'Header Navigation'
+    propagationMethod: all
+    siteSettings:
+      8d2ceaf6-270f-4376-a57e-b67d74fe3518:
+        enabledByDefault: true
+        hasUrls: false
+        template: null
+        uriFormat: ''
+    structure:
+      maxLevels: 2
+      uid: aa94cce7-8c5f-4b20-8aa6-22825ece2c52
+    type: structure
+  cefc4625-a115-4b71-b22d-5f6784b3aada:
+    enableVersioning: true
+    entryTypes:
+      9fd402b7-a8f4-4f00-835e-2ee0375dd762:
+        fieldLayouts:
+          8171cde9-d2c7-4d54-977a-7a9d8f27a7d5:
+            tabs:
+              -
+                fields:
+                  f34e1148-6584-4d08-a0e3-3d253ef838b8:
+                    required: false
+                    sortOrder: 1
+                name: Settings
+                sortOrder: 1
+        handle: pages
+        hasTitleField: true
+        name: Pages
+        sortOrder: 1
+        titleFormat: ''
+        titleLabel: Title
+    handle: pages
+    name: Pages
+    propagationMethod: all
+    siteSettings:
+      8d2ceaf6-270f-4376-a57e-b67d74fe3518:
+        enabledByDefault: true
+        hasUrls: true
+        template: pages/index
+        uriFormat: '{parent.uri}/{slug}'
+    structure:
+      maxLevels: null
+      uid: f455c565-f7eb-4bc3-b1e3-f2e8055dc216
+    type: structure
+  fc636500-a798-4d09-8ecf-384a5c3239a1:
+    enableVersioning: true
+    entryTypes:
+      5842aec8-f698-4140-adf9-d67bbbb03cc4:
+        fieldLayouts:
+          58d45f7d-7a11-4134-b995-3928e89369c7:
+            tabs:
+              -
+                fields:
+                  f34e1148-6584-4d08-a0e3-3d253ef838b8:
+                    required: false
+                    sortOrder: 1
+                name: Settings
+                sortOrder: 1
+        handle: blog
+        hasTitleField: false
+        name: Blog
+        sortOrder: 1
+        titleFormat: '{section.name|raw}'
+        titleLabel: ''
+    handle: blog
+    name: Blog
+    propagationMethod: all
+    siteSettings:
+      8d2ceaf6-270f-4376-a57e-b67d74fe3518:
+        enabledByDefault: true
+        hasUrls: true
+        template: blog/index
+        uriFormat: blog
+    type: single
 siteGroups:
   9cabe42f-fdb6-45c1-8bdd-67c0914303ff:
     name: Boilerplate
