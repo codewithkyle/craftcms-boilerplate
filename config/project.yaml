@@ -1,4 +1,4 @@
-dateModified: 1584617081
+dateModified: 1584618450
 email:
   fromEmail: codingwithkyle@gmail.com
   fromName: Boilerplate
@@ -531,6 +531,301 @@ globalSets:
     handle: organizationSettings
     name: 'Organization Settings'
 matrixBlockTypes:
+  03663379-40c4-4699-994b-9893b5a7d3a6:
+    field: 1eb0ac2f-150c-4071-b0a0-cdbc98ace82e
+    fieldLayouts:
+      19515e65-e73c-4825-8de6-5ad9c100ecde:
+        tabs:
+          -
+            fields:
+              13076857-9d13-487b-99e9-284c9b084157:
+                required: false
+                sortOrder: 5
+              329db0af-cfda-438a-a8a0-aed3ff3313a8:
+                required: false
+                sortOrder: 4
+              69261eb7-e62a-420c-92a7-4761b132995d:
+                required: false
+                sortOrder: 1
+              bf1fc6ec-b372-4a28-be13-72424071f4d8:
+                required: false
+                sortOrder: 3
+              d4e23e98-4af3-44d4-b91c-748d6eaf4272:
+                required: false
+                sortOrder: 2
+            name: Content
+            sortOrder: 1
+    fields:
+      13076857-9d13-487b-99e9-284c9b084157:
+        contentColumnType: string
+        fieldGroup: null
+        handle: backgroundImage
+        instructions: 'If a background image is provided the background color will not be used.'
+        name: 'Background Image'
+        searchable: true
+        settings:
+          allowedKinds:
+            - image
+          defaultUploadLocationSource: 'volume:8b0fd7f7-2623-4a21-a578-698d8c0aef75'
+          defaultUploadLocationSubpath: ''
+          limit: '1'
+          localizeRelations: false
+          restrictFiles: '1'
+          selectionLabel: 'Set a Background Image'
+          showUnpermittedFiles: false
+          showUnpermittedVolumes: false
+          singleUploadLocationSource: 'volume:8b0fd7f7-2623-4a21-a578-698d8c0aef75'
+          singleUploadLocationSubpath: ''
+          source: null
+          sources: '*'
+          targetSiteId: null
+          useSingleFolder: true
+          validateRelatedElements: '1'
+          viewMode: large
+        translationKeyFormat: null
+        translationMethod: site
+        type: craft\fields\Assets
+      329db0af-cfda-438a-a8a0-aed3ff3313a8:
+        contentColumnType: string
+        fieldGroup: null
+        handle: backgroundColor
+        instructions: ''
+        name: 'Background Color'
+        searchable: true
+        settings:
+          optgroups: true
+          options:
+            -
+              __assoc__:
+                -
+                  - label
+                  - Color
+                -
+                  - value
+                  - color
+                -
+                  - default
+                  - '1'
+            -
+              __assoc__:
+                -
+                  - label
+                  - Light
+                -
+                  - value
+                  - light
+                -
+                  - default
+                  - ''
+            -
+              __assoc__:
+                -
+                  - label
+                  - Dark
+                -
+                  - value
+                  - dark
+                -
+                  - default
+                  - ''
+        translationKeyFormat: null
+        translationMethod: none
+        type: craft\fields\Dropdown
+      69261eb7-e62a-420c-92a7-4761b132995d:
+        contentColumnType: text
+        fieldGroup: null
+        handle: heading
+        instructions: ''
+        name: Heading
+        searchable: true
+        settings:
+          byteLimit: null
+          charLimit: null
+          code: ''
+          columnType: null
+          initialRows: '4'
+          multiline: ''
+          placeholder: ''
+        translationKeyFormat: null
+        translationMethod: none
+        type: craft\fields\PlainText
+      bf1fc6ec-b372-4a28-be13-72424071f4d8:
+        contentColumnType: text
+        fieldGroup: null
+        handle: callToActionButton
+        instructions: ''
+        name: 'Call to Action Button'
+        searchable: false
+        settings:
+          allowCustomText: '1'
+          allowTarget: '1'
+          allowedLinkNames:
+            3: entry
+            6: custom
+            7: email
+            8: tel
+          autoNoReferrer: ''
+          defaultLinkName: entry
+          defaultText: ''
+          enableAriaLabel: ''
+          enableTitle: ''
+          typeSettings:
+            __assoc__:
+              -
+                - asset
+                -
+                  __assoc__:
+                    -
+                      - sources
+                      - '*'
+                    -
+                      - allowCustomQuery
+                      - ''
+              -
+                - category
+                -
+                  __assoc__:
+                    -
+                      - sources
+                      - '*'
+                    -
+                      - allowCustomQuery
+                      - ''
+              -
+                - entry
+                -
+                  __assoc__:
+                    -
+                      - sources
+                      -
+                        - singles
+                        - 'section:2f1f0ea0-4b22-4e9d-bb51-9e1e32a94cba'
+                        - 'section:cefc4625-a115-4b71-b22d-5f6784b3aada'
+                    -
+                      - allowCustomQuery
+                      - ''
+              -
+                - site
+                -
+                  __assoc__:
+                    -
+                      - sites
+                      - '*'
+              -
+                - user
+                -
+                  __assoc__:
+                    -
+                      - sources
+                      - '*'
+                    -
+                      - allowCustomQuery
+                      - ''
+              -
+                - custom
+                -
+                  __assoc__:
+                    -
+                      - disableValidation
+                      - ''
+                    -
+                      - allowAliases
+                      - ''
+              -
+                - email
+                -
+                  __assoc__:
+                    -
+                      - disableValidation
+                      - ''
+                    -
+                      - allowAliases
+                      - ''
+              -
+                - tel
+                -
+                  __assoc__:
+                    -
+                      - disableValidation
+                      - ''
+                    -
+                      - allowAliases
+                      - ''
+              -
+                - url
+                -
+                  __assoc__:
+                    -
+                      - disableValidation
+                      - ''
+                    -
+                      - allowAliases
+                      - ''
+        translationKeyFormat: null
+        translationMethod: none
+        type: typedlinkfield\fields\LinkField
+      d4e23e98-4af3-44d4-b91c-748d6eaf4272:
+        contentColumnType: text
+        fieldGroup: null
+        handle: copy
+        instructions: ''
+        name: Copy
+        searchable: true
+        settings:
+          availableTransforms: '*'
+          availableVolumes: ''
+          cleanupHtml: true
+          columnType: text
+          purifierConfig: ''
+          purifyHtml: '1'
+          redactorConfig: Standard.json
+          removeEmptyTags: '1'
+          removeInlineStyles: '1'
+          removeNbsp: '1'
+          showUnpermittedFiles: false
+          showUnpermittedVolumes: false
+        translationKeyFormat: null
+        translationMethod: none
+        type: craft\redactor\Field
+    handle: callToActionBanner
+    name: 'Call to Action Banner'
+    sortOrder: 8
+  4ae8cf38-ab28-47c7-ad0b-b4dacfdab48f:
+    field: 1eb0ac2f-150c-4071-b0a0-cdbc98ace82e
+    fieldLayouts:
+      a8782727-ee5c-40f4-bbdf-2d5f8eef01ee:
+        tabs:
+          -
+            fields:
+              2329cff0-226e-4404-94bc-1eafd6fef322:
+                required: true
+                sortOrder: 1
+            name: Content
+            sortOrder: 1
+    fields:
+      2329cff0-226e-4404-94bc-1eafd6fef322:
+        contentColumnType: string
+        fieldGroup: null
+        handle: testimonials
+        instructions: ''
+        name: Testimonials
+        searchable: false
+        settings:
+          limit: ''
+          localizeRelations: false
+          selectionLabel: 'Add Testimonials'
+          source: null
+          sources:
+            - 'section:3ac720f7-dbfb-440a-ba4d-ab09c7aa583c'
+          targetSiteId: null
+          validateRelatedElements: '1'
+          viewMode: null
+        translationKeyFormat: null
+        translationMethod: site
+        type: craft\fields\Entries
+    handle: testimonials
+    name: Testimonials
+    sortOrder: 5
   4bb34fde-8043-454d-96ab-862534bd09c6:
     field: 16b76341-265f-4125-91b8-3b5167204f3c
     fieldLayouts:
@@ -981,6 +1276,403 @@ matrixBlockTypes:
     handle: richText
     name: 'Rich Text'
     sortOrder: 1
+  bb8b1ade-0718-4cba-9ae2-6e749531171d:
+    field: 1eb0ac2f-150c-4071-b0a0-cdbc98ace82e
+    fieldLayouts:
+      a16aee75-e3c6-4b89-8ebd-d670b08018ad:
+        tabs:
+          -
+            fields:
+              3b64d0d5-85c3-4d4c-ae24-37fc64796b59:
+                required: true
+                sortOrder: 3
+              903af3a1-d0bf-48a2-ad64-b5afa826e268:
+                required: false
+                sortOrder: 4
+              d2ed2223-7bc8-4e0b-a214-aac9858b9f7d:
+                required: false
+                sortOrder: 1
+              dee15867-e67b-485e-9bb4-462d27a45db3:
+                required: false
+                sortOrder: 2
+            name: Content
+            sortOrder: 1
+    fields:
+      3b64d0d5-85c3-4d4c-ae24-37fc64796b59:
+        contentColumnType: string
+        fieldGroup: null
+        handle: articles
+        instructions: ''
+        name: Articles
+        searchable: false
+        settings:
+          limit: '3'
+          localizeRelations: false
+          selectionLabel: 'Link an Article'
+          source: null
+          sources:
+            - 'section:2f1f0ea0-4b22-4e9d-bb51-9e1e32a94cba'
+          targetSiteId: null
+          validateRelatedElements: '1'
+          viewMode: null
+        translationKeyFormat: null
+        translationMethod: site
+        type: craft\fields\Entries
+      903af3a1-d0bf-48a2-ad64-b5afa826e268:
+        contentColumnType: text
+        fieldGroup: null
+        handle: callToActionButton
+        instructions: ''
+        name: 'Call to Action Button'
+        searchable: false
+        settings:
+          allowCustomText: '1'
+          allowTarget: '1'
+          allowedLinkNames:
+            3: entry
+            6: custom
+            7: email
+            8: tel
+          autoNoReferrer: ''
+          defaultLinkName: entry
+          defaultText: ''
+          enableAriaLabel: ''
+          enableTitle: ''
+          typeSettings:
+            __assoc__:
+              -
+                - asset
+                -
+                  __assoc__:
+                    -
+                      - sources
+                      - '*'
+                    -
+                      - allowCustomQuery
+                      - ''
+              -
+                - category
+                -
+                  __assoc__:
+                    -
+                      - sources
+                      - '*'
+                    -
+                      - allowCustomQuery
+                      - ''
+              -
+                - entry
+                -
+                  __assoc__:
+                    -
+                      - sources
+                      -
+                        - singles
+                        - 'section:2f1f0ea0-4b22-4e9d-bb51-9e1e32a94cba'
+                        - 'section:cefc4625-a115-4b71-b22d-5f6784b3aada'
+                    -
+                      - allowCustomQuery
+                      - ''
+              -
+                - site
+                -
+                  __assoc__:
+                    -
+                      - sites
+                      - '*'
+              -
+                - user
+                -
+                  __assoc__:
+                    -
+                      - sources
+                      - '*'
+                    -
+                      - allowCustomQuery
+                      - ''
+              -
+                - custom
+                -
+                  __assoc__:
+                    -
+                      - disableValidation
+                      - ''
+                    -
+                      - allowAliases
+                      - ''
+              -
+                - email
+                -
+                  __assoc__:
+                    -
+                      - disableValidation
+                      - ''
+                    -
+                      - allowAliases
+                      - ''
+              -
+                - tel
+                -
+                  __assoc__:
+                    -
+                      - disableValidation
+                      - ''
+                    -
+                      - allowAliases
+                      - ''
+              -
+                - url
+                -
+                  __assoc__:
+                    -
+                      - disableValidation
+                      - ''
+                    -
+                      - allowAliases
+                      - ''
+        translationKeyFormat: null
+        translationMethod: none
+        type: typedlinkfield\fields\LinkField
+      d2ed2223-7bc8-4e0b-a214-aac9858b9f7d:
+        contentColumnType: text
+        fieldGroup: null
+        handle: heading
+        instructions: ''
+        name: Heading
+        searchable: true
+        settings:
+          byteLimit: null
+          charLimit: null
+          code: ''
+          columnType: null
+          initialRows: '4'
+          multiline: ''
+          placeholder: ''
+        translationKeyFormat: null
+        translationMethod: none
+        type: craft\fields\PlainText
+      dee15867-e67b-485e-9bb4-462d27a45db3:
+        contentColumnType: text
+        fieldGroup: null
+        handle: copy
+        instructions: ''
+        name: Copy
+        searchable: true
+        settings:
+          availableTransforms: '*'
+          availableVolumes: ''
+          cleanupHtml: true
+          columnType: text
+          purifierConfig: ''
+          purifyHtml: '1'
+          redactorConfig: Simple.json
+          removeEmptyTags: '1'
+          removeInlineStyles: '1'
+          removeNbsp: '1'
+          showUnpermittedFiles: false
+          showUnpermittedVolumes: false
+        translationKeyFormat: null
+        translationMethod: none
+        type: craft\redactor\Field
+    handle: blogCards
+    name: 'Blog Cards'
+    sortOrder: 6
+  e2c917c0-a0ed-42fa-8e2a-d6cd9df1e434:
+    field: 1eb0ac2f-150c-4071-b0a0-cdbc98ace82e
+    fieldLayouts:
+      afc10c64-cf62-4a91-9346-dfff6c5d78f2:
+        tabs:
+          -
+            fields:
+              71299b67-37c8-4c3e-b1b9-c54f1ad88595:
+                required: false
+                sortOrder: 3
+              b7e77750-23a3-4d65-9793-70e7782204b4:
+                required: true
+                sortOrder: 2
+              ce11e6d6-11cf-44cd-94da-6c0a2f79b19b:
+                required: false
+                sortOrder: 1
+            name: Content
+            sortOrder: 1
+    fields:
+      71299b67-37c8-4c3e-b1b9-c54f1ad88595:
+        contentColumnType: text
+        fieldGroup: null
+        handle: callToActionButton
+        instructions: ''
+        name: 'Call to Action Button'
+        searchable: false
+        settings:
+          allowCustomText: '1'
+          allowTarget: '1'
+          allowedLinkNames:
+            3: entry
+            6: custom
+            7: email
+            8: tel
+          autoNoReferrer: ''
+          defaultLinkName: entry
+          defaultText: ''
+          enableAriaLabel: ''
+          enableTitle: ''
+          typeSettings:
+            __assoc__:
+              -
+                - asset
+                -
+                  __assoc__:
+                    -
+                      - sources
+                      - '*'
+                    -
+                      - allowCustomQuery
+                      - ''
+              -
+                - category
+                -
+                  __assoc__:
+                    -
+                      - sources
+                      - '*'
+                    -
+                      - allowCustomQuery
+                      - ''
+              -
+                - entry
+                -
+                  __assoc__:
+                    -
+                      - sources
+                      -
+                        - singles
+                        - 'section:2f1f0ea0-4b22-4e9d-bb51-9e1e32a94cba'
+                        - 'section:cefc4625-a115-4b71-b22d-5f6784b3aada'
+                    -
+                      - allowCustomQuery
+                      - ''
+              -
+                - site
+                -
+                  __assoc__:
+                    -
+                      - sites
+                      - '*'
+              -
+                - user
+                -
+                  __assoc__:
+                    -
+                      - sources
+                      - '*'
+                    -
+                      - allowCustomQuery
+                      - ''
+              -
+                - custom
+                -
+                  __assoc__:
+                    -
+                      - disableValidation
+                      - ''
+                    -
+                      - allowAliases
+                      - ''
+              -
+                - email
+                -
+                  __assoc__:
+                    -
+                      - disableValidation
+                      - ''
+                    -
+                      - allowAliases
+                      - ''
+              -
+                - tel
+                -
+                  __assoc__:
+                    -
+                      - disableValidation
+                      - ''
+                    -
+                      - allowAliases
+                      - ''
+              -
+                - url
+                -
+                  __assoc__:
+                    -
+                      - disableValidation
+                      - ''
+                    -
+                      - allowAliases
+                      - ''
+        translationKeyFormat: null
+        translationMethod: none
+        type: typedlinkfield\fields\LinkField
+      b7e77750-23a3-4d65-9793-70e7782204b4:
+        contentColumnType: string
+        fieldGroup: null
+        handle: cards
+        instructions: ''
+        name: Cards
+        searchable: true
+        settings:
+          columns:
+            __assoc__:
+              -
+                - a538518b-d594-484e-a083-9f5df7dea3d9
+                -
+                  __assoc__:
+                    -
+                      - width
+                      - ''
+              -
+                - 630bcfcd-7f1c-4395-9be5-63844c0edce9
+                -
+                  __assoc__:
+                    -
+                      - width
+                      - ''
+              -
+                - ddf74a4a-c638-4ea0-8a09-f090b9f43287
+                -
+                  __assoc__:
+                    -
+                      - width
+                      - ''
+          contentTable: '{{%stc_8_cards}}'
+          fieldLayout: table
+          maxRows: '3'
+          minRows: '1'
+          propagationMethod: all
+          selectionLabel: 'Add a Card'
+          staticField: ''
+        translationKeyFormat: null
+        translationMethod: site
+        type: verbb\supertable\fields\SuperTableField
+      ce11e6d6-11cf-44cd-94da-6c0a2f79b19b:
+        contentColumnType: text
+        fieldGroup: null
+        handle: heading
+        instructions: ''
+        name: Heading
+        searchable: true
+        settings:
+          byteLimit: null
+          charLimit: null
+          code: ''
+          columnType: null
+          initialRows: '4'
+          multiline: ''
+          placeholder: ''
+        translationKeyFormat: null
+        translationMethod: none
+        type: craft\fields\PlainText
+    handle: callToActionCards
+    name: 'Call to Action Cards'
+    sortOrder: 7
   f0b6c21d-e8b8-4e9d-ab61-576d34438c8d:
     field: 1eb0ac2f-150c-4071-b0a0-cdbc98ace82e
     fieldLayouts:
@@ -1648,6 +2340,91 @@ sites:
     primary: true
     siteGroup: 9cabe42f-fdb6-45c1-8bdd-67c0914303ff
     sortOrder: 1
+superTableBlockTypes:
+  0308cdba-d447-453f-8f88-fb4230ab9f27:
+    field: b7e77750-23a3-4d65-9793-70e7782204b4
+    fieldLayouts:
+      8cf362e1-6695-4a85-af9d-0d9c6285ed85:
+        tabs:
+          -
+            fields:
+              630bcfcd-7f1c-4395-9be5-63844c0edce9:
+                required: true
+                sortOrder: 2
+              a538518b-d594-484e-a083-9f5df7dea3d9:
+                required: false
+                sortOrder: 1
+              ddf74a4a-c638-4ea0-8a09-f090b9f43287:
+                required: true
+                sortOrder: 3
+            name: Content
+            sortOrder: 1
+    fields:
+      630bcfcd-7f1c-4395-9be5-63844c0edce9:
+        contentColumnType: text
+        fieldGroup: null
+        handle: heading
+        instructions: ''
+        name: Heading
+        searchable: true
+        settings:
+          byteLimit: null
+          charLimit: null
+          code: ''
+          columnType: null
+          initialRows: '4'
+          multiline: ''
+          placeholder: ''
+        translationKeyFormat: null
+        translationMethod: none
+        type: craft\fields\PlainText
+      a538518b-d594-484e-a083-9f5df7dea3d9:
+        contentColumnType: string
+        fieldGroup: null
+        handle: icon
+        instructions: 'Download icons from https://fontawesome.com/'
+        name: Icon
+        searchable: true
+        settings:
+          allowedKinds:
+            - image
+          defaultUploadLocationSource: 'volume:8b0fd7f7-2623-4a21-a578-698d8c0aef75'
+          defaultUploadLocationSubpath: ''
+          limit: '1'
+          localizeRelations: false
+          restrictFiles: '1'
+          selectionLabel: 'Add an Icon'
+          showUnpermittedFiles: false
+          showUnpermittedVolumes: false
+          singleUploadLocationSource: 'volume:8b0fd7f7-2623-4a21-a578-698d8c0aef75'
+          singleUploadLocationSubpath: ''
+          source: null
+          sources: '*'
+          targetSiteId: null
+          useSingleFolder: true
+          validateRelatedElements: '1'
+          viewMode: large
+        translationKeyFormat: null
+        translationMethod: site
+        type: craft\fields\Assets
+      ddf74a4a-c638-4ea0-8a09-f090b9f43287:
+        contentColumnType: text
+        fieldGroup: null
+        handle: briefCopy
+        instructions: ''
+        name: 'Brief Copy'
+        searchable: true
+        settings:
+          byteLimit: null
+          charLimit: null
+          code: ''
+          columnType: null
+          initialRows: '2'
+          multiline: '1'
+          placeholder: ''
+        translationKeyFormat: null
+        translationMethod: none
+        type: craft\fields\PlainText
 system:
   edition: solo
   live: true

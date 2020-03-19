@@ -86,26 +86,22 @@ class PwaModuleService extends Component
 
     public function updateRevisions(Array $entries)
     {
-        try {
-            $cache = new Cache();
-            $cache->redis->init();
+        $cache = new Cache();
+        $cache->redis->init();
 
-            foreach ($entries as $id)
+        foreach ($entries as $id)
+        {
+            if ($cache->exists($id))
             {
-                if ($cache->exists($id))
-                {
-                    $value = $cache->get($id);
-                    $value = $value + 1;
-                    $cache->set($id, $value);
-                }
-                else
-                {
-                    $cache->set($id, '0');
-                    return '0';
-                }
+                $value = $cache->get($id);
+                $value = $value + 1;
+                $cache->set($id, $value);
             }
-        } catch (\Throwable $th) {
-            return;
+            else
+            {
+                $cache->set($id, '0');
+                return '0';
+            }
         }
         
     }
