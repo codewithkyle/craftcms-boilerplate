@@ -12,29 +12,50 @@
  * You can define custom modules and system components, and even override the
  * built-in system components.
  */
-return [
-    'components' => [
-        'redis' => [
-            'class' => yii\redis\Connection::class,
-            'hostname' => getenv('REDIS_SERVER'),
-            'port' => 6379,
-            'password' => getenv('REDIS_PASSWORD'),
+$env = getenv("ENVIRONMENT");
+
+if ($env == 'production')
+{
+    return [
+        'components' => [
+            'redis' => [
+                'class' => yii\redis\Connection::class,
+                'hostname' => getenv('REDIS_SERVER'),
+                'port' => 6379,
+                'password' => getenv('REDIS_PASSWORD'),
+            ],
+            'cache' => [
+                'class' => yii\redis\Cache::class,
+                'defaultDuration' => 86400,
+                'keyPrefix' => 'redis_key',
+            ],
         ],
-        // 'cache' => [
-        //     'class' => yii\redis\Cache::class,
-        //     'defaultDuration' => 86400,
-        //     'keyPrefix' => 'redis_key',
-        // ],
-    ],
-    'modules' => [
-        'pwa-module' => [
-            'class' => \modules\pwamodule\PwaModule::class,
-            'components' => [
-                'pwaModuleService' => [
-                    'class' => 'modules\pwamodule\services\PwaModuleService',
+        'modules' => [
+            'pwa-module' => [
+                'class' => \modules\pwamodule\PwaModule::class,
+                'components' => [
+                    'pwaModuleService' => [
+                        'class' => 'modules\pwamodule\services\PwaModuleService',
+                    ],
                 ],
             ],
         ],
-    ],
-    'bootstrap' => ['pwa-module'],
-];
+        'bootstrap' => ['pwa-module'],
+    ];
+}
+else
+{
+    return [
+        'modules' => [
+            'pwa-module' => [
+                'class' => \modules\pwamodule\PwaModule::class,
+                'components' => [
+                    'pwaModuleService' => [
+                        'class' => 'modules\pwamodule\services\PwaModuleService',
+                    ],
+                ],
+            ],
+        ],
+        'bootstrap' => ['pwa-module'],
+    ];
+}

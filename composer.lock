@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "9713884149ec0b0cfc6fbb2bf51b5e9b",
+    "content-hash": "477b95a641e412d4edbaa67dc1de8fb6",
     "packages": [
         {
             "name": "aelvan/imager",
@@ -1911,6 +1911,59 @@
             ],
             "description": "Highlight PHP code in terminal",
             "time": "2018-09-29T18:48:56+00:00"
+        },
+        {
+            "name": "jalendport/craft-readtime",
+            "version": "1.6.0",
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/jalendport/craft-readtime/zipball/9ae5d52fc9e5bb522019bb135d10f40ae804b52b",
+                "reference": "9ae5d52fc9e5bb522019bb135d10f40ae804b52b",
+                "shasum": ""
+            },
+            "require": {
+                "craftcms/cms": "^3.0.0"
+            },
+            "type": "craft-plugin",
+            "extra": {
+                "name": "Read Time",
+                "handle": "read-time",
+                "hasCpSettings": true,
+                "hasCpSection": false,
+                "changelogUrl": "https://raw.githubusercontent.com/jalendport/craft-readtime/master/CHANGELOG.md",
+                "class": "jalendport\\readtime\\ReadTime"
+            },
+            "autoload": {
+                "psr-4": {
+                    "jalendport\\readtime\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Jalen Davenport",
+                    "homepage": "https://jalendport.com"
+                },
+                {
+                    "name": "Luke Youell",
+                    "homepage": "https://github.com/lukeyouell"
+                }
+            ],
+            "description": "Calculate the estimated read time for content.",
+            "keywords": [
+                "average read time",
+                "cms",
+                "craft",
+                "craft-plugin",
+                "craftcms"
+            ],
+            "support": {
+                "docs": "https://github.com/jalendport/craft-readtime/blob/master/README.md",
+                "issues": "https://github.com/jalendport/craft-readtime/issues"
+            },
+            "time": "2019-11-16T18:58:10+00:00"
         },
         {
             "name": "justinrainbow/json-schema",
@@ -4926,6 +4979,59 @@
                 "rss": "https://github.com/verbb/smith/commits/v2.atom"
             },
             "time": "2020-02-12T12:35:15+00:00"
+        },
+        {
+            "name": "verbb/super-table",
+            "version": "2.4.6",
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/verbb/super-table/zipball/29e4a2eea3653fa8822725d59032b4afb762ced1",
+                "reference": "29e4a2eea3653fa8822725d59032b4afb762ced1",
+                "shasum": ""
+            },
+            "require": {
+                "craftcms/cms": "^3.4.8",
+                "verbb/base": "^1.0.0"
+            },
+            "type": "craft-plugin",
+            "extra": {
+                "name": "Super Table",
+                "handle": "super-table",
+                "description": "Super-charge your Craft workflow with Super Table. Use it to group fields together or build complex Matrix-in-Matrix solutions.",
+                "documentationUrl": "https://github.com/verbb/super-table",
+                "changelogUrl": "https://raw.githubusercontent.com/verbb/super-table/craft-3/CHANGELOG.md",
+                "class": "verbb\\supertable\\SuperTable"
+            },
+            "autoload": {
+                "psr-4": {
+                    "verbb\\supertable\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Verbb",
+                    "homepage": "https://verbb.io"
+                }
+            ],
+            "description": "Super-charge your Craft workflow with Super Table. Use it to group fields together or build complex Matrix-in-Matrix solutions.",
+            "keywords": [
+                "cms",
+                "craft",
+                "craft-plugin",
+                "craftcms",
+                "super table"
+            ],
+            "support": {
+                "email": "support@verbb.io",
+                "issues": "https://github.com/verbb/super-table/issues?state=open",
+                "source": "https://github.com/verbb/super-table",
+                "docs": "https://github.com/verbb/super-table",
+                "rss": "https://github.com/verbb/super-table/commits/v2.atom"
+            },
+            "time": "2020-02-28T09:01:53+00:00"
         },
         {
             "name": "vlucas/phpdotenv",
