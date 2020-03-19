@@ -1,4 +1,4 @@
-dateModified: 1584618450
+dateModified: 1584618668
 email:
   fromEmail: codingwithkyle@gmail.com
   fromName: Boilerplate
@@ -1682,16 +1682,19 @@ matrixBlockTypes:
             fields:
               6d1ccaa5-5f84-4a09-8f06-707a41d34f06:
                 required: false
-                sortOrder: 4
+                sortOrder: 3
               6fb5d678-58a6-480b-b57c-10829b8019ae:
                 required: false
-                sortOrder: 2
+                sortOrder: 1
+              7a91d99a-0526-440a-af03-851dfe8870a0:
+                required: false
+                sortOrder: 5
               b4c68c10-3cb4-442b-895f-49616e457330:
                 required: false
-                sortOrder: 3
+                sortOrder: 2
               d9ea6ae0-be14-4df0-a59f-b9dd21844f74:
                 required: true
-                sortOrder: 1
+                sortOrder: 4
             name: Content
             sortOrder: 1
     fields:
@@ -1828,6 +1831,41 @@ matrixBlockTypes:
         translationKeyFormat: null
         translationMethod: none
         type: craft\fields\PlainText
+      7a91d99a-0526-440a-af03-851dfe8870a0:
+        contentColumnType: string
+        fieldGroup: null
+        handle: imagePosition
+        instructions: ''
+        name: 'Image Position'
+        searchable: true
+        settings:
+          optgroups: true
+          options:
+            -
+              __assoc__:
+                -
+                  - label
+                  - Right
+                -
+                  - value
+                  - right
+                -
+                  - default
+                  - '1'
+            -
+              __assoc__:
+                -
+                  - label
+                  - Left
+                -
+                  - value
+                  - left
+                -
+                  - default
+                  - ''
+        translationKeyFormat: null
+        translationMethod: none
+        type: craft\fields\Dropdown
       b4c68c10-3cb4-442b-895f-49616e457330:
         contentColumnType: text
         fieldGroup: null
