@@ -10,7 +10,7 @@ categoryGroups:
     structure:
       maxLevels: 1
       uid: 4840e233-1f3e-4981-8ccb-e85548acf8c9
-dateModified: 1584798190
+dateModified: 1584799073
 email:
   fromEmail: $SYSTEM_EMAIL
   fromName: $SENDER_NAME
@@ -1311,6 +1311,17 @@ matrixBlockTypes:
     handle: image
     name: Image
     sortOrder: 2
+  84911873-2e0f-4408-b279-db586efebb6f:
+    field: 1eb0ac2f-150c-4071-b0a0-cdbc98ace82e
+    fieldLayouts:
+      b6b6e33c-e1ed-44c3-92a3-bc040b208d0a:
+        tabs:
+          -
+            name: Content
+            sortOrder: 1
+    handle: horizontalRule
+    name: 'Horizontal Rule'
+    sortOrder: 12
   8c2d19b7-0094-45fc-9e92-b9900816cf1d:
     field: 1eb0ac2f-150c-4071-b0a0-cdbc98ace82e
     fieldLayouts:
@@ -2238,7 +2249,44 @@ matrixBlockTypes:
         name: Slides
         searchable: false
         settings:
-          contentTable: '{{%stc_slides}}'
+          columns:
+            __assoc__:
+              -
+                - 76f37263-7616-44be-9203-c9a00193f2f9
+                -
+                  __assoc__:
+                    -
+                      - width
+                      - ''
+              -
+                - 8049eec0-b05c-482b-820a-83a95460a262
+                -
+                  __assoc__:
+                    -
+                      - width
+                      - ''
+              -
+                - e659771a-929a-41d2-bab4-9f6dd3ee21aa
+                -
+                  __assoc__:
+                    -
+                      - width
+                      - ''
+              -
+                - 9f0fd987-261e-4cf3-b47b-ff56a9175a77
+                -
+                  __assoc__:
+                    -
+                      - width
+                      - ''
+              -
+                - 84f66ba0-cac2-484e-b97c-e3a5081a4e65
+                -
+                  __assoc__:
+                    -
+                      - width
+                      - ''
+          contentTable: '{{%stc_10_slides}}'
           fieldLayout: row
           maxRows: '3'
           minRows: '1'
