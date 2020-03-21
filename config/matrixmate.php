@@ -170,6 +170,68 @@ return [
                     ],
                 ],
             ],
+            'section:articles' => [
+                'groups' => [
+                    [
+                        'label' => 'Basic Content',
+                        'types' => ['richText', 'image', 'video', 'richTextImage'],
+                    ],
+                    [
+                        'label' => 'Calls to Action',
+                        'types' => ['callToActionBanner'],
+                    ]
+                ],
+                'types' => [
+                    'callToActionBanner' => [
+                        'tabs' => [
+                            [
+                                'label' => 'Copy',
+                                'fields' => ['heading', 'copy'],
+                            ],
+                            [
+                                'label' => 'Background',
+                                'fields' => ['backgroundColor', 'backgroundImage'],
+                            ],
+                            [
+                                'label' => 'Actions',
+                                'fields' => ['callToActionButton'],
+                            ],
+                        ],
+                        'defaultTabName' => 'Misc',
+                    ],
+                    'richText' => [
+                        'tabs' => [
+                            [
+                                'label' => 'Copy',
+                                'fields' => ['heading', 'copy'],
+                            ],
+                            [
+                                'label' => 'Actions',
+                                'fields' => ['callToActionButton'],
+                            ],
+                        ],
+                        'defaultTabName' => 'Misc',
+                    ],
+                    'richTextImage' => [
+                        'tabs' => [
+                            [
+                                'label' => 'Copy',
+                                'fields' => ['heading', 'copy'],
+                            ],
+                            [
+                                'label' => 'Image',
+                                'fields' => ['image', 'imagePosition'],
+                            ],
+                            [
+                                'label' => 'Actions',
+                                'fields' => ['callToActionButton'],
+                            ],
+                        ],
+                        'defaultTabName' => 'Misc',
+                    ],
+                ],
+                'hideUngroupedTypes' => true,
+            ]
         ],
         'form' => [
             '*' => [

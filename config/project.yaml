@@ -10,7 +10,7 @@ categoryGroups:
     structure:
       maxLevels: 1
       uid: 4840e233-1f3e-4981-8ccb-e85548acf8c9
-dateModified: 1584800833
+dateModified: 1584802348
 email:
   fromEmail: $SYSTEM_EMAIL
   fromName: $SENDER_NAME
@@ -588,6 +588,26 @@ fields:
     translationKeyFormat: null
     translationMethod: site
     type: craft\fields\Matrix
+  c3700058-6021-4036-bc94-eb253d6cdb04:
+    contentColumnType: string
+    fieldGroup: 225c7f29-a1ba-4281-a207-621cab6d37b7
+    handle: relatedArticles
+    instructions: ''
+    name: 'Related Articles'
+    searchable: false
+    settings:
+      limit: '3'
+      localizeRelations: false
+      selectionLabel: 'Link Articles'
+      source: null
+      sources:
+        - 'section:2f1f0ea0-4b22-4e9d-bb51-9e1e32a94cba'
+      targetSiteId: null
+      validateRelatedElements: '1'
+      viewMode: null
+    translationKeyFormat: null
+    translationMethod: site
+    type: craft\fields\Entries
   e32655d8-b25d-42e7-9e06-aa6b2f4100a0:
     contentColumnType: text
     fieldGroup: 9b600c44-8637-4f65-897a-d3dfa375f14b
@@ -2396,6 +2416,66 @@ matrixBlockTypes:
     handle: blogCards
     name: 'Blog Cards'
     sortOrder: 6
+  bbbf3de7-d661-43dd-a98a-978035dae401:
+    field: 1eb0ac2f-150c-4071-b0a0-cdbc98ace82e
+    fieldLayouts:
+      da5a158b-2242-46e6-b249-975006211ad4:
+        tabs:
+          -
+            fields:
+              31ecffca-3812-4519-bda2-18bbf6468634:
+                required: false
+                sortOrder: 2
+              71126e09-32d3-4987-962a-da5c02492042:
+                required: true
+                sortOrder: 1
+            name: Content
+            sortOrder: 1
+    fields:
+      31ecffca-3812-4519-bda2-18bbf6468634:
+        contentColumnType: text
+        fieldGroup: null
+        handle: author
+        instructions: ''
+        name: Author
+        searchable: true
+        settings:
+          byteLimit: null
+          charLimit: null
+          code: ''
+          columnType: null
+          initialRows: '4'
+          multiline: ''
+          placeholder: ''
+        translationKeyFormat: null
+        translationMethod: none
+        type: craft\fields\PlainText
+      71126e09-32d3-4987-962a-da5c02492042:
+        contentColumnType: text
+        fieldGroup: null
+        handle: quote
+        instructions: ''
+        name: Quote
+        searchable: true
+        settings:
+          availableTransforms: '*'
+          availableVolumes: ''
+          cleanupHtml: true
+          columnType: text
+          purifierConfig: ''
+          purifyHtml: '1'
+          redactorConfig: Simple.json
+          removeEmptyTags: '1'
+          removeInlineStyles: '1'
+          removeNbsp: '1'
+          showUnpermittedFiles: false
+          showUnpermittedVolumes: false
+        translationKeyFormat: null
+        translationMethod: none
+        type: craft\redactor\Field
+    handle: pullQuote
+    name: 'Pull Quote'
+    sortOrder: 13
   c589899d-eec9-47ce-9f76-cb11b69fbf4e:
     field: c1740ec2-6ef0-42fb-9434-5ede25eb3170
     fieldLayouts:
@@ -3256,6 +3336,9 @@ sections:
                   2e2cf186-585b-46ee-a435-b3a1737847ca:
                     required: false
                     sortOrder: 2
+                  c3700058-6021-4036-bc94-eb253d6cdb04:
+                    required: false
+                    sortOrder: 4
                   e43c44da-7b7a-4acb-a650-a9759477d295:
                     required: false
                     sortOrder: 3
