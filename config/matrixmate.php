@@ -174,7 +174,7 @@ return [
                 'groups' => [
                     [
                         'label' => 'Basic Content',
-                        'types' => ['richText', 'image', 'video', 'richTextImage'],
+                        'types' => ['richText', 'image', 'video', 'richTextImage', 'pullQuote'],
                     ],
                     [
                         'label' => 'Calls to Action',
