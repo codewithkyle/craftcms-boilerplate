@@ -6,21 +6,21 @@ return [
             '*' => [
                 'groups' => [
                     [
+                        'label' => 'Hero Blocks',
+                        'types' => ['carouselHero', 'standardHero', 'boldHero']
+                    ],
+                    [
                         'label' => 'Basic Content',
-                        'types' => ['richText', 'image', 'video', 'richTextImage', 'horizontalRule'],
+                        'types' => ['richText', 'image', 'video', 'horizontalRule'],
                     ],
                     [
                         'label' => 'Content Blocks',
-                        'types' => ['testimonials'],
+                        'types' => ['testimonials', 'pullQuote', 'richTextImage'],
                     ],
                     [
                         'label' => 'Calls to Action Blocks',
                         'types' => ['blogCards', 'callToActionCards', 'callToActionBanner'],
                     ],
-                    [
-                        'label' => 'Hero Blocks',
-                        'types' => ['carouselHero', 'standardHero', 'boldHero']
-                    ]
                 ],
                 'types' => [
                     'carouselHero' => [
@@ -173,8 +173,12 @@ return [
             'section:articles' => [
                 'groups' => [
                     [
-                        'label' => 'Basic Content',
-                        'types' => ['richText', 'image', 'video', 'richTextImage', 'pullQuote'],
+                        'label' => 'Copy',
+                        'types' => ['richText', 'richTextImage', 'pullQuote'],
+                    ],
+                    [
+                        'label' => 'Media',
+                        'types' => ['image', 'video'],
                     ],
                     [
                         'label' => 'Calls to Action',
@@ -239,6 +243,10 @@ return [
                     [
                         'label' => 'Inputs',
                         'types' => ['singleColumn', 'twoColumns', 'threeColumns'],
+                    ],
+                    [
+                        'label' => 'Misc',
+                        'types' => ['copy', 'pageBreak'],
                     ],
                 ],
             ]
