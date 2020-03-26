@@ -1,0 +1,56 @@
+[position~="relative"]{
+    position: relative;
+}
+[position~="absolute"]{
+    position: absolute;
+}
+[position~="fixed"]{
+    position: fixed;
+}
+[position~="sticky"]{
+    position: sticky;
+}
+[position~="t-auto"]{
+    top: auto;
+}
+[position~="r-auto"]{
+    right: auto;
+}
+[position~="b-auto"]{
+    bottom: auto;
+}
+[position~="l-auto"]{
+    left: auto;
+}
+[position~="x-auto"]{
+    right: auto;
+    left: auto;
+}
+[position~="y-auto"]{
+    top: auto;
+    bottom: auto;
+}
+[position~="center"]{
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+[position~="x-center"]{
+    left: 50%;
+    transform: translateX(-50%);
+}
+[position~="y-center"]{
+    top: 50%;
+    transform: translateY(-50%);
+}[position~="t-0"]{
+	top: 0;
+}
+[position~="r-0"]{
+	right: 0;
+}
+[position~="b-0"]{
+	bottom: 0;
+}
+[position~="l-0"]{
+	left: 0;
+}

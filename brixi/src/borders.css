@@ -1,0 +1,930 @@
+[border~="solid"]{
+	border-style: solid;
+}
+[border~="dashed"]{
+	border-style: dashed;
+}
+[border~="dotted"]{
+	border-style: dotted;
+}
+[border-top~="solid"]{
+	border-top-style: solid;
+}
+[border-top~="dashed"]{
+	border-top-style: dashed;
+}
+[border-top~="dotted"]{
+	border-top-style: dotted;
+}
+[border-right~="solid"]{
+	border-right-style: solid;
+}
+[border-right~="dashed"]{
+	border-right-style: dashed;
+}
+[border-right~="dotted"]{
+	border-right-style: dotted;
+}
+[border-bottom~="solid"]{
+	border-bottom-style: solid;
+}
+[border-bottom~="dashed"]{
+	border-bottom-style: dashed;
+}
+[border-bottom~="dotted"]{
+	border-bottom-style: dotted;
+}
+[border-left~="solid"]{
+	border-left-style: solid;
+}
+[border-left~="dashed"]{
+	border-left-style: dashed;
+}
+[border-left~="dotted"]{
+	border-left-style: dotted;
+}
+[border~="0"]{
+	border-width: 0px;
+}
+[border~="1"]{
+	border-width: 1px;
+}
+[border~="2"]{
+	border-width: 2px;
+}
+[border-top~="0"]{
+	border-top-width: 0px;
+}
+[border-top~="1"]{
+	border-top-width: 1px;
+}
+[border-top~="2"]{
+	border-top-width: 2px;
+}
+[border-right~="0"]{
+	border-right-width: 0px;
+}
+[border-right~="1"]{
+	border-right-width: 1px;
+}
+[border-right~="2"]{
+	border-right-width: 2px;
+}
+[border-bottom~="0"]{
+	border-bottom-width: 0px;
+}
+[border-bottom~="1"]{
+	border-bottom-width: 1px;
+}
+[border-bottom~="2"]{
+	border-bottom-width: 2px;
+}
+[border-left~="0"]{
+	border-left-width: 0px;
+}
+[border-left~="1"]{
+	border-left-width: 1px;
+}
+[border-left~="2"]{
+	border-left-width: 2px;
+}
+[border~="primary-100"]{
+	border-color: var(--primary-100);
+}
+[border~="primary-200"]{
+	border-color: var(--primary-200);
+}
+[border~="primary-300"]{
+	border-color: var(--primary-300);
+}
+[border~="primary-400"]{
+	border-color: var(--primary-400);
+}
+[border~="primary-500"]{
+	border-color: var(--primary-500);
+}
+[border~="primary-600"]{
+	border-color: var(--primary-600);
+}
+[border~="primary-700"]{
+	border-color: var(--primary-700);
+}
+[border~="primary-800"]{
+	border-color: var(--primary-800);
+}
+[border~="primary-900"]{
+	border-color: var(--primary-900);
+}
+[border~="danger-100"]{
+	border-color: var(--danger-100);
+}
+[border~="danger-200"]{
+	border-color: var(--danger-200);
+}
+[border~="danger-300"]{
+	border-color: var(--danger-300);
+}
+[border~="danger-400"]{
+	border-color: var(--danger-400);
+}
+[border~="danger-500"]{
+	border-color: var(--danger-500);
+}
+[border~="danger-600"]{
+	border-color: var(--danger-600);
+}
+[border~="danger-700"]{
+	border-color: var(--danger-700);
+}
+[border~="danger-800"]{
+	border-color: var(--danger-800);
+}
+[border~="danger-900"]{
+	border-color: var(--danger-900);
+}
+[border~="warning-100"]{
+	border-color: var(--warning-100);
+}
+[border~="warning-200"]{
+	border-color: var(--warning-200);
+}
+[border~="warning-300"]{
+	border-color: var(--warning-300);
+}
+[border~="warning-400"]{
+	border-color: var(--warning-400);
+}
+[border~="warning-500"]{
+	border-color: var(--warning-500);
+}
+[border~="warning-600"]{
+	border-color: var(--warning-600);
+}
+[border~="warning-700"]{
+	border-color: var(--warning-700);
+}
+[border~="warning-800"]{
+	border-color: var(--warning-800);
+}
+[border~="warning-900"]{
+	border-color: var(--warning-900);
+}
+[border~="success-100"]{
+	border-color: var(--success-100);
+}
+[border~="success-200"]{
+	border-color: var(--success-200);
+}
+[border~="success-300"]{
+	border-color: var(--success-300);
+}
+[border~="success-400"]{
+	border-color: var(--success-400);
+}
+[border~="success-500"]{
+	border-color: var(--success-500);
+}
+[border~="success-600"]{
+	border-color: var(--success-600);
+}
+[border~="success-700"]{
+	border-color: var(--success-700);
+}
+[border~="success-800"]{
+	border-color: var(--success-800);
+}
+[border~="success-900"]{
+	border-color: var(--success-900);
+}
+[border~="grey-100"]{
+	border-color: var(--grey-100);
+}
+[border~="grey-200"]{
+	border-color: var(--grey-200);
+}
+[border~="grey-300"]{
+	border-color: var(--grey-300);
+}
+[border~="grey-400"]{
+	border-color: var(--grey-400);
+}
+[border~="grey-500"]{
+	border-color: var(--grey-500);
+}
+[border~="grey-600"]{
+	border-color: var(--grey-600);
+}
+[border~="grey-700"]{
+	border-color: var(--grey-700);
+}
+[border~="grey-800"]{
+	border-color: var(--grey-800);
+}
+[border~="grey-900"]{
+	border-color: var(--grey-900);
+}
+[border~="neutral-100"]{
+	border-color: var(--neutral-100);
+}
+[border~="neutral-200"]{
+	border-color: var(--neutral-200);
+}
+[border~="neutral-300"]{
+	border-color: var(--neutral-300);
+}
+[border~="neutral-400"]{
+	border-color: var(--neutral-400);
+}
+[border~="neutral-500"]{
+	border-color: var(--neutral-500);
+}
+[border~="neutral-600"]{
+	border-color: var(--neutral-600);
+}
+[border~="neutral-700"]{
+	border-color: var(--neutral-700);
+}
+[border~="neutral-800"]{
+	border-color: var(--neutral-800);
+}
+[border~="neutral-900"]{
+	border-color: var(--neutral-900);
+}
+[border~="dashboard"]{
+	border-color: var(--dashboard);
+}
+[border~="sidenav"]{
+	border-color: var(--sidenav);
+}
+[border-top~="primary-100"]{
+	border-top-color: var(--primary-100);
+}
+[border-top~="primary-200"]{
+	border-top-color: var(--primary-200);
+}
+[border-top~="primary-300"]{
+	border-top-color: var(--primary-300);
+}
+[border-top~="primary-400"]{
+	border-top-color: var(--primary-400);
+}
+[border-top~="primary-500"]{
+	border-top-color: var(--primary-500);
+}
+[border-top~="primary-600"]{
+	border-top-color: var(--primary-600);
+}
+[border-top~="primary-700"]{
+	border-top-color: var(--primary-700);
+}
+[border-top~="primary-800"]{
+	border-top-color: var(--primary-800);
+}
+[border-top~="primary-900"]{
+	border-top-color: var(--primary-900);
+}
+[border-top~="danger-100"]{
+	border-top-color: var(--danger-100);
+}
+[border-top~="danger-200"]{
+	border-top-color: var(--danger-200);
+}
+[border-top~="danger-300"]{
+	border-top-color: var(--danger-300);
+}
+[border-top~="danger-400"]{
+	border-top-color: var(--danger-400);
+}
+[border-top~="danger-500"]{
+	border-top-color: var(--danger-500);
+}
+[border-top~="danger-600"]{
+	border-top-color: var(--danger-600);
+}
+[border-top~="danger-700"]{
+	border-top-color: var(--danger-700);
+}
+[border-top~="danger-800"]{
+	border-top-color: var(--danger-800);
+}
+[border-top~="danger-900"]{
+	border-top-color: var(--danger-900);
+}
+[border-top~="warning-100"]{
+	border-top-color: var(--warning-100);
+}
+[border-top~="warning-200"]{
+	border-top-color: var(--warning-200);
+}
+[border-top~="warning-300"]{
+	border-top-color: var(--warning-300);
+}
+[border-top~="warning-400"]{
+	border-top-color: var(--warning-400);
+}
+[border-top~="warning-500"]{
+	border-top-color: var(--warning-500);
+}
+[border-top~="warning-600"]{
+	border-top-color: var(--warning-600);
+}
+[border-top~="warning-700"]{
+	border-top-color: var(--warning-700);
+}
+[border-top~="warning-800"]{
+	border-top-color: var(--warning-800);
+}
+[border-top~="warning-900"]{
+	border-top-color: var(--warning-900);
+}
+[border-top~="success-100"]{
+	border-top-color: var(--success-100);
+}
+[border-top~="success-200"]{
+	border-top-color: var(--success-200);
+}
+[border-top~="success-300"]{
+	border-top-color: var(--success-300);
+}
+[border-top~="success-400"]{
+	border-top-color: var(--success-400);
+}
+[border-top~="success-500"]{
+	border-top-color: var(--success-500);
+}
+[border-top~="success-600"]{
+	border-top-color: var(--success-600);
+}
+[border-top~="success-700"]{
+	border-top-color: var(--success-700);
+}
+[border-top~="success-800"]{
+	border-top-color: var(--success-800);
+}
+[border-top~="success-900"]{
+	border-top-color: var(--success-900);
+}
+[border-top~="grey-100"]{
+	border-top-color: var(--grey-100);
+}
+[border-top~="grey-200"]{
+	border-top-color: var(--grey-200);
+}
+[border-top~="grey-300"]{
+	border-top-color: var(--grey-300);
+}
+[border-top~="grey-400"]{
+	border-top-color: var(--grey-400);
+}
+[border-top~="grey-500"]{
+	border-top-color: var(--grey-500);
+}
+[border-top~="grey-600"]{
+	border-top-color: var(--grey-600);
+}
+[border-top~="grey-700"]{
+	border-top-color: var(--grey-700);
+}
+[border-top~="grey-800"]{
+	border-top-color: var(--grey-800);
+}
+[border-top~="grey-900"]{
+	border-top-color: var(--grey-900);
+}
+[border-top~="neutral-100"]{
+	border-top-color: var(--neutral-100);
+}
+[border-top~="neutral-200"]{
+	border-top-color: var(--neutral-200);
+}
+[border-top~="neutral-300"]{
+	border-top-color: var(--neutral-300);
+}
+[border-top~="neutral-400"]{
+	border-top-color: var(--neutral-400);
+}
+[border-top~="neutral-500"]{
+	border-top-color: var(--neutral-500);
+}
+[border-top~="neutral-600"]{
+	border-top-color: var(--neutral-600);
+}
+[border-top~="neutral-700"]{
+	border-top-color: var(--neutral-700);
+}
+[border-top~="neutral-800"]{
+	border-top-color: var(--neutral-800);
+}
+[border-top~="neutral-900"]{
+	border-top-color: var(--neutral-900);
+}
+[border-top~="dashboard"]{
+	border-top-color: var(--dashboard);
+}
+[border-top~="sidenav"]{
+	border-top-color: var(--sidenav);
+}
+[border-right~="primary-100"]{
+	border-right-color: var(--primary-100);
+}
+[border-right~="primary-200"]{
+	border-right-color: var(--primary-200);
+}
+[border-right~="primary-300"]{
+	border-right-color: var(--primary-300);
+}
+[border-right~="primary-400"]{
+	border-right-color: var(--primary-400);
+}
+[border-right~="primary-500"]{
+	border-right-color: var(--primary-500);
+}
+[border-right~="primary-600"]{
+	border-right-color: var(--primary-600);
+}
+[border-right~="primary-700"]{
+	border-right-color: var(--primary-700);
+}
+[border-right~="primary-800"]{
+	border-right-color: var(--primary-800);
+}
+[border-right~="primary-900"]{
+	border-right-color: var(--primary-900);
+}
+[border-right~="danger-100"]{
+	border-right-color: var(--danger-100);
+}
+[border-right~="danger-200"]{
+	border-right-color: var(--danger-200);
+}
+[border-right~="danger-300"]{
+	border-right-color: var(--danger-300);
+}
+[border-right~="danger-400"]{
+	border-right-color: var(--danger-400);
+}
+[border-right~="danger-500"]{
+	border-right-color: var(--danger-500);
+}
+[border-right~="danger-600"]{
+	border-right-color: var(--danger-600);
+}
+[border-right~="danger-700"]{
+	border-right-color: var(--danger-700);
+}
+[border-right~="danger-800"]{
+	border-right-color: var(--danger-800);
+}
+[border-right~="danger-900"]{
+	border-right-color: var(--danger-900);
+}
+[border-right~="warning-100"]{
+	border-right-color: var(--warning-100);
+}
+[border-right~="warning-200"]{
+	border-right-color: var(--warning-200);
+}
+[border-right~="warning-300"]{
+	border-right-color: var(--warning-300);
+}
+[border-right~="warning-400"]{
+	border-right-color: var(--warning-400);
+}
+[border-right~="warning-500"]{
+	border-right-color: var(--warning-500);
+}
+[border-right~="warning-600"]{
+	border-right-color: var(--warning-600);
+}
+[border-right~="warning-700"]{
+	border-right-color: var(--warning-700);
+}
+[border-right~="warning-800"]{
+	border-right-color: var(--warning-800);
+}
+[border-right~="warning-900"]{
+	border-right-color: var(--warning-900);
+}
+[border-right~="success-100"]{
+	border-right-color: var(--success-100);
+}
+[border-right~="success-200"]{
+	border-right-color: var(--success-200);
+}
+[border-right~="success-300"]{
+	border-right-color: var(--success-300);
+}
+[border-right~="success-400"]{
+	border-right-color: var(--success-400);
+}
+[border-right~="success-500"]{
+	border-right-color: var(--success-500);
+}
+[border-right~="success-600"]{
+	border-right-color: var(--success-600);
+}
+[border-right~="success-700"]{
+	border-right-color: var(--success-700);
+}
+[border-right~="success-800"]{
+	border-right-color: var(--success-800);
+}
+[border-right~="success-900"]{
+	border-right-color: var(--success-900);
+}
+[border-right~="grey-100"]{
+	border-right-color: var(--grey-100);
+}
+[border-right~="grey-200"]{
+	border-right-color: var(--grey-200);
+}
+[border-right~="grey-300"]{
+	border-right-color: var(--grey-300);
+}
+[border-right~="grey-400"]{
+	border-right-color: var(--grey-400);
+}
+[border-right~="grey-500"]{
+	border-right-color: var(--grey-500);
+}
+[border-right~="grey-600"]{
+	border-right-color: var(--grey-600);
+}
+[border-right~="grey-700"]{
+	border-right-color: var(--grey-700);
+}
+[border-right~="grey-800"]{
+	border-right-color: var(--grey-800);
+}
+[border-right~="grey-900"]{
+	border-right-color: var(--grey-900);
+}
+[border-right~="neutral-100"]{
+	border-right-color: var(--neutral-100);
+}
+[border-right~="neutral-200"]{
+	border-right-color: var(--neutral-200);
+}
+[border-right~="neutral-300"]{
+	border-right-color: var(--neutral-300);
+}
+[border-right~="neutral-400"]{
+	border-right-color: var(--neutral-400);
+}
+[border-right~="neutral-500"]{
+	border-right-color: var(--neutral-500);
+}
+[border-right~="neutral-600"]{
+	border-right-color: var(--neutral-600);
+}
+[border-right~="neutral-700"]{
+	border-right-color: var(--neutral-700);
+}
+[border-right~="neutral-800"]{
+	border-right-color: var(--neutral-800);
+}
+[border-right~="neutral-900"]{
+	border-right-color: var(--neutral-900);
+}
+[border-right~="dashboard"]{
+	border-right-color: var(--dashboard);
+}
+[border-right~="sidenav"]{
+	border-right-color: var(--sidenav);
+}
+[border-bottom~="primary-100"]{
+	border-bottom-color: var(--primary-100);
+}
+[border-bottom~="primary-200"]{
+	border-bottom-color: var(--primary-200);
+}
+[border-bottom~="primary-300"]{
+	border-bottom-color: var(--primary-300);
+}
+[border-bottom~="primary-400"]{
+	border-bottom-color: var(--primary-400);
+}
+[border-bottom~="primary-500"]{
+	border-bottom-color: var(--primary-500);
+}
+[border-bottom~="primary-600"]{
+	border-bottom-color: var(--primary-600);
+}
+[border-bottom~="primary-700"]{
+	border-bottom-color: var(--primary-700);
+}
+[border-bottom~="primary-800"]{
+	border-bottom-color: var(--primary-800);
+}
+[border-bottom~="primary-900"]{
+	border-bottom-color: var(--primary-900);
+}
+[border-bottom~="danger-100"]{
+	border-bottom-color: var(--danger-100);
+}
+[border-bottom~="danger-200"]{
+	border-bottom-color: var(--danger-200);
+}
+[border-bottom~="danger-300"]{
+	border-bottom-color: var(--danger-300);
+}
+[border-bottom~="danger-400"]{
+	border-bottom-color: var(--danger-400);
+}
+[border-bottom~="danger-500"]{
+	border-bottom-color: var(--danger-500);
+}
+[border-bottom~="danger-600"]{
+	border-bottom-color: var(--danger-600);
+}
+[border-bottom~="danger-700"]{
+	border-bottom-color: var(--danger-700);
+}
+[border-bottom~="danger-800"]{
+	border-bottom-color: var(--danger-800);
+}
+[border-bottom~="danger-900"]{
+	border-bottom-color: var(--danger-900);
+}
+[border-bottom~="warning-100"]{
+	border-bottom-color: var(--warning-100);
+}
+[border-bottom~="warning-200"]{
+	border-bottom-color: var(--warning-200);
+}
+[border-bottom~="warning-300"]{
+	border-bottom-color: var(--warning-300);
+}
+[border-bottom~="warning-400"]{
+	border-bottom-color: var(--warning-400);
+}
+[border-bottom~="warning-500"]{
+	border-bottom-color: var(--warning-500);
+}
+[border-bottom~="warning-600"]{
+	border-bottom-color: var(--warning-600);
+}
+[border-bottom~="warning-700"]{
+	border-bottom-color: var(--warning-700);
+}
+[border-bottom~="warning-800"]{
+	border-bottom-color: var(--warning-800);
+}
+[border-bottom~="warning-900"]{
+	border-bottom-color: var(--warning-900);
+}
+[border-bottom~="success-100"]{
+	border-bottom-color: var(--success-100);
+}
+[border-bottom~="success-200"]{
+	border-bottom-color: var(--success-200);
+}
+[border-bottom~="success-300"]{
+	border-bottom-color: var(--success-300);
+}
+[border-bottom~="success-400"]{
+	border-bottom-color: var(--success-400);
+}
+[border-bottom~="success-500"]{
+	border-bottom-color: var(--success-500);
+}
+[border-bottom~="success-600"]{
+	border-bottom-color: var(--success-600);
+}
+[border-bottom~="success-700"]{
+	border-bottom-color: var(--success-700);
+}
+[border-bottom~="success-800"]{
+	border-bottom-color: var(--success-800);
+}
+[border-bottom~="success-900"]{
+	border-bottom-color: var(--success-900);
+}
+[border-bottom~="grey-100"]{
+	border-bottom-color: var(--grey-100);
+}
+[border-bottom~="grey-200"]{
+	border-bottom-color: var(--grey-200);
+}
+[border-bottom~="grey-300"]{
+	border-bottom-color: var(--grey-300);
+}
+[border-bottom~="grey-400"]{
+	border-bottom-color: var(--grey-400);
+}
+[border-bottom~="grey-500"]{
+	border-bottom-color: var(--grey-500);
+}
+[border-bottom~="grey-600"]{
+	border-bottom-color: var(--grey-600);
+}
+[border-bottom~="grey-700"]{
+	border-bottom-color: var(--grey-700);
+}
+[border-bottom~="grey-800"]{
+	border-bottom-color: var(--grey-800);
+}
+[border-bottom~="grey-900"]{
+	border-bottom-color: var(--grey-900);
+}
+[border-bottom~="neutral-100"]{
+	border-bottom-color: var(--neutral-100);
+}
+[border-bottom~="neutral-200"]{
+	border-bottom-color: var(--neutral-200);
+}
+[border-bottom~="neutral-300"]{
+	border-bottom-color: var(--neutral-300);
+}
+[border-bottom~="neutral-400"]{
+	border-bottom-color: var(--neutral-400);
+}
+[border-bottom~="neutral-500"]{
+	border-bottom-color: var(--neutral-500);
+}
+[border-bottom~="neutral-600"]{
+	border-bottom-color: var(--neutral-600);
+}
+[border-bottom~="neutral-700"]{
+	border-bottom-color: var(--neutral-700);
+}
+[border-bottom~="neutral-800"]{
+	border-bottom-color: var(--neutral-800);
+}
+[border-bottom~="neutral-900"]{
+	border-bottom-color: var(--neutral-900);
+}
+[border-bottom~="dashboard"]{
+	border-bottom-color: var(--dashboard);
+}
+[border-bottom~="sidenav"]{
+	border-bottom-color: var(--sidenav);
+}
+[border-left~="primary-100"]{
+	border-left-color: var(--primary-100);
+}
+[border-left~="primary-200"]{
+	border-left-color: var(--primary-200);
+}
+[border-left~="primary-300"]{
+	border-left-color: var(--primary-300);
+}
+[border-left~="primary-400"]{
+	border-left-color: var(--primary-400);
+}
+[border-left~="primary-500"]{
+	border-left-color: var(--primary-500);
+}
+[border-left~="primary-600"]{
+	border-left-color: var(--primary-600);
+}
+[border-left~="primary-700"]{
+	border-left-color: var(--primary-700);
+}
+[border-left~="primary-800"]{
+	border-left-color: var(--primary-800);
+}
+[border-left~="primary-900"]{
+	border-left-color: var(--primary-900);
+}
+[border-left~="danger-100"]{
+	border-left-color: var(--danger-100);
+}
+[border-left~="danger-200"]{
+	border-left-color: var(--danger-200);
+}
+[border-left~="danger-300"]{
+	border-left-color: var(--danger-300);
+}
+[border-left~="danger-400"]{
+	border-left-color: var(--danger-400);
+}
+[border-left~="danger-500"]{
+	border-left-color: var(--danger-500);
+}
+[border-left~="danger-600"]{
+	border-left-color: var(--danger-600);
+}
+[border-left~="danger-700"]{
+	border-left-color: var(--danger-700);
+}
+[border-left~="danger-800"]{
+	border-left-color: var(--danger-800);
+}
+[border-left~="danger-900"]{
+	border-left-color: var(--danger-900);
+}
+[border-left~="warning-100"]{
+	border-left-color: var(--warning-100);
+}
+[border-left~="warning-200"]{
+	border-left-color: var(--warning-200);
+}
+[border-left~="warning-300"]{
+	border-left-color: var(--warning-300);
+}
+[border-left~="warning-400"]{
+	border-left-color: var(--warning-400);
+}
+[border-left~="warning-500"]{
+	border-left-color: var(--warning-500);
+}
+[border-left~="warning-600"]{
+	border-left-color: var(--warning-600);
+}
+[border-left~="warning-700"]{
+	border-left-color: var(--warning-700);
+}
+[border-left~="warning-800"]{
+	border-left-color: var(--warning-800);
+}
+[border-left~="warning-900"]{
+	border-left-color: var(--warning-900);
+}
+[border-left~="success-100"]{
+	border-left-color: var(--success-100);
+}
+[border-left~="success-200"]{
+	border-left-color: var(--success-200);
+}
+[border-left~="success-300"]{
+	border-left-color: var(--success-300);
+}
+[border-left~="success-400"]{
+	border-left-color: var(--success-400);
+}
+[border-left~="success-500"]{
+	border-left-color: var(--success-500);
+}
+[border-left~="success-600"]{
+	border-left-color: var(--success-600);
+}
+[border-left~="success-700"]{
+	border-left-color: var(--success-700);
+}
+[border-left~="success-800"]{
+	border-left-color: var(--success-800);
+}
+[border-left~="success-900"]{
+	border-left-color: var(--success-900);
+}
+[border-left~="grey-100"]{
+	border-left-color: var(--grey-100);
+}
+[border-left~="grey-200"]{
+	border-left-color: var(--grey-200);
+}
+[border-left~="grey-300"]{
+	border-left-color: var(--grey-300);
+}
+[border-left~="grey-400"]{
+	border-left-color: var(--grey-400);
+}
+[border-left~="grey-500"]{
+	border-left-color: var(--grey-500);
+}
+[border-left~="grey-600"]{
+	border-left-color: var(--grey-600);
+}
+[border-left~="grey-700"]{
+	border-left-color: var(--grey-700);
+}
+[border-left~="grey-800"]{
+	border-left-color: var(--grey-800);
+}
+[border-left~="grey-900"]{
+	border-left-color: var(--grey-900);
+}
+[border-left~="neutral-100"]{
+	border-left-color: var(--neutral-100);
+}
+[border-left~="neutral-200"]{
+	border-left-color: var(--neutral-200);
+}
+[border-left~="neutral-300"]{
+	border-left-color: var(--neutral-300);
+}
+[border-left~="neutral-400"]{
+	border-left-color: var(--neutral-400);
+}
+[border-left~="neutral-500"]{
+	border-left-color: var(--neutral-500);
+}
+[border-left~="neutral-600"]{
+	border-left-color: var(--neutral-600);
+}
+[border-left~="neutral-700"]{
+	border-left-color: var(--neutral-700);
+}
+[border-left~="neutral-800"]{
+	border-left-color: var(--neutral-800);
+}
+[border-left~="neutral-900"]{
+	border-left-color: var(--neutral-900);
+}
+[border-left~="dashboard"]{
+	border-left-color: var(--dashboard);
+}
+[border-left~="sidenav"]{
+	border-left-color: var(--sidenav);
+}

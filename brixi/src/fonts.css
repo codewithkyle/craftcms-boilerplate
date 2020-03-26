@@ -1,0 +1,36 @@
+.font-base{
+	font-family: var(--font-base);
+}
+.font-serif{
+	font-family: var(--font-serif);
+}
+.font-mono{
+	font-family: var(--font-mono);
+}
+.font-hairline{
+	font-weight: var(--font-hairline);
+}
+.font-thin{
+	font-weight: var(--font-thin);
+}
+.font-light{
+	font-weight: var(--font-light);
+}
+.font-regular{
+	font-weight: var(--font-regular);
+}
+.font-medium{
+	font-weight: var(--font-medium);
+}
+.font-semibold{
+	font-weight: var(--font-semibold);
+}
+.font-bold{
+	font-weight: var(--font-bold);
+}
+.font-heavy{
+	font-weight: var(--font-heavy);
+}
+.font-black{
+	font-weight: var(--font-black);
+}

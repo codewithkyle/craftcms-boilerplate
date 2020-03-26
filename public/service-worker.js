@@ -4,7 +4,9 @@ let contentCacheId = "content-initial";
 self.addEventListener("fetch", event => {
     const noCache = event.request.url.match(new RegExp(/(\/webmaster\/)|(\/cpresources\/)|(index\.php)|(cachebust\.js)|(\/pwa\/)|(\.json)$/gi));
     if (noCache || event.request.method !== "GET") {
-        event.respondWith(fetch(event.request).then(response => {
+        event.respondWith(fetch(event.request, {
+            redirect: "follow",
+        }).then(response => {
             return response;
         }));
     }

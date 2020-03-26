@@ -1,0 +1,340 @@
+[padding~="t-0"]{
+	padding-top: 0rem;
+}
+[padding~="t-0.125"]{
+	padding-top: 0.125rem;
+}
+[padding~="t-0.25"]{
+	padding-top: 0.25rem;
+}
+[padding~="t-0.5"]{
+	padding-top: 0.5rem;
+}
+[padding~="t-0.75"]{
+	padding-top: 0.75rem;
+}
+[padding~="t-1"]{
+	padding-top: 1rem;
+}
+[padding~="t-1.25"]{
+	padding-top: 1.25rem;
+}
+[padding~="t-1.5"]{
+	padding-top: 1.5rem;
+}
+[padding~="t-1.75"]{
+	padding-top: 1.75rem;
+}
+[padding~="t-2"]{
+	padding-top: 2rem;
+}
+[padding~="t-2.25"]{
+	padding-top: 2.25rem;
+}
+[padding~="t-2.5"]{
+	padding-top: 2.5rem;
+}
+[padding~="t-2.75"]{
+	padding-top: 2.75rem;
+}
+[padding~="t-3"]{
+	padding-top: 3rem;
+}
+[padding~="t-4"]{
+	padding-top: 4rem;
+}
+[padding~="t-5"]{
+	padding-top: 5rem;
+}
+[padding~="t-6"]{
+	padding-top: 6rem;
+}
+[padding~="r-0"]{
+	padding-right: 0rem;
+}
+[padding~="r-0.125"]{
+	padding-right: 0.125rem;
+}
+[padding~="r-0.25"]{
+	padding-right: 0.25rem;
+}
+[padding~="r-0.5"]{
+	padding-right: 0.5rem;
+}
+[padding~="r-0.75"]{
+	padding-right: 0.75rem;
+}
+[padding~="r-1"]{
+	padding-right: 1rem;
+}
+[padding~="r-1.25"]{
+	padding-right: 1.25rem;
+}
+[padding~="r-1.5"]{
+	padding-right: 1.5rem;
+}
+[padding~="r-1.75"]{
+	padding-right: 1.75rem;
+}
+[padding~="r-2"]{
+	padding-right: 2rem;
+}
+[padding~="r-2.25"]{
+	padding-right: 2.25rem;
+}
+[padding~="r-2.5"]{
+	padding-right: 2.5rem;
+}
+[padding~="r-2.75"]{
+	padding-right: 2.75rem;
+}
+[padding~="r-3"]{
+	padding-right: 3rem;
+}
+[padding~="r-4"]{
+	padding-right: 4rem;
+}
+[padding~="r-5"]{
+	padding-right: 5rem;
+}
+[padding~="r-6"]{
+	padding-right: 6rem;
+}
+[padding~="b-0"]{
+	padding-bottom: 0rem;
+}
+[padding~="b-0.125"]{
+	padding-bottom: 0.125rem;
+}
+[padding~="b-0.25"]{
+	padding-bottom: 0.25rem;
+}
+[padding~="b-0.5"]{
+	padding-bottom: 0.5rem;
+}
+[padding~="b-0.75"]{
+	padding-bottom: 0.75rem;
+}
+[padding~="b-1"]{
+	padding-bottom: 1rem;
+}
+[padding~="b-1.25"]{
+	padding-bottom: 1.25rem;
+}
+[padding~="b-1.5"]{
+	padding-bottom: 1.5rem;
+}
+[padding~="b-1.75"]{
+	padding-bottom: 1.75rem;
+}
+[padding~="b-2"]{
+	padding-bottom: 2rem;
+}
+[padding~="b-2.25"]{
+	padding-bottom: 2.25rem;
+}
+[padding~="b-2.5"]{
+	padding-bottom: 2.5rem;
+}
+[padding~="b-2.75"]{
+	padding-bottom: 2.75rem;
+}
+[padding~="b-3"]{
+	padding-bottom: 3rem;
+}
+[padding~="b-4"]{
+	padding-bottom: 4rem;
+}
+[padding~="b-5"]{
+	padding-bottom: 5rem;
+}
+[padding~="b-6"]{
+	padding-bottom: 6rem;
+}
+[padding~="l-0"]{
+	padding-left: 0rem;
+}
+[padding~="l-0.125"]{
+	padding-left: 0.125rem;
+}
+[padding~="l-0.25"]{
+	padding-left: 0.25rem;
+}
+[padding~="l-0.5"]{
+	padding-left: 0.5rem;
+}
+[padding~="l-0.75"]{
+	padding-left: 0.75rem;
+}
+[padding~="l-1"]{
+	padding-left: 1rem;
+}
+[padding~="l-1.25"]{
+	padding-left: 1.25rem;
+}
+[padding~="l-1.5"]{
+	padding-left: 1.5rem;
+}
+[padding~="l-1.75"]{
+	padding-left: 1.75rem;
+}
+[padding~="l-2"]{
+	padding-left: 2rem;
+}
+[padding~="l-2.25"]{
+	padding-left: 2.25rem;
+}
+[padding~="l-2.5"]{
+	padding-left: 2.5rem;
+}
+[padding~="l-2.75"]{
+	padding-left: 2.75rem;
+}
+[padding~="l-3"]{
+	padding-left: 3rem;
+}
+[padding~="l-4"]{
+	padding-left: 4rem;
+}
+[padding~="l-5"]{
+	padding-left: 5rem;
+}
+[padding~="l-6"]{
+	padding-left: 6rem;
+}
+[padding~="x-0"]{
+	padding-left: 0rem;
+	padding-right: 0rem;
+}
+[padding~="x-0.125"]{
+	padding-left: 0.125rem;
+	padding-right: 0.125rem;
+}
+[padding~="x-0.25"]{
+	padding-left: 0.25rem;
+	padding-right: 0.25rem;
+}
+[padding~="x-0.5"]{
+	padding-left: 0.5rem;
+	padding-right: 0.5rem;
+}
+[padding~="x-0.75"]{
+	padding-left: 0.75rem;
+	padding-right: 0.75rem;
+}
+[padding~="x-1"]{
+	padding-left: 1rem;
+	padding-right: 1rem;
+}
+[padding~="x-1.25"]{
+	padding-left: 1.25rem;
+	padding-right: 1.25rem;
+}
+[padding~="x-1.5"]{
+	padding-left: 1.5rem;
+	padding-right: 1.5rem;
+}
+[padding~="x-1.75"]{
+	padding-left: 1.75rem;
+	padding-right: 1.75rem;
+}
+[padding~="x-2"]{
+	padding-left: 2rem;
+	padding-right: 2rem;
+}
+[padding~="x-2.25"]{
+	padding-left: 2.25rem;
+	padding-right: 2.25rem;
+}
+[padding~="x-2.5"]{
+	padding-left: 2.5rem;
+	padding-right: 2.5rem;
+}
+[padding~="x-2.75"]{
+	padding-left: 2.75rem;
+	padding-right: 2.75rem;
+}
+[padding~="x-3"]{
+	padding-left: 3rem;
+	padding-right: 3rem;
+}
+[padding~="x-4"]{
+	padding-left: 4rem;
+	padding-right: 4rem;
+}
+[padding~="x-5"]{
+	padding-left: 5rem;
+	padding-right: 5rem;
+}
+[padding~="x-6"]{
+	padding-left: 6rem;
+	padding-right: 6rem;
+}
+[padding~="y-0"]{
+	padding-top: 0rem;
+	padding-bottom: 0rem;
+}
+[padding~="y-0.125"]{
+	padding-top: 0.125rem;
+	padding-bottom: 0.125rem;
+}
+[padding~="y-0.25"]{
+	padding-top: 0.25rem;
+	padding-bottom: 0.25rem;
+}
+[padding~="y-0.5"]{
+	padding-top: 0.5rem;
+	padding-bottom: 0.5rem;
+}
+[padding~="y-0.75"]{
+	padding-top: 0.75rem;
+	padding-bottom: 0.75rem;
+}
+[padding~="y-1"]{
+	padding-top: 1rem;
+	padding-bottom: 1rem;
+}
+[padding~="y-1.25"]{
+	padding-top: 1.25rem;
+	padding-bottom: 1.25rem;
+}
+[padding~="y-1.5"]{
+	padding-top: 1.5rem;
+	padding-bottom: 1.5rem;
+}
+[padding~="y-1.75"]{
+	padding-top: 1.75rem;
+	padding-bottom: 1.75rem;
+}
+[padding~="y-2"]{
+	padding-top: 2rem;
+	padding-bottom: 2rem;
+}
+[padding~="y-2.25"]{
+	padding-top: 2.25rem;
+	padding-bottom: 2.25rem;
+}
+[padding~="y-2.5"]{
+	padding-top: 2.5rem;
+	padding-bottom: 2.5rem;
+}
+[padding~="y-2.75"]{
+	padding-top: 2.75rem;
+	padding-bottom: 2.75rem;
+}
+[padding~="y-3"]{
+	padding-top: 3rem;
+	padding-bottom: 3rem;
+}
+[padding~="y-4"]{
+	padding-top: 4rem;
+	padding-bottom: 4rem;
+}
+[padding~="y-5"]{
+	padding-top: 5rem;
+	padding-bottom: 5rem;
+}
+[padding~="y-6"]{
+	padding-top: 6rem;
+	padding-bottom: 6rem;
+}
