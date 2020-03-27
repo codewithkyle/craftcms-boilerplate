@@ -8,10 +8,10 @@
                 {% elseif organizationSettings.organizationName|length %}
                     {{ organizationSettings.organizationName }}
                 {% else %}
-                    {{ "Home"|t }}
+                    <span eager-load-css="background-colors font-colors flexbox paddings font-sizes" flex="items-center" padding="x-0.5" class="font-danger-700 font-sm bg-danger-100" style="height: 36px;">{{ "Logo Missing"|t }}</span>
                 {% endif %}
             </a>
-            <div>
+            <div class="primary-navigation"">
                 {% set navLinks = craft.entries({
                     limit: 5,
                     level: 1,

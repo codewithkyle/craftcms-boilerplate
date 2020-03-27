@@ -10,7 +10,7 @@
 		"precommit": "npm run eslint && npm run stylelint",
 		"predeploy": "npm run prettier && npm run eslint && npm run stylelint && npm run production",
 		"sass:dev": "cssmonster --e dev",
-		"sass:prod": "cssmosnter",
+		"sass:prod": "cssmonster",
 		"build": "npm run cleanup && npm run compile && npm run sass:dev && djinnjs -e dev && npm run cleanup",
 		"production": "npm run cleanup && npm run compile && npm run sass:prod && djinnjs -e production && npm run cleanup",
 		"compile:brixi": "brixi"
