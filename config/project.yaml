@@ -10,7 +10,7 @@ categoryGroups:
     structure:
       maxLevels: 1
       uid: 4840e233-1f3e-4981-8ccb-e85548acf8c9
-dateModified: 1585303782
+dateModified: 1585305085
 email:
   fromEmail: $SYSTEM_EMAIL
   fromName: $SENDER_NAME
@@ -3392,7 +3392,7 @@ sections:
       8d2ceaf6-270f-4376-a57e-b67d74fe3518:
         enabledByDefault: true
         hasUrls: true
-        template: pages/index
+        template: _pages/index
         uriFormat: 'blog/{slug}'
     type: channel
   3ac720f7-dbfb-440a-ba4d-ab09c7aa583c:
@@ -3461,7 +3461,7 @@ sections:
       8d2ceaf6-270f-4376-a57e-b67d74fe3518:
         enabledByDefault: true
         hasUrls: true
-        template: pages/index
+        template: _pages/index
         uriFormat: __home__
     type: single
   b9215289-18df-43f7-8aec-9164cf035280:
@@ -3765,7 +3765,7 @@ sections:
       8d2ceaf6-270f-4376-a57e-b67d74fe3518:
         enabledByDefault: true
         hasUrls: true
-        template: pages/index
+        template: _pages/index
         uriFormat: '{parent.uri}/{slug}'
     structure:
       maxLevels: null
@@ -3798,7 +3798,7 @@ sections:
       8d2ceaf6-270f-4376-a57e-b67d74fe3518:
         enabledByDefault: true
         hasUrls: true
-        template: blog/index
+        template: _blog/index
         uriFormat: blog
     type: single
 siteGroups:

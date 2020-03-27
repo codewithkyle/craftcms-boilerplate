@@ -1,0 +1,15 @@
+{% extends "_base/page" %}
+
+{% if not craft.app.request.isLivePreview %}
+    {% do eagerLoadElements(entry, []) %}
+{% endif %}
+
+{% block content %}
+    {% cache using key entry.slug ~ "-" ~ imageFormat %}
+        <article style="display:block;width:100%;">
+            {% for section in entry.contentBuilder %}
+                {% include "_blocks/" ~ section.type|kebab %}
+            {% endfor %}
+        </article>
+    {% endcache %}
+{% endblock %}

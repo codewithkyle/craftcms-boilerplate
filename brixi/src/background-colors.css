@@ -166,3 +166,9 @@
 .bg-sidenav{
 	background-color: var(--sidenav);
 }
+.bg-white{
+	background-color: var(--white);
+}
+.bg-black{
+	background-color: var(--black);
+}

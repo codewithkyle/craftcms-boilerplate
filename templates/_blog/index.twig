@@ -1,0 +1,63 @@
+{% extends "_base/page" %}
+
+{% if entry is not defined %}
+    {% set entry = craft.entries({
+        section: 'blog',
+        with: [
+            'heroArea'
+        ]
+    }).one() %}
+{% endif %}
+
+{% if slug is defined %}
+    {% set activeCategory = craft.categories({
+        slug: slug
+    }).one() %}
+{% endif %}
+
+{% set query = craft.app.request.getParam('q') %}
+{% set articleQuery = craft.entries({
+    section: 'blog',
+    limit: 6,
+    search: query,
+    relatedTo: activeCategory ?? null
+}) %}
+{% paginate articleQuery as pageInfo, articles %}
+
+{% set categories = craft.categories({
+    group: 'blogCategories',
+    limit: null,
+}).all() %}
+
+{% block content %}
+    {% cache using key entry.slug ~ "-" ~ imageFormat %}
+        <article style="display:block;width:100%;">
+            <blog-content eager-load-css="blog buttons">
+                <aside>
+                    <form method="GET">
+                        <input type="search" placeholder="Search" name="q" value="{{ query ?? '' }}" />
+                    </form>
+                    <hr noshade="true">
+                    <h2>{{ "Categories"|t }}</h2>
+                    <a href="{{ siteUrl|trim('/') }}/blog" pjax-view-id="blog-cards" scroll="none">{{ "All Categories"|t }}</a>
+                    {% for category in categories %}
+                        <a pjax-view-id="blog-cards"  scroll="none" href="{{ siteUrl|trim('/') }}/blog/{{ category.slug }}">{{ category.title }}</a pjax-view-id="blog-cards">
+                    {% endfor %}
+                </aside>
+                <section pjax-id="blog-cards">
+                    {% for card in articles %}
+                        {% include "_blog/article-card" %}
+                    {% endfor %}
+                </section>
+            </blog-content>
+            <div style="display:block;width:1200px;margin: 0 auto;text-align: center;padding-bottom: 6rem;padding-left: calc(300px + 3rem);">
+                {% if pageInfo.prevUrl %}
+                    <a href="{{ pageInfo.prevUrl }}" class="button -outline -black -wide" style="margin:0.5rem;width: 160px;">{{ "Previous Page"|t }}</a>
+                {% endif %}
+                {% if pageInfo.nextUrl %}
+                    <a href="{{ pageInfo.nextUrl }}" class="button -outline -black -wide" style="margin:0.5rem;width: 160px;">{{ "Next Page"|t }}</a>
+                {% endif %}
+            </div>
+        </article>
+    {% endcache %}
+{% endblock %}

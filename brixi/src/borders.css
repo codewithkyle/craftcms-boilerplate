@@ -256,6 +256,12 @@
 [border~="sidenav"]{
 	border-color: var(--sidenav);
 }
+[border~="white"]{
+	border-color: var(--white);
+}
+[border~="black"]{
+	border-color: var(--black);
+}
 [border-top~="primary-100"]{
 	border-top-color: var(--primary-100);
 }
@@ -423,6 +429,12 @@
 }
 [border-top~="sidenav"]{
 	border-top-color: var(--sidenav);
+}
+[border-top~="white"]{
+	border-top-color: var(--white);
+}
+[border-top~="black"]{
+	border-top-color: var(--black);
 }
 [border-right~="primary-100"]{
 	border-right-color: var(--primary-100);
@@ -592,6 +604,12 @@
 [border-right~="sidenav"]{
 	border-right-color: var(--sidenav);
 }
+[border-right~="white"]{
+	border-right-color: var(--white);
+}
+[border-right~="black"]{
+	border-right-color: var(--black);
+}
 [border-bottom~="primary-100"]{
 	border-bottom-color: var(--primary-100);
 }
@@ -760,6 +778,12 @@
 [border-bottom~="sidenav"]{
 	border-bottom-color: var(--sidenav);
 }
+[border-bottom~="white"]{
+	border-bottom-color: var(--white);
+}
+[border-bottom~="black"]{
+	border-bottom-color: var(--black);
+}
 [border-left~="primary-100"]{
 	border-left-color: var(--primary-100);
 }
@@ -927,4 +951,10 @@
 }
 [border-left~="sidenav"]{
 	border-left-color: var(--sidenav);
+}
+[border-left~="white"]{
+	border-left-color: var(--white);
+}
+[border-left~="black"]{
+	border-left-color: var(--black);
 }
