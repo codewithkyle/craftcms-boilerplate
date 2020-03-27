@@ -185,7 +185,11 @@ header{
                 width: 48px;
                 height: 48px;
                 position: relative;
-                display: none;
+                display: inline-block;
+
+                @media (min-width: 1024px){
+                    display: none;
+                }
 
                 &.is-visible{
                     display: inline-block;
