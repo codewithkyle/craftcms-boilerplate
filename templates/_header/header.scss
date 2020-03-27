@@ -132,7 +132,7 @@ header{
             .-primary-link,
             button{
                 padding: 0 0.5rem;
-                margin-right: 0.5rem;
+                margin-left: 1rem;
                 display: none;
                 align-items: center;
                 justify-content: center;
@@ -144,14 +144,6 @@ header{
                 position: relative;
                 transition: all 150ms var(--ease-in-out);
                 font-size: var(--font-sm);
-    
-                &:last-child{
-                    margin-right: 0;
-
-                    & + dropdown-list{
-                        left: 50%;
-                    }
-                }
     
                 &:hover{
                     color: var(--primary-700);
@@ -200,6 +192,7 @@ header{
                 height: 48px;
                 position: relative;
                 display: inline-block;
+                margin-left: 1rem;
 
                 @media (min-width: 1024px){
                     display: none;

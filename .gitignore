@@ -9,9 +9,6 @@
 /public/imager
 _compiled
 _css
-
-# Remove before launch
-# --------
 /vendor
 /public/assets
 /public/broadcaster-worker.min.js
