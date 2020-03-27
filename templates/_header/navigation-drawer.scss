@@ -56,7 +56,7 @@ navigation-drawer{
                     }
                 }
 
-                &:focus{
+                &:focus-visible{
                     & + label{
                         color: var(--primary-700);
 
@@ -131,8 +131,11 @@ navigation-drawer{
                 margin-right: 0;
             }
 
-            &:hover,
-            &:focus{
+            &:hover{
+                color: var(--primary-700);
+            }
+
+            &:focus-visible{
                 color: var(--primary-700);
             }
         }

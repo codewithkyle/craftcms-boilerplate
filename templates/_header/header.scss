@@ -90,8 +90,15 @@ header{
                     position: relative;
                     white-space: nowrap;
     
-                    &:hover,
-                    &:focus{
+                    &:hover{
+                        color: var(--primary-700);
+    
+                        &::before{
+                            opacity: 0.06;
+                        }
+                    }
+
+                    &:focus-visible{
                         color: var(--primary-700);
     
                         &::before{
@@ -146,8 +153,15 @@ header{
                     }
                 }
     
-                &:hover,
-                &:focus{
+                &:hover{
+                    color: var(--primary-700);
+    
+                    &::before{
+                        opacity: 0.06;
+                    }
+                }
+
+                &:focus-visible{
                     color: var(--primary-700);
     
                     &::before{
@@ -203,7 +217,7 @@ header{
                     top: 0;
                     left: 0;
 
-                    &:focus{
+                    &:focus-visible{
                         & + label{
                             color: var(--primary-700);
 
