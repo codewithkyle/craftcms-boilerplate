@@ -46,6 +46,6 @@
 		}
 	},
 	"snowpack": {
-		"webDependencies": {}
+		"webDependencies": []
 	}
 }
