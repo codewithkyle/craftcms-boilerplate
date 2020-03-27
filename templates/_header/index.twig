@@ -54,7 +54,9 @@
         </button>
         <nav>
             {% for link in navLinks %}
-                <a href="{{ link.url }}">{{ link.title }}</a>
+                <a href="{{ link.url }}">
+                    <span>{{ link.title }}</span>
+                </a>
             {% endfor %}
         </nav>
     </navigation-drawer>

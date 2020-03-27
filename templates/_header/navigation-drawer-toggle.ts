@@ -16,15 +16,16 @@ class NavigationDrawerToggle extends HTMLElement {
 	};
 	private handleKeyboard: EventListener = (e: KeyboardEvent) => {
 		const key = e.key.toLowerCase();
-		if (key === " " || key === "enter") {
+		if (key === " ") {
 			message("navigation-drawer", {
 				type: "toggle",
+				open: true,
 			});
 		}
 	};
 	connectedCallback() {
 		this.input.addEventListener("change", this.handleChange);
-		this.label.addEventListener("keypress", this.handleKeyboard);
+		this.label.addEventListener("keydown", this.handleKeyboard);
 	}
 }
 customElements.define("navigation-drawer-toggle", NavigationDrawerToggle);

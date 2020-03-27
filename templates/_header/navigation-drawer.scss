@@ -3,7 +3,8 @@ navigation-drawer{
     height: 100vh;
     background-color: var(--white);
     box-shadow: var(--shadow-xl);
-    padding: 1rem;
+    padding: 0 0 2rem;
+    padding-top: calc(36px + 1rem);
     z-index: 200;
     position: fixed;
     top: 0;
@@ -11,8 +12,11 @@ navigation-drawer{
     transform: translateX(0);
     transition: all 150ms var(--ease-out);
     display: inline-block;
+    visibility: hidden;
+    border-left: 1px solid var(--neutral-100);
 
     &[state="open"]{
+        visibility: visible;
         transform: translateX(-350px);
         transition: all 300ms var(--ease-in);
     }
@@ -22,10 +26,10 @@ navigation-drawer{
         overflow-y: auto;
 
         a{
-            padding: 0 1rem;
+            padding: 0 2rem;
             height: 48px;
-            line-height: 48px;
-            display: block;
+            display: flex;
+            align-items: center;
             width: 100%;
             flex-flow: row nowrap;
             cursor: pointer;
