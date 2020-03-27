@@ -36,7 +36,7 @@
 		"typescript": "^3.8.3"
 	},
 	"dependencies": {
-		"brixi": "^0.1.1",
+		"brixi": "^0.1.4",
 		"cssmonster": "^0.2.0",
 		"djinnjs": "0.0.22"
 	},
