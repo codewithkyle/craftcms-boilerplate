@@ -105,6 +105,35 @@ navigation-drawer{
                     height: 100%;
                     background-color: var(--neutral-100);
                 }
+
+                a{
+                    font-size: var(--font-xs);
+                    min-height: 36px;
+                }
+            }
+        }
+
+        a,
+        label{
+            padding: 0 2rem;
+            min-height: 48px;
+            display: flex;
+            align-items: center;
+            width: 100%;
+            flex-flow: row nowrap;
+            cursor: pointer;
+            position: relative;
+            transition: all 150ms var(--ease-in-out);
+            font-size: var(--font-sm);
+            color: var(--grey-800);
+    
+            &:last-child{
+                margin-right: 0;
+            }
+
+            &:hover,
+            &:focus{
+                color: var(--primary-700);
             }
         }
 
@@ -163,30 +192,6 @@ navigation-drawer{
                 left: 50%;
                 transform: translate(-50%, -50%);
                 transition: all 150ms var(--ease-in-out);
-            }
-        }
-
-        a,
-        label{
-            padding: 0 2rem;
-            min-height: 48px;
-            display: flex;
-            align-items: center;
-            width: 100%;
-            flex-flow: row nowrap;
-            cursor: pointer;
-            position: relative;
-            transition: all 150ms var(--ease-in-out);
-            font-size: var(--font-sm);
-            color: var(--grey-800);
-    
-            &:last-child{
-                margin-right: 0;
-            }
-
-            &:hover,
-            &:focus{
-                color: var(--primary-700);
             }
         }
     }
