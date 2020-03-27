@@ -10,7 +10,7 @@ categoryGroups:
     structure:
       maxLevels: 1
       uid: 4840e233-1f3e-4981-8ccb-e85548acf8c9
-dateModified: 1584802348
+dateModified: 1585303782
 email:
   fromEmail: $SYSTEM_EMAIL
   fromName: $SENDER_NAME
@@ -816,6 +816,19 @@ fields:
     translationMethod: site
     type: craft\fields\Assets
 globalSets:
+  ce426575-18ab-4772-b21d-b81789822fcb:
+    fieldLayouts:
+      a621d199-8f4b-4fd4-b954-c816aa1839d2:
+        tabs:
+          -
+            fields:
+              2e2cf186-585b-46ee-a435-b3a1737847ca:
+                required: false
+                sortOrder: 1
+            name: 'Tab 1'
+            sortOrder: 1
+    handle: notifications
+    name: Notifications
   e6cff758-195e-48a1-9a9e-27b1681b6874:
     fieldLayouts:
       ae4dd40b-e640-4115-b9c9-44a3e2ecd79b:
@@ -3164,6 +3177,11 @@ relabel:
     fieldLayout: fd59a6c7-4d22-4d28-ac85-65901eeb0eef
     instructions: ''
     name: Link
+  0eb0d7e2-ca78-4175-9496-c6a1a06c2b03:
+    field: 2e2cf186-585b-46ee-a435-b3a1737847ca
+    fieldLayout: a621d199-8f4b-4fd4-b954-c816aa1839d2
+    instructions: 'Use this banner to notify the user of important information such as a temporary closing or major change.'
+    name: 'Notification Banner'
   1655ef87-4391-41ef-a1ee-42d76b9819d3:
     field: 2e2cf186-585b-46ee-a435-b3a1737847ca
     fieldLayout: 6a327dfc-42dc-4126-b5ec-12ba877b02fd
