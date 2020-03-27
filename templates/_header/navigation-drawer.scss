@@ -3,7 +3,6 @@ navigation-drawer{
     height: 100vh;
     background-color: var(--white);
     box-shadow: 0 0 6px rgba(0,0,0,0.1), 0 0 16px rgba(0,0,0,0.06);
-    padding: 0 0 2rem;
     padding-top: calc(36px + 1rem);
     position: fixed;
     top: 0;
@@ -28,6 +27,7 @@ navigation-drawer{
     nav{
         display: block;
         overflow-y: auto;
+        max-height: 100%;
 
         dropdown-link{
             display: block;
