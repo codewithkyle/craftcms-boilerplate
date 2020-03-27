@@ -6,7 +6,7 @@ header{
     height: 4rem;
     padding: 0 1rem;
     padding-top: 0.125rem;
-    z-index: 100;
+    z-index: 1000;
     background-color: var(--white);
     box-shadow: var(--shadow-md);
     display: flex;
@@ -65,7 +65,7 @@ header{
                 visibility: hidden;
                 transition: all 0ms 0ms linear;
                 padding: 0.5rem 0;
-                z-index: 101;
+                z-index: 100;
                 margin-top: 0.25rem;
 
                 &::after{
@@ -179,24 +179,6 @@ header{
                 @media (min-width: 1024px){
                     display: inline-flex;
                 }
-    
-                i{
-                    width: 24px;
-                    height: 24px;
-                    position: relative;
-                    display: inline-block;
-                    vertical-align: middle;
-                    color: var(--grey-600);
-    
-                    svg{
-                        position: absolute;
-                        top: 50%;
-                        left: 50%;
-                        transform: translate(-50%, -50%);
-                        width: 12px;
-                        height: 12px;
-                    }
-                }
             }
 
             navigation-drawer-toggle{
@@ -216,6 +198,16 @@ header{
                     position: absolute;
                     top: 0;
                     left: 0;
+
+                    &:focus{
+                        & + label{
+                            color: var(--primary-700);
+
+                            &::before{
+                                opacity: 0.06;
+                            }
+                        }
+                    }
                 }
 
                 label{
@@ -228,8 +220,7 @@ header{
                     transition: all 150ms var(--ease-in-out);
                     border-radius: 0.25rem;
                     
-                    &:hover,
-                    &:focus{
+                    &:hover{
                         color: var(--primary-700);
 
                         &::before{
