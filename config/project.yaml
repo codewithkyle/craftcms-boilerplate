@@ -10,7 +10,7 @@ categoryGroups:
     structure:
       maxLevels: 1
       uid: 4840e233-1f3e-4981-8ccb-e85548acf8c9
-dateModified: 1585407385
+dateModified: 1585411569
 email:
   fromEmail: $SYSTEM_EMAIL
   fromName: $SENDER_NAME
@@ -954,16 +954,19 @@ globalSets:
             fields:
               076e5aa3-2dc5-45c2-9f27-22086feb220d:
                 required: false
-                sortOrder: 3
+                sortOrder: 4
               4e119a0c-5a69-4b77-9f74-ca2f857374ff:
                 required: true
                 sortOrder: 2
               9100be82-1bb3-4d25-b46c-9c05b900ad2b:
                 required: false
-                sortOrder: 4
+                sortOrder: 5
               e35ca729-8355-4faf-ae53-07d599ba0a3a:
                 required: true
                 sortOrder: 1
+              f697001b-d1ba-48d7-92ee-0eb172e00ac1:
+                required: false
+                sortOrder: 3
             name: Details
             sortOrder: 1
           -
@@ -3375,6 +3378,11 @@ relabel:
     fieldLayout: 9d512349-69c2-4901-8dd6-2459420aefa2
     instructions: ''
     name: Testimony
+  e69d1cbe-8aa3-4434-ab5b-3e931061112b:
+    field: f697001b-d1ba-48d7-92ee-0eb172e00ac1
+    fieldLayout: ae4dd40b-e640-4115-b9c9-44a3e2ecd79b
+    instructions: 'This information will be displayed below the logo in the footer. Typically an address, phone number, or email address is displayed.'
+    name: 'Organization Details'
   fff4d98d-7c30-4fb5-b2ff-22da27951c10:
     field: f945ce9d-f3ac-4903-94eb-4c89c31411bf
     fieldLayout: eb52858a-5cbf-4207-9da7-a9bcf21ff878
