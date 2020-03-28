@@ -31,6 +31,17 @@ navigation-drawer{
         flex-flow: row nowrap;
         padding: 1rem;
         padding-left: 1.5rem;
+
+        .org-logo{
+            user-select: none;
+            
+            img{
+                width: 100%;
+                height: 100%;
+                max-width: 128px;
+                max-height: 48px;
+            }
+        }        
     }
 
     nav{

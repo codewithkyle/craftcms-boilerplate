@@ -10,7 +10,7 @@ categoryGroups:
     structure:
       maxLevels: 1
       uid: 4840e233-1f3e-4981-8ccb-e85548acf8c9
-dateModified: 1585404721
+dateModified: 1585407385
 email:
   fromEmail: $SYSTEM_EMAIL
   fromName: $SENDER_NAME
@@ -73,6 +73,32 @@ fields:
     translationKeyFormat: null
     translationMethod: site
     type: craft\fields\Entries
+  0b71f571-ae1d-4b03-85f6-b6bb4acbb430:
+    contentColumnType: string(255)
+    fieldGroup: 451b931d-873f-460e-8d38-e836680cfe09
+    handle: facebookUrl
+    instructions: ''
+    name: 'Facebook URL'
+    searchable: false
+    settings:
+      maxLength: '255'
+      placeholder: ''
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\Url
+  0f860c17-f79b-48b7-8d1f-15243ef39303:
+    contentColumnType: string(255)
+    fieldGroup: 451b931d-873f-460e-8d38-e836680cfe09
+    handle: linkedinUrl
+    instructions: ''
+    name: 'LinkedIn URL'
+    searchable: false
+    settings:
+      maxLength: '255'
+      placeholder: ''
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\Url
   17e538e0-41a6-4ffd-a0aa-72bd3788a8a8:
     contentColumnType: text
     fieldGroup: 9b600c44-8637-4f65-897a-d3dfa375f14b
@@ -152,6 +178,19 @@ fields:
     translationKeyFormat: null
     translationMethod: none
     type: craft\fields\Dropdown
+  26b75c67-742d-41d4-94c0-cbbf13985a33:
+    contentColumnType: string(255)
+    fieldGroup: 451b931d-873f-460e-8d38-e836680cfe09
+    handle: youtubeUrl
+    instructions: ''
+    name: 'YouTube URL'
+    searchable: false
+    settings:
+      maxLength: '255'
+      placeholder: ''
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\Url
   27eb5f6d-5e7b-4401-a20a-5259596e045a:
     contentColumnType: text
     fieldGroup: 225c7f29-a1ba-4281-a207-621cab6d37b7
@@ -285,6 +324,19 @@ fields:
     translationKeyFormat: null
     translationMethod: none
     type: craft\fields\PlainText
+  30cd9bf0-cc40-4149-ab16-af53a8c72449:
+    contentColumnType: string(255)
+    fieldGroup: 451b931d-873f-460e-8d38-e836680cfe09
+    handle: tumblrUrl
+    instructions: ''
+    name: 'Tumblr URL'
+    searchable: false
+    settings:
+      maxLength: '255'
+      placeholder: ''
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\Url
   3a0e6db7-c07c-4423-9036-416d3bc65aee:
     contentColumnType: boolean
     fieldGroup: 9b600c44-8637-4f65-897a-d3dfa375f14b
@@ -402,6 +454,19 @@ fields:
     translationKeyFormat: null
     translationMethod: none
     type: craft\fields\Table
+  7a0e5822-9917-4e3f-9da1-8b3368bbec1f:
+    contentColumnType: string(255)
+    fieldGroup: 451b931d-873f-460e-8d38-e836680cfe09
+    handle: instagramUrl
+    instructions: ''
+    name: 'Instagram URL'
+    searchable: false
+    settings:
+      maxLength: '255'
+      placeholder: ''
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\Url
   7e1eb9d6-5a18-4cd1-8642-c3684d2ad023:
     contentColumnType: integer(10)
     fieldGroup: 9b600c44-8637-4f65-897a-d3dfa375f14b
@@ -420,6 +485,19 @@ fields:
     translationKeyFormat: null
     translationMethod: none
     type: craft\fields\Number
+  81a96522-33ab-4162-a188-88892876a535:
+    contentColumnType: string(255)
+    fieldGroup: 451b931d-873f-460e-8d38-e836680cfe09
+    handle: vimeoUrl
+    instructions: ''
+    name: 'Vimeo URL'
+    searchable: false
+    settings:
+      maxLength: '255'
+      placeholder: ''
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\Url
   9100be82-1bb3-4d25-b46c-9c05b900ad2b:
     contentColumnType: string
     fieldGroup: 451b931d-873f-460e-8d38-e836680cfe09
@@ -555,6 +633,32 @@ fields:
     translationKeyFormat: null
     translationMethod: none
     type: typedlinkfield\fields\LinkField
+  9c8011f9-3ae4-45a4-b562-5e7beee514d2:
+    contentColumnType: string(255)
+    fieldGroup: 451b931d-873f-460e-8d38-e836680cfe09
+    handle: snapchatUrl
+    instructions: ''
+    name: 'Snapchat URL'
+    searchable: false
+    settings:
+      maxLength: '255'
+      placeholder: ''
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\Url
+  9cfc6137-662b-4553-8ae8-9d1176fdddcb:
+    contentColumnType: string(255)
+    fieldGroup: 451b931d-873f-460e-8d38-e836680cfe09
+    handle: pinterestUrl
+    instructions: ''
+    name: 'Pinterest URL'
+    searchable: false
+    settings:
+      maxLength: '255'
+      placeholder: ''
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\Url
   ae9afa56-8cc0-4317-8b83-794e77f73e68:
     contentColumnType: text
     fieldGroup: c4451265-86dd-4e29-8607-338f8dff61d4
@@ -608,6 +712,19 @@ fields:
     translationKeyFormat: null
     translationMethod: site
     type: craft\fields\Entries
+  c6c24fc2-32de-4289-8f1a-b2ee6d7d0d92:
+    contentColumnType: string(255)
+    fieldGroup: 451b931d-873f-460e-8d38-e836680cfe09
+    handle: twitterUrl
+    instructions: ''
+    name: 'Twitter URL'
+    searchable: false
+    settings:
+      maxLength: '255'
+      placeholder: ''
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\Url
   e32655d8-b25d-42e7-9e06-aa6b2f4100a0:
     contentColumnType: text
     fieldGroup: 9b600c44-8637-4f65-897a-d3dfa375f14b
@@ -847,8 +964,39 @@ globalSets:
               e35ca729-8355-4faf-ae53-07d599ba0a3a:
                 required: true
                 sortOrder: 1
-            name: 'Tab 1'
+            name: Details
             sortOrder: 1
+          -
+            fields:
+              0b71f571-ae1d-4b03-85f6-b6bb4acbb430:
+                required: false
+                sortOrder: 1
+              0f860c17-f79b-48b7-8d1f-15243ef39303:
+                required: false
+                sortOrder: 3
+              26b75c67-742d-41d4-94c0-cbbf13985a33:
+                required: false
+                sortOrder: 4
+              30cd9bf0-cc40-4149-ab16-af53a8c72449:
+                required: false
+                sortOrder: 8
+              7a0e5822-9917-4e3f-9da1-8b3368bbec1f:
+                required: false
+                sortOrder: 5
+              81a96522-33ab-4162-a188-88892876a535:
+                required: false
+                sortOrder: 9
+              9c8011f9-3ae4-45a4-b562-5e7beee514d2:
+                required: false
+                sortOrder: 7
+              9cfc6137-662b-4553-8ae8-9d1176fdddcb:
+                required: false
+                sortOrder: 6
+              c6c24fc2-32de-4289-8f1a-b2ee6d7d0d92:
+                required: false
+                sortOrder: 2
+            name: 'Social Media'
+            sortOrder: 2
     handle: organizationSettings
     name: 'Organization Settings'
 matrixBlockTypes:
