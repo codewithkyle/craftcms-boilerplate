@@ -1,56 +1,56 @@
 [position~="relative"]{
-    position: relative;
+    position: relative !important;
 }
 [position~="absolute"]{
-    position: absolute;
+    position: absolute !important;
 }
 [position~="fixed"]{
-    position: fixed;
+    position: fixed !important;
 }
 [position~="sticky"]{
-    position: sticky;
+    position: sticky !important;
 }
 [position~="t-auto"]{
-    top: auto;
+    top: auto !important;
 }
 [position~="r-auto"]{
-    right: auto;
+    right: auto !important;
 }
 [position~="b-auto"]{
-    bottom: auto;
+    bottom: auto !important;
 }
 [position~="l-auto"]{
-    left: auto;
+    left: auto !important;
 }
 [position~="x-auto"]{
-    right: auto;
-    left: auto;
+    right: auto !important;
+    left: auto !important;
 }
 [position~="y-auto"]{
-    top: auto;
-    bottom: auto;
+    top: auto !important;
+    bottom: auto !important;
 }
 [position~="center"]{
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    top: 50% !important;
+    left: 50% !important;
+    transform: translate(-50%, -50%) !important;
 }
 [position~="x-center"]{
-    left: 50%;
-    transform: translateX(-50%);
+    left: 50% !important;
+    transform: translateX(-50%) !important;
 }
 [position~="y-center"]{
-    top: 50%;
-    transform: translateY(-50%);
+    top: 50% !important;
+    transform: translateY(-50%) !important;
 }[position~="t-0"]{
-	top: 0;
+	top: 0 !important;
 }
 [position~="r-0"]{
-	right: 0;
+	right: 0 !important;
 }
 [position~="b-0"]{
-	bottom: 0;
+	bottom: 0 !important;
 }
 [position~="l-0"]{
-	left: 0;
+	left: 0 !important;
 }

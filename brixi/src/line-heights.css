@@ -1,12 +1,12 @@
 .line-none{
-    line-height: 1;
+    line-height: 1 !important;
 }
 .line-snug{
-    line-height: 1.375;
+    line-height: 1.375 !important;
 }
 .line-normal{
-    line-height: 1.618;
+    line-height: 1.618 !important;
 }
 .line-loose{
-    line-height: 2;
+    line-height: 2 !important;
 }

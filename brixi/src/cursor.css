@@ -1,27 +1,27 @@
 .cursor-default{
-    cursor: default;
+    cursor: default !important;
 }
 .cursor-pointer{
-    cursor: pointer;
+    cursor: pointer !important;
 }
 .cursor-not-allowed{
-    cursor: not-allowed;
+    cursor: not-allowed !important;
 }
 .events-none{
-    pointer-events: none;
+    pointer-events: none !important;
 }
 .events-auto{
-    position: auto;
+    position: auto !important;
 }
 .select-none{
-    user-select: none;
+    user-select: none !important;
 }
 .select-auto{
-    user-select: auto;
+    user-select: auto !important;
 }
 .select-all{
-    user-select: all;
+    user-select: all !important;
 }
 .select-text{
-    user-select: text;
+    user-select: text !important;
 }

@@ -1,72 +1,72 @@
 [flex]{
-    display: flex;
+    display: flex !important;
 }
 [flex~="box"]{
-    display: flexbox;
+    display: flexbox !important;
 }
 [flex~="justify-center"]{
-    justify-content: center;
+    justify-content: center !important;
 }
 [flex~="justify-start"]{
-    justify-content: flex-start;
+    justify-content: flex-start !important;
 }
 [flex~="justify-end"]{
-    justify-content: flex-end;
+    justify-content: flex-end !important;
 }
 [flex~="justify-between"]{
-    justify-content: space-between;
+    justify-content: space-between !important;
 }
 [flex~="justify-around"]{
-    justify-content: space-around;
+    justify-content: space-around !important;
 }
 [flex~="justify-evenly"]{
-    justify-content: space-evenly;
+    justify-content: space-evenly !important;
 }
 [flex~="content-center"]{
-    align-content: center;
+    align-content: center !important;
 }
 [flex~="content-start"]{
-    align-content: flex-start;
+    align-content: flex-start !important;
 }
 [flex~="content-end"]{
-    align-content: flex-end;
+    align-content: flex-end !important;
 }
 [flex~="content-between"]{
-    align-content: space-between;
+    align-content: space-between !important;
 }
 [flex~="content-around"]{
-    align-content: space-around;
+    align-content: space-around !important;
 }
 [flex~="content-evenly"]{
-    align-content: space-evenly;
+    align-content: space-evenly !important;
 }
 [flex~="items-stretch"]{
-    align-items: stretch;
+    align-items: stretch !important;
 }
 [flex~="items-center"]{
-    align-items: center;
+    align-items: center !important;
 }
 [flex~="items-start"]{
-    align-items: flex-start;
+    align-items: flex-start !important;
 }
 [flex~="items-end"]{
-    align-items: flex-end;
+    align-items: flex-end !important;
 }
 [flex~="row"]{
-    flex-direction: row;
+    flex-direction: row !important;
 }
 [flex~="row"][flex~="reversed"]{
-    flex-direction: row-reverse;
+    flex-direction: row-reverse !important;
 }
 [flex~="column"]{
-    flex-direction: column;
+    flex-direction: column !important;
 }
 [flex~="column"][flex~="reversed"]{
-    flex-direction: column-reverse;
+    flex-direction: column-reverse !important;
 }
 [flex~="wrap"]{
-    flex-wrap: wrap;
+    flex-wrap: wrap !important;
 }
 [flex~="nowrap"]{
-    flex-wrap: nowrap;
+    flex-wrap: nowrap !important;
 }

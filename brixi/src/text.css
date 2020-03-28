@@ -1,39 +1,39 @@
 .whitespace-normal{
-    white-space: normal;
+    white-space: normal !important;
 }
 .whitespace-nowrap{
-    white-space: nowrap;
+    white-space: nowrap !important;
 }
 .whitespace-pre{
-    white-space: pre;
+    white-space: pre !important;
 }
 .whitespace-pre-line{
-    white-space: pre-line;
+    white-space: pre-line !important;
 }
 .whitespace-pre-wrap{
-    white-space: pre-wrap;
+    white-space: pre-wrap !important;
 }
 .text-uppercase{
-    text-transform: uppercase;
+    text-transform: uppercase !important;
 }
 .text-lowercase{
-    text-transform: lowercase;
+    text-transform: lowercase !important;
 }
 .text-capitalize{
-    text-transform: capitalize;
+    text-transform: capitalize !important;
 }
 .text-none{
-    text-transform: none;
+    text-transform: none !important;
 }
 .text-left{
-    text-align: left;
+    text-align: left !important;
 }
 .text-center{
-    text-align: center;
+    text-align: center !important;
 }
 .text-right{
-    text-align: right;
+    text-align: right !important;
 }
 .text-justify{
-    text-align: justify;
+    text-align: justify !important;
 }
