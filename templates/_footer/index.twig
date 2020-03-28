@@ -6,45 +6,47 @@
     ]
 }).all() %}
 <footer lazy-load-css="footer">
-    <div class="primary">
-        <div class="container">
-            <div class="org-block">
-                <a class="org-logo" href="{{ siteUrl }}">
-                    {% set orgLogo = organizationSettings.logo[0] ?? null %}
-                    {% if orgLogo %}
-                        <img src="{{ orgLogo.url }}" alt="{{ organizationSettings.organizationName }}" />
-                    {% elseif organizationSettings.organizationName|length %}
-                        {{ organizationSettings.organizationName }}
-                    {% else %}
-                        <span lazy-load-css="background-colors font-colors flexbox paddings font-sizes" flex="items-center" padding="x-0.5" class="font-danger-700 font-sm bg-danger-100" style="height: 36px;">{{ "Logo Missing"|t }}</span>
-                    {% endif %}
-                </a>
-                <div class="org-details">
-                    {% if organizationSettings.simpleCopy1|length %}
-                        {{ organizationSettings.simpleCopy1 }}
-                    {% else %}
-                        <span lazy-load-css="font-colors font-sizes" class="font-danger-700 font-xs">{{ "Missing organization details. Provide address, phone number, and email in the Globals section."|t }}</span>
-                    {% endif %}
+    {% if footerLinks|length %}
+        <div class="primary">
+            <div class="container">
+                <div class="org-block">
+                    <a class="org-logo" href="{{ siteUrl }}">
+                        {% set orgLogo = organizationSettings.logo[0] ?? null %}
+                        {% if orgLogo %}
+                            <img src="{{ orgLogo.url }}" alt="{{ organizationSettings.organizationName }}" />
+                        {% elseif organizationSettings.organizationName|length %}
+                            {{ organizationSettings.organizationName }}
+                        {% else %}
+                            <span lazy-load-css="background-colors font-colors flexbox paddings font-sizes" flex="items-center" padding="x-0.5" class="font-danger-700 font-sm bg-danger-100" style="height: 36px;">{{ "Logo Missing"|t }}</span>
+                        {% endif %}
+                    </a>
+                    <div class="org-details">
+                        {% if organizationSettings.simpleCopy1|length %}
+                            {{ organizationSettings.simpleCopy1 }}
+                        {% else %}
+                            <span lazy-load-css="font-colors font-sizes" class="font-danger-700 font-xs">{{ "Missing organization details. Provide address, phone number, and email in the Globals section."|t }}</span>
+                        {% endif %}
+                    </div>
+                </div>
+                <div class="footer-nav">
+                    {% for link in footerLinks %}
+                        {% if link.hasDescendants %}
+                            <div class="block">
+                                {% if link.navigationLink.url|length %}
+                                    <a class="heading" href="{{ link.navigationLink.url }}">{{ link.title }}</a>
+                                {% else %}
+                                    <h3>{{ link.title }}</h3>
+                                {% endif %}
+                                {% for sublink in link.descendants %}
+                                    <a href="{{ sublink.navigationLink.url }}">{{ sublink.title }}</a>
+                                {% endfor %}
+                            </div>
+                        {% endif %}
+                    {% endfor %}
                 </div>
             </div>
-            <div class="footer-nav">
-                {% for link in footerLinks %}
-                    {% if link.hasDescendants %}
-                        <div class="block">
-                            {% if link.navigationLink.url|length %}
-                                <a class="heading" href="{{ link.navigationLink.url }}">{{ link.title }}</a>
-                            {% else %}
-                                <h3>{{ link.title }}</h3>
-                            {% endif %}
-                            {% for sublink in link.descendants %}
-                                <a href="{{ sublink.navigationLink.url }}">{{ sublink.title }}</a>
-                            {% endfor %}
-                        </div>
-                    {% endif %}
-                {% endfor %}
-            </div>
         </div>
-    </div>
+    {% endif %}
     <div class="sub">
         <div class="container">
             <div>
