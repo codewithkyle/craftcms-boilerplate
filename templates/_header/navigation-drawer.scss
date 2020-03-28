@@ -72,11 +72,7 @@ navigation-drawer{
 
                 &:focus-visible{
                     & + label{
-                        color: var(--primary-700);
-
-                        &::before{
-                            background-color: var(--neutral-100);
-                        }
+                        background-color: var(--neutral-100);
                     }
                 }
             }
