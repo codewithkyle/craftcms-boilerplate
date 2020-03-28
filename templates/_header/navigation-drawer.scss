@@ -134,6 +134,7 @@ navigation-drawer{
                     font-size: var(--font-sm);
                     min-height: 36px;
                     padding: 0 2rem;
+                    user-select: none;
                     transition: all 150ms var(--ease-in-out);
 
                     &:hover{
@@ -157,6 +158,7 @@ navigation-drawer{
             height: 48px;
             border-bottom: 1px solid var(--neutral-300);
             transition: all 150ms var(--ease-in-out);
+            user-select: none;
 
             &:hover{
                 background-color: var(--neutral-100);
@@ -169,10 +171,10 @@ navigation-drawer{
             &:active{
                 background-color: var(--neutral-200);
             }
-        }
 
-        .primary:first-child{
-            border-top: 1px solid var(--neutral-300);
+            &:first-child{
+                border-top: 1px solid var(--neutral-300);
+            }
         }
     }
 
@@ -185,6 +187,7 @@ navigation-drawer{
         justify-content: center;
         align-items: center;
         color: var(--grey-800);
+        user-select: none;
 
         &:hover,
         &:focus{

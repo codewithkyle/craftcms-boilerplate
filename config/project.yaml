@@ -10,7 +10,7 @@ categoryGroups:
     structure:
       maxLevels: 1
       uid: 4840e233-1f3e-4981-8ccb-e85548acf8c9
-dateModified: 1585305085
+dateModified: 1585404721
 email:
   fromEmail: $SYSTEM_EMAIL
   fromName: $SENDER_NAME
@@ -3342,6 +3342,39 @@ sections:
         template: _forms/index.twig
         uriFormat: 'forms/{slug}'
     type: channel
+  28b71e8e-d2dc-4c34-98c4-66e91dfbbab4:
+    enableVersioning: true
+    entryTypes:
+      c7c95731-17d9-49ef-bcef-39653503472d:
+        fieldLayouts:
+          f40d69a2-6725-4334-9e07-082db17549df:
+            tabs:
+              -
+                fields:
+                  27eb5f6d-5e7b-4401-a20a-5259596e045a:
+                    required: true
+                    sortOrder: 1
+                name: 'Tab 1'
+                sortOrder: 1
+        handle: utilityNavigaiton
+        hasTitleField: true
+        name: 'Utility Navigaiton'
+        sortOrder: 1
+        titleFormat: ''
+        titleLabel: Title
+    handle: utilityNavigaiton
+    name: 'Utility Navigaiton'
+    propagationMethod: all
+    siteSettings:
+      8d2ceaf6-270f-4376-a57e-b67d74fe3518:
+        enabledByDefault: true
+        hasUrls: false
+        template: null
+        uriFormat: ''
+    structure:
+      maxLevels: 1
+      uid: 48f1e9cb-1c12-4337-88af-4daf19345384
+    type: structure
   2f1f0ea0-4b22-4e9d-bb51-9e1e32a94cba:
     enableVersioning: true
     entryTypes:

@@ -5,9 +5,22 @@
         'descendants'
     ]
 }).all() %}
+{% set utilityLinks = craft.entries({
+    section: 'utilityNavigaiton'
+}).all() %}
 {% cache %}
     <header eager-load-css="header">
-        <div class="container">
+        {% if utilityLinks|length %}
+            <div class="utility-nav">
+                <nav class="container">
+                    {% for link in utilityLinks %}
+                        <a href="{{ link.url }}">{{ link.title }}</a>
+                    {% endfor %}
+                </nav>
+            </div>
+        {% endif %}
+        <div class="primary-nav">
+            <div class="container">
             <a class="org-logo" href="{{ siteUrl }}">
                 {% set orgLogo = organizationSettings.logo[0] ?? null %}
                 {% if orgLogo %}
@@ -46,6 +59,7 @@
                     </label>
                 </navigation-drawer-toggle>
             </nav>
+            </div>
         </div>
     </header>
     <navigation-drawer loading="eager" web-component state="closed" eager-load-css="navigation-drawer">
@@ -88,6 +102,11 @@
                         <span>{{ link.title }}</span>
                     </a>
                 {% endif %}
+            {% endfor %}
+            {% for link in utilityLinks %}
+                <a class="primary" href="{{ link.url }}">
+                    <span>{{ link.title }}</span>
+                </a>
             {% endfor %}
         </nav>
     </navigation-drawer>
