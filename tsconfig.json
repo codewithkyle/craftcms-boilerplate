@@ -2,7 +2,7 @@
 	"compilerOptions": {
 		"outDir": "_compiled",
 		"allowJs": true,
-		"checkJs": true,
+		"checkJs": false,
 		"target": "ES2019",
 		"module": "ESNext",
 		"lib": ["dom", "esnext"],

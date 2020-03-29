@@ -298,25 +298,28 @@ class PwaModuleService extends Component
     }
 
     private function _sendMail($html, $subject, $mail = null, array $attachments = array()): bool
-{
-    $settings = Craft::$app->projectConfig->get('email');
-    $message = new Message();
+    {
+        $settings = Craft::$app->projectConfig->get('email');
+        $message = new Message();
 
-    $message->setFrom([$settings['fromEmail'] => $settings['fromName']]);
-    $message->setTo($mail);
-    $message->setSubject($subject);
-    $message->setHtmlBody($html);
-    if (!empty($attachments) && \is_array($attachments)) {
+        $fromEmail = Craft::parseEnv($settings['fromEmail']);
+        $fromName = Craft::parseEnv($settings['fromName']);
 
-        foreach ($attachments as $fileId) {
-            if ($file = Craft::$app->assets->getAssetById((int)$fileId)) {
-                $message->attach($this->getFolderPath() . '/' . $file->filename, array(
-                    'fileName' => $file->title . '.' . $file->getExtension()
-                ));
+        $message->setFrom([$fromEmail => $fromName]);
+        $message->setTo($mail);
+        $message->setSubject($subject);
+        $message->setHtmlBody($html);
+        if (!empty($attachments) && \is_array($attachments)) {
+
+            foreach ($attachments as $fileId) {
+                if ($file = Craft::$app->assets->getAssetById((int)$fileId)) {
+                    $message->attach($this->getFolderPath() . '/' . $file->filename, array(
+                        'fileName' => $file->title . '.' . $file->getExtension()
+                    ));
+                }
             }
         }
-    }
 
-    return Craft::$app->mailer->send($message);
-}
+        return Craft::$app->mailer->send($message);
+    }
 }

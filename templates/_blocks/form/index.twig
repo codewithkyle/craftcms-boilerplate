@@ -1,0 +1,126 @@
+{% import "_macros" as inputs %}
+
+{% set numOfPages = 0 %}
+{% set totalPages = 1 %}
+{% for row in section.form[0].form %}
+    {% if row.type == 'pageBreak' %}
+        {% set totalPages = totalPages + 1 %}
+    {% endif %}
+{% endfor %}
+{% set successMessage = "The form was successfully submitted. Thank you."|t %}
+{% if section.form[0].successMessage|length %}
+    {% set successMessage = section.form[0].successMessage %}
+{% endif %}
+<section style="width:100%;display:block;padding:{{ section.spacing }}rem 1rem;">
+    <form-component web-component lazy-load-css="form buttons snackbar"  data-success-message="{{ successMessage }}">
+        {% if section.heading|length %}
+            <h2>{{ section.heading }}</h2>
+        {% endif %}
+        {% if craft.app.request.getParam('success') %}
+            <div style="display:block;width:100%;text-align: center;margin-bottom: 3rem;">
+                <p style="display:inline-block;color:var(--success-800);line-height:2rem;height:2rem;border-radius:1rem;padding:0 1rem;background-color:var(--success-100);font-weight:var(--font-normal);">{{ successMessage }}</p>
+            </div>
+        {% endif %}
+        <form method="POST" novalidate>
+            <input type="text" autocomplete="off" tabindex="-1" name="field1" style="width:0;height:0;opacity:0;position:absolute;top:0;left:0;">
+            <input type="hidden" name="formId" value="{{ section.form[0].id }}">
+            <noscript>
+                {{ csrfInput() }}
+                {{ actionInput('pwa-module/default/form-submit') }}
+                <input type="hidden" name="redirectUrl" value="{{ craft.app.request.absoluteUrl ~ '?success=true' }}">
+            </noscript>
+            <form-page>
+            {% for row in section.form[0].form %}
+                {% if row.type == 'pageBreak' %}
+                    {% set numOfPages = numOfPages + 1 %}
+                    <div class="-page-break-button-wrapper" style="display: flex;width: 100%;justify-content: space-between;align-items: center;">
+                        <form-page-count>Page {{ numOfPages }}&sol;{{ totalPages }}</form-page-count>
+                        <button class="button -solid -primary" type="button" data-next-page="{{ numOfPages }}">{{ "Next"|t }}</button>
+                    </div>
+                    </form-page>
+                    {% if not loop.last %}
+                        <form-page style="display: none;">
+                    {% endif %}
+                {% else %}
+                    {% set columns = 1 %}
+                    {% if row.type == 'twoColumns' %}
+                        {% set columns = 2 %}
+                    {% elseif row.type == 'threeColumns' %}
+                        {% set columns = 3 %}
+                    {% elseif row.type == 'copy' %}
+                        {% set columns = null %}
+                    {% endif %}
+                    {% if columns %}
+                        <form-grid columns="{{ columns }}">
+                            {% for input in row.inputs.all() %}
+                                {% switch(input.type) %}
+                                    {% case 'textInput' %}
+                                        {{ inputs.text(input.title, input.required, input.helperText) }}
+                                    {% case 'emailInput' %}
+                                        {{ inputs.email(input.title, input.required, input.helperText) }}
+                                    {% case 'telephoneInput' %}
+                                        {{ inputs.telephone(input.title, input.required, input.helperText) }}
+                                    {% case 'textarea' %}
+                                        {{ inputs.textarea(input.title, input.required, input.helperText) }}
+                                    {% case 'radioButtons' %}
+                                        {{ inputs.radioButtons(input.title, input.required, input.options, input.helperText) }}
+                                    {% case 'checkboxes' %}
+                                        {{ inputs.checkboxes(input.title, input.required, input.options, input.helperText) }}
+                                    {% case 'lightswitch' %}
+                                        {{ inputs.lightswitch(input.title, input.required, input.helperText) }}
+                                    {% case 'select' %}
+                                        {{ inputs.select(input.title, input.required, input.options, input.helperText) }}
+                                    {% case 'number' %}
+                                        {{ inputs.number(input.title, input.required, input.helperText, input.minimum, input.maximum, input.step) }}
+                                    {% case 'date' %}
+                                        {{ inputs.date(input.title, input.required, input.helperText) }}
+                                    {% default %}
+                                        <span>{{ "Unknown input type:"|t }} {{ input.type }}</span>
+                                {% endswitch %}
+                            {% endfor %}
+                        </form-grid>
+                    {% else %}
+                        <form-copy>
+                            {{ row.copy }}
+                        </form-copy>
+                    {% endif %}
+                {% endif %}
+            {% endfor %}
+            </form-page>
+            <div class="-submit-button-wrapper" style="display: {{ (numOfPages > 0) ? 'none' : 'block' }};width: 100%;">
+                {% if section.form[0].spamPrevention != 'none' %}
+                    {% include "_blocks/form/spam-prevention/" ~ section.form[0].spamPrevention|kebab %}
+                {% endif %}
+                <div style="justify-content: space-between;align-items: center;display:flex;width: 100%;">
+                    <form-page-count>
+                        {% if totalPages > 1 %}
+                            Page {{ totalPages }}&sol;{{ totalPages }}  
+                        {% endif %}
+                    </form-page-count>
+                    <button class="button -solid -primary" type="submit">{{ "Submit"|t }}</button>
+                </div>
+            </div>
+        </form>
+    </form-component>
+</section>
+<noscript>
+    <style>
+        form-component form button {
+            opacity: 1 !important;
+            visibility: visible !important;
+        }
+        form-component form-page {
+            display: block !important;
+        }
+        form-component form-page-count {
+            opacity: 0 !important;
+            visibility: hidden !important;
+        }
+        form-component  .-page-break-button-wrapper {
+            display: none !important;
+        }
+        form-component .-submit-button-wrapper {
+            display: flex !important;
+        }
+    </style>
+</noscript>

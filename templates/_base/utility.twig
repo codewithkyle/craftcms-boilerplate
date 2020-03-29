@@ -3,29 +3,87 @@
 {% block page %}
     <style>
         body{
-            background-color: var(--grey-200);
+            background-color: var(--dashboard);
         }
         main{
-            min-height: calc(100vh - 2rem);
+            min-height: calc(100vh - 5rem);
             display: block;
             padding: 8rem 0 4rem;
         }
     </style>
     <header class="-utility">
-        <a id="logo" href="{{ siteUrl }}">
-            <img src="{{ generalSettings.image[0].url }}" alt="{{ generalSettings.image[0].alternateDescription }}">
+        <a class="org-logo" href="{{ siteUrl }}">
+            {% set orgLogo = organizationSettings.logo[0] ?? null %}
+            {% if orgLogo %}
+                <img src="{{ orgLogo.url }}" alt="{{ organizationSettings.organizationName }}" />
+            {% elseif organizationSettings.organizationName|length %}
+                {{ organizationSettings.organizationName }}
+            {% else %}
+                <span eager-load-css="background-colors font-colors flexbox paddings font-sizes" flex="items-center" padding="x-0.5" class="font-danger-700 font-sm bg-danger-100" style="height: 36px;">{{ "Logo Missing"|t }}</span>
+            {% endif %}
         </a>
     </header>
-    <main pjax-id="utility" eager-load-css="normalize variables base page-transition soft-loading utility">
+    <main pjax-id="utility" eager-load-css="normalize variables page-transition soft-loading utility">
         {% block content %}{% endblock %}
     </main>
     <footer class="-utility">
-        <span>&copy; {{ now|date('Y') }} {{ generalSettings.companyName }}</span>
-        {% if generalSettings.privacyPolicy.url|length %}
-            <a href="{{ generalSettings.privacyPolicy.url }}">{{ "Privacy Policy"|t }}</a>
-        {% endif %}
-        {% if generalSettings.termsOfService.url|length %}
-            <a href="{{ generalSettings.termsOfService.url }}">{{ "Terms of Service"|t }}</a>
-        {% endif %}
+        <div class="container">
+            <div>
+                &copy; {{ now|date('Y') }} {{ organizationSettings.organizationName }}
+                {% if organizationSettings.termsAndConditionsPage|length %}
+                    <a href="{{ organizationSettings.termsAndConditionsPage[0].url }}">{{ "Terms & Conditions"|t }}</a>
+                {% endif %}
+                {% if organizationSettings.privacyPolicyPage|length %}
+                    <a href="{{ organizationSettings.privacyPolicyPage[0].url }}">{{ "Privacy Policy"|t }}</a>
+                {% endif %}
+            </div>
+            <div class="social-media-links">
+                {% if organizationSettings.facebookUrl|length %}
+                    <a aria-label="{{ 'facebook'|t }}" class="social-media" href="{{ organizationSettings.facebookUrl }}">
+                        <svg style="width:18px;height:18px;" aria-hidden="true" focusable="false" data-prefix="fab" data-icon="facebook" class="svg-inline--fa fa-facebook fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M504 256C504 119 393 8 256 8S8 119 8 256c0 123.78 90.69 226.38 209.25 245V327.69h-63V256h63v-54.64c0-62.15 37-96.48 93.67-96.48 27.14 0 55.52 4.84 55.52 4.84v61h-31.28c-30.8 0-40.41 19.12-40.41 38.73V256h68.78l-11 71.69h-57.78V501C413.31 482.38 504 379.78 504 256z"></path></svg>
+                    </a>
+                {% endif %}
+                {% if organizationSettings.twitterUrl|length %}
+                    <a aria-label="{{ 'twitter'|t }}" class="social-media" href="{{ organizationSettings.twitterUrl }}">
+                        <svg style="width:18px;height:18px;" aria-hidden="true" focusable="false" data-prefix="fab" data-icon="twitter" class="svg-inline--fa fa-twitter fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z"></path></svg>
+                    </a>
+                {% endif %}
+                {% if organizationSettings.linkedinUrl|length %}
+                    <a aria-label="{{ 'linkedin'|t }}" class="social-media" href="{{ organizationSettings.linkedinUrl }}">
+                        <svg style="width:18px;height:18px;" aria-hidden="true" focusable="false" data-prefix="fab" data-icon="linkedin-in" class="svg-inline--fa fa-linkedin-in fa-w-14" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M100.28 448H7.4V148.9h92.88zM53.79 108.1C24.09 108.1 0 83.5 0 53.8a53.79 53.79 0 0 1 107.58 0c0 29.7-24.1 54.3-53.79 54.3zM447.9 448h-92.68V302.4c0-34.7-.7-79.2-48.29-79.2-48.29 0-55.69 37.7-55.69 76.7V448h-92.78V148.9h89.08v40.8h1.3c12.4-23.5 42.69-48.3 87.88-48.3 94 0 111.28 61.9 111.28 142.3V448z"></path></svg>
+                    </a>
+                {% endif %}
+                {% if organizationSettings.youtubeUrl|length %}
+                    <a aria-label="{{ 'youtube'|t }}" class="social-media" href="{{ organizationSettings.youtubeUrl }}">
+                        <svg style="width:18px;height:18px;" aria-hidden="true" focusable="false" data-prefix="fab" data-icon="youtube" class="svg-inline--fa fa-youtube fa-w-18" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><path fill="currentColor" d="M549.655 124.083c-6.281-23.65-24.787-42.276-48.284-48.597C458.781 64 288 64 288 64S117.22 64 74.629 75.486c-23.497 6.322-42.003 24.947-48.284 48.597-11.412 42.867-11.412 132.305-11.412 132.305s0 89.438 11.412 132.305c6.281 23.65 24.787 41.5 48.284 47.821C117.22 448 288 448 288 448s170.78 0 213.371-11.486c23.497-6.321 42.003-24.171 48.284-47.821 11.412-42.867 11.412-132.305 11.412-132.305s0-89.438-11.412-132.305zm-317.51 213.508V175.185l142.739 81.205-142.739 81.201z"></path></svg>
+                    </a>
+                {% endif %}
+                {% if organizationSettings.instagramUrl|length %}
+                    <a aria-label="{{ 'instagram'|t }}" class="social-media" href="{{ organizationSettings.instagramUrl }}">
+                        <svg style="width:18px;height:18px;" aria-hidden="true" focusable="false" data-prefix="fab" data-icon="instagram" class="svg-inline--fa fa-instagram fa-w-14" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"></path></svg>
+                    </a>
+                {% endif %}
+                {% if organizationSettings.pinterestUrl|length %}
+                    <a aria-label="{{ 'pinterest'|t }}" class="social-media" href="{{ organizationSettings.pinterestUrl }}">
+                        <svg style="width:18px;height:18px;" aria-hidden="true" focusable="false" data-prefix="fab" data-icon="pinterest" class="svg-inline--fa fa-pinterest fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><path fill="currentColor" d="M496 256c0 137-111 248-248 248-25.6 0-50.2-3.9-73.4-11.1 10.1-16.5 25.2-43.5 30.8-65 3-11.6 15.4-59 15.4-59 8.1 15.4 31.7 28.5 56.8 28.5 74.8 0 128.7-68.8 128.7-154.3 0-81.9-66.9-143.2-152.9-143.2-107 0-163.9 71.8-163.9 150.1 0 36.4 19.4 81.7 50.3 96.1 4.7 2.2 7.2 1.2 8.3-3.3.8-3.4 5-20.3 6.9-28.1.6-2.5.3-4.7-1.7-7.1-10.1-12.5-18.3-35.3-18.3-56.6 0-54.7 41.4-107.6 112-107.6 60.9 0 103.6 41.5 103.6 100.9 0 67.1-33.9 113.6-78 113.6-24.3 0-42.6-20.1-36.7-44.8 7-29.5 20.5-61.3 20.5-82.6 0-19-10.2-34.9-31.4-34.9-24.9 0-44.9 25.7-44.9 60.2 0 22 7.4 36.8 7.4 36.8s-24.5 103.8-29 123.2c-5 21.4-3 51.6-.9 71.2C65.4 450.9 0 361.1 0 256 0 119 111 8 248 8s248 111 248 248z"></path></svg>
+                    </a>
+                {% endif %}
+                {% if organizationSettings.snapchatUrl|length %}
+                    <a aria-label="{{ 'snapchat'|t }}" class="social-media" href="{{ organizationSettings.snapchatUrl }}">
+                        <svg style="width:18px;height:18px;" aria-hidden="true" focusable="false" data-prefix="fab" data-icon="snapchat" class="svg-inline--fa fa-snapchat fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><path fill="currentColor" d="M248 8C111 8 0 119 0 256s111 248 248 248 248-111 248-248S385 8 248 8zm169.5 338.9c-3.5 8.1-18.1 14-44.8 18.2-1.4 1.9-2.5 9.8-4.3 15.9-1.1 3.7-3.7 5.9-8.1 5.9h-.2c-6.2 0-12.8-2.9-25.8-2.9-17.6 0-23.7 4-37.4 13.7-14.5 10.3-28.4 19.1-49.2 18.2-21 1.6-38.6-11.2-48.5-18.2-13.8-9.7-19.8-13.7-37.4-13.7-12.5 0-20.4 3.1-25.8 3.1-5.4 0-7.5-3.3-8.3-6-1.8-6.1-2.9-14.1-4.3-16-13.8-2.1-44.8-7.5-45.5-21.4-.2-3.6 2.3-6.8 5.9-7.4 46.3-7.6 67.1-55.1 68-57.1 0-.1.1-.2.2-.3 2.5-5 3-9.2 1.6-12.5-3.4-7.9-17.9-10.7-24-13.2-15.8-6.2-18-13.4-17-18.3 1.6-8.5 14.4-13.8 21.9-10.3 5.9 2.8 11.2 4.2 15.7 4.2 3.3 0 5.5-.8 6.6-1.4-1.4-23.9-4.7-58 3.8-77.1C183.1 100 230.7 96 244.7 96c.6 0 6.1-.1 6.7-.1 34.7 0 68 17.8 84.3 54.3 8.5 19.1 5.2 53.1 3.8 77.1 1.1.6 2.9 1.3 5.7 1.4 4.3-.2 9.2-1.6 14.7-4.2 4-1.9 9.6-1.6 13.6 0 6.3 2.3 10.3 6.8 10.4 11.9.1 6.5-5.7 12.1-17.2 16.6-1.4.6-3.1 1.1-4.9 1.7-6.5 2.1-16.4 5.2-19 11.5-1.4 3.3-.8 7.5 1.6 12.5.1.1.1.2.2.3.9 2 21.7 49.5 68 57.1 4 1 7.1 5.5 4.9 10.8z"></path></svg>
+                    </a>
+                {% endif %}
+                {% if organizationSettings.tumblrUrl|length %}
+                    <a aria-label="{{ 'tumblr'|t }}" class="social-media" href="{{ organizationSettings.tumblrUrl }}">
+                        <svg style="width:18px;height:18px;" aria-hidden="true" focusable="false" data-prefix="fab" data-icon="tumblr" class="svg-inline--fa fa-tumblr fa-w-10" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path fill="currentColor" d="M309.8 480.3c-13.6 14.5-50 31.7-97.4 31.7-120.8 0-147-88.8-147-140.6v-144H17.9c-5.5 0-10-4.5-10-10v-68c0-7.2 4.5-13.6 11.3-16 62-21.8 81.5-76 84.3-117.1.8-11 6.5-16.3 16.1-16.3h70.9c5.5 0 10 4.5 10 10v115.2h83c5.5 0 10 4.4 10 9.9v81.7c0 5.5-4.5 10-10 10h-83.4V360c0 34.2 23.7 53.6 68 35.8 4.8-1.9 9-3.2 12.7-2.2 3.5.9 5.8 3.4 7.4 7.9l22 64.3c1.8 5 3.3 10.6-.4 14.5z"></path></svg>
+                    </a>
+                {% endif %}
+                {% if organizationSettings.vimeoUrl|length %}
+                    <a aria-label="{{ 'vimeo'|t }}" class="social-media" href="{{ organizationSettings.vimeoUrl }}">
+                        <svg style="width:18px;height:18px;" aria-hidden="true" focusable="false" data-prefix="fab" data-icon="vimeo" class="svg-inline--fa fa-vimeo fa-w-14" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M403.2 32H44.8C20.1 32 0 52.1 0 76.8v358.4C0 459.9 20.1 480 44.8 480h358.4c24.7 0 44.8-20.1 44.8-44.8V76.8c0-24.7-20.1-44.8-44.8-44.8zM377 180.8c-1.4 31.5-23.4 74.7-66 129.4-44 57.2-81.3 85.8-111.7 85.8-18.9 0-34.8-17.4-47.9-52.3-25.5-93.3-36.4-148-57.4-148-2.4 0-10.9 5.1-25.4 15.2l-15.2-19.6c37.3-32.8 72.9-69.2 95.2-71.2 25.2-2.4 40.7 14.8 46.5 51.7 20.7 131.2 29.9 151 67.6 91.6 13.5-21.4 20.8-37.7 21.8-48.9 3.5-33.2-25.9-30.9-45.8-22.4 15.9-52.1 46.3-77.4 91.2-76 33.3.9 49 22.5 47.1 64.7z"></path></svg>
+                    </a>
+                {% endif %}
+            </div>
+        </div>
     </footer>
 {% endblock %}

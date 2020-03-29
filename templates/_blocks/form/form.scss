@@ -1,0 +1,171 @@
+form-component
+{
+    width: 1024px;
+    margin: 0 auto;
+    max-width: 100%;
+    display: block;
+    padding: 4rem 0;
+
+    h2
+    {
+        font-size: var(--text-4xl);
+        line-height: 3rem;
+        display: block;
+        width: 100%;
+        text-align: center;
+        margin-bottom: 2rem;
+    }
+
+    success-message
+    {
+        display: block;
+        width: 100%;
+        text-align: center;
+        color: var(--success-500);
+    }
+
+    form
+    {
+        width: 840px;
+        display: block;
+        max-width: 100%;
+        margin: 0 auto;
+
+        &.has-errors
+        {
+            form-page
+            {
+                display: block !important;
+            }
+            form-page-count
+            {
+                opacity: 0 !important;
+                visibility: hidden !important;
+            }
+            .-page-break-button-wrapper
+            {
+                display: none !important;
+            }
+            .-submit-button-wrapper
+            {
+                display: block !important;
+            }
+        }
+
+        form-page
+        {
+            display: block;
+            width: 100%;
+        }
+
+        form-page-count
+        {
+            color: var(--grey-700);
+            font-size: var(--text-xs);
+            margin-left: 0.25rem;
+        }
+
+        form-grid
+        {
+            display: grid;
+            width: 100%;
+            gap: 1rem;
+            grid-template-columns: minmax(1px, 1fr);
+            margin-bottom: 1rem;
+
+            &[columns="2"]
+            {
+                @media (min-width: 768px)
+                {
+                    grid-template-columns: 1fr 1fr;
+                }
+            }
+
+            &[columns="3"]
+            {
+                @media (min-width: 840px)
+                {
+                    grid-template-columns: 1fr 1fr 1fr;
+                }
+            }
+        }
+
+        form-copy
+        {
+            display: block;
+            width: 100%;
+            min-height: 3rem;
+
+            p
+            {
+                margin-bottom: 1rem;
+                line-height: 1.618;
+                color: var(--grey-700);
+                display: block;
+                width: 100%;
+
+                &:last-child
+                {
+                    margin-bottom: 0;
+                }
+
+                strong
+                {
+                    font-weight: var(--font-medium);
+                }
+
+                em
+                {
+                    font-style: italic;
+                }
+
+                a
+                {
+                    font-weight: var(--font-medium);
+                    color: var(--primary-800);
+                    transition: all 75ms ease-in-out;
+                    cursor: pointer;
+                    text-decoration: underline;
+
+                    &:hover,
+                    &:focus
+                    {
+                        color: var(--primary-700);
+                    }
+
+                    &:active
+                    {
+                        color: var(--primary-900);
+                    }
+                }
+            }
+
+            ul
+            {
+                li
+                {
+                    list-style-type: disc;
+                }
+            }
+
+            ol
+            {
+                li
+                {
+                    list-style-type: initial;
+                }
+            }
+
+            ul,
+            ol
+            {
+                margin-bottom: 1rem;
+
+                &:last-child
+                {
+                    margin-bottom: 0;
+                }
+            }
+        }
+    }
+}

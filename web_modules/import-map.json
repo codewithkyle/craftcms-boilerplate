@@ -1,0 +1,6 @@
+{
+  "imports": {
+    "@codewithkyle/notifyjs": "./@codewithkyle/notifyjs.js",
+    "flatpickr": "./flatpickr.js"
+  }
+}

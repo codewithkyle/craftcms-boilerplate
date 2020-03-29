@@ -1,0 +1,148 @@
+checkbox-component
+{
+    display: block;
+    width: 100%;
+    position: relative;
+
+    &.is-invalid
+    {
+        label
+        {
+            checkbox-icon{    
+                border-color: var(--danger-800);
+
+                &::before{
+                    background-color: var(--danger-500);
+                }
+
+                svg
+                {
+                    color: var(--white);
+                }
+            }
+
+            span
+            {
+                color: var(--danger-800);
+            }
+        }
+    }
+
+    input{
+        position: absolute;
+        top: 0;
+        left: 0;
+        opacity: 0;
+        width: 0;
+        height: 0;
+
+        &:checked{
+            & + label{
+                checkbox-icon{    
+                    border-color: var(--primary-500);
+                    background-color: var(--primary-500);
+
+                    svg{
+                        path{
+                            stroke-dashoffset: 0;
+                            transition: all 175ms ease-in;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    
+    label
+    {
+        width: 100%;
+        min-width: 256px;
+        min-height: 3rem;
+        cursor: pointer;
+        padding-left: 3rem;
+        display: flex;
+        align-items: center;
+        flex-flow: row nowrap;
+        user-select: none;
+
+        &:hover,
+        &:focus
+        {
+            checkbox-icon
+            {
+                &:before{
+                    transform: scale(0.87);
+                    opacity: 0.06;
+                }
+            }
+        }
+
+        &:active
+        {
+            checkbox-icon
+            {
+                &:before{
+                    transform: scale(1);
+                    opacity: 0.1;
+                    transition: all 75ms ease-in-out;
+                }
+            }
+        }
+
+        checkbox-icon
+        {
+            width: 18px;
+            height: 18px;
+            border-radius: 0.125rem;
+            border-width: 2px;
+            border-style: solid;
+            border-color: var(--primary-500);
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            flex-flow: column wrap;
+            position: absolute;
+            top: 0.875rem;
+            left: 0.75rem;
+            transition: all 75ms ease-in-out;
+
+            &::before{
+                content: "";
+                display: inline-block;
+                width: 3rem;
+                height: 3rem;
+                border-radius: 50%;
+                position: absolute;
+                background-color: var(--primary-500);
+                opacity: 0;
+                transform: scale(0);
+                transition: all 175ms cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            }
+
+            svg
+            {
+                position: absolute;
+                width: 12px;
+                height: 12px;
+                color: var(--primary-900);
+                
+                path{
+                    stroke-width: 3.5px;
+                    stroke-dasharray: 30;
+                    stroke-dashoffset: 30;
+                    transition: all 150ms ease-out;
+                }
+            }
+        }
+
+        span
+        {
+            display: inline-block;
+            user-select: none;
+            line-height: 1.25;
+            color: var(--grey-800);
+            font-weight: var(--font-normal);
+            font-family: var(--font-system);
+        }
+    }
+}

@@ -11,7 +11,7 @@
 		"predeploy": "npm run prettier && npm run eslint && npm run stylelint && npm run production",
 		"sass:dev": "cssmonster --e dev",
 		"sass:prod": "cssmonster",
-		"build": "npm run cleanup && npm run compile && npm run sass:dev && djinnjs -e dev && npm run cleanup",
+		"build": "npm run cleanup && npm run compile && npm run sass:dev && djinnjs -e dev",
 		"production": "npm run cleanup && npm run compile && npm run sass:prod && djinnjs -e production && npm run cleanup",
 		"compile:brixi": "brixi"
 	},
@@ -36,9 +36,11 @@
 		"typescript": "^3.8.3"
 	},
 	"dependencies": {
+		"@codewithkyle/notifyjs": "^1.1.0",
 		"brixi": "^0.1.10",
 		"cssmonster": "^0.2.0",
-		"djinnjs": "0.0.22"
+		"djinnjs": "0.0.22",
+		"flatpickr": "^4.6.3"
 	},
 	"husky": {
 		"hooks": {
@@ -46,6 +48,9 @@
 		}
 	},
 	"snowpack": {
-		"webDependencies": []
+		"webDependencies": [
+			"@codewithkyle/notifyjs",
+			"flatpickr"
+		]
 	}
 }

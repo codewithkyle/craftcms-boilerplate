@@ -11,20 +11,25 @@
 return [
     // Global settings
     '*' => [
-        'defaultWeekStartDay' => 1,
-        'omitScriptNameInUrls' => true,
-        'cpTrigger' => 'webmaster',
-        'securityKey' => getenv('SECURITY_KEY'),
-        'useProjectConfigFile' => true,
+        'defaultWeekStartDay'               => 1,
+        'omitScriptNameInUrls'              => true,
+        'cpTrigger'                         => 'webmaster',
+        'securityKey'                       => getenv('SECURITY_KEY'),
+        'useProjectConfigFile'              => true,
+        'useEmailAsUsername'                => true,
+        'setPasswordPath'                   => 'users/set-password',
+        'autoLoginAfterAccountActivation'   => true,
+        'email'                             => getenv('SYSTEM_EMAIL'),
     ],
 
     // Dev environment settings
     'dev' => [
         // Base site URL
         'siteUrl'               => getenv('DEV_URL'),
-        'allowUpdates'          => true,
         'devMode'               => true,
+        'allowUpdates'          => true,
         'enableTemplateCaching' => false,
+        'testToEmailAddress'    => getenv('DEV_EMAIL_ADDRESS'),
         'aliases' => [
             '@rootUrl' => getenv('DEV_URL'),
         ],
