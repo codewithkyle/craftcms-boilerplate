@@ -10,7 +10,7 @@ categoryGroups:
     structure:
       maxLevels: 1
       uid: 4840e233-1f3e-4981-8ccb-e85548acf8c9
-dateModified: 1585501353
+dateModified: 1585502922
 email:
   fromEmail: $SYSTEM_EMAIL
   fromName: $SENDER_NAME
@@ -35,24 +35,6 @@ fieldGroups:
   c4451265-86dd-4e29-8607-338f8dff61d4:
     name: Global
 fields:
-  0529bf45-bf47-4263-9ce7-10a03e0cc3fc:
-    contentColumnType: integer(10)
-    fieldGroup: 9b600c44-8637-4f65-897a-d3dfa375f14b
-    handle: maximum
-    instructions: ''
-    name: Maximum
-    searchable: false
-    settings:
-      decimals: 0
-      defaultValue: null
-      max: null
-      min: null
-      prefix: ''
-      size: null
-      suffix: ''
-    translationKeyFormat: null
-    translationMethod: none
-    type: craft\fields\Number
   076e5aa3-2dc5-45c2-9f27-22086feb220d:
     contentColumnType: string
     fieldGroup: 451b931d-873f-460e-8d38-e836680cfe09
@@ -99,24 +81,6 @@ fields:
     translationKeyFormat: null
     translationMethod: none
     type: craft\fields\Url
-  17e538e0-41a6-4ffd-a0aa-72bd3788a8a8:
-    contentColumnType: text
-    fieldGroup: 9b600c44-8637-4f65-897a-d3dfa375f14b
-    handle: successMessage
-    instructions: ''
-    name: 'Success Message'
-    searchable: false
-    settings:
-      byteLimit: null
-      charLimit: null
-      code: ''
-      columnType: null
-      initialRows: '4'
-      multiline: ''
-      placeholder: ''
-    translationKeyFormat: null
-    translationMethod: none
-    type: craft\fields\PlainText
   1eb0ac2f-150c-4071-b0a0-cdbc98ace82e:
     contentColumnType: string
     fieldGroup: 225c7f29-a1ba-4281-a207-621cab6d37b7
@@ -132,52 +96,6 @@ fields:
     translationKeyFormat: null
     translationMethod: site
     type: craft\fields\Matrix
-  2055207d-cd09-4b9a-ad3d-ff9fdd1dffd6:
-    contentColumnType: string
-    fieldGroup: 9b600c44-8637-4f65-897a-d3dfa375f14b
-    handle: spamPrevention
-    instructions: 'Simple Math will require the user to answer a simple math question such as 2 + 3. Google reCAPTCHA requires reCAPTCHA keys, set the keys in the Globals section.'
-    name: 'Spam Prevention'
-    searchable: false
-    settings:
-      optgroups: true
-      options:
-        -
-          __assoc__:
-            -
-              - label
-              - None
-            -
-              - value
-              - none
-            -
-              - default
-              - '1'
-        -
-          __assoc__:
-            -
-              - label
-              - reCAPTCHA
-            -
-              - value
-              - recaptcha
-            -
-              - default
-              - ''
-        -
-          __assoc__:
-            -
-              - label
-              - 'Simple Math'
-            -
-              - value
-              - simpleMath
-            -
-              - default
-              - ''
-    translationKeyFormat: null
-    translationMethod: none
-    type: craft\fields\Dropdown
   26b75c67-742d-41d4-94c0-cbbf13985a33:
     contentColumnType: string(255)
     fieldGroup: 451b931d-873f-460e-8d38-e836680cfe09
@@ -337,54 +255,6 @@ fields:
     translationKeyFormat: null
     translationMethod: none
     type: craft\fields\Url
-  3a0e6db7-c07c-4423-9036-416d3bc65aee:
-    contentColumnType: boolean
-    fieldGroup: 9b600c44-8637-4f65-897a-d3dfa375f14b
-    handle: required
-    instructions: 'When enabled this field will be required.'
-    name: Required
-    searchable: false
-    settings:
-      default: ''
-    translationKeyFormat: null
-    translationMethod: none
-    type: craft\fields\Lightswitch
-  49f4cd27-a52d-4e4b-afe9-a9591d4a67ec:
-    contentColumnType: text
-    fieldGroup: 9b600c44-8637-4f65-897a-d3dfa375f14b
-    handle: helperText
-    instructions: 'Provide brief, simple, and clear helper text for the input.'
-    name: 'Helper Text'
-    searchable: false
-    settings:
-      byteLimit: null
-      charLimit: null
-      code: ''
-      columnType: null
-      initialRows: '4'
-      multiline: ''
-      placeholder: ''
-    translationKeyFormat: null
-    translationMethod: none
-    type: craft\fields\PlainText
-  4d8a9561-e611-494c-b00f-cf40823a335e:
-    contentColumnType: integer(10)
-    fieldGroup: 9b600c44-8637-4f65-897a-d3dfa375f14b
-    handle: minimum
-    instructions: ''
-    name: Minimum
-    searchable: false
-    settings:
-      decimals: 0
-      defaultValue: null
-      max: null
-      min: null
-      prefix: ''
-      size: null
-      suffix: ''
-    translationKeyFormat: null
-    translationMethod: none
-    type: craft\fields\Number
   4e119a0c-5a69-4b77-9f74-ca2f857374ff:
     contentColumnType: text
     fieldGroup: 451b931d-873f-460e-8d38-e836680cfe09
@@ -403,6 +273,29 @@ fields:
     translationKeyFormat: null
     translationMethod: none
     type: craft\fields\PlainText
+  52566efb-1a8e-4da5-af1d-a3e038558780:
+    contentColumnType: text
+    fieldGroup: 9b600c44-8637-4f65-897a-d3dfa375f14b
+    handle: submissionData
+    instructions: ''
+    name: 'Submission Data'
+    searchable: true
+    settings:
+      availableTransforms: '*'
+      availableVolumes: ''
+      cleanupHtml: true
+      columnType: text
+      purifierConfig: ''
+      purifyHtml: '1'
+      redactorConfig: NoOp.json
+      removeEmptyTags: '1'
+      removeInlineStyles: '1'
+      removeNbsp: '1'
+      showUnpermittedFiles: false
+      showUnpermittedVolumes: false
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\redactor\Field
   6d0a70db-0951-40b4-9be4-1fa67bc2d9a4:
     contentColumnType: boolean
     fieldGroup: 225c7f29-a1ba-4281-a207-621cab6d37b7
@@ -415,45 +308,6 @@ fields:
     translationKeyFormat: null
     translationMethod: none
     type: craft\fields\Lightswitch
-  745c90ea-1295-49ed-ad05-e52dbeda9480:
-    contentColumnType: text
-    fieldGroup: 9b600c44-8637-4f65-897a-d3dfa375f14b
-    handle: options
-    instructions: ''
-    name: Options
-    searchable: false
-    settings:
-      addRowLabel: 'Add an Option'
-      columnType: text
-      columns:
-        __assoc__:
-          -
-            - col1
-            -
-              __assoc__:
-                -
-                  - heading
-                  - Options
-                -
-                  - handle
-                  - options
-                -
-                  - width
-                  - ''
-                -
-                  - type
-                  - singleline
-      defaults:
-        -
-          __assoc__:
-            -
-              - col1
-              - ''
-      maxRows: ''
-      minRows: '1'
-    translationKeyFormat: null
-    translationMethod: none
-    type: craft\fields\Table
   7a0e5822-9917-4e3f-9da1-8b3368bbec1f:
     contentColumnType: string(255)
     fieldGroup: 451b931d-873f-460e-8d38-e836680cfe09
@@ -467,24 +321,6 @@ fields:
     translationKeyFormat: null
     translationMethod: none
     type: craft\fields\Url
-  7e1eb9d6-5a18-4cd1-8642-c3684d2ad023:
-    contentColumnType: integer(10)
-    fieldGroup: 9b600c44-8637-4f65-897a-d3dfa375f14b
-    handle: step
-    instructions: ''
-    name: Step
-    searchable: false
-    settings:
-      decimals: 0
-      defaultValue: '1'
-      max: null
-      min: '1'
-      prefix: ''
-      size: null
-      suffix: ''
-    translationKeyFormat: null
-    translationMethod: none
-    type: craft\fields\Number
   81a96522-33ab-4162-a188-88892876a535:
     contentColumnType: string(255)
     fieldGroup: 451b931d-873f-460e-8d38-e836680cfe09
@@ -677,21 +513,6 @@ fields:
     translationKeyFormat: null
     translationMethod: none
     type: craft\fields\PlainText
-  c1740ec2-6ef0-42fb-9434-5ede25eb3170:
-    contentColumnType: string
-    fieldGroup: 9b600c44-8637-4f65-897a-d3dfa375f14b
-    handle: form
-    instructions: 'Create a new form. Use the Page Break block to split your form into multiple sections.'
-    name: Form
-    searchable: false
-    settings:
-      contentTable: '{{%matrixcontent_form}}'
-      maxBlocks: ''
-      minBlocks: '1'
-      propagationMethod: all
-    translationKeyFormat: null
-    translationMethod: site
-    type: craft\fields\Matrix
   c3700058-6021-4036-bc94-eb253d6cdb04:
     contentColumnType: string
     fieldGroup: 225c7f29-a1ba-4281-a207-621cab6d37b7
@@ -725,29 +546,6 @@ fields:
     translationKeyFormat: null
     translationMethod: none
     type: craft\fields\Url
-  e32655d8-b25d-42e7-9e06-aa6b2f4100a0:
-    contentColumnType: text
-    fieldGroup: 9b600c44-8637-4f65-897a-d3dfa375f14b
-    handle: submissionData
-    instructions: ''
-    name: 'Submission Data'
-    searchable: false
-    settings:
-      availableTransforms: '*'
-      availableVolumes: ''
-      cleanupHtml: true
-      columnType: text
-      purifierConfig: ''
-      purifyHtml: '1'
-      redactorConfig: NoOp.json
-      removeEmptyTags: '1'
-      removeInlineStyles: '1'
-      removeNbsp: '1'
-      showUnpermittedFiles: false
-      showUnpermittedVolumes: false
-    translationKeyFormat: null
-    translationMethod: none
-    type: craft\redactor\Field
   e35ca729-8355-4faf-ae53-07d599ba0a3a:
     contentColumnType: string
     fieldGroup: 451b931d-873f-460e-8d38-e836680cfe09
@@ -863,24 +661,6 @@ fields:
     translationKeyFormat: null
     translationMethod: none
     type: ether\seo\fields\SeoField
-  f3fdd4ca-cd83-4a04-80a8-56c5f3614593:
-    contentColumnType: text
-    fieldGroup: 9b600c44-8637-4f65-897a-d3dfa375f14b
-    handle: recipients
-    instructions: 'Enter the email address that will receive the form submissions. If adding several emails separate each email with a comma.'
-    name: Recipients
-    searchable: false
-    settings:
-      byteLimit: null
-      charLimit: null
-      code: ''
-      columnType: null
-      initialRows: '4'
-      multiline: ''
-      placeholder: ''
-    translationKeyFormat: null
-    translationMethod: none
-    type: craft\fields\PlainText
   f697001b-d1ba-48d7-92ee-0eb172e00ac1:
     contentColumnType: text
     fieldGroup: c4451265-86dd-4e29-8607-338f8dff61d4
@@ -1262,81 +1042,6 @@ matrixBlockTypes:
     handle: callToActionBanner
     name: 'Call to Action Banner'
     sortOrder: 8
-  18111b44-a3d4-4ea6-97c0-28d7a0744d5d:
-    field: c1740ec2-6ef0-42fb-9434-5ede25eb3170
-    fieldLayouts:
-      6049221c-9f64-42b2-981f-f1f6bbc8494a:
-        tabs:
-          -
-            fields:
-              1d636f83-4028-42f0-a933-9febfedc6184:
-                required: true
-                sortOrder: 1
-            name: Content
-            sortOrder: 1
-    fields:
-      1d636f83-4028-42f0-a933-9febfedc6184:
-        contentColumnType: text
-        fieldGroup: null
-        handle: copy
-        instructions: ''
-        name: Copy
-        searchable: false
-        settings:
-          availableTransforms: '*'
-          availableVolumes: ''
-          cleanupHtml: true
-          columnType: text
-          purifierConfig: ''
-          purifyHtml: '1'
-          redactorConfig: Simple.json
-          removeEmptyTags: '1'
-          removeInlineStyles: '1'
-          removeNbsp: '1'
-          showUnpermittedFiles: false
-          showUnpermittedVolumes: false
-        translationKeyFormat: null
-        translationMethod: none
-        type: craft\redactor\Field
-    handle: copy
-    name: Copy
-    sortOrder: 5
-  261d82fb-b553-4c97-a78c-11fa5b40c09e:
-    field: c1740ec2-6ef0-42fb-9434-5ede25eb3170
-    fieldLayouts:
-      09426c9a-6040-4b0a-b659-aa04bb910d36:
-        tabs:
-          -
-            fields:
-              98d3729e-465d-427e-b673-184a68ec1083:
-                required: true
-                sortOrder: 1
-            name: Content
-            sortOrder: 1
-    fields:
-      98d3729e-465d-427e-b673-184a68ec1083:
-        contentColumnType: string
-        fieldGroup: null
-        handle: inputs
-        instructions: 'Select 3 inputs for this row.'
-        name: Inputs
-        searchable: false
-        settings:
-          limit: '3'
-          localizeRelations: false
-          selectionLabel: 'Add Inputs'
-          source: null
-          sources:
-            - 'section:c01906a1-3826-4fea-a21a-df8d2db78b00'
-          targetSiteId: null
-          validateRelatedElements: '1'
-          viewMode: null
-        translationKeyFormat: null
-        translationMethod: site
-        type: craft\fields\Entries
-    handle: threeColumns
-    name: 'Three Columns'
-    sortOrder: 3
   480566ae-7b2c-4ec5-9b70-14589ee29ae7:
     field: 1eb0ac2f-150c-4071-b0a0-cdbc98ace82e
     fieldLayouts:
@@ -2154,17 +1859,6 @@ matrixBlockTypes:
     handle: boldHero
     name: 'Bold Hero'
     sortOrder: 11
-  91f16ca1-1cd9-4134-a623-31061dcf53d5:
-    field: c1740ec2-6ef0-42fb-9434-5ede25eb3170
-    fieldLayouts:
-      6301c9b0-83aa-490d-9190-c7c63995306d:
-        tabs:
-          -
-            name: Content
-            sortOrder: 1
-    handle: pageBreak
-    name: 'Page Break'
-    sortOrder: 4
   9dea63d6-c8c3-4116-93db-1eb9e2790058:
     field: 1eb0ac2f-150c-4071-b0a0-cdbc98ace82e
     fieldLayouts:
@@ -2343,42 +2037,6 @@ matrixBlockTypes:
     handle: richText
     name: 'Rich Text'
     sortOrder: 1
-  aaf98d53-9f29-46cc-b8e8-f022e0f52058:
-    field: c1740ec2-6ef0-42fb-9434-5ede25eb3170
-    fieldLayouts:
-      07614de9-e7ce-4854-ba40-835538a5bdb6:
-        tabs:
-          -
-            fields:
-              89dcd7dd-5ebd-47a8-b398-42c0ad564f68:
-                required: true
-                sortOrder: 1
-            name: Content
-            sortOrder: 1
-    fields:
-      89dcd7dd-5ebd-47a8-b398-42c0ad564f68:
-        contentColumnType: string
-        fieldGroup: null
-        handle: inputs
-        instructions: 'Select 2 inputs for this row.'
-        name: Inputs
-        searchable: false
-        settings:
-          limit: '2'
-          localizeRelations: false
-          selectionLabel: 'Add Inputs'
-          source: null
-          sources:
-            - 'section:c01906a1-3826-4fea-a21a-df8d2db78b00'
-          targetSiteId: null
-          validateRelatedElements: '1'
-          viewMode: null
-        translationKeyFormat: null
-        translationMethod: site
-        type: craft\fields\Entries
-    handle: twoColumns
-    name: 'Two Columns'
-    sortOrder: 2
   bb8b1ade-0718-4cba-9ae2-6e749531171d:
     field: 1eb0ac2f-150c-4071-b0a0-cdbc98ace82e
     fieldLayouts:
@@ -2640,42 +2298,6 @@ matrixBlockTypes:
     handle: pullQuote
     name: 'Pull Quote'
     sortOrder: 13
-  c589899d-eec9-47ce-9f76-cb11b69fbf4e:
-    field: c1740ec2-6ef0-42fb-9434-5ede25eb3170
-    fieldLayouts:
-      0c0ce00f-f95a-4b06-b8ea-dfb0e2a8ab33:
-        tabs:
-          -
-            fields:
-              97e1368c-20c9-4f2a-a319-2c7024a2e7f1:
-                required: true
-                sortOrder: 1
-            name: Content
-            sortOrder: 1
-    fields:
-      97e1368c-20c9-4f2a-a319-2c7024a2e7f1:
-        contentColumnType: string
-        fieldGroup: null
-        handle: inputs
-        instructions: 'Select an input entry this row.'
-        name: Inputs
-        searchable: false
-        settings:
-          limit: '1'
-          localizeRelations: false
-          selectionLabel: 'Add an Input'
-          source: null
-          sources:
-            - 'section:c01906a1-3826-4fea-a21a-df8d2db78b00'
-          targetSiteId: null
-          validateRelatedElements: '1'
-          viewMode: null
-        translationKeyFormat: null
-        translationMethod: site
-        type: craft\fields\Entries
-    handle: singleColumn
-    name: 'Single Column'
-    sortOrder: 1
   e2c917c0-a0ed-42fa-8e2a-d6cd9df1e434:
     field: 1eb0ac2f-150c-4071-b0a0-cdbc98ace82e
     fieldLayouts:
@@ -3402,7 +3024,7 @@ sections:
             tabs:
               -
                 fields:
-                  e32655d8-b25d-42e7-9e06-aa6b2f4100a0:
+                  52566efb-1a8e-4da5-af1d-a3e038558780:
                     required: false
                     sortOrder: 1
                 name: 'Tab 1'
@@ -3412,7 +3034,7 @@ sections:
         name: Submission
         sortOrder: 1
         titleFormat: ''
-        titleLabel: Title
+        titleLabel: 'Form Submission'
     handle: formSubmissions
     name: 'Form Submissions'
     propagationMethod: all
@@ -3465,25 +3087,12 @@ sections:
             tabs:
               -
                 fields:
-                  17e538e0-41a6-4ffd-a0aa-72bd3788a8a8:
-                    required: false
-                    sortOrder: 2
-                  2055207d-cd09-4b9a-ad3d-ff9fdd1dffd6:
-                    required: false
-                    sortOrder: 3
                   6d0a70db-0951-40b4-9be4-1fa67bc2d9a4:
                     required: false
                     sortOrder: 4
-                  f3fdd4ca-cd83-4a04-80a8-56c5f3614593:
-                    required: true
-                    sortOrder: 1
                 name: Settings
                 sortOrder: 1
               -
-                fields:
-                  c1740ec2-6ef0-42fb-9434-5ede25eb3170:
-                    required: false
-                    sortOrder: 1
                 name: Form
                 sortOrder: 2
         handle: forms
@@ -3690,237 +3299,6 @@ sections:
       maxLevels: 2
       uid: aa94cce7-8c5f-4b20-8aa6-22825ece2c52
     type: structure
-  c01906a1-3826-4fea-a21a-df8d2db78b00:
-    enableVersioning: true
-    entryTypes:
-      0f71dea6-a6c4-41e7-b48a-cbbb53d8bb3c:
-        fieldLayouts:
-          1a669413-ca0a-41ea-b1a3-70e43d1a0ce6:
-            tabs:
-              -
-                fields:
-                  0529bf45-bf47-4263-9ce7-10a03e0cc3fc:
-                    required: false
-                    sortOrder: 2
-                  3a0e6db7-c07c-4423-9036-416d3bc65aee:
-                    required: false
-                    sortOrder: 4
-                  49f4cd27-a52d-4e4b-afe9-a9591d4a67ec:
-                    required: false
-                    sortOrder: 5
-                  4d8a9561-e611-494c-b00f-cf40823a335e:
-                    required: false
-                    sortOrder: 1
-                  7e1eb9d6-5a18-4cd1-8642-c3684d2ad023:
-                    required: false
-                    sortOrder: 3
-                name: 'Tab 1'
-                sortOrder: 1
-        handle: number
-        hasTitleField: true
-        name: Number
-        sortOrder: 9
-        titleFormat: ''
-        titleLabel: Label
-      1b28b4a2-7e81-442f-af89-f818a226d5c5:
-        fieldLayouts:
-          68cfd148-7b88-48b2-ab8d-7b3295ba4a33:
-            tabs:
-              -
-                fields:
-                  3a0e6db7-c07c-4423-9036-416d3bc65aee:
-                    required: false
-                    sortOrder: 1
-                  49f4cd27-a52d-4e4b-afe9-a9591d4a67ec:
-                    required: false
-                    sortOrder: 2
-                name: 'Tab 1'
-                sortOrder: 1
-        handle: textarea
-        hasTitleField: true
-        name: Textarea
-        sortOrder: 4
-        titleFormat: ''
-        titleLabel: Label
-      37440e92-b59f-4bbe-a69d-31d1487127c3:
-        fieldLayouts:
-          6833db26-5b1b-46e4-83fd-0928316ee9d0:
-            tabs:
-              -
-                fields:
-                  3a0e6db7-c07c-4423-9036-416d3bc65aee:
-                    required: false
-                    sortOrder: 2
-                  49f4cd27-a52d-4e4b-afe9-a9591d4a67ec:
-                    required: false
-                    sortOrder: 3
-                  745c90ea-1295-49ed-ad05-e52dbeda9480:
-                    required: true
-                    sortOrder: 1
-                name: 'Tab 1'
-                sortOrder: 1
-        handle: radioButtons
-        hasTitleField: true
-        name: 'Radio Buttons'
-        sortOrder: 5
-        titleFormat: ''
-        titleLabel: Label
-      42af5d9c-0cdb-4d73-b358-2168039913e8:
-        fieldLayouts:
-          528a3910-f278-460e-943c-6e7c426efb36:
-            tabs:
-              -
-                fields:
-                  3a0e6db7-c07c-4423-9036-416d3bc65aee:
-                    required: false
-                    sortOrder: 1
-                  49f4cd27-a52d-4e4b-afe9-a9591d4a67ec:
-                    required: false
-                    sortOrder: 2
-                name: 'Tab 1'
-                sortOrder: 1
-        handle: textInput
-        hasTitleField: true
-        name: 'Text Input'
-        sortOrder: 1
-        titleFormat: ''
-        titleLabel: Label
-      5d3af97e-b029-45fb-8f45-d1d49a00eab5:
-        fieldLayouts:
-          f209c077-247b-4bfd-b2eb-61a9d0d302de:
-            tabs:
-              -
-                fields:
-                  3a0e6db7-c07c-4423-9036-416d3bc65aee:
-                    required: false
-                    sortOrder: 1
-                  49f4cd27-a52d-4e4b-afe9-a9591d4a67ec:
-                    required: false
-                    sortOrder: 2
-                name: 'Tab 1'
-                sortOrder: 1
-        handle: lightswitch
-        hasTitleField: true
-        name: Lightswitch
-        sortOrder: 7
-        titleFormat: ''
-        titleLabel: Label
-      8fc0f39e-5bf6-4567-b63c-2b39bef33c81:
-        fieldLayouts:
-          d7c5a106-311a-4462-b72f-df5f5cc58ccd:
-            tabs:
-              -
-                fields:
-                  3a0e6db7-c07c-4423-9036-416d3bc65aee:
-                    required: false
-                    sortOrder: 2
-                  49f4cd27-a52d-4e4b-afe9-a9591d4a67ec:
-                    required: false
-                    sortOrder: 3
-                  745c90ea-1295-49ed-ad05-e52dbeda9480:
-                    required: true
-                    sortOrder: 1
-                name: 'Tab 1'
-                sortOrder: 1
-        handle: select
-        hasTitleField: true
-        name: Select
-        sortOrder: 8
-        titleFormat: ''
-        titleLabel: Label
-      aee2dfbe-306e-4a64-abe9-118f63c37dd9:
-        fieldLayouts:
-          b969fc64-3904-409a-a07f-9dbffd392d82:
-            tabs:
-              -
-                fields:
-                  3a0e6db7-c07c-4423-9036-416d3bc65aee:
-                    required: false
-                    sortOrder: 1
-                  49f4cd27-a52d-4e4b-afe9-a9591d4a67ec:
-                    required: false
-                    sortOrder: 2
-                name: 'Tab 1'
-                sortOrder: 1
-        handle: emailInput
-        hasTitleField: true
-        name: 'Email Input'
-        sortOrder: 2
-        titleFormat: ''
-        titleLabel: Label
-      cc34caa5-acce-4578-bbb9-e58bb02ba258:
-        fieldLayouts:
-          0f5bf5e4-3c7f-44a8-95de-d8c074b621dd:
-            tabs:
-              -
-                fields:
-                  3a0e6db7-c07c-4423-9036-416d3bc65aee:
-                    required: false
-                    sortOrder: 1
-                  49f4cd27-a52d-4e4b-afe9-a9591d4a67ec:
-                    required: false
-                    sortOrder: 2
-                name: 'Tab 1'
-                sortOrder: 1
-        handle: telephoneInput
-        hasTitleField: true
-        name: 'Telephone Input'
-        sortOrder: 3
-        titleFormat: ''
-        titleLabel: Label
-      e8d91eae-2572-44b3-bbbd-5a115eff3077:
-        fieldLayouts:
-          b247afd0-cde6-4ed1-a858-21880ca1d094:
-            tabs:
-              -
-                fields:
-                  3a0e6db7-c07c-4423-9036-416d3bc65aee:
-                    required: false
-                    sortOrder: 2
-                  49f4cd27-a52d-4e4b-afe9-a9591d4a67ec:
-                    required: false
-                    sortOrder: 3
-                  745c90ea-1295-49ed-ad05-e52dbeda9480:
-                    required: true
-                    sortOrder: 1
-                name: 'Tab 1'
-                sortOrder: 1
-        handle: checkboxes
-        hasTitleField: true
-        name: Checkboxes
-        sortOrder: 6
-        titleFormat: ''
-        titleLabel: Label
-      f678b5f5-4cf6-4e7a-b4e7-b3f8c77c8b3a:
-        fieldLayouts:
-          e9dc8e7a-5f3e-46d3-bc0e-8e0238090501:
-            tabs:
-              -
-                fields:
-                  3a0e6db7-c07c-4423-9036-416d3bc65aee:
-                    required: false
-                    sortOrder: 1
-                  49f4cd27-a52d-4e4b-afe9-a9591d4a67ec:
-                    required: false
-                    sortOrder: 2
-                name: 'Tab 1'
-                sortOrder: 1
-        handle: date
-        hasTitleField: true
-        name: Date
-        sortOrder: 10
-        titleFormat: ''
-        titleLabel: Label
-    handle: formInputs
-    name: 'Form Inputs'
-    propagationMethod: all
-    siteSettings:
-      8d2ceaf6-270f-4376-a57e-b67d74fe3518:
-        enabledByDefault: true
-        hasUrls: false
-        template: null
-        uriFormat: ''
-    type: channel
   cefc4625-a115-4b71-b22d-5f6784b3aada:
     enableVersioning: true
     entryTypes:

@@ -1,4 +1,4 @@
 {
-	"buttons": [],
-	"toolbarFixed": true
+	"buttons": [""],
+	"toolbarFixed": false
 }
