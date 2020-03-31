@@ -1,6 +1,6 @@
 module.exports = {
 	outDir: "_css",
-	sources: ["./templates", "./brixi/src"],
+	sources: ["./templates", "./brixi"],
 	minify: true,
 	purge: false,
 };

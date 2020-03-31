@@ -19,11 +19,11 @@
             {% elseif organizationSettings.organizationName|length %}
                 {{ organizationSettings.organizationName }}
             {% else %}
-                <span eager-load-css="background-colors font-colors flexbox paddings font-sizes" flex="items-center" padding="x-0.5" class="font-danger-700 font-sm bg-danger-100" style="height: 36px;">{{ "Logo Missing"|t }}</span>
+                <span flex="items-center justify-center" class="px-0.5 font-danger-700 font-sm bg-danger-100" style="height: 36px;">{{ "Logo Missing"|t }}</span>
             {% endif %}
         </a>
     </header>
-    <main pjax-id="utility" eager-load-css="normalize variables page-transition soft-loading utility">
+    <main pjax-id="utility" eager-load-css="normalize brixi page-transition soft-loading utility">
         {% block content %}{% endblock %}
     </main>
     <footer class="-utility">

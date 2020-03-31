@@ -17,14 +17,14 @@
                         {% elseif organizationSettings.organizationName|length %}
                             {{ organizationSettings.organizationName }}
                         {% else %}
-                            <span lazy-load-css="background-colors font-colors flexbox paddings font-sizes" flex="items-center" padding="x-0.5" class="font-danger-700 font-sm bg-danger-100" style="height: 36px;">{{ "Logo Missing"|t }}</span>
+                            <span flex="items-center justify-center" class="px-0.5 font-danger-700 font-sm bg-danger-100" style="height: 36px;">{{ "Logo Missing"|t }}</span>
                         {% endif %}
                     </a>
                     <div class="org-details">
                         {% if organizationSettings.simpleCopy1|length %}
                             {{ organizationSettings.simpleCopy1 }}
                         {% else %}
-                            <span lazy-load-css="font-colors font-sizes" class="font-danger-700 font-xs">{{ "Missing organization details. Provide address, phone number, and email in the Globals section."|t }}</span>
+                            <span class="font-danger-700 font-xs">{{ "Missing organization details. Provide address, phone number, and email in the Globals section."|t }}</span>
                         {% endif %}
                     </div>
                 </div>

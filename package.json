@@ -11,13 +11,13 @@
 		"predeploy": "npm run prettier && npm run eslint && npm run stylelint && npm run production",
 		"sass:dev": "cssmonster --e dev",
 		"sass:prod": "cssmonster",
-		"build": "npm run cleanup && npm run compile && npm run sass:dev && djinnjs -e dev",
+		"build": "npm run cleanup && npm run compile && npm run sass:dev && djinnjs -e dev && npm run cleanup",
 		"production": "npm run cleanup && npm run compile && npm run sass:prod && djinnjs -e production && npm run cleanup",
 		"compile:brixi": "brixi"
 	},
 	"devDependencies": {
-		"@typescript-eslint/eslint-plugin": "^2.25.0",
-		"@typescript-eslint/parser": "^2.25.0",
+		"@typescript-eslint/eslint-plugin": "^2.26.0",
+		"@typescript-eslint/parser": "^2.26.0",
 		"eslint": "^6.8.0",
 		"eslint-config-prettier": "^6.10.1",
 		"eslint-plugin-prettier": "^3.1.2",
@@ -37,7 +37,7 @@
 	},
 	"dependencies": {
 		"@codewithkyle/notifyjs": "^1.1.0",
-		"brixi": "^0.1.10",
+		"brixi": "^0.2.0",
 		"cssmonster": "^0.2.0",
 		"djinnjs": "0.0.22",
 		"flatpickr": "^4.6.3"
