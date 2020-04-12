@@ -1,6 +1,6 @@
 module.exports = {
 	colors: {
-		dashboard: "#F5F7F9",
+		dashboard: "red",
 		sidenav: "#051E34",
 	},
 };

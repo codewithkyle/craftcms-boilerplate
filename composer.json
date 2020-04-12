@@ -1,16 +1,17 @@
 {
 	"require": {
 		"aelvan/imager": "v2.4.0",
-		"anubarak/craft-relabel": "1.3.4",
-		"craftcms/cms": "3.4.11",
+		"anubarak/craft-relabel": "1.3.5",
+		"craftcms/cms": "3.4.15",
 		"craftcms/element-api": "2.6.0",
 		"craftcms/redactor": "2.6.1",
 		"ether/seo": "3.6.3",
 		"ether/splash": "3.0.5",
 		"nystudio107/craft-eagerbeaver": "1.0.4",
-		"sebastianlenz/linkfield": "1.0.20",
+		"sebastianlenz/linkfield": "1.0.21",
 		"vaersaagod/matrixmate": "1.2.5",
 		"verbb/smith": "1.1.1",
+		"verbb/super-table": "2.4.7",
 		"vlucas/phpdotenv": "^3.4.0",
 		"yiisoft/yii2-redis": "^2.0"
 	},

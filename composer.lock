@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "5e593cb690ad29680f3bfe565b02f34b",
+    "content-hash": "66074a0510379948c16cd92cf8b90c77",
     "packages": [
         {
             "name": "aelvan/imager",
@@ -72,11 +72,11 @@
         },
         {
             "name": "anubarak/craft-relabel",
-            "version": "1.3.4",
+            "version": "1.3.5",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Anubarak/craft-relabel/zipball/34c13706937c94f841ef48f62e6c5c223e93a3a3",
-                "reference": "34c13706937c94f841ef48f62e6c5c223e93a3a3",
+                "url": "https://api.github.com/repos/Anubarak/craft-relabel/zipball/bfa62bc20835572271654f5a5c79e38b99f0ec66",
+                "reference": "bfa62bc20835572271654f5a5c79e38b99f0ec66",
                 "shasum": ""
             },
             "require": {
@@ -110,7 +110,7 @@
                 "craftcms",
                 "relabel"
             ],
-            "time": "2019-10-01T06:12:55+00:00"
+            "time": "2020-04-02T07:38:21+00:00"
         },
         {
             "name": "aws/aws-sdk-php",
@@ -232,22 +232,17 @@
         },
         {
             "name": "composer/ca-bundle",
-            "version": "1.2.6",
+            "version": "1.2.7",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/composer/ca-bundle/zipball/47fe531de31fca4a1b997f87308e7d7804348f7e",
-                "reference": "47fe531de31fca4a1b997f87308e7d7804348f7e",
+                "url": "https://api.github.com/repos/composer/ca-bundle/zipball/95c63ab2117a72f48f5a55da9740a3273d45b7fd",
+                "reference": "95c63ab2117a72f48f5a55da9740a3273d45b7fd",
                 "shasum": ""
             },
             "require": {
                 "ext-openssl": "*",
                 "ext-pcre": "*",
                 "php": "^5.3.2 || ^7.0 || ^8.0"
-            },
-            "require-dev": {
-                "phpunit/phpunit": "^4.8.35 || ^5.7 || 6.5 - 8",
-                "psr/log": "^1.0",
-                "symfony/process": "^2.5 || ^3.0 || ^4.0 || ^5.0"
             },
             "type": "library",
             "extra": {
@@ -260,7 +255,6 @@
                     "Composer\\CaBundle\\": "src"
                 }
             },
-            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -279,7 +273,7 @@
                 "ssl",
                 "tls"
             ],
-            "time": "2020-01-13T10:02:55+00:00"
+            "time": "2020-04-08T08:27:21+00:00"
         },
         {
             "name": "composer/composer",
@@ -466,11 +460,11 @@
         },
         {
             "name": "craftcms/cms",
-            "version": "3.4.11",
+            "version": "3.4.15",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/craftcms/cms/zipball/a028f6003a3c3985cdedfb95407284ca3daf3faa",
-                "reference": "a028f6003a3c3985cdedfb95407284ca3daf3faa",
+                "url": "https://api.github.com/repos/craftcms/cms/zipball/2fc56f0bcd70a1ae67e9338512e053b896f4a47e",
+                "reference": "2fc56f0bcd70a1ae67e9338512e053b896f4a47e",
                 "shasum": ""
             },
             "require": {
@@ -551,7 +545,7 @@
                 "docs": "https://docs.craftcms.com/v3/",
                 "rss": "https://github.com/craftcms/cms/releases.atom"
             },
-            "time": "2020-03-26T23:22:31+00:00"
+            "time": "2020-04-09T17:45:41+00:00"
         },
         {
             "name": "craftcms/element-api",
@@ -2196,11 +2190,11 @@
         },
         {
             "name": "laminas/laminas-feed",
-            "version": "2.12.1",
+            "version": "2.12.2",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laminas/laminas-feed/zipball/c9356994eb80d0f6b46d7e12ba048d450bf0cd72",
-                "reference": "c9356994eb80d0f6b46d7e12ba048d450bf0cd72",
+                "url": "https://api.github.com/repos/laminas/laminas-feed/zipball/8a193ac96ebcb3e16b6ee754ac2a889eefacb654",
+                "reference": "8a193ac96ebcb3e16b6ee754ac2a889eefacb654",
                 "shasum": ""
             },
             "require": {
@@ -2212,7 +2206,7 @@
                 "php": "^5.6 || ^7.0"
             },
             "replace": {
-                "zendframework/zend-feed": "self.version"
+                "zendframework/zend-feed": "^2.12.0"
             },
             "suggest": {
                 "laminas/laminas-cache": "Laminas\\Cache component, for optionally caching feeds between requests",
@@ -2243,7 +2237,7 @@
                 "feed",
                 "laminas"
             ],
-            "time": "2020-03-23T10:40:31+00:00"
+            "time": "2020-03-29T12:36:29+00:00"
         },
         {
             "name": "laminas/laminas-stdlib",
@@ -2292,11 +2286,11 @@
         },
         {
             "name": "laminas/laminas-zendframework-bridge",
-            "version": "1.0.2",
+            "version": "1.0.3",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laminas/laminas-zendframework-bridge/zipball/faf68f6109ceeff24241226033ab59640c7eb63b",
-                "reference": "faf68f6109ceeff24241226033ab59640c7eb63b",
+                "url": "https://api.github.com/repos/laminas/laminas-zendframework-bridge/zipball/bfbbdb6c998d50dbf69d2187cb78a5f1fa36e1e9",
+                "reference": "bfbbdb6c998d50dbf69d2187cb78a5f1fa36e1e9",
                 "shasum": ""
             },
             "require": {
@@ -2330,7 +2324,7 @@
                 "laminas",
                 "zf"
             ],
-            "time": "2020-03-26T16:07:12+00:00"
+            "time": "2020-04-03T16:01:00+00:00"
         },
         {
             "name": "league/flysystem",
@@ -2720,11 +2714,11 @@
         },
         {
             "name": "mrclay/minify",
-            "version": "3.0.9",
+            "version": "3.0.10",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/mrclay/minify/zipball/d2a3e8c1d203958b45f56c0a399714ee8b478a12",
-                "reference": "d2a3e8c1d203958b45f56c0a399714ee8b478a12",
+                "url": "https://api.github.com/repos/mrclay/minify/zipball/8dba84a2d24ae6382057a1215ad3af25202addb9",
+                "reference": "8dba84a2d24ae6382057a1215ad3af25202addb9",
                 "shasum": ""
             },
             "require": {
@@ -2764,7 +2758,7 @@
             ],
             "description": "Minify is a PHP app that helps you follow several rules for client-side performance. It combines multiple CSS or Javascript files, removes unnecessary whitespace and comments, and serves them with gzip encoding and optimal client-side cache headers",
             "homepage": "https://github.com/mrclay/minify",
-            "time": "2020-03-24T19:30:43+00:00"
+            "time": "2020-04-02T19:47:26+00:00"
         },
         {
             "name": "mrclay/props-dic",
@@ -2861,20 +2855,16 @@
         },
         {
             "name": "nikic/php-parser",
-            "version": "v4.3.0",
+            "version": "v4.4.0",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nikic/PHP-Parser/zipball/9a9981c347c5c49d6dfe5cf826bb882b824080dc",
-                "reference": "9a9981c347c5c49d6dfe5cf826bb882b824080dc",
+                "url": "https://api.github.com/repos/nikic/PHP-Parser/zipball/bd43ec7152eaaab3bd8c6d0aa95ceeb1df8ee120",
+                "reference": "bd43ec7152eaaab3bd8c6d0aa95ceeb1df8ee120",
                 "shasum": ""
             },
             "require": {
                 "ext-tokenizer": "*",
                 "php": ">=7.0"
-            },
-            "require-dev": {
-                "ircmaxell/php-yacc": "0.0.5",
-                "phpunit/phpunit": "^6.5 || ^7.0 || ^8.0"
             },
             "bin": [
                 "bin/php-parse"
@@ -2890,7 +2880,6 @@
                     "PhpParser\\": "lib/PhpParser"
                 }
             },
-            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "BSD-3-Clause"
             ],
@@ -2904,7 +2893,7 @@
                 "parser",
                 "php"
             ],
-            "time": "2019-11-08T13:50:10+00:00"
+            "time": "2020-04-10T16:34:50+00:00"
         },
         {
             "name": "nystudio107/craft-eagerbeaver",
@@ -3722,11 +3711,11 @@
         },
         {
             "name": "sebastianlenz/linkfield",
-            "version": "1.0.20",
+            "version": "1.0.21",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastian-lenz/craft-linkfield/zipball/8e12cf38767a0c9214bc6fbe3bce77175db970e6",
-                "reference": "8e12cf38767a0c9214bc6fbe3bce77175db970e6",
+                "url": "https://api.github.com/repos/sebastian-lenz/craft-linkfield/zipball/64fbbe853e7077f52fb4a1147d6e38eebccde80b",
+                "reference": "64fbbe853e7077f52fb4a1147d6e38eebccde80b",
                 "shasum": ""
             },
             "require": {
@@ -3749,7 +3738,7 @@
                 "MIT"
             ],
             "description": "A Craft field type for selecting links",
-            "time": "2020-02-07T20:24:27+00:00"
+            "time": "2020-04-01T13:03:23+00:00"
         },
         {
             "name": "seld/cli-prompt",
@@ -5049,11 +5038,11 @@
         },
         {
             "name": "verbb/super-table",
-            "version": "2.4.6",
+            "version": "2.4.7",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/verbb/super-table/zipball/29e4a2eea3653fa8822725d59032b4afb762ced1",
-                "reference": "29e4a2eea3653fa8822725d59032b4afb762ced1",
+                "url": "https://api.github.com/repos/verbb/super-table/zipball/33c1586bc153c03579087d9f1e88daef180c2200",
+                "reference": "33c1586bc153c03579087d9f1e88daef180c2200",
                 "shasum": ""
             },
             "require": {
@@ -5098,7 +5087,7 @@
                 "docs": "https://github.com/verbb/super-table",
                 "rss": "https://github.com/verbb/super-table/commits/v2.atom"
             },
-            "time": "2020-02-28T09:01:53+00:00"
+            "time": "2020-04-02T10:16:04+00:00"
         },
         {
             "name": "vlucas/phpdotenv",

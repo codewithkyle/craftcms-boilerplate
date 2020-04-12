@@ -16,8 +16,8 @@
 		"compile:brixi": "brixi"
 	},
 	"devDependencies": {
-		"@typescript-eslint/eslint-plugin": "^2.26.0",
-		"@typescript-eslint/parser": "^2.26.0",
+		"@typescript-eslint/eslint-plugin": "^2.27.0",
+		"@typescript-eslint/parser": "^2.27.0",
 		"eslint": "^6.8.0",
 		"eslint-config-prettier": "^6.10.1",
 		"eslint-plugin-prettier": "^3.1.2",
@@ -25,7 +25,7 @@
 		"husky": "^3.1.0",
 		"minify": "^4.1.3",
 		"node-sass": "^4.13.1",
-		"prettier": "^2.0.2",
+		"prettier": "^2.0.4",
 		"rollup": "^1.32.1",
 		"rollup-plugin-commonjs": "^10.1.0",
 		"rollup-plugin-node-resolve": "^5.2.0",
@@ -36,7 +36,7 @@
 		"typescript": "^3.8.3"
 	},
 	"dependencies": {
-		"@codewithkyle/notifyjs": "^1.1.0",
+		"@codewithkyle/notifyjs": "^1.2.0",
 		"brixi": "^0.2.0",
 		"cssmonster": "^0.2.0",
 		"djinnjs": "0.0.22",

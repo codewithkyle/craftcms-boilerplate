@@ -10,7 +10,7 @@ categoryGroups:
     structure:
       maxLevels: 1
       uid: 4840e233-1f3e-4981-8ccb-e85548acf8c9
-dateModified: 1585502922
+dateModified: 1585837253
 email:
   fromEmail: $SYSTEM_EMAIL
   fromName: $SENDER_NAME
@@ -3796,11 +3796,11 @@ superTableBlockTypes:
         translationMethod: none
         type: craft\redactor\Field
 system:
-  edition: solo
+  edition: pro
   live: true
   name: $SYSTEM_NAME
   schemaVersion: 3.4.10
-  timeZone: America/New_York
+  timeZone: America/Los_Angeles
 users:
   allowPublicRegistration: false
   defaultGroup: null
