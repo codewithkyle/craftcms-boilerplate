@@ -14,7 +14,7 @@
             <div class="utility-nav">
                 <nav class="container">
                     {% for link in utilityLinks %}
-                        <a href="{{ link.url }}">{{ link.title }}</a>
+                        <a href="{{ link.navigationLink.url }}">{{ link.title }}</a>
                     {% endfor %}
                 </nav>
             </div>
