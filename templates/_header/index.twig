@@ -43,12 +43,12 @@
                                 </button>
                                 <dropdown-list>
                                     {% for sublink in link.descendants %}
-                                        <a href="{{ sublink.url }}">{{ sublink.title }}</a>
+                                        <a href="{{ sublink.navigationLink.url }}">{{ sublink.title }}</a>
                                     {% endfor %}
                                 </dropdown-list>
                             </dropdown-link>
                         {% else %}
-                            <a class="-primary-link" href="{{ link.url }}">{{ link.title }}</a>
+                            <a class="-primary-link" href="{{ link.navigationLink.url }}">{{ link.title }}</a>
                         {% endif %}
                     {% endif %}
                 {% endfor %}
@@ -91,20 +91,20 @@
                         </label>
                         <dropdown-list>
                             {% for sublink in link.descendants %}
-                                <a href="{{ sublink.url }}">
+                                <a href="{{ sublink.navigationLink.url }}">
                                     <span>{{ sublink.title }}</span>
                                 </a>
                             {% endfor %}
                         </dropdown-list>
                     </dropdown-link>
                 {% else %}
-                    <a class="primary" href="{{ link.url }}">
+                    <a class="primary" href="{{ link.navigationLink.url }}">
                         <span>{{ link.title }}</span>
                     </a>
                 {% endif %}
             {% endfor %}
             {% for link in utilityLinks %}
-                <a class="primary" href="{{ link.url }}">
+                <a class="primary" href="{{ link.navigationLink.url }}">
                     <span>{{ link.title }}</span>
                 </a>
             {% endfor %}
