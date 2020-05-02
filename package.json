@@ -1,6 +1,6 @@
 {
 	"scripts": {
-		"cleanup": "rm -rf ./_compiled && rm -rf ./_css",
+		"cleanup": "node ./build-tools/cleanup.js",
 		"unpack": "snowpack",
 		"compile": "tsc",
 		"eslint": "eslint -c .eslintrc.js templates/**/*.ts",
