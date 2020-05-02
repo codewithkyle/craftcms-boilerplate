@@ -9,8 +9,12 @@
 /public/imager
 _compiled
 _css
+
+# Public
+# --------
 /vendor
 /public/assets
 /public/broadcaster-worker.min.js
 /public/resources-cachebust.json
 /config/pwa-auto.php
+/public/service-worker.js
