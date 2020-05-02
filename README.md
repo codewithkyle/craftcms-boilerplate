@@ -6,9 +6,9 @@ A Craft CMS boilerplate utilizing JIT resource fetching, offline first content s
 
 ## Key Beliefs
 
--   The KISS principle (keep it stupid simple).
--   Design/blocks should be deliberate and opinionated.
--   Observe [Hicks Law](https://lawsofux.com/hicks-law) when creating blocks.
+-   Follow the KISS principle (keep it stupid simple)
+-   Design/blocks should be deliberate and opinionated
+-   Observe [Hicks Law](https://lawsofux.com/hicks-law) when creating blocks
 
 ## Getting Started
 
@@ -56,12 +56,12 @@ npm run bundle
 All TypeScript/JavaScript, CSS/SASS, and HTML/Twig should be written in the `templates/` directory. To keep everything organized follow these guidelines:
 
 1. All directories and files must follow the kebab case format.
-1. Related must be siblings within their directory.
-1. Code within a directory should only be used within the directory.
+1. Group related files.
+1. Code within a template directory should only be used on that template.
 
 ### Code Organization
 
-In the example below a web component will be included in a template. Below is an example directory structure.
+In the example directory structure below a web component will be included in the template `custom-page`
 
 ```sh
 custom-page
@@ -72,7 +72,7 @@ custom-page
 └── index.twig
 ```
 
-Using the example above we are locking the `custom-component` usage to only the `custom-page` template. If `custom-component` is needed on several templates it should be relocated higher up within the `templates/` directory. The placement of files is irrelevant during the JavaScript/CSS build process allowing `custom-component` to be relocated at any time.
+In the example above we are locking the `custom-component` usage to the `custom-page` template. If `custom-component` is needed on several templates it should be relocated higher up within the `templates/` directory. The placement of files is irrelevant during the JavaScript/CSS build process allowing `custom-component` to be relocated at any time.
 
 **Why?**
 
