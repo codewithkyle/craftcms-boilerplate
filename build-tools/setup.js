@@ -7,3 +7,8 @@ if (!fs.existsSync(envPath)) {
 	const envExamplePath = path.join(cwd, ".env.example");
 	fs.copyFileSync(envExamplePath, envPath);
 }
+
+const readmePath = path.join(cwd, "README.md");
+if (fs.existsSync(readmePath)) {
+	fs.unlinkSync(readmePath);
+}

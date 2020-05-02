@@ -2,7 +2,8 @@
 	"scripts": {
 		"cleanup": "node ./build-tools/cleanup.js",
 		"setup": "npm ci && node ./build-tools/setup.js && composer install",
-		"unpack": "snowpack",
+		"bundle": "snowpack",
+		"brixi": "brixi",
 		"compile": "tsc",
 		"eslint": "eslint -c .eslintrc.js templates/**/*.ts",
 		"stylelint": "stylelint \"templates/**/*.scss\"",
@@ -13,8 +14,7 @@
 		"sass:dev": "cssmonster --e dev",
 		"sass:prod": "cssmonster",
 		"build": "npm run cleanup && npm run compile && npm run sass:dev && djinnjs -e dev && npm run cleanup",
-		"production": "npm run cleanup && npm run compile && npm run sass:prod && djinnjs -e production && npm run cleanup",
-		"compile:brixi": "brixi"
+		"production": "npm run cleanup && npm run compile && npm run sass:prod && djinnjs -e production && npm run cleanup"
 	},
 	"devDependencies": {
 		"@typescript-eslint/eslint-plugin": "^2.27.0",

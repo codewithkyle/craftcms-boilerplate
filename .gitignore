@@ -7,8 +7,10 @@
 /public/uploads/*
 !/public/uploads/.gitkeep
 /public/imager
-_compiled
-_css
+/_compiled
+/_css
+/storage/*
+!/storage/.gitkeep
 
 # Public
 # --------
