@@ -1,6 +1,7 @@
 {
 	"scripts": {
 		"cleanup": "node ./build-tools/cleanup.js",
+		"setup": "npm ci && node ./build-tools/setup.js && composer install",
 		"unpack": "snowpack",
 		"compile": "tsc",
 		"eslint": "eslint -c .eslintrc.js templates/**/*.ts",
