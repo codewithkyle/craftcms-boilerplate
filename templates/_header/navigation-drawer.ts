@@ -43,9 +43,10 @@ class NavigationDrawer extends HTMLElement {
 	};
 
 	private closeDrawer: EventListener = (e: Event) => {
-		message("navigation-drawer", {
+		message({
+			recipient: "navigation-drawer",
 			type: "toggle",
-			open: false,
+			data: { open: false },
 		});
 	};
 

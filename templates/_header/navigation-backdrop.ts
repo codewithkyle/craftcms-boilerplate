@@ -2,9 +2,12 @@ import { message } from "djinnjs/broadcaster";
 
 class NavigationBackdrop extends HTMLElement {
 	private handleClick: EventListener = () => {
-		message("navigation-drawer", {
+		message({
+			recipient: "navigation-drawer",
 			type: "toggle",
-			open: false,
+			data: {
+				open: false,
+			},
 		});
 	};
 	connectedCallback() {
