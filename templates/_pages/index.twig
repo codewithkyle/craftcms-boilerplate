@@ -1,7 +1,11 @@
 {% extends "_base/page" %}
 
 {% if not craft.app.request.isLivePreview %}
-    {% do eagerLoadElements(entry, []) %}
+    {% do eagerLoadElements(entry, [
+        'contentBuilder',
+        'contentBuilder.carouselHero',
+        'contentBuilder.carouselHero:slides'
+    ]) %}
 {% endif %}
 
 {% block content %}

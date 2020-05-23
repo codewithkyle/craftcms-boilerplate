@@ -34,8 +34,10 @@
 
 {% if craft.imager.serverSupportsWebp() and craft.imager.clientSupportsWebp() %}
     {% set imageFormat = 'webp' %}
+    {% set transparentImageFormat = 'webp' %}
 {% else %}
     {% set imageFormat = 'jpg' %}
+    {% set transparentImageFormat = 'png' %}
 {% endif %}
 
 {% spaceless %}

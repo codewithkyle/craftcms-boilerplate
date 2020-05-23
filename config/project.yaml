@@ -10,7 +10,7 @@ categoryGroups:
     structure:
       maxLevels: 1
       uid: 4840e233-1f3e-4981-8ccb-e85548acf8c9
-dateModified: 1585837253
+dateModified: 1590238332
 email:
   fromEmail: $SYSTEM_EMAIL
   fromName: $SENDER_NAME
@@ -2931,7 +2931,7 @@ plugins:
   seo:
     edition: standard
     enabled: true
-    schemaVersion: 3.1.0
+    schemaVersion: 3.1.1
   smith:
     edition: standard
     enabled: true
@@ -3245,11 +3245,18 @@ sections:
             tabs:
               -
                 fields:
+                  1eb0ac2f-150c-4071-b0a0-cdbc98ace82e:
+                    required: true
+                    sortOrder: 1
+                name: Content
+                sortOrder: 1
+              -
+                fields:
                   f34e1148-6584-4d08-a0e3-3d253ef838b8:
                     required: false
                     sortOrder: 1
                 name: Settings
-                sortOrder: 1
+                sortOrder: 2
         handle: homepage
         hasTitleField: false
         name: Homepage
