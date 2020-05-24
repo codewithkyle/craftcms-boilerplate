@@ -23,10 +23,10 @@
                             </div>
                         {% endif %}
                         {% if slide.callToAction.url|length %}
-                            <a href="{{ slide.callToAction.url }}" class="button -solid -primary -raised mr-1">{{ slide.callToAction.customText }}</a>
+                            <a href="{{ slide.callToAction.url }}" class="button -solid -primary -raised -tall -wide mr-1 font-md">{{ slide.callToAction.customText }}</a>
                         {% endif %}
                         {% if slide.secondaryAction.url|length %}
-                            <a href="{{ slide.secondaryAction.url }}" class="button -solid -white -raised">{{ slide.secondaryAction.customText }}</a>
+                            <a href="{{ slide.secondaryAction.url }}" class="button -solid -white -raised -tall -wide font-md">{{ slide.secondaryAction.customText }}</a>
                         {% endif %}
                     </div>
                 </content-shim>

@@ -7,6 +7,7 @@ class CarouselHeroComponent extends HTMLElement {
 	private time: number;
 	private dirty: boolean;
 	private timer: number;
+	private touched: boolean;
 
 	constructor() {
 		super();
@@ -17,6 +18,7 @@ class CarouselHeroComponent extends HTMLElement {
 		this.loop = null;
 		this.dirty = false;
 		this.timer = 0;
+		this.touched = false;
 	}
 
 	private switchSlide(newSlideIndex: number): void {
@@ -53,6 +55,7 @@ class CarouselHeroComponent extends HTMLElement {
 		}
 		const button = e.currentTarget as HTMLButtonElement;
 		this.switchSlide(parseInt(button.dataset.index));
+		this.loop = () => {};
 	};
 
 	private callback(): void {
@@ -71,6 +74,9 @@ class CarouselHeroComponent extends HTMLElement {
 					newIndex = 0;
 				}
 				this.switchSlide(newIndex);
+			}
+			if (this.touched) {
+				this.progressBar.style.display = "none";
 			}
 		}
 

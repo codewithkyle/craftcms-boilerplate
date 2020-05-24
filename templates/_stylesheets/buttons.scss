@@ -122,6 +122,25 @@
 				border-color: var(--primary-800);
 				color: var(--white);
 			}
+
+			&.-light{
+				background-color: var(--primary-100);
+				border-color: var(--primary-100);
+				color: var(--primary-700);
+	
+				&:hover,
+				&:focus {
+					background-color: var(--primary-200);
+					border-color: var(--primary-200);
+					color: var(--primary-700);
+				}
+	
+				&:active {
+					background-color: var(--primary-300);
+					border-color: var(--primary-300);
+					color: var(--primary-700);
+				}
+			}
 		}
 
 		&.-black {
@@ -336,7 +355,7 @@
 	}
 
 	&.-rounded {
-		border-radius: 2px;
+		border-radius: 0.25rem;
 	}
 
 	&.-pill {
