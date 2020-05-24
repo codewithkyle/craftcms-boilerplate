@@ -132,13 +132,13 @@
 				&:focus {
 					background-color: var(--primary-200);
 					border-color: var(--primary-200);
-					color: var(--primary-700);
+					color: var(--primary-800);
 				}
 	
 				&:active {
 					background-color: var(--primary-300);
 					border-color: var(--primary-300);
-					color: var(--primary-700);
+					color: var(--primary-900);
 				}
 			}
 		}
@@ -235,7 +235,6 @@
 
 	&.-outline {
 		&.-primary {
-			padding: 0 1rem;
 			border-color: var(--primary-700);
 			color: var(--primary-700);
 
@@ -252,40 +251,46 @@
 			&::before {
 				background-color: var(--primary-500);
 			}
+
+			&.-alt {
+				border-color: var(--grey-300);
+				color: var(--grey-700);
+	
+				&:hover {
+					border-color: var(--primary-700);
+					color: var(--primary-700);
+				}
+	
+				&:focus-visible {
+					border-color: var(--primary-700);
+					color: var(--primary-700);
+				}
+	
+				&::before {
+					background-color: var(--primary-500);
+				}
+			}
 		}
 
 		&.-black {
-			padding: 0 1rem;
 			border-color: var(--grey-700);
-			color: var(--grey-700);
+			color: var(--grey-800);
 
 			&::before {
 				background-color: var(--grey-900);
 			}
 		}
 
-		&.-alt {
-			padding: 0 1rem;
-			border-color: var(--grey-300);
-			color: var(--grey-700);
-
-			&:hover {
-				border-color: var(--primary-700);
-				color: var(--primary-700);
-			}
-
-			&:focus-visible {
-				border-color: var(--primary-700);
-				color: var(--primary-700);
-			}
+		&.-white {
+			border-color: var(--neutral-100);
+			color: var(--white);
 
 			&::before {
-				background-color: var(--primary-500);
+				background-color: var(--white);
 			}
 		}
 
 		&.-danger {
-			padding: 0 1rem;
 			border-color: var(--grey-300);
 			color: var(--danger-700);
 
