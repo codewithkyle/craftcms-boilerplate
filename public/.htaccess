@@ -1,4 +1,4 @@
-<FilesMatch "\.(js|css|jpg|gif|png|pdf|swf|svg|svgz|ico|ttf|ttc|otf|eot|woff|woff2|webp)$">
+<FilesMatch "\.(jpg|gif|png|svg|ttf|ttc|otf|eot|woff|woff2|webp)$">
     <IfModule mod_headers.c>
         ExpiresActive On
         ExpiresDefault  "access plus 1 month"
@@ -6,42 +6,8 @@
     </IfModule>
 </FilesMatch>
 
-<Files *.js.gz>
-  AddType "text/javascript" .gz
-  AddEncoding gzip .gz
-</Files>
-<Files *.css.gz>
-  AddType "text/css" .gz
-  AddEncoding gzip .gz
-</Files>
-
-<Files *.js.br>
-  AddType "text/javascript" .br
-  AddEncoding br .br
-</Files>
-<Files *.css.br>
-  AddType "text/css" .br
-  AddEncoding br .br
-</Files>
-
 <IfModule mod_mime.c>
   AddType text/javascript js mjs
-</IfModule>
-
-<IfModule mod_expires.c>
-    ExpiresActive On
-    ExpiresByType image/jpg "access 1 year"
-    ExpiresByType image/jpeg "access 1 year"
-    ExpiresByType image/gif "access 1 year"
-    ExpiresByType image/png "access 1 year"
-    ExpiresByType image/svg "access 1 year"
-    ExpiresByType text/css "access 1 month"
-    ExpiresByType application/pdf "access 1 month"
-    ExpiresByType application/javascript "access 1 month"
-    ExpiresByType application/x-javascript "access 1 month"
-    ExpiresByType application/x-shockwave-flash "access 1 month"
-    ExpiresByType image/x-icon "access 1 year"
-    ExpiresDefault "access 2 days"
 </IfModule>
 
 <IfModule mod_rewrite.c>
@@ -52,12 +18,4 @@
     RewriteCond %{REQUEST_FILENAME} !-d
     RewriteCond %{REQUEST_URI} !^/(favicon\.ico|apple-touch-icon.*\.png)$ [NC]
     RewriteRule (.+) index.php?p=$1 [QSA,L]
-
-    RewriteCond %{HTTP:Accept-Encoding} br
-    RewriteCond %{REQUEST_FILENAME}.br -f
-    RewriteRule ^(.*)$ $1.br [L]
-
-    RewriteCond %{HTTP:Accept-Encoding} gzip
-    RewriteCond %{REQUEST_FILENAME}.gz -f
-    RewriteRule ^(.*)$ $1.gz [L]
 </IfModule>
