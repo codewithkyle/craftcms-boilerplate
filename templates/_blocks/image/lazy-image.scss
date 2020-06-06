@@ -8,26 +8,6 @@ lazy-image{
     background-color: var(--grey-100);
     border-radius: 0.25rem;
 
-    &[image-state=unseen]
-    {
-        img
-        {
-            filter: blur(16px);
-            transform: scale(1.1);
-        }
-    }
-
-    /** &[state=loading] { } */
-
-    &[image-state=loaded]
-    {
-        img
-        {
-            filter: blur(0);
-            transform: scale(1);
-        }
-    }
-
     &::before
     {
         content: "";
