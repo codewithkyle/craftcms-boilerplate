@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "8497d5158e10c2d440144905d18c6375",
+    "content-hash": "d947f940d5a8400a683735e6cdf67030",
     "packages": [
         {
             "name": "aelvan/imager",
@@ -460,11 +460,11 @@
         },
         {
             "name": "craftcms/cms",
-            "version": "3.4.20",
+            "version": "3.4.22.1",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/craftcms/cms/zipball/a4e4ae5ce7b067f31d00c27770bc3e7c8434ba91",
-                "reference": "a4e4ae5ce7b067f31d00c27770bc3e7c8434ba91",
+                "url": "https://api.github.com/repos/craftcms/cms/zipball/2cf3a90ea6b76d44323c13da0a149e1c6462f387",
+                "reference": "2cf3a90ea6b76d44323c13da0a149e1c6462f387",
                 "shasum": ""
             },
             "require": {
@@ -545,7 +545,7 @@
                 "docs": "https://docs.craftcms.com/v3/",
                 "rss": "https://github.com/craftcms/cms/releases.atom"
             },
-            "time": "2020-05-18T15:31:36+00:00"
+            "time": "2020-05-30T15:10:56+00:00"
         },
         {
             "name": "craftcms/element-api",
@@ -729,11 +729,11 @@
         },
         {
             "name": "craftcms/server-check",
-            "version": "1.1.8",
+            "version": "1.1.9",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/craftcms/server-check/zipball/a7b6c172b631ec822fbdccbe011dbcf77395a9ee",
-                "reference": "a7b6c172b631ec822fbdccbe011dbcf77395a9ee",
+                "url": "https://api.github.com/repos/craftcms/server-check/zipball/0f445599b3a2ccbeba4a83cf34a8070f56326909",
+                "reference": "0f445599b3a2ccbeba4a83cf34a8070f56326909",
                 "shasum": ""
             },
             "type": "library",
@@ -742,7 +742,6 @@
                     "server/requirements"
                 ]
             },
-            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -754,7 +753,7 @@
                 "requirements",
                 "yii2"
             ],
-            "time": "2020-01-17T22:23:26+00:00"
+            "time": "2020-05-28T16:57:05+00:00"
         },
         {
             "name": "creocoder/yii2-nested-sets",
@@ -1589,11 +1588,11 @@
         },
         {
             "name": "guzzlehttp/guzzle",
-            "version": "6.5.3",
+            "version": "6.5.4",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/guzzle/guzzle/zipball/aab4ebd862aa7d04f01a4b51849d657db56d882e",
-                "reference": "aab4ebd862aa7d04f01a4b51849d657db56d882e",
+                "url": "https://api.github.com/repos/guzzle/guzzle/zipball/a4a1b6930528a8f7ee03518e6442ec7a44155d9d",
+                "reference": "a4a1b6930528a8f7ee03518e6442ec7a44155d9d",
                 "shasum": ""
             },
             "require": {
@@ -1601,7 +1600,7 @@
                 "guzzlehttp/promises": "^1.0",
                 "guzzlehttp/psr7": "^1.6.1",
                 "php": ">=5.5",
-                "symfony/polyfill-intl-idn": "^1.11"
+                "symfony/polyfill-intl-idn": "1.17.0"
             },
             "suggest": {
                 "psr/log": "Required for using the Log middleware"
@@ -1641,7 +1640,7 @@
                 "rest",
                 "web service"
             ],
-            "time": "2020-04-18T10:38:46+00:00"
+            "time": "2020-05-25T19:35:05+00:00"
         },
         {
             "name": "guzzlehttp/promises",
@@ -1926,20 +1925,15 @@
         },
         {
             "name": "justinrainbow/json-schema",
-            "version": "5.2.9",
+            "version": "5.2.10",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/justinrainbow/json-schema/zipball/44c6787311242a979fa15c704327c20e7221a0e4",
-                "reference": "44c6787311242a979fa15c704327c20e7221a0e4",
+                "url": "https://api.github.com/repos/justinrainbow/json-schema/zipball/2ba9c8c862ecd5510ed16c6340aa9f6eadb4f31b",
+                "reference": "2ba9c8c862ecd5510ed16c6340aa9f6eadb4f31b",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.3.3"
-            },
-            "require-dev": {
-                "friendsofphp/php-cs-fixer": "~2.2.20||~2.15.1",
-                "json-schema/json-schema-test-suite": "1.2.0",
-                "phpunit/phpunit": "^4.8.35"
             },
             "bin": [
                 "bin/validate-json"
@@ -1955,7 +1949,6 @@
                     "JsonSchema\\": "src/JsonSchema/"
                 }
             },
-            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -1983,7 +1976,7 @@
                 "json",
                 "schema"
             ],
-            "time": "2019-09-25T14:49:45+00:00"
+            "time": "2020-05-27T16:41:55+00:00"
         },
         {
             "name": "kraken-io/kraken-php",
@@ -2756,11 +2749,11 @@
         },
         {
             "name": "nikic/php-parser",
-            "version": "v4.4.0",
+            "version": "v4.5.0",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nikic/PHP-Parser/zipball/bd43ec7152eaaab3bd8c6d0aa95ceeb1df8ee120",
-                "reference": "bd43ec7152eaaab3bd8c6d0aa95ceeb1df8ee120",
+                "url": "https://api.github.com/repos/nikic/PHP-Parser/zipball/53c2753d756f5adb586dca79c2ec0e2654dd9463",
+                "reference": "53c2753d756f5adb586dca79c2ec0e2654dd9463",
                 "shasum": ""
             },
             "require": {
@@ -2794,7 +2787,7 @@
                 "parser",
                 "php"
             ],
-            "time": "2020-04-10T16:34:50+00:00"
+            "time": "2020-06-03T07:24:19+00:00"
         },
         {
             "name": "nystudio107/craft-eagerbeaver",
@@ -2854,11 +2847,11 @@
         },
         {
             "name": "opis/closure",
-            "version": "3.5.2",
+            "version": "3.5.3",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/opis/closure/zipball/2e3299cea6f485ca64d19c540f46d7896c512ace",
-                "reference": "2e3299cea6f485ca64d19c540f46d7896c512ace",
+                "url": "https://api.github.com/repos/opis/closure/zipball/cac47092144043d5d676e2e7cf8d0d2f83fc89ca",
+                "reference": "cac47092144043d5d676e2e7cf8d0d2f83fc89ca",
                 "shasum": ""
             },
             "require": {
@@ -2901,7 +2894,7 @@
                 "serialization",
                 "serialize"
             ],
-            "time": "2020-05-21T20:09:36+00:00"
+            "time": "2020-05-25T09:32:45+00:00"
         },
         {
             "name": "paragonie/random_compat",
@@ -3600,11 +3593,11 @@
         },
         {
             "name": "sebastianlenz/linkfield",
-            "version": "1.0.21",
+            "version": "1.0.22",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastian-lenz/craft-linkfield/zipball/64fbbe853e7077f52fb4a1147d6e38eebccde80b",
-                "reference": "64fbbe853e7077f52fb4a1147d6e38eebccde80b",
+                "url": "https://api.github.com/repos/sebastian-lenz/craft-linkfield/zipball/b4d62b9bd3a0dd5535b5fe6b98ac26b08a70b521",
+                "reference": "b4d62b9bd3a0dd5535b5fe6b98ac26b08a70b521",
                 "shasum": ""
             },
             "require": {
@@ -3627,7 +3620,7 @@
                 "MIT"
             ],
             "description": "A Craft field type for selecting links",
-            "time": "2020-04-01T13:03:23+00:00"
+            "time": "2020-06-06T13:20:19+00:00"
         },
         {
             "name": "seld/cli-prompt",
@@ -4923,15 +4916,15 @@
         },
         {
             "name": "verbb/super-table",
-            "version": "2.4.9",
+            "version": "2.5.0",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/verbb/super-table/zipball/cf3237d0e5be608561bfcf02d77e9bef03855a69",
-                "reference": "cf3237d0e5be608561bfcf02d77e9bef03855a69",
+                "url": "https://api.github.com/repos/verbb/super-table/zipball/a9b0a35620796b6ffe396d41dff3928b3c9c8763",
+                "reference": "a9b0a35620796b6ffe396d41dff3928b3c9c8763",
                 "shasum": ""
             },
             "require": {
-                "craftcms/cms": "^3.4.8",
+                "craftcms/cms": "^3.4.22",
                 "verbb/base": "^1.0.2"
             },
             "type": "craft-plugin",
@@ -4972,7 +4965,7 @@
                 "docs": "https://github.com/verbb/super-table",
                 "rss": "https://github.com/verbb/super-table/commits/v2.atom"
             },
-            "time": "2020-04-15T22:45:13+00:00"
+            "time": "2020-05-30T03:27:47+00:00"
         },
         {
             "name": "vlucas/phpdotenv",
@@ -5184,18 +5177,15 @@
         },
         {
             "name": "voku/portable-ascii",
-            "version": "1.4.10",
+            "version": "1.5.1",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/voku/portable-ascii/zipball/240e93829a5f985fab0984a6e55ae5e26b78a334",
-                "reference": "240e93829a5f985fab0984a6e55ae5e26b78a334",
+                "url": "https://api.github.com/repos/voku/portable-ascii/zipball/e7f9bd5deff09a57318f9b900ab33a05acfcf4d3",
+                "reference": "e7f9bd5deff09a57318f9b900ab33a05acfcf4d3",
                 "shasum": ""
             },
             "require": {
                 "php": ">=7.0.0"
-            },
-            "require-dev": {
-                "phpunit/phpunit": "~6.0 || ~7.0"
             },
             "suggest": {
                 "ext-intl": "Use Intl for transliterator_transliterate() support"
@@ -5203,11 +5193,9 @@
             "type": "library",
             "autoload": {
                 "psr-4": {
-                    "voku\\": "src/voku/",
-                    "voku\\tests\\": "tests/"
+                    "voku\\": "src/voku/"
                 }
             },
-            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -5224,15 +5212,15 @@
                 "clean",
                 "php"
             ],
-            "time": "2020-03-13T01:23:26+00:00"
+            "time": "2020-05-26T06:40:44+00:00"
         },
         {
             "name": "voku/portable-utf8",
-            "version": "5.4.43",
+            "version": "5.4.45",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/voku/portable-utf8/zipball/ca43fcf0d953909217565d6cbfa923053de0acdc",
-                "reference": "ca43fcf0d953909217565d6cbfa923053de0acdc",
+                "url": "https://api.github.com/repos/voku/portable-utf8/zipball/5445d44086ea7b53dcd6dd1b182ae5bdcb1fbb07",
+                "reference": "5445d44086ea7b53dcd6dd1b182ae5bdcb1fbb07",
                 "shasum": ""
             },
             "require": {
@@ -5242,7 +5230,7 @@
                 "symfony/polyfill-intl-normalizer": "~1.0",
                 "symfony/polyfill-mbstring": "~1.0",
                 "symfony/polyfill-php72": "~1.0",
-                "voku/portable-ascii": "~1.4"
+                "voku/portable-ascii": "~1.5"
             },
             "suggest": {
                 "ext-ctype": "Use Ctype for e.g. hexadecimal digit detection",
@@ -5288,7 +5276,7 @@
                 "utf-8",
                 "utf8"
             ],
-            "time": "2020-05-14T00:59:19+00:00"
+            "time": "2020-05-26T07:35:55+00:00"
         },
         {
             "name": "voku/stop-words",
