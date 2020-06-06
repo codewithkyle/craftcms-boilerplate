@@ -168,6 +168,19 @@ return [
                         ],
                         'defaultTabName' => 'Misc',
                     ],
+                    'video' => [
+                        'tabs' => [
+                            [
+                                'label' => 'Copy',
+                                'fields' => ['heading', 'copy'],
+                            ],
+                            [
+                                'label' => 'Video',
+                                'fields' => ['source', 'videoId', 'thumbnailImage'],
+                            ],
+                        ],
+                        'defaultTabName' => 'Misc',
+                    ],
                 ],
             ],
             'section:articles' => [
@@ -229,6 +242,19 @@ return [
                             [
                                 'label' => 'Actions',
                                 'fields' => ['callToActionButton'],
+                            ],
+                        ],
+                        'defaultTabName' => 'Misc',
+                    ],
+                    'video' => [
+                        'tabs' => [
+                            [
+                                'label' => 'Copy',
+                                'fields' => ['heading', 'copy'],
+                            ],
+                            [
+                                'label' => 'Video',
+                                'fields' => ['source', 'videoId', 'thumbnailImage'],
                             ],
                         ],
                         'defaultTabName' => 'Misc',
