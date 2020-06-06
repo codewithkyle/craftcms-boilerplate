@@ -14,7 +14,7 @@
 	transition: all 75ms ease-in-out;
 	justify-content: center;
 	align-items: center;
-	flex-flow: row nowrap;
+	flex-flow: row nowrap;	
 
 	@media (min-width: 500px) {
 		display: inline-flex;
@@ -234,6 +234,8 @@
 	}
 
 	&.-outline {
+		padding: 0 1rem;
+		
 		&.-primary {
 			border-color: var(--primary-700);
 			color: var(--primary-700);

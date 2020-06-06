@@ -1,0 +1,13 @@
+<rich-text lazy-load-css="rich-text buttons">
+    {% if section.heading|length %}
+        <h1>{{ section.heading }}</h1>
+    {% endif %}
+    {% if section.copy|length %}
+        {{ section.copy }}
+    {% endif %}
+    {% if section.callToActionButton.url|length %}
+        <div class="block w-full text-left mt-1">
+            <a href="{{ section.callToActionButton.url }}" target="{{ section.callToActionButton.target }}" class="button {{ section.buttonStyle }} -primary">{{ section.callToActionButton.customText }}</a>
+        </div>
+    {% endif %}
+</rich-text>

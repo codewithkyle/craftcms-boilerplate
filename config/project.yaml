@@ -10,7 +10,7 @@ categoryGroups:
     structure:
       maxLevels: 1
       uid: 4840e233-1f3e-4981-8ccb-e85548acf8c9
-dateModified: 1590238332
+dateModified: 1591459302
 email:
   fromEmail: $SYSTEM_EMAIL
   fromName: $SENDER_NAME
@@ -816,6 +816,7 @@ matrixBlockTypes:
         name: 'Background Image'
         searchable: true
         settings:
+          allowSelfRelations: ''
           allowedKinds:
             - image
           defaultUploadLocationSource: 'volume:8b0fd7f7-2623-4a21-a578-698d8c0aef75'
@@ -1078,6 +1079,7 @@ matrixBlockTypes:
         name: 'Background Image'
         searchable: false
         settings:
+          allowSelfRelations: ''
           allowedKinds:
             - image
           defaultUploadLocationSource: 'volume:8b0fd7f7-2623-4a21-a578-698d8c0aef75'
@@ -1440,6 +1442,7 @@ matrixBlockTypes:
         name: Testimonials
         searchable: false
         settings:
+          allowSelfRelations: ''
           limit: ''
           localizeRelations: false
           selectionLabel: 'Add Testimonials'
@@ -1497,6 +1500,7 @@ matrixBlockTypes:
         name: Image
         searchable: true
         settings:
+          allowSelfRelations: ''
           allowedKinds: null
           defaultUploadLocationSource: 'volume:8b0fd7f7-2623-4a21-a578-698d8c0aef75'
           defaultUploadLocationSubpath: ''
@@ -1679,6 +1683,7 @@ matrixBlockTypes:
         name: Image
         searchable: false
         settings:
+          allowSelfRelations: ''
           allowedKinds:
             - image
           defaultUploadLocationSource: 'volume:8b0fd7f7-2623-4a21-a578-698d8c0aef75'
@@ -1872,6 +1877,9 @@ matrixBlockTypes:
               2dd47779-aae2-4d6d-b2b7-b1cf6fd6807c:
                 required: false
                 sortOrder: 3
+              acf69f98-cbe4-4a1e-9b48-d2d213c68a4f:
+                required: false
+                sortOrder: 4
               cc09c5f8-123f-4ecd-ac51-acc522445123:
                 required: false
                 sortOrder: 2
@@ -2011,6 +2019,52 @@ matrixBlockTypes:
         translationKeyFormat: null
         translationMethod: none
         type: typedlinkfield\fields\LinkField
+      acf69f98-cbe4-4a1e-9b48-d2d213c68a4f:
+        contentColumnType: string
+        fieldGroup: null
+        handle: buttonStyle
+        instructions: ''
+        name: 'Button Style'
+        searchable: false
+        settings:
+          optgroups: true
+          options:
+            -
+              __assoc__:
+                -
+                  - label
+                  - Solid
+                -
+                  - value
+                  - '-solid'
+                -
+                  - default
+                  - '1'
+            -
+              __assoc__:
+                -
+                  - label
+                  - Outline
+                -
+                  - value
+                  - '-outline'
+                -
+                  - default
+                  - ''
+            -
+              __assoc__:
+                -
+                  - label
+                  - Raised
+                -
+                  - value
+                  - '-solid -raised'
+                -
+                  - default
+                  - ''
+        translationKeyFormat: null
+        translationMethod: none
+        type: craft\fields\Dropdown
       cc09c5f8-123f-4ecd-ac51-acc522445123:
         contentColumnType: text
         fieldGroup: null
@@ -2067,6 +2121,7 @@ matrixBlockTypes:
         name: Articles
         searchable: false
         settings:
+          allowSelfRelations: ''
           limit: '3'
           localizeRelations: false
           selectionLabel: 'Link an Article'
@@ -2593,15 +2648,18 @@ matrixBlockTypes:
               6fb5d678-58a6-480b-b57c-10829b8019ae:
                 required: false
                 sortOrder: 1
+              73f77785-3998-4816-9988-2001e0f915f5:
+                required: false
+                sortOrder: 4
               7a91d99a-0526-440a-af03-851dfe8870a0:
                 required: false
-                sortOrder: 5
+                sortOrder: 6
               b4c68c10-3cb4-442b-895f-49616e457330:
                 required: false
                 sortOrder: 2
               d9ea6ae0-be14-4df0-a59f-b9dd21844f74:
                 required: true
-                sortOrder: 4
+                sortOrder: 5
             name: Content
             sortOrder: 1
     fields:
@@ -2738,6 +2796,52 @@ matrixBlockTypes:
         translationKeyFormat: null
         translationMethod: none
         type: craft\fields\PlainText
+      73f77785-3998-4816-9988-2001e0f915f5:
+        contentColumnType: string
+        fieldGroup: null
+        handle: buttonStyle
+        instructions: ''
+        name: 'Button Style'
+        searchable: false
+        settings:
+          optgroups: true
+          options:
+            -
+              __assoc__:
+                -
+                  - label
+                  - Solid
+                -
+                  - value
+                  - '-solid'
+                -
+                  - default
+                  - '1'
+            -
+              __assoc__:
+                -
+                  - label
+                  - Outline
+                -
+                  - value
+                  - '-outline'
+                -
+                  - default
+                  - ''
+            -
+              __assoc__:
+                -
+                  - label
+                  - Raised
+                -
+                  - value
+                  - '-solid -raised'
+                -
+                  - default
+                  - ''
+        translationKeyFormat: null
+        translationMethod: none
+        type: craft\fields\Dropdown
       7a91d99a-0526-440a-af03-851dfe8870a0:
         contentColumnType: string
         fieldGroup: null
@@ -2804,6 +2908,7 @@ matrixBlockTypes:
         name: Image
         searchable: false
         settings:
+          allowSelfRelations: ''
           allowedKinds: null
           defaultUploadLocationSource: 'volume:8b0fd7f7-2623-4a21-a578-698d8c0aef75'
           defaultUploadLocationSubpath: ''
@@ -3438,6 +3543,7 @@ superTableBlockTypes:
         name: Icon
         searchable: true
         settings:
+          allowSelfRelations: ''
           allowedKinds:
             - image
           defaultUploadLocationSource: 'volume:8b0fd7f7-2623-4a21-a578-698d8c0aef75'
@@ -3510,6 +3616,7 @@ superTableBlockTypes:
         name: 'Background Image'
         searchable: false
         settings:
+          allowSelfRelations: ''
           allowedKinds:
             - image
           defaultUploadLocationSource: 'volume:8b0fd7f7-2623-4a21-a578-698d8c0aef75'

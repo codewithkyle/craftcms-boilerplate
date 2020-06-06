@@ -146,7 +146,7 @@ return [
                             ],
                             [
                                 'label' => 'Actions',
-                                'fields' => ['callToActionButton'],
+                                'fields' => ['callToActionButton', 'buttonStyle'],
                             ],
                         ],
                         'defaultTabName' => 'Misc',
@@ -163,7 +163,7 @@ return [
                             ],
                             [
                                 'label' => 'Actions',
-                                'fields' => ['callToActionButton'],
+                                'fields' => ['callToActionButton', 'buttonStyle'],
                             ],
                         ],
                         'defaultTabName' => 'Misc',
