@@ -10,7 +10,7 @@ categoryGroups:
     structure:
       maxLevels: 1
       uid: 4840e233-1f3e-4981-8ccb-e85548acf8c9
-dateModified: 1591461237
+dateModified: 1591535722
 email:
   fromEmail: $SYSTEM_EMAIL
   fromName: $SENDER_NAME
@@ -1458,6 +1458,40 @@ matrixBlockTypes:
     handle: testimonials
     name: Testimonials
     sortOrder: 5
+  55807a80-652f-4b10-8265-700adbfe5dc9:
+    field: 1eb0ac2f-150c-4071-b0a0-cdbc98ace82e
+    fieldLayouts:
+      dca09ec8-08a6-4e2b-af92-f85a241f2e7e:
+        tabs:
+          -
+            fields:
+              0ea10383-1f7d-4a48-92c7-b81f37c01612:
+                required: true
+                sortOrder: 1
+            name: Content
+            sortOrder: 1
+    fields:
+      0ea10383-1f7d-4a48-92c7-b81f37c01612:
+        contentColumnType: integer(10)
+        fieldGroup: null
+        handle: gap
+        instructions: ''
+        name: Gap
+        searchable: false
+        settings:
+          decimals: 0
+          defaultValue: '1'
+          max: null
+          min: '1'
+          prefix: ''
+          size: null
+          suffix: ''
+        translationKeyFormat: null
+        translationMethod: none
+        type: craft\fields\Number
+    handle: spacer
+    name: Spacer
+    sortOrder: 14
   81e7e279-b0c6-4b60-b709-d323e7a4b6a8:
     field: 1eb0ac2f-150c-4071-b0a0-cdbc98ace82e
     fieldLayouts:
@@ -2644,22 +2678,25 @@ matrixBlockTypes:
             fields:
               6d1ccaa5-5f84-4a09-8f06-707a41d34f06:
                 required: false
-                sortOrder: 3
+                sortOrder: 4
               6fb5d678-58a6-480b-b57c-10829b8019ae:
                 required: false
                 sortOrder: 1
               73f77785-3998-4816-9988-2001e0f915f5:
                 required: false
-                sortOrder: 4
+                sortOrder: 5
               7a91d99a-0526-440a-af03-851dfe8870a0:
                 required: false
-                sortOrder: 6
+                sortOrder: 7
               b4c68c10-3cb4-442b-895f-49616e457330:
                 required: false
                 sortOrder: 2
               d9ea6ae0-be14-4df0-a59f-b9dd21844f74:
                 required: true
-                sortOrder: 5
+                sortOrder: 6
+              e3b6e2c5-1cfe-4c35-bdd7-66b90b43a7f6:
+                required: false
+                sortOrder: 3
             name: Content
             sortOrder: 1
     fields:
@@ -2929,6 +2966,52 @@ matrixBlockTypes:
         translationKeyFormat: null
         translationMethod: site
         type: craft\fields\Assets
+      e3b6e2c5-1cfe-4c35-bdd7-66b90b43a7f6:
+        contentColumnType: string
+        fieldGroup: null
+        handle: verticalAlignment
+        instructions: ''
+        name: 'Vertical Alignment'
+        searchable: false
+        settings:
+          optgroups: true
+          options:
+            -
+              __assoc__:
+                -
+                  - label
+                  - Top
+                -
+                  - value
+                  - '0'
+                -
+                  - default
+                  - ''
+            -
+              __assoc__:
+                -
+                  - label
+                  - Center
+                -
+                  - value
+                  - 'auto 0'
+                -
+                  - default
+                  - '1'
+            -
+              __assoc__:
+                -
+                  - label
+                  - Bottom
+                -
+                  - value
+                  - 'auto 0 0'
+                -
+                  - default
+                  - ''
+        translationKeyFormat: null
+        translationMethod: none
+        type: craft\fields\Dropdown
     handle: richTextImage
     name: 'Rich Text & Image'
     sortOrder: 4

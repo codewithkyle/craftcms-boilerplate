@@ -11,15 +11,19 @@ return [
                     ],
                     [
                         'label' => 'Basic Content',
-                        'types' => ['richText', 'image', 'video', 'horizontalRule'],
+                        'types' => ['richText', 'image', 'richTextImage', 'video'],
                     ],
                     [
-                        'label' => 'Content Blocks',
-                        'types' => ['testimonials', 'pullQuote', 'richTextImage'],
+                        'label' => 'Rich Content Blocks',
+                        'types' => ['testimonials', 'pullQuote'],
                     ],
                     [
                         'label' => 'Calls to Action Blocks',
                         'types' => ['blogCards', 'callToActionCards', 'callToActionBanner'],
+                    ],
+                    [
+                        'label' => 'Layout Blocks',
+                        'types' => ['horizontalRule', 'spacer'],
                     ],
                 ],
                 'types' => [
@@ -155,7 +159,7 @@ return [
                         'tabs' => [
                             [
                                 'label' => 'Copy',
-                                'fields' => ['heading', 'copy'],
+                                'fields' => ['heading', 'copy', 'verticalAlignment'],
                             ],
                             [
                                 'label' => 'Image',

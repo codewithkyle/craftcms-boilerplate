@@ -1,0 +1,69 @@
+{% set image = section.image[0] ?? null %}
+{% if image %}
+    {% if craft.imager.clientSupportsWebp() and craft.imager.serverSupportsWebp() %}
+        {% if image.width > 320 and image.width <= 520 %}
+            {% set transformedImages = craft.imager.transformImage(image, 
+                [
+                    { width: 320, mode: 'fit', format: 'webp', position: image.getFocalPoint() },
+                    { width: image.width, mode: 'fit', format: 'webp', position: image.getFocalPoint() },
+                ])
+            %}
+        {% elseif image.width > 520 %}
+            {% set transformedImages = craft.imager.transformImage(image, 
+                [
+                    { width: 320, mode: 'fit', format: 'webp', position: image.getFocalPoint() },
+                    { width: 520, mode: 'fit', format: 'webp', position: image.getFocalPoint() },
+                ])
+            %}
+        {% else %}
+            {% set transformedImages = craft.imager.transformImage(image, [
+                { format: 'webp', position: image.getFocalPoint() }
+            ]) %}
+        {% endif %}
+    {% else %}
+        {% if image.width > 320 and image.width <= 520 %}
+            {% set transformedImages = craft.imager.transformImage(image, 
+                [
+                    { width: 320, mode: 'fit', position: image.getFocalPoint() },
+                    { width: image.width, mode: 'fit', position: image.getFocalPoint() },
+                ])
+            %}
+        {% elseif image.width > 520 %}
+            {% set transformedImages = craft.imager.transformImage(image, 
+                [
+                    { width: 320, mode: 'fit', position: image.getFocalPoint() },
+                    { width: 520, mode: 'fit', position: image.getFocalPoint() },
+                ])
+            %}
+        {% else %}
+            {% set transformedImages = craft.imager.transformImage(image, [
+                { position: image.getFocalPoint() }    
+            ]) %}
+        {% endif %}
+    {% endif %}
+    <rich-text-image-block lazy-load-css="rich-text-image-block">
+        {% if section.imagePosition == 'left' %}
+            <img-shim>
+                <img src="{{ transformedImages[0].url }}" alt="{{ image.alternateDescription }}" loading="lazy" width="320" srcset="{{ craft.imager.srcset(transformedImages) }}" />
+            </img-shim>
+        {% endif %}
+        <content-wrapper style="margin:{{ section.verticalAlignment }};">
+            {% if section.heading|length %}
+                <h1>{{ section.heading }}</h1>
+            {% endif %}
+            {% if section.copy|length %}
+                {{ section.copy }}
+            {% endif %}
+            {% if section.callToActionButton.url|length %}
+                <div class="block w-full text-left mt-1">
+                    <a href="{{ section.callToActionButton.url }}" target="{{ section.callToActionButton.target }}" class="button {{ section.buttonStyle }} -primary">{{ section.callToActionButton.customText }}</a>
+                </div>
+            {% endif %}
+        </content-wrapper>
+        {% if section.imagePosition == 'right' %}
+            <img-shim>
+                <img src="{{ transformedImages[0].url }}" alt="{{ image.alternateDescription }}" loading="lazy" width="320" srcset="{{ craft.imager.srcset(transformedImages) }}" />
+            </img-shim>
+        {% endif %}
+    </rich-text-image-block>
+{% endif %}
