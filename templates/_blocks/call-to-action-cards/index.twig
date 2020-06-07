@@ -1,0 +1,35 @@
+<call-to-action-cards lazy-load-css="call-to-action-cards">
+    {% if section.heading|length %}
+        <h1>{{ section.heading }}</h1>
+    {% endif %}
+    {% if section.copy|length %}
+        <div class="block max-w-full mx-auto" style="width:640px;">
+            {{ section.copy }}
+        </div>
+    {% endif %}
+    <card-container>
+        {% for card in section.cards.all() %}
+            {% set image = card.image[0] ?? null %}
+            <a href="{{ card.customLink.url }}" class="cta-card {{ image ? 'has-image' }}">
+                {% if image %}
+                    {% set transformedImage = craft.imager.transformImage(image, { width: 320, ratio: 4/3, position: image.getFocalPoint(), format: imageFormat }) %}
+                    <img-shim>
+                        <img 
+                            draggable="false"
+                            src="{{ transformedImage.url }}" 
+                            alt="{{ image.alternateDescription }}" 
+                            loading="lazy" 
+                            width="250" 
+                            style="opacity:0;transition: opacity 300ms ease-out;"
+                            onload="this.onload=null;this.style.opacity='1';" 
+                        />
+                    </img-shim>
+                {% endif %}
+                <card-copy>
+                    <h2>{{ card.heading }}</h2>
+                    <p>{{ card.briefCopy }}</p>
+                </card-copy>
+            </a>
+        {% endfor %}
+    </card-container>
+</call-to-action-cards>

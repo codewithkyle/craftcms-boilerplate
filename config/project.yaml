@@ -10,7 +10,7 @@ categoryGroups:
     structure:
       maxLevels: 1
       uid: 4840e233-1f3e-4981-8ccb-e85548acf8c9
-dateModified: 1591550072
+dateModified: 1591556933
 email:
   fromEmail: $SYSTEM_EMAIL
   fromName: $SENDER_NAME
@@ -2737,133 +2737,41 @@ matrixBlockTypes:
         tabs:
           -
             fields:
-              71299b67-37c8-4c3e-b1b9-c54f1ad88595:
+              2c9e67c9-b58c-4ef8-ba01-f11a6273747b:
                 required: false
-                sortOrder: 3
+                sortOrder: 2
               b7e77750-23a3-4d65-9793-70e7782204b4:
                 required: true
-                sortOrder: 2
+                sortOrder: 3
               ce11e6d6-11cf-44cd-94da-6c0a2f79b19b:
                 required: false
                 sortOrder: 1
             name: Content
             sortOrder: 1
     fields:
-      71299b67-37c8-4c3e-b1b9-c54f1ad88595:
+      2c9e67c9-b58c-4ef8-ba01-f11a6273747b:
         contentColumnType: text
         fieldGroup: null
-        handle: callToActionButton
+        handle: copy
         instructions: ''
-        name: 'Call to Action Button'
-        searchable: false
+        name: Copy
+        searchable: true
         settings:
-          allowCustomText: '1'
-          allowTarget: '1'
-          allowedLinkNames:
-            3: entry
-            6: custom
-            7: email
-            8: tel
-          autoNoReferrer: ''
-          defaultLinkName: entry
-          defaultText: ''
-          enableAriaLabel: ''
-          enableTitle: ''
-          typeSettings:
-            __assoc__:
-              -
-                - asset
-                -
-                  __assoc__:
-                    -
-                      - sources
-                      - '*'
-                    -
-                      - allowCustomQuery
-                      - ''
-              -
-                - category
-                -
-                  __assoc__:
-                    -
-                      - sources
-                      - '*'
-                    -
-                      - allowCustomQuery
-                      - ''
-              -
-                - entry
-                -
-                  __assoc__:
-                    -
-                      - sources
-                      -
-                        - singles
-                        - 'section:2f1f0ea0-4b22-4e9d-bb51-9e1e32a94cba'
-                        - 'section:cefc4625-a115-4b71-b22d-5f6784b3aada'
-                    -
-                      - allowCustomQuery
-                      - ''
-              -
-                - site
-                -
-                  __assoc__:
-                    -
-                      - sites
-                      - '*'
-              -
-                - user
-                -
-                  __assoc__:
-                    -
-                      - sources
-                      - '*'
-                    -
-                      - allowCustomQuery
-                      - ''
-              -
-                - custom
-                -
-                  __assoc__:
-                    -
-                      - disableValidation
-                      - ''
-                    -
-                      - allowAliases
-                      - ''
-              -
-                - email
-                -
-                  __assoc__:
-                    -
-                      - disableValidation
-                      - ''
-                    -
-                      - allowAliases
-                      - ''
-              -
-                - tel
-                -
-                  __assoc__:
-                    -
-                      - disableValidation
-                      - ''
-                    -
-                      - allowAliases
-                      - ''
-              -
-                - url
-                -
-                  __assoc__:
-                    -
-                      - disableValidation
-                      - ''
-                    -
-                      - allowAliases
-                      - ''
+          availableTransforms: '*'
+          availableVolumes: '*'
+          cleanupHtml: true
+          columnType: text
+          purifierConfig: ''
+          purifyHtml: '1'
+          redactorConfig: Simple.json
+          removeEmptyTags: '1'
+          removeInlineStyles: '1'
+          removeNbsp: '1'
+          showUnpermittedFiles: false
+          showUnpermittedVolumes: false
         translationKeyFormat: null
         translationMethod: none
-        type: typedlinkfield\fields\LinkField
+        type: craft\redactor\Field
       b7e77750-23a3-4d65-9793-70e7782204b4:
         contentColumnType: string
         fieldGroup: null
@@ -2895,8 +2803,15 @@ matrixBlockTypes:
                     -
                       - width
                       - ''
+              -
+                - 351a49ae-188d-4aaf-a5b6-25e9840a6621
+                -
+                  __assoc__:
+                    -
+                      - width
+                      - ''
           contentTable: '{{%stc_8_cards}}'
-          fieldLayout: table
+          fieldLayout: matrix
           maxRows: '3'
           minRows: '1'
           propagationMethod: all
@@ -3889,6 +3804,9 @@ superTableBlockTypes:
         tabs:
           -
             fields:
+              351a49ae-188d-4aaf-a5b6-25e9840a6621:
+                required: true
+                sortOrder: 4
               630bcfcd-7f1c-4395-9be5-63844c0edce9:
                 required: true
                 sortOrder: 2
@@ -3901,6 +3819,121 @@ superTableBlockTypes:
             name: Content
             sortOrder: 1
     fields:
+      351a49ae-188d-4aaf-a5b6-25e9840a6621:
+        contentColumnType: text
+        fieldGroup: null
+        handle: customLink
+        instructions: ''
+        name: Link
+        searchable: false
+        settings:
+          allowCustomText: ''
+          allowTarget: ''
+          allowedLinkNames:
+            3: entry
+            6: custom
+            7: email
+            8: tel
+          autoNoReferrer: ''
+          defaultLinkName: entry
+          defaultText: ''
+          enableAriaLabel: ''
+          enableTitle: ''
+          typeSettings:
+            __assoc__:
+              -
+                - asset
+                -
+                  __assoc__:
+                    -
+                      - sources
+                      - '*'
+                    -
+                      - allowCustomQuery
+                      - ''
+              -
+                - category
+                -
+                  __assoc__:
+                    -
+                      - sources
+                      - '*'
+                    -
+                      - allowCustomQuery
+                      - ''
+              -
+                - entry
+                -
+                  __assoc__:
+                    -
+                      - sources
+                      -
+                        - singles
+                        - 'section:2f1f0ea0-4b22-4e9d-bb51-9e1e32a94cba'
+                        - 'section:cefc4625-a115-4b71-b22d-5f6784b3aada'
+                    -
+                      - allowCustomQuery
+                      - ''
+              -
+                - site
+                -
+                  __assoc__:
+                    -
+                      - sites
+                      - '*'
+              -
+                - user
+                -
+                  __assoc__:
+                    -
+                      - sources
+                      - '*'
+                    -
+                      - allowCustomQuery
+                      - ''
+              -
+                - custom
+                -
+                  __assoc__:
+                    -
+                      - disableValidation
+                      - ''
+                    -
+                      - allowAliases
+                      - ''
+              -
+                - email
+                -
+                  __assoc__:
+                    -
+                      - disableValidation
+                      - ''
+                    -
+                      - allowAliases
+                      - ''
+              -
+                - tel
+                -
+                  __assoc__:
+                    -
+                      - disableValidation
+                      - ''
+                    -
+                      - allowAliases
+                      - ''
+              -
+                - url
+                -
+                  __assoc__:
+                    -
+                      - disableValidation
+                      - ''
+                    -
+                      - allowAliases
+                      - ''
+        translationKeyFormat: null
+        translationMethod: none
+        type: typedlinkfield\fields\LinkField
       630bcfcd-7f1c-4395-9be5-63844c0edce9:
         contentColumnType: text
         fieldGroup: null
@@ -3922,9 +3955,9 @@ superTableBlockTypes:
       a538518b-d594-484e-a083-9f5df7dea3d9:
         contentColumnType: string
         fieldGroup: null
-        handle: icon
-        instructions: 'Download icons from https://fontawesome.com/'
-        name: Icon
+        handle: image
+        instructions: ''
+        name: Image
         searchable: true
         settings:
           allowSelfRelations: ''
@@ -3935,7 +3968,7 @@ superTableBlockTypes:
           limit: '1'
           localizeRelations: false
           restrictFiles: '1'
-          selectionLabel: 'Add an Icon'
+          selectionLabel: 'Add an Image'
           showUnpermittedFiles: false
           showUnpermittedVolumes: false
           singleUploadLocationSource: 'volume:8b0fd7f7-2623-4a21-a578-698d8c0aef75'
@@ -3961,7 +3994,7 @@ superTableBlockTypes:
           charLimit: null
           code: ''
           columnType: null
-          initialRows: '2'
+          initialRows: '3'
           multiline: '1'
           placeholder: ''
         translationKeyFormat: null

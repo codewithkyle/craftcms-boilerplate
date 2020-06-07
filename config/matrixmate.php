@@ -95,7 +95,7 @@ return [
                         'tabs' => [
                             [
                                 'label' => 'Copy',
-                                'fields' => ['heading'],
+                                'fields' => ['heading', 'copy'],
                             ],
                             [
                                 'label' => 'Cards',
@@ -121,23 +121,6 @@ return [
                             [
                                 'label' => 'Actions',
                                 'fields' => ['callToActionButton', 'secondaryCallToActionButton'],
-                            ],
-                        ],
-                        'defaultTabName' => 'Misc',
-                    ],
-                    'callToActionBanner' => [
-                        'tabs' => [
-                            [
-                                'label' => 'Copy',
-                                'fields' => ['heading', 'copy'],
-                            ],
-                            [
-                                'label' => 'Background',
-                                'fields' => ['backgroundColor', 'backgroundImage'],
-                            ],
-                            [
-                                'label' => 'Actions',
-                                'fields' => ['callToActionButton'],
                             ],
                         ],
                         'defaultTabName' => 'Misc',
@@ -225,7 +208,7 @@ return [
                     ],
                     [
                         'label' => 'Calls to Action',
-                        'types' => ['callToActionBanner'],
+                        'types' => ['callToActionBanner', 'callToActionCards'],
                     ]
                 ],
                 'types' => [
@@ -285,6 +268,23 @@ return [
                             [
                                 'label' => 'Video',
                                 'fields' => ['source', 'videoId', 'thumbnailImage'],
+                            ],
+                        ],
+                        'defaultTabName' => 'Misc',
+                    ],
+                    'callToActionCards' => [
+                        'tabs' => [
+                            [
+                                'label' => 'Copy',
+                                'fields' => ['heading', 'copy'],
+                            ],
+                            [
+                                'label' => 'Cards',
+                                'fields' => ['cards'],
+                            ],
+                            [
+                                'label' => 'Actions',
+                                'fields' => ['callToActionButton'],
                             ],
                         ],
                         'defaultTabName' => 'Misc',
