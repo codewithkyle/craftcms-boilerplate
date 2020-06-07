@@ -1,0 +1,51 @@
+{% set image = section.backgroundImage[0] ?? null %}
+{% set backgroundColor = section.backgroundColor %}
+{% if image %}
+    {% set backgroundColor = 'image' %}
+{% endif %}
+<call-to-action-banner lazy-load-css="call-to-action-banner buttons" background="{{ backgroundColor }}">
+    {% if image %}
+        {% set transformedImages = craft.imager.transformImage(image, [
+            { width: 320, ratio: 21/4, position: image.getFocalPoint(), format: imageFormat },
+            { width: 425, ratio: 21/4, position: image.getFocalPoint(), format: imageFormat },
+            { width: 768, ratio: 21/4, position: image.getFocalPoint(), format: imageFormat },
+            { width: 1024, ratio: 21/4, position: image.getFocalPoint(), format: imageFormat },
+            { width: 1280, ratio: 21/4, position: image.getFocalPoint(), format: imageFormat },
+            { width: 1600, ratio: 21/4, position: image.getFocalPoint(), format: imageFormat },
+            { width: 1920, ratio: 21/4, position: image.getFocalPoint(), format: imageFormat },
+        ]) %}
+        <img-shim>
+            <img 
+                src="{{ transformedImages[0].url }}" 
+                srcset="{{ craft.imager.srcset(transformedImages) }}" 
+                alt="{{ image.alternateDescription }}" 
+                loading="lazy" 
+                width="320"
+                style="opacity:0;transition: opacity 300ms ease-out;"
+                onload="this.onload=null;this.style.opacity='1';" 
+            />
+        </img-shim>
+    {% endif %}
+    <content-wrapper>
+        {% if section.heading|length or section.copy|length %}
+            <copy-wrapper>
+                {% if section.heading|length %}
+                    <h1>{{ section.heading }}</h1>
+                {% endif %}
+                {% if section.copy|length %}
+                    {{ section.copy }}
+                {% endif %}
+            </copy-wrapper>
+        {% endif %}
+        {% if section.callToActionButton.url|length or section.secondaryCallToActionButton.url|length %}
+            <div>
+                {% if section.callToActionButton.url|length %}
+                    <a href="{{ section.callToActionButton.url }}" target="{{ section.callToActionButton.target }}" class="button -solid -primary -raised m-0.5">{{ section.callToActionButton.customText }}</a>
+                {% endif %}
+                {% if section.secondaryCallToActionButton.url|length %}
+                    <a href="{{ section.secondaryCallToActionButton.url }}" target="{{ section.secondaryCallToActionButton.target }}" class="button -solid -white -raised m-0.5">{{ section.secondaryCallToActionButton.customText }}</a>
+                {% endif %}
+            </div>
+        {% endif %}
+    </content-wrapper>
+</call-to-action-banner>

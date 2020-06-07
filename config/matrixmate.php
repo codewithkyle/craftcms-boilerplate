@@ -120,7 +120,7 @@ return [
                             ],
                             [
                                 'label' => 'Actions',
-                                'fields' => ['callToActionButton'],
+                                'fields' => ['callToActionButton', 'secondaryCallToActionButton'],
                             ],
                         ],
                         'defaultTabName' => 'Misc',
@@ -241,7 +241,7 @@ return [
                             ],
                             [
                                 'label' => 'Actions',
-                                'fields' => ['callToActionButton'],
+                                'fields' => ['callToActionButton', 'secondaryCallToActionButton'],
                             ],
                         ],
                         'defaultTabName' => 'Misc',
@@ -293,19 +293,5 @@ return [
                 'hideUngroupedTypes' => true,
             ]
         ],
-        'form' => [
-            '*' => [
-                'groups' => [
-                    [
-                        'label' => 'Inputs',
-                        'types' => ['singleColumn', 'twoColumns', 'threeColumns'],
-                    ],
-                    [
-                        'label' => 'Misc',
-                        'types' => ['copy', 'pageBreak'],
-                    ],
-                ],
-            ]
-        ]
     ],
 ];
