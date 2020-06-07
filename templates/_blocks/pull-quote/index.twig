@@ -4,7 +4,14 @@
         {% if image %}
             {% set transformedImage = craft.imager.transformImage(image, { width: 250, ratio: 1/1, position: image.getFocalPoint(), format: imageFormat }) %}
             <img-shim>
-                <img src="{{ transformedImage.url }}" alt="{{ image.alternateDescription }}" />
+                <img 
+                    src="{{ transformedImage.url }}" 
+                    alt="{{ image.alternateDescription }}" 
+                    loading="lazy" 
+                    width="250" 
+                    style="opacity:0;transition: opacity 300ms ease-out;"
+                    onload="this.onload=null;this.style.opacity='1';" 
+                />
             </img-shim>
         {% endif %}
         <content-wrapper>
@@ -22,4 +29,4 @@
             {% endif %}
         </content-wrapper>
     </pull-quote>
-</pull-quote>
+</pull-quote-block>

@@ -26,6 +26,7 @@ pull-quote-block{
             position: relative;
             display: none;
             margin: auto;
+            background-color: var(--grey-100);
 
             @media (min-width: 1024px){
                 display: inline-block;

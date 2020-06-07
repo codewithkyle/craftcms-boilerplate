@@ -198,6 +198,19 @@ return [
                         ],
                         'defaultTabName' => 'Misc',
                     ],
+                    'testimonials' => [
+                        'tabs' => [
+                            [
+                                'label' => 'Copy',
+                                'fields' => ['heading', 'copy'],
+                            ],
+                            [
+                                'label' => 'Testimonials',
+                                'fields' => ['testimonials'],
+                            ],
+                        ],
+                        'defaultTabName' => 'Misc',
+                    ],
                 ],
             ],
             'section:articles' => [

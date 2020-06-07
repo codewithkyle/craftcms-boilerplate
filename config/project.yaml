@@ -10,7 +10,7 @@ categoryGroups:
     structure:
       maxLevels: 1
       uid: 4840e233-1f3e-4981-8ccb-e85548acf8c9
-dateModified: 1591536878
+dateModified: 1591540962
 email:
   fromEmail: $SYSTEM_EMAIL
   fromName: $SENDER_NAME
@@ -1430,6 +1430,12 @@ matrixBlockTypes:
             fields:
               2329cff0-226e-4404-94bc-1eafd6fef322:
                 required: true
+                sortOrder: 3
+              810faeb7-e1cf-4279-87a8-daf95ed656d9:
+                required: false
+                sortOrder: 2
+              8ec3afee-8219-49e7-a6f8-611c35380df6:
+                required: false
                 sortOrder: 1
             name: Content
             sortOrder: 1
@@ -1442,19 +1448,87 @@ matrixBlockTypes:
         name: Testimonials
         searchable: false
         settings:
-          allowSelfRelations: ''
-          limit: ''
-          localizeRelations: false
-          selectionLabel: 'Add Testimonials'
-          source: null
-          sources:
-            - 'section:3ac720f7-dbfb-440a-ba4d-ab09c7aa583c'
-          targetSiteId: null
-          validateRelatedElements: '1'
-          viewMode: null
+          columns:
+            __assoc__:
+              -
+                - e2021c59-d040-4c11-ad30-b12cf22cd59e
+                -
+                  __assoc__:
+                    -
+                      - width
+                      - ''
+              -
+                - c164c20f-11e1-439c-af06-a46c22dd2426
+                -
+                  __assoc__:
+                    -
+                      - width
+                      - ''
+              -
+                - 7bffe00b-1d84-4b18-8a73-fd2ccd0641d2
+                -
+                  __assoc__:
+                    -
+                      - width
+                      - ''
+              -
+                - 80140a2c-054f-4ec4-957e-58640facee9d
+                -
+                  __assoc__:
+                    -
+                      - width
+                      - ''
+          contentTable: '{{%stc_6_testimonials}}'
+          fieldLayout: matrix
+          maxRows: '3'
+          minRows: '1'
+          propagationMethod: all
+          selectionLabel: 'Add a Testimonial'
+          staticField: ''
         translationKeyFormat: null
         translationMethod: site
-        type: craft\fields\Entries
+        type: verbb\supertable\fields\SuperTableField
+      810faeb7-e1cf-4279-87a8-daf95ed656d9:
+        contentColumnType: text
+        fieldGroup: null
+        handle: copy
+        instructions: ''
+        name: Copy
+        searchable: true
+        settings:
+          availableTransforms: '*'
+          availableVolumes: '*'
+          cleanupHtml: true
+          columnType: text
+          purifierConfig: ''
+          purifyHtml: '1'
+          redactorConfig: Simple.json
+          removeEmptyTags: '1'
+          removeInlineStyles: '1'
+          removeNbsp: '1'
+          showUnpermittedFiles: false
+          showUnpermittedVolumes: false
+        translationKeyFormat: null
+        translationMethod: none
+        type: craft\redactor\Field
+      8ec3afee-8219-49e7-a6f8-611c35380df6:
+        contentColumnType: text
+        fieldGroup: null
+        handle: heading
+        instructions: ''
+        name: Heading
+        searchable: true
+        settings:
+          byteLimit: null
+          charLimit: null
+          code: ''
+          columnType: null
+          initialRows: '4'
+          multiline: ''
+          placeholder: ''
+        translationKeyFormat: null
+        translationMethod: none
+        type: craft\fields\PlainText
     handle: testimonials
     name: Testimonials
     sortOrder: 5
@@ -3383,26 +3457,11 @@ relabel:
     fieldLayout: 6a327dfc-42dc-4126-b5ec-12ba877b02fd
     instructions: 'Provide a brief article description. This will be used whenever this article is linked on other pages.'
     name: 'Teaser Text'
-  24499899-af2b-47d2-a5d2-da63d8c04ab5:
-    field: 2e2cf186-585b-46ee-a435-b3a1737847ca
-    fieldLayout: 9d512349-69c2-4901-8dd6-2459420aefa2
-    instructions: ''
-    name: 'Author''s Name'
   293c1dcc-453a-41ae-80e5-ce41422de170:
     field: 27eb5f6d-5e7b-4401-a20a-5259596e045a
     fieldLayout: f7245435-6bdc-47c3-a316-531ba7e32b0d
     instructions: ''
     name: Link
-  2c989637-017b-494d-907e-db90d2530b20:
-    field: f945ce9d-f3ac-4903-94eb-4c89c31411bf
-    fieldLayout: 9d512349-69c2-4901-8dd6-2459420aefa2
-    instructions: 'The eye is drawn to faces and helps testimonies stand out. Adding a smiling photo of the testimonies author helps reassure users of authenticity and believability.'
-    name: 'User Image'
-  490e28d8-48ec-4b50-9118-5b230a362643:
-    field: ae9afa56-8cc0-4317-8b83-794e77f73e68
-    fieldLayout: 9d512349-69c2-4901-8dd6-2459420aefa2
-    instructions: 'Provide a title for the author to help build credibility. '
-    name: 'Author''s Title'
   4d402cc2-1777-4cd2-a587-b17b6d1ce348:
     field: 2e2cf186-585b-46ee-a435-b3a1737847ca
     fieldLayout: eb52858a-5cbf-4207-9da7-a9bcf21ff878
@@ -3418,11 +3477,6 @@ relabel:
     fieldLayout: eb52858a-5cbf-4207-9da7-a9bcf21ff878
     instructions: ''
     name: Copy
-  ba81f55e-f51b-4fe4-a72e-bfbfe46a2a43:
-    field: f697001b-d1ba-48d7-92ee-0eb172e00ac1
-    fieldLayout: 9d512349-69c2-4901-8dd6-2459420aefa2
-    instructions: ''
-    name: Testimony
   e69d1cbe-8aa3-4434-ab5b-3e931061112b:
     field: f697001b-d1ba-48d7-92ee-0eb172e00ac1
     fieldLayout: ae4dd40b-e640-4115-b9c9-44a3e2ecd79b
@@ -3434,36 +3488,6 @@ relabel:
     instructions: ''
     name: 'Background Image'
 sections:
-  0936733c-c126-4ffa-b5d3-af75d96117c8:
-    enableVersioning: true
-    entryTypes:
-      f1e49616-743e-4e6c-93f1-15beeee38852:
-        fieldLayouts:
-          8e3524b3-a04b-43d1-918a-a71bb0e04578:
-            tabs:
-              -
-                fields:
-                  52566efb-1a8e-4da5-af1d-a3e038558780:
-                    required: false
-                    sortOrder: 1
-                name: 'Tab 1'
-                sortOrder: 1
-        handle: submission
-        hasTitleField: true
-        name: Submission
-        sortOrder: 1
-        titleFormat: ''
-        titleLabel: 'Form Submission'
-    handle: formSubmissions
-    name: 'Form Submissions'
-    propagationMethod: all
-    siteSettings:
-      8d2ceaf6-270f-4376-a57e-b67d74fe3518:
-        enabledByDefault: true
-        hasUrls: false
-        template: null
-        uriFormat: ''
-    type: channel
   1cb268c1-1b36-4ad0-a69b-c0559d0a4ea0:
     enableVersioning: true
     entryTypes:
@@ -3497,39 +3521,6 @@ sections:
       maxLevels: 2
       uid: 078fbb41-9b2a-4a5c-9d2c-43213ba64328
     type: structure
-  24687ffb-2733-4ded-9c95-d3cb8b880bcb:
-    enableVersioning: true
-    entryTypes:
-      b0447330-993f-4e72-ac21-0325868ae130:
-        fieldLayouts:
-          26ddf562-bd4c-4e68-b3c7-59428871e0cc:
-            tabs:
-              -
-                fields:
-                  6d0a70db-0951-40b4-9be4-1fa67bc2d9a4:
-                    required: false
-                    sortOrder: 4
-                name: Settings
-                sortOrder: 1
-              -
-                name: Form
-                sortOrder: 2
-        handle: forms
-        hasTitleField: true
-        name: Forms
-        sortOrder: 1
-        titleFormat: ''
-        titleLabel: Title
-    handle: forms
-    name: Forms
-    propagationMethod: all
-    siteSettings:
-      8d2ceaf6-270f-4376-a57e-b67d74fe3518:
-        enabledByDefault: true
-        hasUrls: true
-        template: _forms/index.twig
-        uriFormat: 'forms/{slug}'
-    type: channel
   28b71e8e-d2dc-4c34-98c4-66e91dfbbab4:
     enableVersioning: true
     entryTypes:
@@ -3615,45 +3606,6 @@ sections:
         hasUrls: true
         template: _pages/index
         uriFormat: 'blog/{slug}'
-    type: channel
-  3ac720f7-dbfb-440a-ba4d-ab09c7aa583c:
-    enableVersioning: true
-    entryTypes:
-      78436d80-d50b-488d-88ad-d9c41c057dcb:
-        fieldLayouts:
-          9d512349-69c2-4901-8dd6-2459420aefa2:
-            tabs:
-              -
-                fields:
-                  2e2cf186-585b-46ee-a435-b3a1737847ca:
-                    required: true
-                    sortOrder: 2
-                  ae9afa56-8cc0-4317-8b83-794e77f73e68:
-                    required: false
-                    sortOrder: 3
-                  f697001b-d1ba-48d7-92ee-0eb172e00ac1:
-                    required: true
-                    sortOrder: 1
-                  f945ce9d-f3ac-4903-94eb-4c89c31411bf:
-                    required: false
-                    sortOrder: 4
-                name: 'Tab 1'
-                sortOrder: 1
-        handle: testimonials
-        hasTitleField: true
-        name: Testimonials
-        sortOrder: 1
-        titleFormat: ''
-        titleLabel: Title
-    handle: testimonials
-    name: Testimonials
-    propagationMethod: all
-    siteSettings:
-      8d2ceaf6-270f-4376-a57e-b67d74fe3518:
-        enabledByDefault: true
-        hasUrls: false
-        template: null
-        uriFormat: ''
     type: channel
   762dff31-6995-4a69-a951-48d8e6cceb0e:
     enableVersioning: true
@@ -3897,6 +3849,117 @@ superTableBlockTypes:
         translationKeyFormat: null
         translationMethod: none
         type: craft\fields\PlainText
+  a2338be5-214b-44cd-9820-cec95d167134:
+    field: 2329cff0-226e-4404-94bc-1eafd6fef322
+    fieldLayouts:
+      45615a0e-1639-4a6b-a8ba-075775f3042c:
+        tabs:
+          -
+            fields:
+              7bffe00b-1d84-4b18-8a73-fd2ccd0641d2:
+                required: false
+                sortOrder: 3
+              80140a2c-054f-4ec4-957e-58640facee9d:
+                required: false
+                sortOrder: 4
+              c164c20f-11e1-439c-af06-a46c22dd2426:
+                required: true
+                sortOrder: 2
+              e2021c59-d040-4c11-ad30-b12cf22cd59e:
+                required: true
+                sortOrder: 1
+            name: Content
+            sortOrder: 1
+    fields:
+      7bffe00b-1d84-4b18-8a73-fd2ccd0641d2:
+        contentColumnType: text
+        fieldGroup: null
+        handle: authorType
+        instructions: 'What type of user is the author? Examples: customer, business partner, or employee.'
+        name: 'Author Type'
+        searchable: false
+        settings:
+          byteLimit: null
+          charLimit: null
+          code: ''
+          columnType: null
+          initialRows: '4'
+          multiline: ''
+          placeholder: ''
+        translationKeyFormat: null
+        translationMethod: none
+        type: craft\fields\PlainText
+      80140a2c-054f-4ec4-957e-58640facee9d:
+        contentColumnType: string
+        fieldGroup: null
+        handle: image
+        instructions: 'Providing a smiling photo of the author helps users connect.'
+        name: Image
+        searchable: false
+        settings:
+          allowSelfRelations: ''
+          allowedKinds:
+            - image
+          defaultUploadLocationSource: 'volume:8b0fd7f7-2623-4a21-a578-698d8c0aef75'
+          defaultUploadLocationSubpath: ''
+          limit: '1'
+          localizeRelations: false
+          restrictFiles: '1'
+          selectionLabel: 'Add an Image'
+          showUnpermittedFiles: false
+          showUnpermittedVolumes: false
+          singleUploadLocationSource: 'volume:8b0fd7f7-2623-4a21-a578-698d8c0aef75'
+          singleUploadLocationSubpath: ''
+          source: null
+          sources: '*'
+          targetSiteId: null
+          useSingleFolder: true
+          validateRelatedElements: '1'
+          viewMode: large
+        translationKeyFormat: null
+        translationMethod: site
+        type: craft\fields\Assets
+      c164c20f-11e1-439c-af06-a46c22dd2426:
+        contentColumnType: text
+        fieldGroup: null
+        handle: author
+        instructions: ''
+        name: Author
+        searchable: false
+        settings:
+          byteLimit: null
+          charLimit: null
+          code: ''
+          columnType: null
+          initialRows: '4'
+          multiline: ''
+          placeholder: ''
+        translationKeyFormat: null
+        translationMethod: none
+        type: craft\fields\PlainText
+      e2021c59-d040-4c11-ad30-b12cf22cd59e:
+        contentColumnType: text
+        fieldGroup: null
+        handle: copy
+        instructions: ''
+        name: Copy
+        searchable: true
+        settings:
+          availableTransforms: '*'
+          availableVolumes: '*'
+          cleanupHtml: true
+          columnType: text
+          purifierConfig: ''
+          purifyHtml: '1'
+          redactorConfig: Simple.json
+          removeEmptyTags: '1'
+          removeInlineStyles: '1'
+          removeNbsp: '1'
+          showUnpermittedFiles: false
+          showUnpermittedVolumes: false
+        translationKeyFormat: null
+        translationMethod: none
+        type: craft\redactor\Field
   b8f80084-8d6e-4c07-9ccf-933bd3b3f83d:
     field: 82806a86-3ff5-404a-bc1b-9819ca09c888
     fieldLayouts:
