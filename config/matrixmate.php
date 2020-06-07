@@ -185,6 +185,19 @@ return [
                         ],
                         'defaultTabName' => 'Misc',
                     ],
+                    'pullQuote' => [
+                        'tabs' => [
+                            [
+                                'label' => 'Copy',
+                                'fields' => ['quote', 'author', 'callToActionLink'],
+                            ],
+                            [
+                                'label' => 'Image',
+                                'fields' => ['image',],
+                            ],
+                        ],
+                        'defaultTabName' => 'Misc',
+                    ],
                 ],
             ],
             'section:articles' => [

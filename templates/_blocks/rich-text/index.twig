@@ -6,7 +6,7 @@
         {{ section.copy }}
     {% endif %}
     {% if section.callToActionButton.url|length %}
-        <div class="block w-full text-left mt-1">
+        <div class="block w-full text-left mt-1.25">
             <a href="{{ section.callToActionButton.url }}" target="{{ section.callToActionButton.target }}" class="button {{ section.buttonStyle }} -primary">{{ section.callToActionButton.customText }}</a>
         </div>
     {% endif %}
