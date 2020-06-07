@@ -1,0 +1,43 @@
+<blog-cards lazy-load-css="blog-cards">
+    {% if section.heading|length %}
+        <h1>{{ section.heading }}</h1>
+    {% endif %}
+    {% if section.copy|length %}
+        <div class="block max-w-full mx-auto" style="width:640px;">
+            {{ section.copy }}
+        </div>
+    {% endif %}
+    <card-container>
+        {% for card in section.articles.all() %}
+            {% set image = card.singleImage1[0] ?? null %}
+            <a href="{{ card.url }}" class="blog-card {{ image ? 'has-image' }}">
+                {% if image %}
+                    {% set transformedImage = craft.imager.transformImage(image, { width: 360, ratio: 4/3, position: image.getFocalPoint(), format: imageFormat }) %}
+                    <img-shim>
+                        <img 
+                            draggable="false"
+                            src="{{ transformedImage.url }}" 
+                            alt="{{ image.alternateDescription }}" 
+                            loading="lazy" 
+                            width="360" 
+                            style="opacity:0;transition: opacity 300ms ease-out;"
+                            onload="this.onload=null;this.style.opacity='1';" 
+                        />
+                    </img-shim>
+                {% endif %}
+                <card-copy>
+                    <h2>{{ card.title }}</h2>
+                    <p>{{ card.text1 }}</p>
+                </card-copy>
+                {% set categories = card.categories.all() %}
+                {% if categories|length %}
+                    <div class="block mt-0.5 w-full">
+                        {% for cat in categories %}
+                            <span class="inline-block font-grey-700 font-xs border-1 border-solid border-grey-300 mr-0.5 mt-0.5 px-0.75 text-uppercase" style="height:24px;line-height:24px;border-radius:12px;">{{ cat.title }}</span>
+                        {% endfor %}
+                    </div>
+                {% endif %}
+            </a>
+        {% endfor %}
+    </card-container>
+</blog-cards>

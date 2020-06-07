@@ -1,0 +1,144 @@
+blog-cards {
+	display: block;
+	width: 100%;
+	padding: 4rem 1rem 5rem;
+
+	h1 {
+		display: block;
+		width: 100%;
+		text-align: center;
+		font-size: var(--font-3xl);
+		font-weight: var(--font-medium);
+		color: var(--grey-800);
+		line-height: 1.375;
+		margin-bottom: 1rem;
+	}
+
+	p {
+		margin-bottom: 1rem;
+		font-size: var(--font-base);
+		line-height: 1.618;
+		color: var(--grey-700);
+
+		a {
+			color: var(--primary-700);
+			cursor: pointer;
+			transition: all 150ms var(--ease-in-out);
+
+			&:hover {
+				color: var(--primary-600);
+				text-decoration: underline;
+			}
+			&:focus-visible {
+				color: var(--primary-600);
+				text-decoration: underline;
+			}
+			&:active {
+				color: var(--primary-800);
+				text-decoration: underline;
+			}
+		}
+	}
+
+	card-container {
+		display: flex;
+		flex-flow: column wrap;
+		width: 100%;
+		justify-content: center;
+		padding-top: 2rem;
+
+		@media (min-width: 768px) {
+			flex-flow: row wrap;
+		}
+
+		@media (min-width: 1024px) {
+			flex-flow: row nowrap;
+		}
+
+		.blog-card {
+			display: inline-block;
+			margin: 1rem auto;
+			background-color: var(--white);
+			border-radius: 0.5rem;
+			overflow: hidden;
+			transition: all 150ms var(--ease-in-out);
+			transform-origin: center;
+			transform: scale(1);
+			width: 360px;
+			max-width: calc(100% - 2rem);
+			cursor: pointer;
+			user-select: none;
+			padding: 1rem;
+			border: 1px solid transparent;
+
+			&:hover {
+				box-shadow: var(--shadow-xl);
+				border-color: var(--grey-200);
+			}
+			&:focus-visible {
+				box-shadow: var(--shadow-xl);
+				border-color: var(--grey-200);
+			}
+			&:active {
+				box-shadow: var(--shadow-md);
+				transform: scale(0.95);
+				background-color: var(--neutral-100);
+				transition: filter 75ms var(--ease-in-out);
+
+				img {
+					filter: brightness(0.87);
+					transition: filter 75ms var(--ease-in-out);
+				}
+			}
+
+			@media (min-width: 768px) {
+				margin: 1rem;
+			}
+
+			img-shim {
+				display: block;
+				width: 100%;
+				position: relative;
+				border-radius: 0.25rem;
+				overflow: hidden;
+				margin-bottom: 1rem;
+
+				&::before {
+					content: "";
+					display: block;
+					width: 100%;
+					padding-bottom: 75%;
+				}
+
+				img {
+					position: absolute;
+					top: 0;
+					left: 0;
+					width: 100%;
+					height: 100%;
+					object-fit: cover;
+					user-select: none;
+				}
+			}
+
+			card-copy {
+				display: block;
+				width: 100%;
+
+				h2 {
+					display: block;
+					width: 100%;
+					font-size: var(--font-lg);
+					color: var(--grey-800);
+					line-height: 1.375;
+					margin-bottom: 0.5rem;
+				}
+
+				p {
+					font-size: var(--font-sm);
+					margin: 0;
+				}
+			}
+		}
+	}
+}

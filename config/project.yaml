@@ -10,7 +10,7 @@ categoryGroups:
     structure:
       maxLevels: 1
       uid: 4840e233-1f3e-4981-8ccb-e85548acf8c9
-dateModified: 1591556933
+dateModified: 1591557754
 email:
   fromEmail: $SYSTEM_EMAIL
   fromName: $SENDER_NAME
@@ -2327,9 +2327,6 @@ matrixBlockTypes:
               3b64d0d5-85c3-4d4c-ae24-37fc64796b59:
                 required: true
                 sortOrder: 3
-              903af3a1-d0bf-48a2-ad64-b5afa826e268:
-                required: false
-                sortOrder: 4
               d2ed2223-7bc8-4e0b-a214-aac9858b9f7d:
                 required: false
                 sortOrder: 1
@@ -2360,121 +2357,6 @@ matrixBlockTypes:
         translationKeyFormat: null
         translationMethod: site
         type: craft\fields\Entries
-      903af3a1-d0bf-48a2-ad64-b5afa826e268:
-        contentColumnType: text
-        fieldGroup: null
-        handle: callToActionButton
-        instructions: ''
-        name: 'Call to Action Button'
-        searchable: false
-        settings:
-          allowCustomText: '1'
-          allowTarget: '1'
-          allowedLinkNames:
-            3: entry
-            6: custom
-            7: email
-            8: tel
-          autoNoReferrer: ''
-          defaultLinkName: entry
-          defaultText: ''
-          enableAriaLabel: ''
-          enableTitle: ''
-          typeSettings:
-            __assoc__:
-              -
-                - asset
-                -
-                  __assoc__:
-                    -
-                      - sources
-                      - '*'
-                    -
-                      - allowCustomQuery
-                      - ''
-              -
-                - category
-                -
-                  __assoc__:
-                    -
-                      - sources
-                      - '*'
-                    -
-                      - allowCustomQuery
-                      - ''
-              -
-                - entry
-                -
-                  __assoc__:
-                    -
-                      - sources
-                      -
-                        - singles
-                        - 'section:2f1f0ea0-4b22-4e9d-bb51-9e1e32a94cba'
-                        - 'section:cefc4625-a115-4b71-b22d-5f6784b3aada'
-                    -
-                      - allowCustomQuery
-                      - ''
-              -
-                - site
-                -
-                  __assoc__:
-                    -
-                      - sites
-                      - '*'
-              -
-                - user
-                -
-                  __assoc__:
-                    -
-                      - sources
-                      - '*'
-                    -
-                      - allowCustomQuery
-                      - ''
-              -
-                - custom
-                -
-                  __assoc__:
-                    -
-                      - disableValidation
-                      - ''
-                    -
-                      - allowAliases
-                      - ''
-              -
-                - email
-                -
-                  __assoc__:
-                    -
-                      - disableValidation
-                      - ''
-                    -
-                      - allowAliases
-                      - ''
-              -
-                - tel
-                -
-                  __assoc__:
-                    -
-                      - disableValidation
-                      - ''
-                    -
-                      - allowAliases
-                      - ''
-              -
-                - url
-                -
-                  __assoc__:
-                    -
-                      - disableValidation
-                      - ''
-                    -
-                      - allowAliases
-                      - ''
-        translationKeyFormat: null
-        translationMethod: none
-        type: typedlinkfield\fields\LinkField
       d2ed2223-7bc8-4e0b-a214-aac9858b9f7d:
         contentColumnType: text
         fieldGroup: null
@@ -3597,7 +3479,7 @@ sections:
               -
                 fields:
                   2e2cf186-585b-46ee-a435-b3a1737847ca:
-                    required: false
+                    required: true
                     sortOrder: 2
                   c3700058-6021-4036-bc94-eb253d6cdb04:
                     required: false

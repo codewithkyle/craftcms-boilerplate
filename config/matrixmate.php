@@ -84,10 +84,6 @@ return [
                                 'label' => 'Articles',
                                 'fields' => ['articles'],
                             ],
-                            [
-                                'label' => 'Actions',
-                                'fields' => ['callToActionButton'],
-                            ],
                         ],
                         'defaultTabName' => 'Misc',
                     ],

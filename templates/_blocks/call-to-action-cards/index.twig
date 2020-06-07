@@ -12,14 +12,14 @@
             {% set image = card.image[0] ?? null %}
             <a href="{{ card.customLink.url }}" class="cta-card {{ image ? 'has-image' }}">
                 {% if image %}
-                    {% set transformedImage = craft.imager.transformImage(image, { width: 320, ratio: 4/3, position: image.getFocalPoint(), format: imageFormat }) %}
+                    {% set transformedImage = craft.imager.transformImage(image, { width: 320, ratio: 16/9, position: image.getFocalPoint(), format: imageFormat }) %}
                     <img-shim>
                         <img 
                             draggable="false"
                             src="{{ transformedImage.url }}" 
                             alt="{{ image.alternateDescription }}" 
                             loading="lazy" 
-                            width="250" 
+                            width="320" 
                             style="opacity:0;transition: opacity 300ms ease-out;"
                             onload="this.onload=null;this.style.opacity='1';" 
                         />
