@@ -15,6 +15,28 @@ rich-text{
         line-height: 1.375;
     }
 
+    p,
+    li{
+        a{
+            color: var(--primary-700);
+            cursor: pointer;
+            transition: all 150ms var(--ease-in-out);
+
+            &:hover{
+                color: var(--primary-600);
+                text-decoration: underline;
+            }
+            &:focus-visible{
+                color: var(--primary-600);
+                text-decoration: underline;
+            }
+            &:active{
+                color: var(--primary-800);
+                text-decoration: underline;
+            }
+        }
+    }
+
     p{
         margin-top: 1rem;
         font-size: var(--font-base);
@@ -23,25 +45,6 @@ rich-text{
         
         &:first-child{
             margin-top: 0;
-        }
-
-        a{
-            color: var(--primary-700);
-            cursor: pointer;
-            transition: all 150ms var(--ease-in-out);
-
-            &:hover{
-                color: var(--primary-700);
-                text-decoration: underline;
-            }
-            &:focus-visible{
-                color: var(--primary-700);
-                text-decoration: underline;
-            }
-            &:active{
-                color: var(--primary-800);
-                text-decoration: underline;
-            }
         }
     }
 
