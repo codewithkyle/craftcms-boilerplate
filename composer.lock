@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "d947f940d5a8400a683735e6cdf67030",
+    "content-hash": "af694d41a5c1c7b2520b5c2732930127",
     "packages": [
         {
             "name": "aelvan/imager",
@@ -72,11 +72,11 @@
         },
         {
             "name": "anubarak/craft-relabel",
-            "version": "1.3.5.1",
+            "version": "1.3.5.2",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Anubarak/craft-relabel/zipball/ae4c4c6f3b3f1ba7f99024654b7d9727854f52ba",
-                "reference": "ae4c4c6f3b3f1ba7f99024654b7d9727854f52ba",
+                "url": "https://api.github.com/repos/Anubarak/craft-relabel/zipball/6cbd3b85d2463572445deefe20895d3d8b3ba06b",
+                "reference": "6cbd3b85d2463572445deefe20895d3d8b3ba06b",
                 "shasum": ""
             },
             "require": {
@@ -110,7 +110,7 @@
                 "craftcms",
                 "relabel"
             ],
-            "time": "2020-05-06T06:30:52+00:00"
+            "time": "2020-06-19T08:45:50+00:00"
         },
         {
             "name": "aws/aws-sdk-php",
@@ -460,11 +460,11 @@
         },
         {
             "name": "craftcms/cms",
-            "version": "3.4.22.1",
+            "version": "3.4.24",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/craftcms/cms/zipball/2cf3a90ea6b76d44323c13da0a149e1c6462f387",
-                "reference": "2cf3a90ea6b76d44323c13da0a149e1c6462f387",
+                "url": "https://api.github.com/repos/craftcms/cms/zipball/a85014a2aa5ea538a9054b360ec257b9e663ac87",
+                "reference": "a85014a2aa5ea538a9054b360ec257b9e663ac87",
                 "shasum": ""
             },
             "require": {
@@ -545,7 +545,7 @@
                 "docs": "https://docs.craftcms.com/v3/",
                 "rss": "https://github.com/craftcms/cms/releases.atom"
             },
-            "time": "2020-05-30T15:10:56+00:00"
+            "time": "2020-06-16T19:34:38+00:00"
         },
         {
             "name": "craftcms/element-api",
@@ -875,22 +875,17 @@
         },
         {
             "name": "egulias/email-validator",
-            "version": "2.1.17",
+            "version": "2.1.18",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/egulias/EmailValidator/zipball/ade6887fd9bd74177769645ab5c474824f8a418a",
-                "reference": "ade6887fd9bd74177769645ab5c474824f8a418a",
+                "url": "https://api.github.com/repos/egulias/EmailValidator/zipball/cfa3d44471c7f5bfb684ac2b0da7114283d78441",
+                "reference": "cfa3d44471c7f5bfb684ac2b0da7114283d78441",
                 "shasum": ""
             },
             "require": {
                 "doctrine/lexer": "^1.0.1",
                 "php": ">=5.5",
                 "symfony/polyfill-intl-idn": "^1.10"
-            },
-            "require-dev": {
-                "dominicsayers/isemail": "^3.0.7",
-                "phpunit/phpunit": "^4.8.36|^7.5.15",
-                "satooshi/php-coveralls": "^1.0.1"
             },
             "suggest": {
                 "ext-intl": "PHP Internationalization Libraries are required to use the SpoofChecking validation"
@@ -903,10 +898,9 @@
             },
             "autoload": {
                 "psr-4": {
-                    "Egulias\\EmailValidator\\": "EmailValidator"
+                    "Egulias\\EmailValidator\\": "src"
                 }
             },
-            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -924,7 +918,7 @@
                 "validation",
                 "validator"
             ],
-            "time": "2020-02-13T22:36:52+00:00"
+            "time": "2020-06-16T20:11:17+00:00"
         },
         {
             "name": "elvanto/litemoji",
@@ -1588,11 +1582,11 @@
         },
         {
             "name": "guzzlehttp/guzzle",
-            "version": "6.5.4",
+            "version": "6.5.5",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/guzzle/guzzle/zipball/a4a1b6930528a8f7ee03518e6442ec7a44155d9d",
-                "reference": "a4a1b6930528a8f7ee03518e6442ec7a44155d9d",
+                "url": "https://api.github.com/repos/guzzle/guzzle/zipball/9d4290de1cfd701f38099ef7e183b64b4b7b0c5e",
+                "reference": "9d4290de1cfd701f38099ef7e183b64b4b7b0c5e",
                 "shasum": ""
             },
             "require": {
@@ -1600,7 +1594,7 @@
                 "guzzlehttp/promises": "^1.0",
                 "guzzlehttp/psr7": "^1.6.1",
                 "php": ">=5.5",
-                "symfony/polyfill-intl-idn": "1.17.0"
+                "symfony/polyfill-intl-idn": "^1.17.0"
             },
             "suggest": {
                 "psr/log": "Required for using the Log middleware"
@@ -1640,7 +1634,7 @@
                 "rest",
                 "web service"
             ],
-            "time": "2020-05-25T19:35:05+00:00"
+            "time": "2020-06-16T21:01:06+00:00"
         },
         {
             "name": "guzzlehttp/promises",
@@ -2847,11 +2841,11 @@
         },
         {
             "name": "opis/closure",
-            "version": "3.5.3",
+            "version": "3.5.5",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/opis/closure/zipball/cac47092144043d5d676e2e7cf8d0d2f83fc89ca",
-                "reference": "cac47092144043d5d676e2e7cf8d0d2f83fc89ca",
+                "url": "https://api.github.com/repos/opis/closure/zipball/dec9fc5ecfca93f45cd6121f8e6f14457dff372c",
+                "reference": "dec9fc5ecfca93f45cd6121f8e6f14457dff372c",
                 "shasum": ""
             },
             "require": {
@@ -2894,7 +2888,7 @@
                 "serialization",
                 "serialize"
             ],
-            "time": "2020-05-25T09:32:45+00:00"
+            "time": "2020-06-17T14:59:55+00:00"
         },
         {
             "name": "paragonie/random_compat",
@@ -3593,11 +3587,11 @@
         },
         {
             "name": "sebastianlenz/linkfield",
-            "version": "1.0.22",
+            "version": "1.0.23",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastian-lenz/craft-linkfield/zipball/b4d62b9bd3a0dd5535b5fe6b98ac26b08a70b521",
-                "reference": "b4d62b9bd3a0dd5535b5fe6b98ac26b08a70b521",
+                "url": "https://api.github.com/repos/sebastian-lenz/craft-linkfield/zipball/6d835d0419578861de3297f556b2049627b1cb1e",
+                "reference": "6d835d0419578861de3297f556b2049627b1cb1e",
                 "shasum": ""
             },
             "require": {
@@ -3620,7 +3614,7 @@
                 "MIT"
             ],
             "description": "A Craft field type for selecting links",
-            "time": "2020-06-06T13:20:19+00:00"
+            "time": "2020-06-09T19:46:52+00:00"
         },
         {
             "name": "seld/cli-prompt",
@@ -4916,15 +4910,15 @@
         },
         {
             "name": "verbb/super-table",
-            "version": "2.5.0",
+            "version": "2.5.1",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/verbb/super-table/zipball/a9b0a35620796b6ffe396d41dff3928b3c9c8763",
-                "reference": "a9b0a35620796b6ffe396d41dff3928b3c9c8763",
+                "url": "https://api.github.com/repos/verbb/super-table/zipball/da4a41c93a475f8d2063a7116f764374fc4d47df",
+                "reference": "da4a41c93a475f8d2063a7116f764374fc4d47df",
                 "shasum": ""
             },
             "require": {
-                "craftcms/cms": "^3.4.22",
+                "craftcms/cms": "^3.4.23",
                 "verbb/base": "^1.0.2"
             },
             "type": "craft-plugin",
@@ -4965,7 +4959,7 @@
                 "docs": "https://github.com/verbb/super-table",
                 "rss": "https://github.com/verbb/super-table/commits/v2.atom"
             },
-            "time": "2020-05-30T03:27:47+00:00"
+            "time": "2020-06-10T06:44:31+00:00"
         },
         {
             "name": "vlucas/phpdotenv",
@@ -5025,19 +5019,16 @@
         },
         {
             "name": "voku/anti-xss",
-            "version": "4.1.24",
+            "version": "4.1.25",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/voku/anti-xss/zipball/4c032aa1aedbf4934418520c61c00b8fad6ca8d5",
-                "reference": "4c032aa1aedbf4934418520c61c00b8fad6ca8d5",
+                "url": "https://api.github.com/repos/voku/anti-xss/zipball/2b7b0510b5ac5194c467aa5e80a94964896f0672",
+                "reference": "2b7b0510b5ac5194c467aa5e80a94964896f0672",
                 "shasum": ""
             },
             "require": {
                 "php": ">=7.0.0",
                 "voku/portable-utf8": "~5.4.27"
-            },
-            "require-dev": {
-                "phpunit/phpunit": "~6.0 || ~7.0"
             },
             "type": "library",
             "extra": {
@@ -5050,7 +5041,6 @@
                     "voku\\helper\\": "src/voku/helper/"
                 }
             },
-            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -5073,7 +5063,7 @@
                 "security",
                 "xss"
             ],
-            "time": "2020-03-08T00:12:04+00:00"
+            "time": "2020-06-12T00:59:34+00:00"
         },
         {
             "name": "voku/arrayy",
@@ -5177,11 +5167,11 @@
         },
         {
             "name": "voku/portable-ascii",
-            "version": "1.5.1",
+            "version": "1.5.2",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/voku/portable-ascii/zipball/e7f9bd5deff09a57318f9b900ab33a05acfcf4d3",
-                "reference": "e7f9bd5deff09a57318f9b900ab33a05acfcf4d3",
+                "url": "https://api.github.com/repos/voku/portable-ascii/zipball/618631dc601d8eb6ea0a9fbf654ec82f066c4e97",
+                "reference": "618631dc601d8eb6ea0a9fbf654ec82f066c4e97",
                 "shasum": ""
             },
             "require": {
@@ -5212,7 +5202,7 @@
                 "clean",
                 "php"
             ],
-            "time": "2020-05-26T06:40:44+00:00"
+            "time": "2020-06-15T23:49:30+00:00"
         },
         {
             "name": "voku/portable-utf8",
@@ -5435,11 +5425,11 @@
         },
         {
             "name": "webmozart/assert",
-            "version": "1.8.0",
+            "version": "1.9.0",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/webmozart/assert/zipball/ab2cb0b3b559010b75981b1bdce728da3ee90ad6",
-                "reference": "ab2cb0b3b559010b75981b1bdce728da3ee90ad6",
+                "url": "https://api.github.com/repos/webmozart/assert/zipball/9dc4f203e36f2b486149058bade43c851dd97451",
+                "reference": "9dc4f203e36f2b486149058bade43c851dd97451",
                 "shasum": ""
             },
             "require": {
@@ -5447,6 +5437,7 @@
                 "symfony/polyfill-ctype": "^1.8"
             },
             "conflict": {
+                "phpstan/phpstan": "<0.12.20",
                 "vimeo/psalm": "<3.9.1"
             },
             "type": "library",
@@ -5470,7 +5461,7 @@
                 "check",
                 "validate"
             ],
-            "time": "2020-04-18T12:12:48+00:00"
+            "time": "2020-06-16T10:16:42+00:00"
         },
         {
             "name": "webonyx/graphql-php",
