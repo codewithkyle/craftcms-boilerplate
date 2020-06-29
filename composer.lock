@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "97b98fd2c4da07e044e2aab9c2102eae",
+    "content-hash": "da47fa7e1e9acd65eec01a7a26012d28",
     "packages": [
         {
             "name": "aelvan/imager",
@@ -232,11 +232,11 @@
         },
         {
             "name": "codewithkyle/field-buddy",
-            "version": "0.1.0",
+            "version": "0.1.1",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/codewithkyle/craft-fieldbuddy/zipball/de60a5133b321a3e28e1f8c29475c8c49f25cb47",
-                "reference": "de60a5133b321a3e28e1f8c29475c8c49f25cb47",
+                "url": "https://api.github.com/repos/codewithkyle/craft-fieldbuddy/zipball/15925fea761fe9ac5a79ec76c26eacfcf68dc550",
+                "reference": "15925fea761fe9ac5a79ec76c26eacfcf68dc550",
                 "shasum": ""
             },
             "require": {
@@ -278,7 +278,7 @@
                 "docs": "https://github.com/codewithkyle/craft-fieldbuddy/blob/master/README.md",
                 "issues": "https://github.com/codewithkyle/craft-fieldbuddy/issues"
             },
-            "time": "2020-06-27T10:52:36+00:00"
+            "time": "2020-06-29T11:14:12+00:00"
         },
         {
             "name": "composer/ca-bundle",
