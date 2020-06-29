@@ -10,7 +10,7 @@ categoryGroups:
     structure:
       maxLevels: 1
       uid: 4840e233-1f3e-4981-8ccb-e85548acf8c9
-dateModified: 1591557754
+dateModified: 1593428040
 email:
   fromEmail: $SYSTEM_EMAIL
   fromName: $SENDER_NAME
@@ -3316,6 +3316,10 @@ plugins:
     edition: standard
     enabled: true
     schemaVersion: 1.0.0
+  field-buddy:
+    edition: standard
+    enabled: true
+    schemaVersion: 0.1.0
   imager:
     edition: standard
     enabled: true

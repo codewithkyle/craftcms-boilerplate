@@ -62,7 +62,7 @@
         <!-- Google Font -->
         <!-- <link rel="preload" href="https://fonts.googleapis.com/css?family=Roboto:300,500,700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'"> -->
         
-<!-- Critical colors -->
+        <!-- Critical colors -->
         <style>
             :root
             {
@@ -90,8 +90,7 @@
 
         <!-- Loading animations -->
         <style>
-            page-loading
-            {
+            page-loading{
                 width: 100vw;
                 height: 100vh;
                 display: flex;
@@ -113,14 +112,12 @@
                 opacity: 0;
                 transition: all 150ms 150ms ease-in-out;
             }
-            html[state="hard-loading"] page-loading
-            {
+            html[state="hard-loading"] page-loading{
                 visibility: visible;
                 opacity: 1;
             }
             page-loading djinnjs-file-loading-message,
-            page-loading djinnjs-file-loading-value
-            {
+            page-loading djinnjs-file-loading-value {
                 line-height: 1.618;
                 display: inline-block;
                 margin: 0 0.25rem 0.5rem;
@@ -131,8 +128,7 @@
                 opacity: 0.87;
                 color: var(--loading-font);
             }
-            page-loading page-loading-bar
-            {
+            page-loading page-loading-bar {
                 width: 200px;
                 height: 2px;
                 position: relative;
@@ -141,8 +137,7 @@
                 display: block;
                 box-shadow: inset 0 0 2px rgba(51,51,51,0.15);
             }
-            page-loading page-loading-bar bar-one
-            {
+            page-loading page-loading-bar bar-one {
                 left: -145%;
                 position: absolute;
                 box-sizing: border-box;
@@ -150,8 +145,7 @@
                 height: 100%;
                 animation: primaryBar 2s infinite linear;
             }
-            page-loading page-loading-bar bar-one::before
-            {
+            page-loading page-loading-bar bar-one::before{
                 content: "";
                 background-color: var(--loading-bar-background);
                 display: inline-block;
@@ -161,8 +155,7 @@
                 height: 100%;
                 animation: primaryScale 2s infinite linear;
             }
-            page-loading page-loading-bar bar-two
-            {
+            page-loading page-loading-bar bar-two{
                 left: -100%;
                 position: absolute;
                 width: 100%;
@@ -170,8 +163,7 @@
                 height: 100%;
                 animation: secondaryBar 2s infinite linear;
             }
-            page-loading page-loading-bar bar-two::before
-            {
+            page-loading page-loading-bar bar-two::before{
                 content: "";
                 background-color: var(--loading-bar-background);
                 display: inline-block;
@@ -182,12 +174,10 @@
                 animation: secondaryScale 2s infinite linear;
             }
             page-loading resource-counter,
-            page-loading resource-total
-            {
+            page-loading resource-total{
                 display: inline-block;
             }
-            page-loading span.-slash
-            {
+            page-loading span.-slash{
                 font-size:0.75rem;
                 display:inline-block;
                 margin:0 0.25rem;
@@ -292,22 +282,23 @@
         <!-- Global site tag (gtag.js) - Google Analytics -->
         <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script> -->
 
-        <!-- Web Components polyfill for Edge -->
-        <script>
+        <link rel="preload" href="{{ alias('@rootUrl')|trim('/') }}/assets/djinn-worker.mjs" as="script">
+        <link rel="preload" href="{{ alias('@rootUrl')|trim('/') }}/assets/fetch.mjs" as="script">
+        <script type="module">
             if (/Edge/.test(navigator.userAgent)) {
                 document.write('<script src="https://unpkg.com/@webcomponents/webcomponentsjs@2.4.0/webcomponents-bundle.js"><\/script>');
             }
-        </script>
-
-        <!-- Polyfill for Intersection Observer -->
-        <script>
             if (!('IntersectionObserver' in window) || !('IntersectionObserverEntry' in window) || !('intersectionRatio' in window.IntersectionObserverEntry.prototype)) {
                 document.write('<script src="{{ alias('@rootUrl')|trim('/') }}/polyfills/intersection-observer.js"><\/script>');
             }
+            try{
+                import(`${location.origin}/assets/djinn.mjs`);
+            }catch(error){
+                document.write('<script type="module" src="{{ alias('@rootUrl')|trim('/') }}/assets/runtime.mjs"><\/script>');
+            }
         </script>
-
-        <script type="module" src="{{ alias('@rootUrl')|trim('/') }}/assets/runtime.mjs"></script>
         <script type="text/javascript" nomodule src="{{ alias('@rootUrl')|trim('/') }}/static/scripts/ie-warning.js"></script>
+        <!-- <script type="module" src="{{ alias('@rootUrl')|trim('/') }}/assets/runtime.mjs"></script> -->
     </head>
     <body style="width:100vw;overflow-x:hidden;display:block;">
         {# Full screen loading animation #}
