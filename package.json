@@ -14,7 +14,8 @@
 		"sass:dev": "cssmonster --e dev",
 		"sass:prod": "cssmonster",
 		"build": "npm run cleanup && npm run compile && npm run sass:dev && djinnjs -e dev && npm run cleanup",
-		"production": "npm run cleanup && npm run compile && npm run sass:prod && djinnjs -e production && npm run cleanup"
+		"production": "npm run cleanup && npm run compile && npm run sass:prod && djinnjs -e production && npm run cleanup",
+		"audit": "node ./build-tools/lighthouse.js"
 	},
 	"devDependencies": {
 		"@typescript-eslint/eslint-plugin": "^2.34.0",

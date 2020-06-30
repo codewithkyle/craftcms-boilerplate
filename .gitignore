@@ -11,7 +11,7 @@
 /_css
 /storage/*
 !/storage/.gitkeep
-report.json
+/audits
 
 # Public
 # --------

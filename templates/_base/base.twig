@@ -282,8 +282,8 @@
         <!-- Global site tag (gtag.js) - Google Analytics -->
         <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script> -->
 
-        <link rel="preload" href="{{ alias('@rootUrl')|trim('/') }}/assets/djinn-worker.mjs" as="script">
-        <link rel="preload" href="{{ alias('@rootUrl')|trim('/') }}/assets/fetch.mjs" as="script">
+        <!-- <link rel="preload" href="{{ alias('@rootUrl')|trim('/') }}/assets/djinn-worker.mjs" as="script"> -->
+        <!-- <link rel="preload" href="{{ alias('@rootUrl')|trim('/') }}/assets/fetch.mjs" as="script"> -->
         <script type="module">
             if (/Edge/.test(navigator.userAgent)) {
                 document.write('<script src="https://unpkg.com/@webcomponents/webcomponentsjs@2.4.0/webcomponents-bundle.js"><\/script>');
@@ -291,14 +291,14 @@
             if (!('IntersectionObserver' in window) || !('IntersectionObserverEntry' in window) || !('intersectionRatio' in window.IntersectionObserverEntry.prototype)) {
                 document.write('<script src="{{ alias('@rootUrl')|trim('/') }}/polyfills/intersection-observer.js"><\/script>');
             }
-            try{
-                import(`${location.origin}/assets/djinn.mjs`);
-            }catch(error){
-                document.write('<script type="module" src="{{ alias('@rootUrl')|trim('/') }}/assets/runtime.mjs"><\/script>');
-            }
+            // try{
+            //     import(`${location.origin}/assets/djinn.mjs`);
+            // }catch(error){
+            //     document.write('<script type="module" src="{{ alias('@rootUrl')|trim('/') }}/assets/runtime.mjs"><\/script>');
+            // }
         </script>
         <script type="text/javascript" nomodule src="{{ alias('@rootUrl')|trim('/') }}/static/scripts/ie-warning.js"></script>
-        <!-- <script type="module" src="{{ alias('@rootUrl')|trim('/') }}/assets/runtime.mjs"></script> -->
+        <script type="module" src="{{ alias('@rootUrl')|trim('/') }}/assets/runtime.mjs"></script>
     </head>
     <body style="width:100vw;overflow-x:hidden;display:block;">
         {# Full screen loading animation #}
