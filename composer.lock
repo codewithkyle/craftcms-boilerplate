@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "da47fa7e1e9acd65eec01a7a26012d28",
+    "content-hash": "f6f368fe913ca4a69385db30a71fe037",
     "packages": [
         {
             "name": "aelvan/imager",
@@ -232,11 +232,11 @@
         },
         {
             "name": "codewithkyle/field-buddy",
-            "version": "0.1.1",
+            "version": "0.1.2",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/codewithkyle/craft-fieldbuddy/zipball/15925fea761fe9ac5a79ec76c26eacfcf68dc550",
-                "reference": "15925fea761fe9ac5a79ec76c26eacfcf68dc550",
+                "url": "https://api.github.com/repos/codewithkyle/craft-fieldbuddy/zipball/a160b8a515e2fb18dd0144df24b445f4124ef8ea",
+                "reference": "a160b8a515e2fb18dd0144df24b445f4124ef8ea",
                 "shasum": ""
             },
             "require": {
@@ -278,7 +278,7 @@
                 "docs": "https://github.com/codewithkyle/craft-fieldbuddy/blob/master/README.md",
                 "issues": "https://github.com/codewithkyle/craft-fieldbuddy/issues"
             },
-            "time": "2020-06-29T11:14:12+00:00"
+            "time": "2020-07-01T11:14:26+00:00"
         },
         {
             "name": "composer/ca-bundle",
@@ -510,11 +510,11 @@
         },
         {
             "name": "craftcms/cms",
-            "version": "3.4.25",
+            "version": "3.4.26",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/craftcms/cms/zipball/b5fdef81023c831ddd4f2d7de6063b4f64d1a020",
-                "reference": "b5fdef81023c831ddd4f2d7de6063b4f64d1a020",
+                "url": "https://api.github.com/repos/craftcms/cms/zipball/06416c24cfd4e03c16a1364a6aa9b6073b369d9a",
+                "reference": "06416c24cfd4e03c16a1364a6aa9b6073b369d9a",
                 "shasum": ""
             },
             "require": {
@@ -595,7 +595,7 @@
                 "docs": "https://docs.craftcms.com/v3/",
                 "rss": "https://github.com/craftcms/cms/releases.atom"
             },
-            "time": "2020-06-23T23:04:43+00:00"
+            "time": "2020-07-01T22:31:18+00:00"
         },
         {
             "name": "craftcms/element-api",
@@ -1041,11 +1041,11 @@
         },
         {
             "name": "ether/seo",
-            "version": "3.6.5.2",
+            "version": "3.6.6",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ethercreative/seo/zipball/f2de784268f43ca190e08bd6199dd22f3ccc05eb",
-                "reference": "f2de784268f43ca190e08bd6199dd22f3ccc05eb",
+                "url": "https://api.github.com/repos/ethercreative/seo/zipball/cfacc65fbea87ace4a40c0c0e5d35ce2e1167e60",
+                "reference": "cfacc65fbea87ace4a40c0c0e5d35ce2e1167e60",
                 "shasum": ""
             },
             "require": {
@@ -1072,7 +1072,7 @@
                 "issues": "https://github.com/ethercreative/seo",
                 "docs": "https://github.com/ethercreative/seo/blob/v3/README.md"
             },
-            "time": "2020-06-24T08:19:35+00:00"
+            "time": "2020-06-30T13:44:29+00:00"
         },
         {
             "name": "ether/splash",
@@ -1109,18 +1109,15 @@
         },
         {
             "name": "ezyang/htmlpurifier",
-            "version": "v4.12.0",
+            "version": "v4.13.0",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ezyang/htmlpurifier/zipball/a617e55bc62a87eec73bd456d146d134ad716f03",
-                "reference": "a617e55bc62a87eec73bd456d146d134ad716f03",
+                "url": "https://api.github.com/repos/ezyang/htmlpurifier/zipball/08e27c97e4c6ed02f37c5b2b20488046c8d90d75",
+                "reference": "08e27c97e4c6ed02f37c5b2b20488046c8d90d75",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.2"
-            },
-            "require-dev": {
-                "simpletest/simpletest": "dev-master#72de02a7b80c6bb8864ef9bf66d41d2f58f826bd"
             },
             "type": "library",
             "autoload": {
@@ -1129,9 +1126,11 @@
                 },
                 "files": [
                     "library/HTMLPurifier.composer.php"
+                ],
+                "exclude-from-classmap": [
+                    "/library/HTMLPurifier/Language/"
                 ]
             },
-            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "LGPL-2.1-or-later"
             ],
@@ -1147,7 +1146,7 @@
             "keywords": [
                 "html"
             ],
-            "time": "2019-10-28T03:44:26+00:00"
+            "time": "2020-06-29T00:56:53+00:00"
         },
         {
             "name": "firebase/php-jwt",
@@ -2793,11 +2792,11 @@
         },
         {
             "name": "nikic/php-parser",
-            "version": "v4.5.0",
+            "version": "v4.6.0",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nikic/PHP-Parser/zipball/53c2753d756f5adb586dca79c2ec0e2654dd9463",
-                "reference": "53c2753d756f5adb586dca79c2ec0e2654dd9463",
+                "url": "https://api.github.com/repos/nikic/PHP-Parser/zipball/c346bbfafe2ff60680258b631afb730d186ed864",
+                "reference": "c346bbfafe2ff60680258b631afb730d186ed864",
                 "shasum": ""
             },
             "require": {
@@ -2831,7 +2830,7 @@
                 "parser",
                 "php"
             ],
-            "time": "2020-06-03T07:24:19+00:00"
+            "time": "2020-07-02T17:12:47+00:00"
         },
         {
             "name": "nystudio107/craft-eagerbeaver",

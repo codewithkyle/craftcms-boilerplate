@@ -32,7 +32,7 @@
 {% block content %}
     {% cache using key entry.slug ~ "-" ~ imageFormat %}
         <article style="display:block;width:100%;">
-            <blog-content eager-load-css="blog buttons">
+            <blog-content eager-css="blog buttons">
                 <aside>
                     <form method="GET">
                         <input type="search" placeholder="Search" name="q" value="{{ query ?? '' }}" />

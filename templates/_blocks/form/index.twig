@@ -12,7 +12,7 @@
     {% set successMessage = section.form[0].successMessage %}
 {% endif %}
 <section style="width:100%;display:block;padding:{{ section.spacing }}rem 1rem;">
-    <form-component web-component lazy-load-css="form buttons snackbar"  data-success-message="{{ successMessage }}">
+    <form-component web-component lazy-css="form buttons snackbar"  data-success-message="{{ successMessage }}">
         {% if section.heading|length %}
             <h2>{{ section.heading }}</h2>
         {% endif %}

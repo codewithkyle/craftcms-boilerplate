@@ -1,4 +1,4 @@
-<standard-hero eager-load-css="standard-hero buttons" class="{{ section.backgroundColor }} {{ section.backgroundImage|length ? 'has-image' }}">
+<standard-hero eager-css="standard-hero buttons" class="{{ section.backgroundColor }} {{ section.backgroundImage|length ? 'has-image' }}">
     {% if section.backgroundImage|length %}
         {% set images = craft.imager.transformImage(section.backgroundImage[0], [
             { width: 320, height: 600, position: section.backgroundImage[0].getFocalPoint(), format: imageFormat },

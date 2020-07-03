@@ -9,7 +9,7 @@
     section: 'utilityNavigaiton'
 }).all() %}
 {% cache %}
-    <header eager-load-css="header" class="-base">
+    <header eager-css="header" class="-base">
         {% if utilityLinks|length %}
             <div class="utility-nav">
                 <nav class="container">
@@ -52,7 +52,7 @@
                         {% endif %}
                     {% endif %}
                 {% endfor %}
-                <navigation-drawer-toggle role="button" web-component class="{{ navLinks|length > 5 ? 'is-visible' }}">
+                <navigation-drawer-toggle role="button" web-component required-connection="slow-2g" class="{{ navLinks|length > 5 ? 'is-visible' }}">
                     <input tabindex="0" id="navigation-drawer-toggle" type="checkbox" />
                     <label aria-label="open navigaiton drawer" for="navigation-drawer-toggle">
                         <svg style="width:24px;height:24px;" aria-hidden="true" focusable="false" data-prefix="fal" data-icon="bars" class="svg-inline--fa fa-bars fa-w-14" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M442 114H6a6 6 0 0 1-6-6V84a6 6 0 0 1 6-6h436a6 6 0 0 1 6 6v24a6 6 0 0 1-6 6zm0 160H6a6 6 0 0 1-6-6v-24a6 6 0 0 1 6-6h436a6 6 0 0 1 6 6v24a6 6 0 0 1-6 6zm0 160H6a6 6 0 0 1-6-6v-24a6 6 0 0 1 6-6h436a6 6 0 0 1 6 6v24a6 6 0 0 1-6 6z"></path></svg>
@@ -62,7 +62,7 @@
             </div>
         </div>
     </header>
-    <navigation-drawer loading="eager" web-component state="closed" eager-load-css="navigation-drawer">
+    <navigation-drawer loading="eager" web-component required-connection="slow-2g" state="closed" eager-css="navigation-drawer">
         <div class="head">
             <a class="org-logo" href="{{ siteUrl }}">
                 {% set orgLogo = organizationSettings.logo[0] ?? null %}
@@ -110,5 +110,5 @@
             {% endfor %}
         </nav>
     </navigation-drawer>
-    <navigation-backdrop web-component></navigation-backdrop>
+    <navigation-backdrop web-component required-connection="slow-2g"></navigation-backdrop>
 {% endcache %}

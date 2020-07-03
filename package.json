@@ -36,13 +36,13 @@
 		"stylelint": "^12.0.1",
 		"stylelint-config-recommended": "^3.0.0",
 		"tslint": "^5.20.1",
-		"typescript": "^3.9.5"
+		"typescript": "^3.9.6"
 	},
 	"dependencies": {
 		"@codewithkyle/notifyjs": "^2.0.2",
 		"brixi": "^0.2.1",
 		"cssmonster": "^0.2.1",
-		"djinnjs": "0.0.28",
+		"djinnjs": "^0.1.1",
 		"flatpickr": "^4.6.3"
 	},
 	"husky": {

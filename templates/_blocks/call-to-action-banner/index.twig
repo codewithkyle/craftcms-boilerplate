@@ -3,7 +3,7 @@
 {% if image %}
     {% set backgroundColor = 'image' %}
 {% endif %}
-<call-to-action-banner lazy-load-css="call-to-action-banner buttons" background="{{ backgroundColor }}">
+<call-to-action-banner lazy-css="call-to-action-banner buttons" background="{{ backgroundColor }}">
     {% if image %}
         {% set transformedImages = craft.imager.transformImage(image, [
             { width: 320, ratio: 21/4, position: image.getFocalPoint(), format: imageFormat },

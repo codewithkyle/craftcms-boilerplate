@@ -6,7 +6,7 @@
     { width: 1024, ratio: 16/9, position: section.thumbnailImage[0].getFocalPoint(), format: imageFormat }
 ]) %}
 
-<lazy-video lazy-load-css="lazy-video loading-spinner" web-component data-video-id="{{ section.videoId }}" data-platform="{{ section.source }}">
+<lazy-video lazy-css="lazy-video loading-spinner" web-component data-video-id="{{ section.videoId }}" data-platform="{{ section.source }}" required-connection="3g" removable>
     {% if section.heading|length %}
         <h1>{{ section.heading }}</h1>
     {% endif %}

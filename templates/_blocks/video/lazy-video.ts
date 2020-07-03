@@ -82,7 +82,7 @@ class LazyVideoComponent extends HTMLElement {
 		if (env.connection === "4g" && !dataSaver) {
 			this.loadVideo();
 		}
-		this.addEventListener("click", this.handleButtonClickEvent);
+		this.container.addEventListener("click", this.handleButtonClickEvent);
 		const button = this.querySelector(".js-button");
 		if (button) {
 			button.classList.add("is-visible");

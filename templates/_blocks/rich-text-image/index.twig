@@ -19,7 +19,7 @@
             { format: imageFormat, position: image.getFocalPoint() }
         ]) %}
     {% endif %}
-    <rich-text-image-block lazy-load-css="rich-text-image-block buttons">
+    <rich-text-image-block lazy-css="rich-text-image-block buttons">
         {% if section.imagePosition == 'left' %}
             <img-shim>
                 <img src="{{ transformedImages[0].url }}" alt="{{ image.alternateDescription }}" loading="lazy" width="320" srcset="{{ craft.imager.srcset(transformedImages) }}" />

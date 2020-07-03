@@ -1,5 +1,5 @@
 .button {
-	display: flex;
+	display: inline-flex;
 	height: 36px;
 	line-height: 36px;
 	border-width: 1px;
@@ -14,20 +14,18 @@
 	transition: all 75ms ease-in-out;
 	justify-content: center;
 	align-items: center;
-	flex-flow: row nowrap;	
-
-	@media (min-width: 500px) {
-		display: inline-flex;
-	}
+	flex-flow: row nowrap;
 
 	html[state="soft-loading"] & {
-		border-color: var(--neutral-200) !important;
-		background-color: var(--neutral-200) !important;
-		cursor: not-allowed !important;
-		color: var(--neutral-700) !important;
+		&[type="submit"] {
+			border-color: var(--neutral-200) !important;
+			background-color: var(--neutral-200) !important;
+			cursor: not-allowed !important;
+			color: var(--neutral-700) !important;
 
-		&::before {
-			display: none !important;
+			&::before {
+				display: none !important;
+			}
 		}
 	}
 
@@ -123,18 +121,18 @@
 				color: var(--white);
 			}
 
-			&.-light{
+			&.-light {
 				background-color: var(--primary-100);
 				border-color: var(--primary-100);
 				color: var(--primary-700);
-	
+
 				&:hover,
 				&:focus {
 					background-color: var(--primary-200);
 					border-color: var(--primary-200);
 					color: var(--primary-800);
 				}
-	
+
 				&:active {
 					background-color: var(--primary-300);
 					border-color: var(--primary-300);
@@ -160,9 +158,9 @@
 				border-color: var(--black);
 				color: var(--white);
 			}
-        }
-        
-        &.-white {
+		}
+
+		&.-white {
 			background-color: var(--white);
 			border-color: var(--white);
 			color: var(--grey-700);
@@ -235,7 +233,7 @@
 
 	&.-outline {
 		padding: 0 1rem;
-		
+
 		&.-primary {
 			border-color: var(--primary-700);
 			color: var(--primary-700);
@@ -257,17 +255,17 @@
 			&.-alt {
 				border-color: var(--grey-300);
 				color: var(--grey-700);
-	
+
 				&:hover {
 					border-color: var(--primary-700);
 					color: var(--primary-700);
 				}
-	
+
 				&:focus-visible {
 					border-color: var(--primary-700);
 					color: var(--primary-700);
 				}
-	
+
 				&::before {
 					background-color: var(--primary-500);
 				}
@@ -341,16 +339,16 @@
 			left: 0;
 			transition: all 75ms ease-in-out;
 		}
-    }
-    
-    &.-raised{
-        box-shadow: var(--shadow-md);
+	}
 
-        &:active{
-            box-shadow: var(--shadow-sm);
-            transform: translateY(2px);
-        }
-    }
+	&.-raised {
+		box-shadow: var(--shadow-md);
+
+		&:active {
+			box-shadow: var(--shadow-sm);
+			transform: translateY(2px);
+		}
+	}
 
 	&.-wide {
 		padding: 0 2rem;

@@ -10,7 +10,7 @@ categoryGroups:
     structure:
       maxLevels: 1
       uid: 4840e233-1f3e-4981-8ccb-e85548acf8c9
-dateModified: 1593428040
+dateModified: 1593601524
 email:
   fromEmail: $SYSTEM_EMAIL
   fromName: $SENDER_NAME
