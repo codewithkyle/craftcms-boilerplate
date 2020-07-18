@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "09608abcf43d90de76153076d2cca8ef",
+    "content-hash": "7c0897c1ba979406eea4ffd78f35b749",
     "packages": [
         {
             "name": "aelvan/imager",
@@ -282,11 +282,11 @@
         },
         {
             "name": "codewithkyle/lightkeeper",
-            "version": "1.0.0",
+            "version": "1.0.1",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/codewithkyle/craft-lightkeeper/zipball/26cd76c2d9b69f56441c9c8d42ce781d18a7b9c4",
-                "reference": "26cd76c2d9b69f56441c9c8d42ce781d18a7b9c4",
+                "url": "https://api.github.com/repos/codewithkyle/craft-lightkeeper/zipball/9eb41a8d1d6e4093a7cbf51c31971cc7ff4170c1",
+                "reference": "9eb41a8d1d6e4093a7cbf51c31971cc7ff4170c1",
                 "shasum": ""
             },
             "require": {
@@ -335,7 +335,7 @@
                 "docs": "https://github.com/codewithkyle/craft-lightkeeper/blob/master/README.md",
                 "issues": "https://github.com/codewithkyle/craft-lightkeeper/issues"
             },
-            "time": "2020-07-17T16:43:32+00:00"
+            "time": "2020-07-18T14:29:51+00:00"
         },
         {
             "name": "composer/ca-bundle",
