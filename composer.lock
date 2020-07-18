@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "4ff820aeafa7651f49e1d5bfc9bd9e8b",
+    "content-hash": "09608abcf43d90de76153076d2cca8ef",
     "packages": [
         {
             "name": "aelvan/imager",
@@ -279,6 +279,63 @@
                 "issues": "https://github.com/codewithkyle/craft-fieldbuddy/issues"
             },
             "time": "2020-07-01T11:14:26+00:00"
+        },
+        {
+            "name": "codewithkyle/lightkeeper",
+            "version": "1.0.0",
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/codewithkyle/craft-lightkeeper/zipball/26cd76c2d9b69f56441c9c8d42ce781d18a7b9c4",
+                "reference": "26cd76c2d9b69f56441c9c8d42ce781d18a7b9c4",
+                "shasum": ""
+            },
+            "require": {
+                "craftcms/cms": "^3.0.0"
+            },
+            "type": "craft-plugin",
+            "extra": {
+                "name": "Lightkeeper",
+                "handle": "lightkeeper",
+                "developer": "Kyle Andrews",
+                "developerUrl": "https://kyleandrews.dev/",
+                "documentationUrl": "https://github.com/codewithkyle/craft-lightkeeper/blob/master/README.md",
+                "changelogUrl": "https://raw.githubusercontent.com/codewithkyle/craft-lightkeeper/master/CHANGELOG.md",
+                "components": {
+                    "lightkeeperService": "codewithkyle\\lightkeeper\\services\\LightkeeperService"
+                },
+                "class": "codewithkyle\\lightkeeper\\Lightkeeper"
+            },
+            "autoload": {
+                "psr-4": {
+                    "codewithkyle\\lightkeeper\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Kyle Andrews",
+                    "homepage": "https://kyleandrews.dev/"
+                }
+            ],
+            "description": "Lightkeeper integrates Google Lighthouse testing alongside continuous performance monitoring.",
+            "keywords": [
+                "auditing",
+                "cms",
+                "craft",
+                "craft-plugin",
+                "craftcms",
+                "lighthouse",
+                "performance",
+                "reporting",
+                "user-experience"
+            ],
+            "support": {
+                "docs": "https://github.com/codewithkyle/craft-lightkeeper/blob/master/README.md",
+                "issues": "https://github.com/codewithkyle/craft-lightkeeper/issues"
+            },
+            "time": "2020-07-17T16:43:32+00:00"
         },
         {
             "name": "composer/ca-bundle",

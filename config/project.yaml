@@ -10,7 +10,7 @@ categoryGroups:
     structure:
       maxLevels: 1
       uid: 4840e233-1f3e-4981-8ccb-e85548acf8c9
-dateModified: 1595005093
+dateModified: 1595078633
 email:
   fromEmail: $SYSTEM_EMAIL
   fromName: $SENDER_NAME
@@ -3324,6 +3324,10 @@ plugins:
     edition: standard
     enabled: true
     schemaVersion: 2.0.0
+  lightkeeper:
+    edition: standard
+    enabled: true
+    schemaVersion: 1.0.0
   matrixmate:
     edition: standard
     enabled: true
