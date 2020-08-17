@@ -1,0 +1,151 @@
+field: 1eb0ac2f-150c-4071-b0a0-cdbc98ace82e
+fieldLayouts:
+  5a6da519-d818-4a31-9d5c-9fecd916d300:
+    tabs:
+      -
+        fields:
+          33f500f2-2eec-4f40-a805-4b2f44dfcf5f:
+            required: true
+            sortOrder: 3
+          35958387-7672-4675-8c27-88be958785df:
+            required: true
+            sortOrder: 4
+          7d04901c-8ecd-4062-970e-ee5fee357416:
+            required: true
+            sortOrder: 5
+          8d673834-7514-4a4a-9cf3-36a6589eecfa:
+            required: false
+            sortOrder: 1
+          d92119f7-6ca6-4ee4-9f2d-9816a865e449:
+            required: false
+            sortOrder: 2
+        name: Content
+        sortOrder: 1
+fields:
+  33f500f2-2eec-4f40-a805-4b2f44dfcf5f:
+    contentColumnType: string
+    fieldGroup: null
+    handle: thumbnailImage
+    instructions: ''
+    name: 'Thumbnail Image'
+    searchable: false
+    settings:
+      allowSelfRelations: ''
+      allowedKinds:
+        - image
+      defaultUploadLocationSource: 'volume:8b0fd7f7-2623-4a21-a578-698d8c0aef75'
+      defaultUploadLocationSubpath: ''
+      limit: '1'
+      localizeRelations: false
+      restrictFiles: '1'
+      selectionLabel: 'Select Thumbnail Image'
+      showUnpermittedFiles: false
+      showUnpermittedVolumes: false
+      singleUploadLocationSource: 'volume:8b0fd7f7-2623-4a21-a578-698d8c0aef75'
+      singleUploadLocationSubpath: ''
+      source: null
+      sources: '*'
+      targetSiteId: null
+      useSingleFolder: true
+      validateRelatedElements: '1'
+      viewMode: large
+    translationKeyFormat: null
+    translationMethod: site
+    type: craft\fields\Assets
+  35958387-7672-4675-8c27-88be958785df:
+    contentColumnType: string
+    fieldGroup: null
+    handle: source
+    instructions: ''
+    name: Source
+    searchable: false
+    settings:
+      optgroups: true
+      options:
+        -
+          __assoc__:
+            -
+              - label
+              - YouTube
+            -
+              - value
+              - youtube
+            -
+              - default
+              - '1'
+        -
+          __assoc__:
+            -
+              - label
+              - Vimeo
+            -
+              - value
+              - vimeo
+            -
+              - default
+              - ''
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\Dropdown
+  7d04901c-8ecd-4062-970e-ee5fee357416:
+    contentColumnType: text
+    fieldGroup: null
+    handle: videoId
+    instructions: ''
+    name: 'Video ID'
+    searchable: false
+    settings:
+      byteLimit: null
+      charLimit: null
+      code: '1'
+      columnType: null
+      initialRows: '4'
+      multiline: ''
+      placeholder: ''
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\PlainText
+  8d673834-7514-4a4a-9cf3-36a6589eecfa:
+    contentColumnType: text
+    fieldGroup: null
+    handle: heading
+    instructions: ''
+    name: Heading
+    searchable: true
+    settings:
+      byteLimit: null
+      charLimit: null
+      code: ''
+      columnType: null
+      initialRows: '4'
+      multiline: ''
+      placeholder: ''
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\PlainText
+  d92119f7-6ca6-4ee4-9f2d-9816a865e449:
+    contentColumnType: text
+    fieldGroup: null
+    handle: copy
+    instructions: ''
+    name: Copy
+    searchable: true
+    settings:
+      availableTransforms: '*'
+      availableVolumes: '*'
+      cleanupHtml: true
+      columnType: text
+      purifierConfig: ''
+      purifyHtml: '1'
+      redactorConfig: Simple.json
+      removeEmptyTags: '1'
+      removeInlineStyles: '1'
+      removeNbsp: '1'
+      showUnpermittedFiles: false
+      showUnpermittedVolumes: false
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\redactor\Field
+handle: video
+name: Video
+sortOrder: 3

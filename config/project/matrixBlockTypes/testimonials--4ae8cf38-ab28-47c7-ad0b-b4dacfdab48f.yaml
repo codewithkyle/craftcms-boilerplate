@@ -1,0 +1,110 @@
+field: 1eb0ac2f-150c-4071-b0a0-cdbc98ace82e
+fieldLayouts:
+  a8782727-ee5c-40f4-bbdf-2d5f8eef01ee:
+    tabs:
+      -
+        fields:
+          2329cff0-226e-4404-94bc-1eafd6fef322:
+            required: true
+            sortOrder: 3
+          810faeb7-e1cf-4279-87a8-daf95ed656d9:
+            required: false
+            sortOrder: 2
+          8ec3afee-8219-49e7-a6f8-611c35380df6:
+            required: false
+            sortOrder: 1
+        name: Content
+        sortOrder: 1
+fields:
+  2329cff0-226e-4404-94bc-1eafd6fef322:
+    contentColumnType: string
+    fieldGroup: null
+    handle: testimonials
+    instructions: ''
+    name: Testimonials
+    searchable: false
+    settings:
+      columns:
+        __assoc__:
+          -
+            - e2021c59-d040-4c11-ad30-b12cf22cd59e
+            -
+              __assoc__:
+                -
+                  - width
+                  - ''
+          -
+            - c164c20f-11e1-439c-af06-a46c22dd2426
+            -
+              __assoc__:
+                -
+                  - width
+                  - ''
+          -
+            - 7bffe00b-1d84-4b18-8a73-fd2ccd0641d2
+            -
+              __assoc__:
+                -
+                  - width
+                  - ''
+          -
+            - 80140a2c-054f-4ec4-957e-58640facee9d
+            -
+              __assoc__:
+                -
+                  - width
+                  - ''
+      contentTable: '{{%stc_6_testimonials}}'
+      fieldLayout: matrix
+      maxRows: '3'
+      minRows: '1'
+      propagationMethod: all
+      selectionLabel: 'Add a Testimonial'
+      staticField: ''
+    translationKeyFormat: null
+    translationMethod: site
+    type: verbb\supertable\fields\SuperTableField
+  810faeb7-e1cf-4279-87a8-daf95ed656d9:
+    contentColumnType: text
+    fieldGroup: null
+    handle: copy
+    instructions: ''
+    name: Copy
+    searchable: true
+    settings:
+      availableTransforms: '*'
+      availableVolumes: '*'
+      cleanupHtml: true
+      columnType: text
+      purifierConfig: ''
+      purifyHtml: '1'
+      redactorConfig: Simple.json
+      removeEmptyTags: '1'
+      removeInlineStyles: '1'
+      removeNbsp: '1'
+      showUnpermittedFiles: false
+      showUnpermittedVolumes: false
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\redactor\Field
+  8ec3afee-8219-49e7-a6f8-611c35380df6:
+    contentColumnType: text
+    fieldGroup: null
+    handle: heading
+    instructions: ''
+    name: Heading
+    searchable: true
+    settings:
+      byteLimit: null
+      charLimit: null
+      code: ''
+      columnType: null
+      initialRows: '4'
+      multiline: ''
+      placeholder: ''
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\PlainText
+handle: testimonials
+name: Testimonials
+sortOrder: 5

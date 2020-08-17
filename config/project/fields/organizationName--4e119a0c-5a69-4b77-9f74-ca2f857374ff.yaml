@@ -1,0 +1,17 @@
+contentColumnType: text
+fieldGroup: 451b931d-873f-460e-8d38-e836680cfe09
+handle: organizationName
+instructions: ''
+name: 'Organization Name'
+searchable: false
+settings:
+  byteLimit: null
+  charLimit: null
+  code: ''
+  columnType: null
+  initialRows: '4'
+  multiline: ''
+  placeholder: ''
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\PlainText

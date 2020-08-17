@@ -1,0 +1,14 @@
+enableVersioning: true
+handle: utilityNavigaiton
+name: 'Utility Navigaiton'
+propagationMethod: all
+siteSettings:
+  8d2ceaf6-270f-4376-a57e-b67d74fe3518:
+    enabledByDefault: true
+    hasUrls: false
+    template: null
+    uriFormat: ''
+structure:
+  maxLevels: 1
+  uid: 48f1e9cb-1c12-4337-88af-4daf19345384
+type: structure

@@ -1,0 +1,19 @@
+contentColumnType: string
+fieldGroup: 451b931d-873f-460e-8d38-e836680cfe09
+handle: termsAndConditionsPage
+instructions: ''
+name: 'Terms and Conditions Page'
+searchable: false
+settings:
+  limit: '1'
+  localizeRelations: false
+  selectionLabel: 'Link Terms and Conditions Page'
+  source: null
+  sources:
+    - 'section:cefc4625-a115-4b71-b22d-5f6784b3aada'
+  targetSiteId: null
+  validateRelatedElements: '1'
+  viewMode: null
+translationKeyFormat: null
+translationMethod: site
+type: craft\fields\Entries

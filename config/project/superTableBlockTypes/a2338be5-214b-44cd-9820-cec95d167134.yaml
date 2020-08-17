@@ -1,0 +1,110 @@
+field: 2329cff0-226e-4404-94bc-1eafd6fef322
+fieldLayouts:
+  45615a0e-1639-4a6b-a8ba-075775f3042c:
+    tabs:
+      -
+        fields:
+          7bffe00b-1d84-4b18-8a73-fd2ccd0641d2:
+            required: false
+            sortOrder: 3
+          80140a2c-054f-4ec4-957e-58640facee9d:
+            required: false
+            sortOrder: 4
+          c164c20f-11e1-439c-af06-a46c22dd2426:
+            required: true
+            sortOrder: 2
+          e2021c59-d040-4c11-ad30-b12cf22cd59e:
+            required: true
+            sortOrder: 1
+        name: Content
+        sortOrder: 1
+fields:
+  7bffe00b-1d84-4b18-8a73-fd2ccd0641d2:
+    contentColumnType: text
+    fieldGroup: null
+    handle: authorType
+    instructions: 'What type of user is the author? Examples: customer, business partner, or employee.'
+    name: 'Author Type'
+    searchable: false
+    settings:
+      byteLimit: null
+      charLimit: null
+      code: ''
+      columnType: null
+      initialRows: '4'
+      multiline: ''
+      placeholder: ''
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\PlainText
+  80140a2c-054f-4ec4-957e-58640facee9d:
+    contentColumnType: string
+    fieldGroup: null
+    handle: image
+    instructions: 'Providing a smiling photo of the author helps users connect.'
+    name: Image
+    searchable: false
+    settings:
+      allowSelfRelations: ''
+      allowedKinds:
+        - image
+      defaultUploadLocationSource: 'volume:8b0fd7f7-2623-4a21-a578-698d8c0aef75'
+      defaultUploadLocationSubpath: ''
+      limit: '1'
+      localizeRelations: false
+      restrictFiles: '1'
+      selectionLabel: 'Add an Image'
+      showUnpermittedFiles: false
+      showUnpermittedVolumes: false
+      singleUploadLocationSource: 'volume:8b0fd7f7-2623-4a21-a578-698d8c0aef75'
+      singleUploadLocationSubpath: ''
+      source: null
+      sources: '*'
+      targetSiteId: null
+      useSingleFolder: true
+      validateRelatedElements: '1'
+      viewMode: large
+    translationKeyFormat: null
+    translationMethod: site
+    type: craft\fields\Assets
+  c164c20f-11e1-439c-af06-a46c22dd2426:
+    contentColumnType: text
+    fieldGroup: null
+    handle: author
+    instructions: ''
+    name: Author
+    searchable: false
+    settings:
+      byteLimit: null
+      charLimit: null
+      code: ''
+      columnType: null
+      initialRows: '4'
+      multiline: ''
+      placeholder: ''
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\PlainText
+  e2021c59-d040-4c11-ad30-b12cf22cd59e:
+    contentColumnType: text
+    fieldGroup: null
+    handle: copy
+    instructions: ''
+    name: Copy
+    searchable: true
+    settings:
+      availableTransforms: '*'
+      availableVolumes: '*'
+      cleanupHtml: true
+      columnType: text
+      purifierConfig: ''
+      purifyHtml: '1'
+      redactorConfig: Simple.json
+      removeEmptyTags: '1'
+      removeInlineStyles: '1'
+      removeNbsp: '1'
+      showUnpermittedFiles: false
+      showUnpermittedVolumes: false
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\redactor\Field

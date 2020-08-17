@@ -1,0 +1,110 @@
+field: 1eb0ac2f-150c-4071-b0a0-cdbc98ace82e
+fieldLayouts:
+  afc10c64-cf62-4a91-9346-dfff6c5d78f2:
+    tabs:
+      -
+        fields:
+          2c9e67c9-b58c-4ef8-ba01-f11a6273747b:
+            required: false
+            sortOrder: 2
+          b7e77750-23a3-4d65-9793-70e7782204b4:
+            required: true
+            sortOrder: 3
+          ce11e6d6-11cf-44cd-94da-6c0a2f79b19b:
+            required: false
+            sortOrder: 1
+        name: Content
+        sortOrder: 1
+fields:
+  2c9e67c9-b58c-4ef8-ba01-f11a6273747b:
+    contentColumnType: text
+    fieldGroup: null
+    handle: copy
+    instructions: ''
+    name: Copy
+    searchable: true
+    settings:
+      availableTransforms: '*'
+      availableVolumes: '*'
+      cleanupHtml: true
+      columnType: text
+      purifierConfig: ''
+      purifyHtml: '1'
+      redactorConfig: Simple.json
+      removeEmptyTags: '1'
+      removeInlineStyles: '1'
+      removeNbsp: '1'
+      showUnpermittedFiles: false
+      showUnpermittedVolumes: false
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\redactor\Field
+  b7e77750-23a3-4d65-9793-70e7782204b4:
+    contentColumnType: string
+    fieldGroup: null
+    handle: cards
+    instructions: ''
+    name: Cards
+    searchable: true
+    settings:
+      columns:
+        __assoc__:
+          -
+            - a538518b-d594-484e-a083-9f5df7dea3d9
+            -
+              __assoc__:
+                -
+                  - width
+                  - ''
+          -
+            - 630bcfcd-7f1c-4395-9be5-63844c0edce9
+            -
+              __assoc__:
+                -
+                  - width
+                  - ''
+          -
+            - ddf74a4a-c638-4ea0-8a09-f090b9f43287
+            -
+              __assoc__:
+                -
+                  - width
+                  - ''
+          -
+            - 351a49ae-188d-4aaf-a5b6-25e9840a6621
+            -
+              __assoc__:
+                -
+                  - width
+                  - ''
+      contentTable: '{{%stc_8_cards}}'
+      fieldLayout: matrix
+      maxRows: '3'
+      minRows: '1'
+      propagationMethod: all
+      selectionLabel: 'Add a Card'
+      staticField: ''
+    translationKeyFormat: null
+    translationMethod: site
+    type: verbb\supertable\fields\SuperTableField
+  ce11e6d6-11cf-44cd-94da-6c0a2f79b19b:
+    contentColumnType: text
+    fieldGroup: null
+    handle: heading
+    instructions: ''
+    name: Heading
+    searchable: true
+    settings:
+      byteLimit: null
+      charLimit: null
+      code: ''
+      columnType: null
+      initialRows: '4'
+      multiline: ''
+      placeholder: ''
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\PlainText
+handle: callToActionCards
+name: 'Call to Action Cards'
+sortOrder: 7

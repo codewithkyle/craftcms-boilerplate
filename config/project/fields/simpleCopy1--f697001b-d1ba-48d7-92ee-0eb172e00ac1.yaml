@@ -1,0 +1,22 @@
+contentColumnType: text
+fieldGroup: c4451265-86dd-4e29-8607-338f8dff61d4
+handle: simpleCopy1
+instructions: ''
+name: 'Simple Copy 1'
+searchable: true
+settings:
+  availableTransforms: '*'
+  availableVolumes: ''
+  cleanupHtml: true
+  columnType: text
+  purifierConfig: ''
+  purifyHtml: '1'
+  redactorConfig: Simple.json
+  removeEmptyTags: '1'
+  removeInlineStyles: '1'
+  removeNbsp: '1'
+  showUnpermittedFiles: false
+  showUnpermittedVolumes: false
+translationKeyFormat: null
+translationMethod: none
+type: craft\redactor\Field

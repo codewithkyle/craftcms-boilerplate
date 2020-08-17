@@ -1,0 +1,11 @@
+contentColumnType: boolean
+fieldGroup: 225c7f29-a1ba-4281-a207-621cab6d37b7
+handle: requireLogin
+instructions: 'When enabled the user will need to be logged in to see this page or any of the child pages.'
+name: 'Require Login'
+searchable: false
+settings:
+  default: ''
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\Lightswitch

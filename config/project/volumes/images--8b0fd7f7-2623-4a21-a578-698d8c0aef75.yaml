@@ -1,0 +1,18 @@
+fieldLayouts:
+  acae1f98-968a-47e4-9474-9929da0d5d16:
+    tabs:
+      -
+        fields:
+          e3ddae84-8d6f-4b5c-b636-2eaaddaa0a0f:
+            required: true
+            sortOrder: 1
+        name: 'Meta Data'
+        sortOrder: 1
+handle: images
+hasUrls: true
+name: Images
+settings:
+  path: '@webroot/uploads/images'
+sortOrder: 1
+type: craft\volumes\Local
+url: '@web/uploads/images'

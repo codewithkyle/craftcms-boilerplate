@@ -1,0 +1,80 @@
+dateModified: 1597675018
+email:
+  fromEmail: $SYSTEM_EMAIL
+  fromName: $SENDER_NAME
+  replyToEmail: $REPLY_TO_EMAIL
+  template: null
+  transportSettings:
+    encryptionMethod: tls
+    host: $GMAIL_HOSTNAME
+    password: $GMAIL_PASSWORD
+    port: $GMAIL_PORT
+    timeout: '10'
+    useAuthentication: '1'
+    username: $GMAIL_USERNAME
+  transportType: craft\mail\transportadapters\Smtp
+graphql:
+  publicToken:
+    enabled: false
+    expiryDate: null
+plugins:
+  eager-beaver:
+    edition: standard
+    enabled: true
+    schemaVersion: 1.0.0
+  element-api:
+    edition: standard
+    enabled: true
+    schemaVersion: 1.0.0
+  field-buddy:
+    edition: standard
+    enabled: true
+    schemaVersion: 0.1.0
+  imager:
+    edition: standard
+    enabled: true
+    schemaVersion: 2.0.0
+  lightkeeper:
+    edition: standard
+    enabled: true
+    schemaVersion: 1.0.0
+  matrixmate:
+    edition: standard
+    enabled: true
+    schemaVersion: 1.0.0
+  read-time:
+    edition: standard
+    enabled: true
+    schemaVersion: 1.0.0
+  redactor:
+    edition: standard
+    enabled: true
+    schemaVersion: 2.3.0
+  smith:
+    edition: standard
+    enabled: true
+    schemaVersion: 1.0.0
+  splash:
+    edition: standard
+    enabled: true
+    schemaVersion: 3.0.0
+  super-table:
+    edition: standard
+    enabled: true
+    schemaVersion: 2.2.1
+  typedlinkfield:
+    edition: standard
+    enabled: true
+    schemaVersion: 1.0.0
+system:
+  edition: pro
+  live: true
+  name: $SYSTEM_NAME
+  schemaVersion: 3.5.12
+  timeZone: America/Los_Angeles
+users:
+  allowPublicRegistration: false
+  defaultGroup: null
+  photoSubpath: ''
+  photoVolumeUid: null
+  requireEmailVerification: true

@@ -1,0 +1,12 @@
+fieldLayouts:
+  a621d199-8f4b-4fd4-b954-c816aa1839d2:
+    tabs:
+      -
+        fields:
+          2e2cf186-585b-46ee-a435-b3a1737847ca:
+            required: false
+            sortOrder: 1
+        name: 'Tab 1'
+        sortOrder: 1
+handle: notifications
+name: Notifications

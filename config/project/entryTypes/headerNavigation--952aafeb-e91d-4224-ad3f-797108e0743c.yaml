@@ -1,0 +1,21 @@
+fieldLayouts:
+  fd59a6c7-4d22-4d28-ac85-65901eeb0eef:
+    tabs:
+      -
+        elements:
+          -
+            instructions: null
+            label: 'Link Text'
+            type: craft\fieldlayoutelements\EntryTitleField
+          -
+            fieldUid: 27eb5f6d-5e7b-4401-a20a-5259596e045a
+            required: false
+            type: craft\fieldlayoutelements\CustomField
+        name: 'Tab 1'
+        sortOrder: 1
+handle: headerNavigation
+hasTitleField: true
+name: 'Header Navigation'
+section: b9215289-18df-43f7-8aec-9164cf035280
+sortOrder: 1
+titleFormat: ''

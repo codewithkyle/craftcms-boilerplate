@@ -1,0 +1,27 @@
+contentColumnType: string
+fieldGroup: c4451265-86dd-4e29-8607-338f8dff61d4
+handle: singleImage1
+instructions: ''
+name: 'Single Image 1'
+searchable: false
+settings:
+  allowedKinds: null
+  defaultUploadLocationSource: 'volume:8b0fd7f7-2623-4a21-a578-698d8c0aef75'
+  defaultUploadLocationSubpath: ''
+  limit: '1'
+  localizeRelations: false
+  restrictFiles: ''
+  selectionLabel: 'Add an Image'
+  showUnpermittedFiles: false
+  showUnpermittedVolumes: false
+  singleUploadLocationSource: 'volume:8b0fd7f7-2623-4a21-a578-698d8c0aef75'
+  singleUploadLocationSubpath: ''
+  source: null
+  sources: '*'
+  targetSiteId: null
+  useSingleFolder: true
+  validateRelatedElements: '1'
+  viewMode: large
+translationKeyFormat: null
+translationMethod: site
+type: craft\fields\Assets

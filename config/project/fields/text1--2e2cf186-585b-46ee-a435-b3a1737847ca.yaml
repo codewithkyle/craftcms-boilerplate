@@ -1,0 +1,17 @@
+contentColumnType: text
+fieldGroup: c4451265-86dd-4e29-8607-338f8dff61d4
+handle: text1
+instructions: ''
+name: 'Text 1'
+searchable: true
+settings:
+  byteLimit: null
+  charLimit: null
+  code: ''
+  columnType: null
+  initialRows: '4'
+  multiline: ''
+  placeholder: ''
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\PlainText

@@ -1,0 +1,14 @@
+enableVersioning: true
+handle: pages
+name: Pages
+propagationMethod: all
+siteSettings:
+  8d2ceaf6-270f-4376-a57e-b67d74fe3518:
+    enabledByDefault: true
+    hasUrls: true
+    template: _pages/index
+    uriFormat: '{parent.uri}/{slug}'
+structure:
+  maxLevels: null
+  uid: f455c565-f7eb-4bc3-b1e3-f2e8055dc216
+type: structure

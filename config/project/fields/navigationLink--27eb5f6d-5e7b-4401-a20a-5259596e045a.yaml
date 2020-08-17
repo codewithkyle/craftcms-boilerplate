@@ -1,0 +1,114 @@
+contentColumnType: text
+fieldGroup: 225c7f29-a1ba-4281-a207-621cab6d37b7
+handle: navigationLink
+instructions: ''
+name: 'Navigation Link'
+searchable: false
+settings:
+  allowCustomText: ''
+  allowTarget: ''
+  allowedLinkNames:
+    3: entry
+    6: custom
+    7: email
+    8: tel
+  autoNoReferrer: ''
+  defaultLinkName: entry
+  defaultText: ''
+  enableAriaLabel: ''
+  enableTitle: ''
+  typeSettings:
+    __assoc__:
+      -
+        - asset
+        -
+          __assoc__:
+            -
+              - sources
+              - '*'
+            -
+              - allowCustomQuery
+              - ''
+      -
+        - category
+        -
+          __assoc__:
+            -
+              - sources
+              - '*'
+            -
+              - allowCustomQuery
+              - ''
+      -
+        - entry
+        -
+          __assoc__:
+            -
+              - sources
+              -
+                - singles
+                - 'section:2f1f0ea0-4b22-4e9d-bb51-9e1e32a94cba'
+                - 'section:cefc4625-a115-4b71-b22d-5f6784b3aada'
+            -
+              - allowCustomQuery
+              - ''
+      -
+        - site
+        -
+          __assoc__:
+            -
+              - sites
+              - '*'
+      -
+        - user
+        -
+          __assoc__:
+            -
+              - sources
+              - '*'
+            -
+              - allowCustomQuery
+              - ''
+      -
+        - custom
+        -
+          __assoc__:
+            -
+              - disableValidation
+              - ''
+            -
+              - allowAliases
+              - ''
+      -
+        - email
+        -
+          __assoc__:
+            -
+              - disableValidation
+              - ''
+            -
+              - allowAliases
+              - ''
+      -
+        - tel
+        -
+          __assoc__:
+            -
+              - disableValidation
+              - ''
+            -
+              - allowAliases
+              - ''
+      -
+        - url
+        -
+          __assoc__:
+            -
+              - disableValidation
+              - ''
+            -
+              - allowAliases
+              - ''
+translationKeyFormat: null
+translationMethod: none
+type: typedlinkfield\fields\LinkField

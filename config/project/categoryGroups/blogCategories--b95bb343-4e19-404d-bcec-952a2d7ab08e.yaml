@@ -1,0 +1,10 @@
+handle: blogCategories
+name: 'Blog Categories'
+siteSettings:
+  8d2ceaf6-270f-4376-a57e-b67d74fe3518:
+    hasUrls: false
+    template: null
+    uriFormat: null
+structure:
+  maxLevels: 1
+  uid: 4840e233-1f3e-4981-8ccb-e85548acf8c9

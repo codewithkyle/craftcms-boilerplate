@@ -1,0 +1,21 @@
+contentColumnType: string
+fieldGroup: 225c7f29-a1ba-4281-a207-621cab6d37b7
+handle: categories
+instructions: ''
+name: Categories
+searchable: true
+settings:
+  allowLimit: false
+  allowMultipleSources: false
+  branchLimit: ''
+  limit: null
+  localizeRelations: false
+  selectionLabel: 'Add a Category'
+  source: 'group:b95bb343-4e19-404d-bcec-952a2d7ab08e'
+  sources: '*'
+  targetSiteId: null
+  validateRelatedElements: '1'
+  viewMode: null
+translationKeyFormat: null
+translationMethod: site
+type: craft\fields\Categories

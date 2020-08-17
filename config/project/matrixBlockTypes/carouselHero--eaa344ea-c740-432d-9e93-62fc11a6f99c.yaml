@@ -1,0 +1,85 @@
+field: 1eb0ac2f-150c-4071-b0a0-cdbc98ace82e
+fieldLayouts:
+  fc27acdc-5f3c-4c89-bf76-02e271a6b01b:
+    tabs:
+      -
+        fields:
+          82806a86-3ff5-404a-bc1b-9819ca09c888:
+            required: true
+            sortOrder: 1
+          de741c47-e0f4-402f-a0ed-f50a3c59dff3:
+            required: false
+            sortOrder: 2
+        name: Content
+        sortOrder: 1
+fields:
+  82806a86-3ff5-404a-bc1b-9819ca09c888:
+    contentColumnType: string
+    fieldGroup: null
+    handle: slides
+    instructions: ''
+    name: Slides
+    searchable: false
+    settings:
+      columns:
+        __assoc__:
+          -
+            - 76f37263-7616-44be-9203-c9a00193f2f9
+            -
+              __assoc__:
+                -
+                  - width
+                  - ''
+          -
+            - 8049eec0-b05c-482b-820a-83a95460a262
+            -
+              __assoc__:
+                -
+                  - width
+                  - ''
+          -
+            - e659771a-929a-41d2-bab4-9f6dd3ee21aa
+            -
+              __assoc__:
+                -
+                  - width
+                  - ''
+          -
+            - 9f0fd987-261e-4cf3-b47b-ff56a9175a77
+            -
+              __assoc__:
+                -
+                  - width
+                  - ''
+          -
+            - 84f66ba0-cac2-484e-b97c-e3a5081a4e65
+            -
+              __assoc__:
+                -
+                  - width
+                  - ''
+      contentTable: '{{%stc_10_slides}}'
+      fieldLayout: row
+      maxRows: '3'
+      minRows: '1'
+      propagationMethod: all
+      selectionLabel: 'Add a Slide'
+      staticField: ''
+    translationKeyFormat: null
+    translationMethod: site
+    type: verbb\supertable\fields\SuperTableField
+  de741c47-e0f4-402f-a0ed-f50a3c59dff3:
+    contentColumnType: boolean
+    fieldGroup: null
+    handle: automaticTransition
+    instructions: 'When enabled the slides will automatically transition from slide to slide.'
+    name: 'Automatic Transition'
+    searchable: false
+    settings:
+      default: ''
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\Lightswitch
+handle: carouselHero
+name: 'Carousel Hero'
+sortOrder: 9
