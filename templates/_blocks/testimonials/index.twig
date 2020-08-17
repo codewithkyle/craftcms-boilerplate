@@ -16,7 +16,7 @@
                         {% set transformedImage = craft.imager.transformImage(image, { width: 96, height: 96, position: image.getFocalPoint(), format: imageFormat }) %}
                         <img 
                             src="{{ transformedImage.url }}" 
-                            alt="{{ image.alternateDescription }}" 
+                            alt="{{ image.description }}" 
                             loading="lazy" 
                             width="96" 
                             style="opacity:0;transition: opacity 300ms ease-out;"

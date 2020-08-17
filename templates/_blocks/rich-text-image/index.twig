@@ -22,7 +22,7 @@
     <rich-text-image-block lazy-css="rich-text-image-block buttons">
         {% if section.imagePosition == 'left' %}
             <img-shim>
-                <img src="{{ transformedImages[0].url }}" alt="{{ image.alternateDescription }}" loading="lazy" width="320" srcset="{{ craft.imager.srcset(transformedImages) }}" />
+                <img src="{{ transformedImages[0].url }}" alt="{{ image.description }}" loading="lazy" width="320" srcset="{{ craft.imager.srcset(transformedImages) }}" />
             </img-shim>
         {% endif %}
         <content-wrapper style="margin:{{ section.verticalAlignment }};">
@@ -40,7 +40,7 @@
         </content-wrapper>
         {% if section.imagePosition == 'right' %}
             <img-shim>
-                <img src="{{ transformedImages[0].url }}" alt="{{ image.alternateDescription }}" loading="lazy" width="320" srcset="{{ craft.imager.srcset(transformedImages) }}" />
+                <img src="{{ transformedImages[0].url }}" alt="{{ image.description }}" loading="lazy" width="320" srcset="{{ craft.imager.srcset(transformedImages) }}" />
             </img-shim>
         {% endif %}
     </rich-text-image-block>

@@ -1,0 +1,13 @@
+contentColumnType: boolean
+fieldGroup: a7c4f891-d179-4c87-981e-2a644510060c
+handle: noArchive
+instructions: 'Do not show a "Cached" link in search results.'
+name: 'No Archive'
+searchable: false
+settings:
+  default: false
+  offLabel: 'Page can be cached by search engines'
+  onLabel: 'Page will not be cached by search engines'
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\Lightswitch

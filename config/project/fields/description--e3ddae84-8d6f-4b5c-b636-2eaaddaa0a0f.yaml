@@ -1,0 +1,18 @@
+contentColumnType: text
+fieldGroup: 225c7f29-a1ba-4281-a207-621cab6d37b7
+handle: description
+instructions: ''
+name: Description
+searchable: true
+settings:
+  byteLimit: null
+  charLimit: null
+  code: ''
+  columnType: null
+  initialRows: '4'
+  multiline: ''
+  placeholder: ''
+  uiMode: normal
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\PlainText

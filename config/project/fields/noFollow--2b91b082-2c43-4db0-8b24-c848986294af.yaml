@@ -1,0 +1,13 @@
+contentColumnType: boolean
+fieldGroup: a7c4f891-d179-4c87-981e-2a644510060c
+handle: noFollow
+instructions: 'Do not allow web crawlers to follow the links on this page.'
+name: 'No Follow'
+searchable: false
+settings:
+  default: false
+  offLabel: 'Bots can crawl the page'
+  onLabel: 'Bots will not crawl the page'
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\Lightswitch

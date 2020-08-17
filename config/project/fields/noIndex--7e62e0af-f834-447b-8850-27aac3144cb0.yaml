@@ -1,0 +1,13 @@
+contentColumnType: boolean
+fieldGroup: a7c4f891-d179-4c87-981e-2a644510060c
+handle: noIndex
+instructions: 'Do not show this page in search results and do not show a "Cached" link in search results.'
+name: 'No Index'
+searchable: false
+settings:
+  default: false
+  offLabel: 'Page visible in search results'
+  onLabel: 'Page hidden from search results'
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\Lightswitch

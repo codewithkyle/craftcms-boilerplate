@@ -1,0 +1,12 @@
+contentColumnType: string(255)
+fieldGroup: a7c4f891-d179-4c87-981e-2a644510060c
+handle: canonicalUrl
+instructions: ''
+name: 'Canonical URL'
+searchable: false
+settings:
+  maxLength: '255'
+  placeholder: ''
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\Url

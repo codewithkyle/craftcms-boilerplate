@@ -10,7 +10,7 @@
             { width: 1920, ratio: 16/5, position: section.backgroundImage[0].getFocalPoint(), format: imageFormat }
         ]) %}
         <img-shim>
-            <img alt="{{ section.backgroundImage[0].alternateDescription }}" src="{{ images[0].url }}" srcset="{{ craft.imager.srcset(images) }}" width="320" loading="lazy" style="opacity:0;transition:opacity 300ms ease-in-out;" onload="this.style.opacity = '1';">
+            <img alt="{{ section.backgroundImage[0].description }}" src="{{ images[0].url }}" srcset="{{ craft.imager.srcset(images) }}" width="320" loading="lazy" style="opacity:0;transition:opacity 300ms ease-in-out;" onload="this.style.opacity = '1';">
         </img-shim>
     {% endif %}
     <div class="inline-block w-full max-w-laptop">

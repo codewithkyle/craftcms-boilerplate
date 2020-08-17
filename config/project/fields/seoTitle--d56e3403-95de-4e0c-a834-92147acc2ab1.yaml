@@ -1,0 +1,18 @@
+contentColumnType: text
+fieldGroup: a7c4f891-d179-4c87-981e-2a644510060c
+handle: seoTitle
+instructions: 'This title will be displayed instead of the page title on search engines (Google, Bing, and DuckDuckGo)'
+name: 'SEO Title'
+searchable: false
+settings:
+  byteLimit: null
+  charLimit: null
+  code: ''
+  columnType: null
+  initialRows: '4'
+  multiline: ''
+  placeholder: ''
+  uiMode: normal
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\PlainText
