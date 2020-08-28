@@ -3,16 +3,34 @@ fieldLayouts:
   a16aee75-e3c6-4b89-8ebd-d670b08018ad:
     tabs:
       -
-        fields:
-          3b64d0d5-85c3-4d4c-ae24-37fc64796b59:
+        elements:
+          -
+            fieldUid: d2ed2223-7bc8-4e0b-a214-aac9858b9f7d
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: dee15867-e67b-485e-9bb4-462d27a45db3
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 3b64d0d5-85c3-4d4c-ae24-37fc64796b59
+            instructions: null
+            label: null
             required: true
-            sortOrder: 3
-          d2ed2223-7bc8-4e0b-a214-aac9858b9f7d:
-            required: false
-            sortOrder: 1
-          dee15867-e67b-485e-9bb4-462d27a45db3:
-            required: false
-            sortOrder: 2
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
         name: Content
         sortOrder: 1
 fields:
@@ -24,15 +42,16 @@ fields:
     name: Articles
     searchable: false
     settings:
-      allowSelfRelations: ''
+      allowSelfRelations: false
       limit: '3'
       localizeRelations: false
       selectionLabel: 'Link an Article'
+      showSiteMenu: true
       source: null
       sources:
         - 'section:2f1f0ea0-4b22-4e9d-bb51-9e1e32a94cba'
       targetSiteId: null
-      validateRelatedElements: '1'
+      validateRelatedElements: true
       viewMode: null
     translationKeyFormat: null
     translationMethod: site
@@ -52,6 +71,7 @@ fields:
       initialRows: '4'
       multiline: ''
       placeholder: ''
+      uiMode: normal
     translationKeyFormat: null
     translationMethod: none
     type: craft\fields\PlainText
@@ -67,14 +87,19 @@ fields:
       availableVolumes: ''
       cleanupHtml: true
       columnType: text
+      configSelectionMode: choose
+      defaultTransform: ''
+      manualConfig: ''
       purifierConfig: ''
       purifyHtml: '1'
       redactorConfig: Simple.json
       removeEmptyTags: '1'
       removeInlineStyles: '1'
       removeNbsp: '1'
+      showHtmlButtonForNonAdmins: '1'
       showUnpermittedFiles: false
       showUnpermittedVolumes: false
+      uiMode: enlarged
     translationKeyFormat: null
     translationMethod: none
     type: craft\redactor\Field

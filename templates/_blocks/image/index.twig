@@ -1,23 +1,23 @@
-{% set image = craft.imager.transformImage(section.image[0], [
-    { width: 320, ratio: 16/9, position: section.image[0].getFocalPoint(), format: imageFormat },
-    { width: 425, ratio: 16/9, position: section.image[0].getFocalPoint(), format: imageFormat },
-    { width: 768, ratio: 16/9, position: section.image[0].getFocalPoint(), format: imageFormat },
-    { width: 1024, ratio: 16/9, position: section.image[0].getFocalPoint(), format: imageFormat }
+{% set image = craft.imager.transformImage(data.image[0], [
+    { width: 320, ratio: 16/9, position: data.image[0].getFocalPoint(), format: imageFormat },
+    { width: 425, ratio: 16/9, position: data.image[0].getFocalPoint(), format: imageFormat },
+    { width: 768, ratio: 16/9, position: data.image[0].getFocalPoint(), format: imageFormat },
+    { width: 1024, ratio: 16/9, position: data.image[0].getFocalPoint(), format: imageFormat }
 ]) %}
 
-<section class="block w-full py-4">
+<section class="block w-full">
     <lazy-image lazy-css="lazy-image">
         <img 
             src="{{ image[0].url }}" 
             srcset="{{ craft.imager.srcset(image) }}" 
-            alt="{{ section.image[0].description }}" 
+            alt="{{ data.image[0].description }}" 
             loading="lazy" 
             width="320"
             style="opacity:0;transition: opacity 300ms ease-out;"
             onload="this.onload=null;this.style.opacity='1';" 
         />
     </lazy-image>
-    {% if section.briefCopy|length %}
-        <image-cite>{{ section.briefCopy }}</image-cite>
+    {% if data.briefCopy|length %}
+        <image-cite>{{ data.briefCopy }}</image-cite>
     {% endif %}
 </section>

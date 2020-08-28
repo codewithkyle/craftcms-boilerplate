@@ -6,6 +6,6 @@ siteSettings:
   8d2ceaf6-270f-4376-a57e-b67d74fe3518:
     enabledByDefault: true
     hasUrls: true
-    template: _blog/index
+    template: _sections/blog/landing/index
     uriFormat: blog
 type: single

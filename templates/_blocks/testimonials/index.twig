@@ -1,14 +1,14 @@
 <testimonials-block lazy-css="testimonials-block">
-    {% if section.heading|length %}
-        <h1>{{ section.heading }}</h1>
+    {% if data.heading|length %}
+        <h1>{{ data.heading }}</h1>
     {% endif %}
-    {% if section.copy|length %}
+    {% if data.copy|length %}
         <div class="block max-w-full mx-auto" style="width:640px;">
-            {{ section.copy }}
+            {{ data.copy }}
         </div>
     {% endif %}
     <testimonials-container>
-        {% for testimonial in section.testimonials.all() %}
+        {% for testimonial in data.testimonials.all() %}
             {% set image = testimonial.image[0] ?? null %}
             <testimonial-card>
                 <user-image>

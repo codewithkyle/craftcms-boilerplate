@@ -1,5 +1,5 @@
-{% set image = section.backgroundImage[0] ?? null %}
-{% set backgroundColor = section.backgroundColor %}
+{% set image = data.backgroundImage[0] ?? null %}
+{% set backgroundColor = data.backgroundColor %}
 {% if image %}
     {% set backgroundColor = 'image' %}
 {% endif %}
@@ -27,23 +27,23 @@
         </img-shim>
     {% endif %}
     <content-wrapper>
-        {% if section.heading|length or section.copy|length %}
+        {% if data.heading|length or data.copy|length %}
             <copy-wrapper>
-                {% if section.heading|length %}
-                    <h1>{{ section.heading }}</h1>
+                {% if data.heading|length %}
+                    <h1>{{ data.heading }}</h1>
                 {% endif %}
-                {% if section.copy|length %}
-                    {{ section.copy }}
+                {% if data.copy|length %}
+                    {{ data.copy }}
                 {% endif %}
             </copy-wrapper>
         {% endif %}
-        {% if section.callToActionButton.url|length or section.secondaryCallToActionButton.url|length %}
+        {% if data.callToActionButton.url|length or data.secondaryCallToActionButton.url|length %}
             <div>
-                {% if section.callToActionButton.url|length %}
-                    <a href="{{ section.callToActionButton.url }}" target="{{ section.callToActionButton.target }}" class="button -solid -primary -raised m-0.5">{{ section.callToActionButton.customText }}</a>
+                {% if data.callToActionButton.url|length %}
+                    <a href="{{ data.callToActionButton.url }}" target="{{ data.callToActionButton.target }}" class="button -solid -primary -raised m-0.5">{{ data.callToActionButton.customText }}</a>
                 {% endif %}
-                {% if section.secondaryCallToActionButton.url|length %}
-                    <a href="{{ section.secondaryCallToActionButton.url }}" target="{{ section.secondaryCallToActionButton.target }}" class="button -solid -white -raised m-0.5">{{ section.secondaryCallToActionButton.customText }}</a>
+                {% if data.secondaryCallToActionButton.url|length %}
+                    <a href="{{ data.secondaryCallToActionButton.url }}" target="{{ data.secondaryCallToActionButton.target }}" class="button -solid -white -raised m-0.5">{{ data.secondaryCallToActionButton.customText }}</a>
                 {% endif %}
             </div>
         {% endif %}

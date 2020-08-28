@@ -3,16 +3,34 @@ fieldLayouts:
   a8782727-ee5c-40f4-bbdf-2d5f8eef01ee:
     tabs:
       -
-        fields:
-          2329cff0-226e-4404-94bc-1eafd6fef322:
+        elements:
+          -
+            fieldUid: 8ec3afee-8219-49e7-a6f8-611c35380df6
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 810faeb7-e1cf-4279-87a8-daf95ed656d9
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 2329cff0-226e-4404-94bc-1eafd6fef322
+            instructions: null
+            label: null
             required: true
-            sortOrder: 3
-          810faeb7-e1cf-4279-87a8-daf95ed656d9:
-            required: false
-            sortOrder: 2
-          8ec3afee-8219-49e7-a6f8-611c35380df6:
-            required: false
-            sortOrder: 1
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
         name: Content
         sortOrder: 1
 fields:
@@ -54,10 +72,11 @@ fields:
                 -
                   - width
                   - ''
-      contentTable: '{{%stc_6_testimonials}}'
+      contentTable: '{{%stc_8_testimonials}}'
       fieldLayout: matrix
       maxRows: '3'
       minRows: '1'
+      placeholderKey: null
       propagationMethod: all
       selectionLabel: 'Add a Testimonial'
       staticField: ''
@@ -76,14 +95,19 @@ fields:
       availableVolumes: '*'
       cleanupHtml: true
       columnType: text
+      configSelectionMode: choose
+      defaultTransform: ''
+      manualConfig: ''
       purifierConfig: ''
       purifyHtml: '1'
       redactorConfig: Simple.json
       removeEmptyTags: '1'
       removeInlineStyles: '1'
       removeNbsp: '1'
+      showHtmlButtonForNonAdmins: '1'
       showUnpermittedFiles: false
       showUnpermittedVolumes: false
+      uiMode: enlarged
     translationKeyFormat: null
     translationMethod: none
     type: craft\redactor\Field
@@ -102,6 +126,7 @@ fields:
       initialRows: '4'
       multiline: ''
       placeholder: ''
+      uiMode: normal
     translationKeyFormat: null
     translationMethod: none
     type: craft\fields\PlainText

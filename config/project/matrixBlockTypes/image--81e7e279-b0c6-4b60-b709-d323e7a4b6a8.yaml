@@ -3,13 +3,25 @@ fieldLayouts:
   d00d8afc-3e42-41dc-b8ea-91ca30334ba7:
     tabs:
       -
-        fields:
-          d08b6d22-f84b-486c-9a56-33d72aa11ecc:
-            required: false
-            sortOrder: 2
-          e5a6e8ac-dc76-4be8-91f7-4b0f2ebd6aae:
+        elements:
+          -
+            fieldUid: e5a6e8ac-dc76-4be8-91f7-4b0f2ebd6aae
+            instructions: null
+            label: null
             required: true
-            sortOrder: 1
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: d08b6d22-f84b-486c-9a56-33d72aa11ecc
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
         name: Content
         sortOrder: 1
 fields:
@@ -28,6 +40,7 @@ fields:
       initialRows: '4'
       multiline: ''
       placeholder: ''
+      uiMode: normal
     translationKeyFormat: null
     translationMethod: none
     type: craft\fields\PlainText
@@ -39,7 +52,7 @@ fields:
     name: Image
     searchable: true
     settings:
-      allowSelfRelations: ''
+      allowSelfRelations: false
       allowedKinds: null
       defaultUploadLocationSource: 'volume:8b0fd7f7-2623-4a21-a578-698d8c0aef75'
       defaultUploadLocationSubpath: ''
@@ -47,6 +60,7 @@ fields:
       localizeRelations: false
       restrictFiles: ''
       selectionLabel: 'Add an Image'
+      showSiteMenu: true
       showUnpermittedFiles: false
       showUnpermittedVolumes: false
       singleUploadLocationSource: 'volume:8b0fd7f7-2623-4a21-a578-698d8c0aef75'
@@ -55,7 +69,7 @@ fields:
       sources: '*'
       targetSiteId: null
       useSingleFolder: true
-      validateRelatedElements: '1'
+      validateRelatedElements: true
       viewMode: large
     translationKeyFormat: null
     translationMethod: site

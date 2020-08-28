@@ -1,0 +1,22 @@
+{% extends "_base/page" %}
+
+{% do eagerLoadElements(entry, [
+    'pageBuilder',
+]) %}
+
+{% block head %}
+    {% set blocks = [] %}
+    {% for block in entry.pageBuilder|slice(0, 3) %}
+        {% set blocks = blocks|merge([block.type|kebab]) %}
+    {% endfor %}
+    {{ craft.papertrain.css(blocks) }}
+{% endblock %}
+
+{% block content %}
+    {% for block in entry.pageBuilder %}
+        {% set data = block %}
+        <template-block style="display: block;width: 100%;position: relative;">
+            {% include "_blocks/" ~ block.type|kebab %}
+        </template-block>
+    {% endfor %}
+{% endblock %}

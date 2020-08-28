@@ -1,10 +1,4 @@
 field: 1eb0ac2f-150c-4071-b0a0-cdbc98ace82e
-fieldLayouts:
-  b6b6e33c-e1ed-44c3-92a3-bc040b208d0a:
-    tabs:
-      -
-        name: Content
-        sortOrder: 1
 handle: horizontalRule
 name: 'Horizontal Rule'
 sortOrder: 12

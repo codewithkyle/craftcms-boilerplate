@@ -1,9 +1,9 @@
-<div class="block w-full" style="padding-top:{{ section.gap }}rem;" block="{{ section.uid }}"></div>
-{% if section.gap > 8 %}
+<div class="block w-full" style="padding-top:{{ data.gap }}rem;" block="{{ data.uid }}"></div>
+{% if data.gap > 8 %}
     <style>
         @media (max-width: 768px){
-            [block="{{ section.uid }}"]{
-                padding-top: {{ section.gap / 2 }}rem !important;
+            [block="{{ data.uid }}"]{
+                padding-top: {{ data.gap / 2 }}rem !important;
             }
         }
     </style>

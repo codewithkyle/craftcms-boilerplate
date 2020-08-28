@@ -5,7 +5,7 @@ rich-text-image-block {
 	display: grid;
 	grid-template-columns: 1fr;
 	gap: 2rem;
-	padding: 4rem 1rem;
+	padding: 0 1rem;
 	margin: 0 auto;
 
 	@media (min-width: 1024px) {

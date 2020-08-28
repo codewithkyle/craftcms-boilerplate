@@ -3,22 +3,52 @@ fieldLayouts:
   208e8d8b-1bd8-4c7e-b17b-66df2da0d5f3:
     tabs:
       -
-        fields:
-          76f37263-7616-44be-9203-c9a00193f2f9:
+        elements:
+          -
+            fieldUid: 76f37263-7616-44be-9203-c9a00193f2f9
+            instructions: null
+            label: null
             required: true
-            sortOrder: 1
-          8049eec0-b05c-482b-820a-83a95460a262:
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 8049eec0-b05c-482b-820a-83a95460a262
+            instructions: null
+            label: null
             required: false
-            sortOrder: 2
-          84f66ba0-cac2-484e-b97c-e3a5081a4e65:
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: e659771a-929a-41d2-bab4-9f6dd3ee21aa
+            instructions: null
+            label: null
             required: false
-            sortOrder: 5
-          9f0fd987-261e-4cf3-b47b-ff56a9175a77:
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 9f0fd987-261e-4cf3-b47b-ff56a9175a77
+            instructions: null
+            label: null
             required: false
-            sortOrder: 4
-          e659771a-929a-41d2-bab4-9f6dd3ee21aa:
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 84f66ba0-cac2-484e-b97c-e3a5081a4e65
+            instructions: null
+            label: null
             required: false
-            sortOrder: 3
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
         name: Content
         sortOrder: 1
 fields:
@@ -30,7 +60,7 @@ fields:
     name: 'Background Image'
     searchable: false
     settings:
-      allowSelfRelations: ''
+      allowSelfRelations: false
       allowedKinds:
         - image
       defaultUploadLocationSource: 'volume:8b0fd7f7-2623-4a21-a578-698d8c0aef75'
@@ -39,6 +69,7 @@ fields:
       localizeRelations: false
       restrictFiles: '1'
       selectionLabel: 'Add a Background Image'
+      showSiteMenu: true
       showUnpermittedFiles: false
       showUnpermittedVolumes: false
       singleUploadLocationSource: 'volume:8b0fd7f7-2623-4a21-a578-698d8c0aef75'
@@ -47,7 +78,7 @@ fields:
       sources: '*'
       targetSiteId: null
       useSingleFolder: true
-      validateRelatedElements: '1'
+      validateRelatedElements: true
       viewMode: large
     translationKeyFormat: null
     translationMethod: site
@@ -67,6 +98,7 @@ fields:
       initialRows: '4'
       multiline: ''
       placeholder: ''
+      uiMode: normal
     translationKeyFormat: null
     translationMethod: none
     type: craft\fields\PlainText
@@ -312,14 +344,19 @@ fields:
       availableVolumes: ''
       cleanupHtml: true
       columnType: text
+      configSelectionMode: choose
+      defaultTransform: ''
+      manualConfig: ''
       purifierConfig: ''
       purifyHtml: '1'
       redactorConfig: Simple.json
       removeEmptyTags: '1'
       removeInlineStyles: '1'
       removeNbsp: '1'
+      showHtmlButtonForNonAdmins: '1'
       showUnpermittedFiles: false
       showUnpermittedVolumes: false
+      uiMode: enlarged
     translationKeyFormat: null
     translationMethod: none
     type: craft\redactor\Field

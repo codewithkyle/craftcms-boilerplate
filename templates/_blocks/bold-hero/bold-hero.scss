@@ -2,11 +2,11 @@ bold-hero{
     width: 100%;
     min-height: 600px;
     position: relative;
-    padding: 2rem 2rem 4rem;
+    padding: 0 2rem;
     display: block;
 
     @media (min-width: 1024px){
-        padding: 6rem 1rem 8rem;
+        padding: 0 1rem;
     }
 
     img-shim{

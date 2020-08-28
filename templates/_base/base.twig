@@ -12,7 +12,7 @@
     {% set page = product %}
 {% endif %}
 
-{% set requireLogin = craft.pwa.checkRequireLogin(page) %}
+{% set requireLogin = craft.papertrain.checkRequireLogin(page) %}
 {% if requireLogin and not currentUser%}
     {% redirect '/login?redirect=' ~ craft.app.request.pathInfo %}
 {% elseif not requireLogin %}
@@ -22,7 +22,7 @@
     {% header "Expires: " ~ expiry|date('D, d M Y H:i:s', 'GMT') ~ " GMT" %}
     {% header "Access-Control-Expose-Headers: etag" %}
     {% if page.uid %}
-        {% header "ETag: " ~ page.uid ~ '-' ~ craft.pwa.getCache(page.id) %}
+        {% header "ETag: " ~ page.uid ~ '-' ~ craft.papertrain.getCache(page.id) %}
     {% endif %}
 {% endif %}
 
@@ -33,11 +33,11 @@
 {% endif %}
 
 {% if craft.imager.serverSupportsWebp() and craft.imager.clientSupportsWebp() %}
-    {% set imageFormat = 'webp' %}
-    {% set transparentImageFormat = 'webp' %}
+    {% set solidFormat = 'webp' %}
+    {% set transparentFormat = 'webp' %}
 {% else %}
-    {% set imageFormat = 'jpg' %}
-    {% set transparentImageFormat = 'png' %}
+    {% set solidFormat = 'jpg' %}
+    {% set transparentFormat = 'png' %}
 {% endif %}
 
 {% spaceless %}
@@ -57,210 +57,13 @@
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
         <meta name="referrer" content="origin-when-cross-origin" />
-        {% hook 'seo' %}
-
-        <!-- Google Font -->
-        <!-- <link rel="preload" href="https://fonts.googleapis.com/css?family=Roboto:300,500,700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'"> -->
         
-        <!-- Critical colors -->
-        <style>
-            :root
-            {
-                font-size: 100%;
-                
-                --grey-800: #333;
-                --background: #fff;
-                --loading-bar: #51b1f6;
-                --loading-bar-background: #163b52;
-                --loading-background: #fafafa;
-                --loading-font: #333;
-            }
-            @media (prefers-color-scheme: dark)
-            {
-                :root
-                {
-                    --grey-800: #fff;
-                    --background: #232323;
-                    --loading-bar-background: #163b52;
-                    --loading-background: #232323;
-                    --loading-font: #fff;
-                }
-            }
-        </style>
-
-        <!-- Loading animations -->
-        <style>
-            page-loading{
-                width: 100vw;
-                height: 100vh;
-                display: flex;
-                position: fixed;
-                top: 0;
-                left: 0;
-                justify-content: center;
-                align-items: center;
-                flex-flow: column wrap;
-                background-color: var(--loading-background);
-                color: var(--grey-800);
-                font-size: var(--text-xl);
-                z-index: 1000000;
-                user-select: none;
-                pointer-events: none;
-                cursor: wait;
-                text-align: center;
-                visibility: hidden;
-                opacity: 0;
-                transition: all 150ms 150ms ease-in-out;
-            }
-            html[state="hard-loading"] page-loading{
-                visibility: visible;
-                opacity: 1;
-            }
-            page-loading span,
-            page-loading djinnjs-file-loading-value {
-                line-height: 1.618;
-                display: inline-block;
-                margin: 0 0.25rem 0.5rem;
-                font-size: var(--text-lg);
-                font-weight: 400;
-                font-family: system-ui, BlinkMacSystemFont, -apple-system, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
-                white-space: nowrap;
-                opacity: 0.87;
-                color: var(--loading-font);
-            }
-            page-loading page-loading-bar {
-                width: 200px;
-                height: 2px;
-                position: relative;
-                background-color: var(--loading-bar);
-                overflow: hidden;
-                display: block;
-                box-shadow: inset 0 0 2px rgba(51,51,51,0.15);
-            }
-            page-loading page-loading-bar bar-one {
-                left: -145%;
-                position: absolute;
-                box-sizing: border-box;
-                width: 100%;
-                height: 100%;
-                animation: primaryBar 2s infinite linear;
-            }
-            page-loading page-loading-bar bar-one::before{
-                content: "";
-                background-color: var(--loading-bar-background);
-                display: inline-block;
-                box-sizing: border-box;
-                position: absolute;
-                width: 100%;
-                height: 100%;
-                animation: primaryScale 2s infinite linear;
-            }
-            page-loading page-loading-bar bar-two{
-                left: -100%;
-                position: absolute;
-                width: 100%;
-                box-sizing: border-box;
-                height: 100%;
-                animation: secondaryBar 2s infinite linear;
-            }
-            page-loading page-loading-bar bar-two::before{
-                content: "";
-                background-color: var(--loading-bar-background);
-                display: inline-block;
-                box-sizing: border-box;
-                position: absolute;
-                width: 100%;
-                height: 100%;
-                animation: secondaryScale 2s infinite linear;
-            }
-            page-loading resource-counter,
-            page-loading resource-total{
-                display: inline-block;
-            }
-            page-loading span.-slash{
-                font-size:0.75rem;
-                display:inline-block;
-                margin:0 0.25rem;
-                transform:translateY(-2px);
-            }
-            @keyframes primaryBar{
-                0%{
-                    transform: translateX(0);
-                }
-                20%{
-                    transform: translateX(0);
-                    animation-timing-function: cubic-bezier(.5,0,.70173,.49582);
-                }
-                59%{
-                    transform: translateX(83.67142%);
-                    animation-timing-function: cubic-bezier(.30244,.38135,.55,.95635);
-                }
-                100%{
-                    transform: translateX(200.61106%);
-                }
-            }
-            @keyframes secondaryBar{
-                0%{
-                    transform: translateX(0);
-                    animation-timing-function: cubic-bezier(.15,0,.51506,.40969);
-                }
-                25%{
-                    animation-timing-function: cubic-bezier(.31033,.28406,.8,.73371);
-                    transform: translateX(37.65191%);
-                }
-                48.35%{
-                    animation-timing-function: cubic-bezier(.4,.62704,.6,.90203);
-                    transform: translateX(84.38617%);
-                }
-                100%{
-                    transform: translateX(160.27778%);
-                }
-            }
-            @keyframes primaryScale{
-                0%{
-                    transform: scaleX(.08);
-                }
-                36%{
-                    animation-timing-function: cubic-bezier(.33473,.12482,.78584,1);
-                    transform: scaleX(.08);
-                }
-                69%{
-                    animation-timing-function: cubic-bezier(.06,.11,.6,1);
-                    transform: scaleX(.66148);
-                }
-                100%{
-                    transform: scaleX(.08);
-                }
-            }
-            @keyframes secondaryScale{
-                0%{
-                    animation-timing-function: cubic-bezier(.20503,.05705,.57661,.45397);
-                    transform: scaleX(.08);
-                }
-                19%{
-                    animation-timing-function: cubic-bezier(.15231,.19643,.64837,1.00432);
-                    transform: scaleX(.4571);
-                }
-                44%{
-                    animation-timing-function: cubic-bezier(.25776,-.00316,.21176,1.38179);
-                    transform: scaleX(.72796);
-                }
-                100%{
-                    transform: scaleX(.08);
-                }
-            }
-        </style>
+        <!-- SEO -->
+        {% include "_base/seo" %}
 
 		<!-- noscript CSS -->
         <noscript>
 			<style>	
-				page-loading {
-					display: none;
-                }
-                img
-                {
-                    opacity: 1 !important;
-                }
                 #noscript-message
                 {
                     position: fixed;
@@ -276,30 +79,18 @@
                 }
             </style>
             <link rel="stylesheet" href="{{ alias('@rootUrl')|trim('/') }}/assets/noscript.css">
-            <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,500,700&display=swap">
         </noscript>
 
-        {{ craft.lightkeeper.load() }}
+        {{ craft.papertrain.css(['normalize', 'brixi', 'base']) }}
+        {% block documentHead %}{% endblock %}
 
-        <!-- Global site tag (gtag.js) - Google Analytics -->
-        <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script> -->
+        {% hook 'lightkeeper' %}
 
         <script type="module" src="{{ alias('@rootUrl')|trim('/') }}/assets/bootstrap.mjs"></script>
         <script type="text/javascript" nomodule src="{{ alias('@rootUrl')|trim('/') }}/static/scripts/ie-warning.js"></script>
-    </head>
-    <body style="width:100vw;overflow-x:hidden;display:block;">
 
-        {# Full screen loading animation #}
-        <page-loading>
-            <div>
-                <span>Loading page:</span>
-                <djinnjs-file-loading-value>0%</djinnjs-file-loading-value>
-                <page-loading-bar>
-                    <bar-one></bar-one>
-                    <bar-two></bar-two>
-                </page-loading-bar>
-            </div>
-        </page-loading>
+    </head>
+    <body>
 
         {# Infinite progress bar loading animation #}
         <soft-loading>
@@ -307,14 +98,9 @@
             <transition-bar-two></transition-bar-two>
         </soft-loading>
 
-        {# Page loading animation #}
-        <page-transition>
-            <page-transition-bar></page-transition-bar>
-        </page-transition>
-
         {% block page %}{% endblock %}
         
-        {% include "_base/connection-checker" %}
+        {% include "_components/connection-checker" %}
 
         <noscript>
             <p id="noscript-message">{{ "Parts of this website require JavaScript. Please re-enable JavaScript and reload the page. We apologize for the inconvenience."|t }}</p>

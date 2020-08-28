@@ -1,9 +1,17 @@
 {% extends "_base/base" %}
 
+{% block documentHead %}
+    {{ craft.papertrain.css(['header', 'navigation-drawer', 'page', 'buttons']) }}
+    {% block head %}{% endblock %}
+{% endblock %}
+
 {% block page %}
-    {% include "_header" %}
-    <main pjax-id="page" eager-css="normalize brixi page-transition soft-loading" style="min-height: calc(100vh - 5rem);">
+    {% if notifications.text1|length %}
+        {% include "_components/banner-notification" %}
+    {% endif %}
+    {% include "_components/header" %}
+    <main class="page" lazy-css="soft-loading" style="min-height: calc(100% - 2rem);">
         {% block content %}{% endblock %}
     </main>
-    {% include "_footer" %}
+    {% include "_components/footer" %}
 {% endblock %}

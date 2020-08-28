@@ -27,14 +27,17 @@ return [
         ],
     ],
     'modules' => [
-        'pwa-module' => [
-            'class' => \modules\pwamodule\PwaModule::class,
+        'papertrain-module' => [
+            'class' => \modules\papertrainmodule\PapertrainModule::class,
             'components' => [
-                'pwaModuleService' => [
-                    'class' => 'modules\pwamodule\services\PwaModuleService',
+                'papertrainService' => [
+                    'class' => 'modules\papertrainmodule\services\PapertrainService',
+                ],
+                'pwaService' => [
+                    'class' => 'modules\papertrainmodule\services\PWAService',
                 ],
             ],
         ],
     ],
-    'bootstrap' => ['pwa-module'],
+    'bootstrap' => ['papertrain-module'],
 ];

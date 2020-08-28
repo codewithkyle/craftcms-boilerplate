@@ -6,7 +6,13 @@
 		"target": "ES2019",
 		"module": "ESNext",
 		"lib": ["dom", "esnext"],
-		"moduleResolution": "Node"
+		"moduleResolution": "Node",
+		"baseUrl": "./templates",
+		"paths": {
+			"@controllers/*": ["_controllers/*"],
+			"@lib/*": ["_lib/*"],
+			"@models/*": ["_models/*"]
+		}
 	},
 	"include": ["templates", "web_modules"],
 	"exclude": ["vendor", "node_modules"]

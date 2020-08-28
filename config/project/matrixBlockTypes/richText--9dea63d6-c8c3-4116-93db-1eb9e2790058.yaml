@@ -3,19 +3,43 @@ fieldLayouts:
   4ce6f8b6-8ea1-46c5-92e7-7c9200277743:
     tabs:
       -
-        fields:
-          1aa2697a-4a32-496d-a3f5-f9a1e120a864:
+        elements:
+          -
+            fieldUid: 1aa2697a-4a32-496d-a3f5-f9a1e120a864
+            instructions: null
+            label: null
             required: false
-            sortOrder: 1
-          2dd47779-aae2-4d6d-b2b7-b1cf6fd6807c:
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: cc09c5f8-123f-4ecd-ac51-acc522445123
+            instructions: null
+            label: null
             required: false
-            sortOrder: 3
-          acf69f98-cbe4-4a1e-9b48-d2d213c68a4f:
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 2dd47779-aae2-4d6d-b2b7-b1cf6fd6807c
+            instructions: null
+            label: null
             required: false
-            sortOrder: 4
-          cc09c5f8-123f-4ecd-ac51-acc522445123:
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: acf69f98-cbe4-4a1e-9b48-d2d213c68a4f
+            instructions: null
+            label: null
             required: false
-            sortOrder: 2
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
         name: Content
         sortOrder: 1
 fields:
@@ -34,6 +58,7 @@ fields:
       initialRows: '4'
       multiline: ''
       placeholder: ''
+      uiMode: normal
     translationKeyFormat: null
     translationMethod: none
     type: craft\fields\PlainText
@@ -210,14 +235,19 @@ fields:
       availableVolumes: ''
       cleanupHtml: true
       columnType: text
+      configSelectionMode: choose
+      defaultTransform: ''
+      manualConfig: ''
       purifierConfig: ''
       purifyHtml: '1'
       redactorConfig: Standard.json
       removeEmptyTags: '1'
       removeInlineStyles: '1'
       removeNbsp: '1'
+      showHtmlButtonForNonAdmins: '1'
       showUnpermittedFiles: false
       showUnpermittedVolumes: false
+      uiMode: enlarged
     translationKeyFormat: null
     translationMethod: none
     type: craft\redactor\Field

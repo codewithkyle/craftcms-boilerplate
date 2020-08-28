@@ -1,5 +1,0 @@
-{% if formSettings.recaptchaPublicKey and formSettings.recaptchaPrivateKey %}
-    <recaptcha-component web-component data-public-key="{{ formSettings.recaptchaPublicKey }}" loading="eager">
-        <input type="hidden" name="recaptcha">
-    </recaptcha-component>
-{% endif %}

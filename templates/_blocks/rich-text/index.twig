@@ -1,13 +1,13 @@
 <rich-text lazy-css="rich-text buttons">
-    {% if section.heading|length %}
-        <h1>{{ section.heading }}</h1>
+    {% if data.heading|length %}
+        <h1>{{ data.heading }}</h1>
     {% endif %}
-    {% if section.copy|length %}
-        {{ section.copy }}
+    {% if data.copy|length %}
+        {{ data.copy }}
     {% endif %}
-    {% if section.callToActionButton.url|length %}
+    {% if data.callToActionButton.url|length %}
         <div class="block w-full text-left mt-1.25">
-            <a href="{{ section.callToActionButton.url }}" target="{{ section.callToActionButton.target }}" class="button {{ section.buttonStyle }} -primary">{{ section.callToActionButton.customText }}</a>
+            <a href="{{ data.callToActionButton.url }}" target="{{ data.callToActionButton.target }}" class="button {{ data.buttonStyle }} -primary">{{ data.callToActionButton.customText }}</a>
         </div>
     {% endif %}
 </rich-text>

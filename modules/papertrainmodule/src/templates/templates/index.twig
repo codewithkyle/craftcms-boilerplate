@@ -1,0 +1,39 @@
+{% extends "_layouts/cp" %}
+
+{% set title = "Templates"|t %}
+{% set templates = craft.entries({
+    section: "templates",
+    with: [
+        'templateBuilder',
+        'templateBuilder:block.block',
+        'templateBuilder:block.block.pageBuilder'
+    ]
+}).all() %}
+
+{% block content %}
+    <style>
+        .templates-container{
+            display: block;
+            width: 100%;
+        }
+        .templates-container a{
+            margin-bottom: 1rem;
+        }
+        .templates-container a:last-of-type{
+            margin-bottom: 0;
+        }
+    </style>
+    <div class="templates-container">
+        {% for template in templates %}
+            {% set query = '?b=' %}
+            {% for demoBlock in template.templateBuilder %}
+                {% if loop.first %}
+                    {% set query = query ~ demoBlock.block[0].id ~ ':' ~ demoBlock.block[0].pageBuilder[0].type|kebab %}
+                {% else %}
+                    {% set query = query ~ "&b=" ~ demoBlock.block[0].id ~ ':' ~ demoBlock.block[0].pageBuilder[0].type|kebab %}
+                {% endif %}
+            {% endfor %}
+            <a href="/{{ craft.app.config.general.cpTrigger }}/papertrain/page-builder{{ query }}" style="display: block;width: 100;">{{ template.title }}</a>
+        {% endfor %}
+    </div>
+{% endblock %}

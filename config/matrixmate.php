@@ -2,7 +2,7 @@
 
 return [
     'fields' => [
-        'contentBuilder' => [
+        'pageBuilder' => [
             '*' => [
                 'groups' => [
                     [

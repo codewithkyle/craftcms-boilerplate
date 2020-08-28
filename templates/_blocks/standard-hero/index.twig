@@ -1,42 +1,42 @@
-<standard-hero eager-css="standard-hero buttons" class="{{ section.backgroundColor }} {{ section.backgroundImage|length ? 'has-image' }}">
-    {% if section.backgroundImage|length %}
-        {% set images = craft.imager.transformImage(section.backgroundImage[0], [
-            { width: 320, height: 600, position: section.backgroundImage[0].getFocalPoint(), format: imageFormat },
-            { width: 411, height: 600, position: section.backgroundImage[0].getFocalPoint(), format: imageFormat },
-            { width: 768, ratio: 16/5, position: section.backgroundImage[0].getFocalPoint(), format: imageFormat },
-            { width: 1024, ratio: 16/5, position: section.backgroundImage[0].getFocalPoint(), format: imageFormat },
-            { width: 1280, ratio: 16/5, position: section.backgroundImage[0].getFocalPoint(), format: imageFormat },
-            { width: 1600, ratio: 16/5, position: section.backgroundImage[0].getFocalPoint(), format: imageFormat },
-            { width: 1920, ratio: 16/5, position: section.backgroundImage[0].getFocalPoint(), format: imageFormat }
+<standard-hero lazy-css="standard-hero buttons" class="{{ data.backgroundColor }} {{ data.backgroundImage|length ? 'has-image' }}">
+    {% if data.backgroundImage|length %}
+        {% set images = craft.imager.transformImage(data.backgroundImage[0], [
+            { width: 320, height: 600, position: data.backgroundImage[0].getFocalPoint(), format: imageFormat },
+            { width: 411, height: 600, position: data.backgroundImage[0].getFocalPoint(), format: imageFormat },
+            { width: 768, ratio: 16/5, position: data.backgroundImage[0].getFocalPoint(), format: imageFormat },
+            { width: 1024, ratio: 16/5, position: data.backgroundImage[0].getFocalPoint(), format: imageFormat },
+            { width: 1280, ratio: 16/5, position: data.backgroundImage[0].getFocalPoint(), format: imageFormat },
+            { width: 1600, ratio: 16/5, position: data.backgroundImage[0].getFocalPoint(), format: imageFormat },
+            { width: 1920, ratio: 16/5, position: data.backgroundImage[0].getFocalPoint(), format: imageFormat }
         ]) %}
         <img-shim>
-            <img alt="{{ section.backgroundImage[0].description }}" src="{{ images[0].url }}" srcset="{{ craft.imager.srcset(images) }}" width="320" loading="lazy" style="opacity:0;transition:opacity 300ms ease-in-out;" onload="this.style.opacity = '1';">
+            <img alt="{{ data.backgroundImage[0].description }}" src="{{ images[0].url }}" srcset="{{ craft.imager.srcset(images) }}" width="320" loading="lazy" style="opacity:0;transition:opacity 300ms ease-in-out;" onload="this.style.opacity = '1';">
         </img-shim>
     {% endif %}
     <div class="inline-block w-full max-w-laptop">
-        {% if section.heading|length %}
-            <h1>{{ section.heading }}</h1>
+        {% if data.heading|length %}
+            <h1>{{ data.heading }}</h1>
         {% endif %}
-        {% if section.copy|length %}
+        {% if data.copy|length %}
             <div class="w-full max-w-tablet block mx-auto">
-                {{ section.copy }}
+                {{ data.copy }}
             </div>
         {% endif %}
-        {% if section.callToAction.url|length or section.secondaryAction.url|length %}
+        {% if data.callToAction.url|length or data.secondaryAction.url|length %}
             <div class="block w-full text-center mt-1.5">
-                {% if section.callToAction.url|length %}
-                    <a href="{{ section.callToAction.url }}" class="button -solid -primary {{ section.backgroundColor == 'color' and not section.backgroundImage|length ? '-light' }} {{ section.backgroundImage|length ? '-raised' }} -tall -wide m-0.5 font-md">{{ section.callToAction.customText }}</a>
+                {% if data.callToAction.url|length %}
+                    <a href="{{ data.callToAction.url }}" class="button -solid -primary {{ data.backgroundColor == 'color' and not data.backgroundImage|length ? '-light' }} {{ data.backgroundImage|length ? '-raised' }} -tall -wide m-0.5 font-md">{{ data.callToAction.customText }}</a>
                 {% endif %}
-                {% if section.secondaryAction.url|length %}
+                {% if data.secondaryAction.url|length %}
                     {% set secondaryButtonClasses = '' %}
-                    {% if section.backgroundImage|length  %}
+                    {% if data.backgroundImage|length  %}
                         {% set secondaryButtonClasses = '-solid -white -raised' %}
-                    {% elseif section.backgroundColor == 'dark' %}
+                    {% elseif data.backgroundColor == 'dark' %}
                         {% set secondaryButtonClasses = '-outline -white' %}
                     {% else %}
                         {% set secondaryButtonClasses = '-outline -black' %}
                     {% endif %}
-                    <a href="{{ section.secondaryAction.url }}" class="button {{ secondaryButtonClasses }} -tall -wide m-0.5 font-md">{{ section.secondaryAction.customText }}</a>
+                    <a href="{{ data.secondaryAction.url }}" class="button {{ secondaryButtonClasses }} -tall -wide m-0.5 font-md">{{ data.secondaryAction.customText }}</a>
                 {% endif %}
             </div>
         {% endif %}

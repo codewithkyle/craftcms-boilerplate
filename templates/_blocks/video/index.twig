@@ -1,25 +1,25 @@
-{% set image = craft.imager.transformImage(section.thumbnailImage[0], [
-    { width: 100, ratio: 16/9, position: section.thumbnailImage[0].getFocalPoint(), format: imageFormat, webpQuality: 5 },
-    { width: 320, ratio: 16/9, position: section.thumbnailImage[0].getFocalPoint(), format: imageFormat },
-    { width: 425, ratio: 16/9, position: section.thumbnailImage[0].getFocalPoint(), format: imageFormat },
-    { width: 768, ratio: 16/9, position: section.thumbnailImage[0].getFocalPoint(), format: imageFormat },
-    { width: 1024, ratio: 16/9, position: section.thumbnailImage[0].getFocalPoint(), format: imageFormat }
+{% set image = craft.imager.transformImage(data.thumbnailImage[0], [
+    { width: 100, ratio: 16/9, position: data.thumbnailImage[0].getFocalPoint(), format: imageFormat, webpQuality: 5 },
+    { width: 320, ratio: 16/9, position: data.thumbnailImage[0].getFocalPoint(), format: imageFormat },
+    { width: 425, ratio: 16/9, position: data.thumbnailImage[0].getFocalPoint(), format: imageFormat },
+    { width: 768, ratio: 16/9, position: data.thumbnailImage[0].getFocalPoint(), format: imageFormat },
+    { width: 1024, ratio: 16/9, position: data.thumbnailImage[0].getFocalPoint(), format: imageFormat }
 ]) %}
 
-<lazy-video lazy-css="lazy-video loading-spinner" web-component data-video-id="{{ section.videoId }}" data-platform="{{ section.source }}" required-connection="3g" removable>
-    {% if section.heading|length %}
-        <h1>{{ section.heading }}</h1>
+<lazy-video lazy-css="lazy-video loading-spinner" web-component data-video-id="{{ data.videoId }}" data-platform="{{ data.source }}" required-connection="3g" removable>
+    {% if data.heading|length %}
+        <h1>{{ data.heading }}</h1>
     {% endif %}
-    {% if section.copy|length %}
+    {% if data.copy|length %}
         <div class="block max-w-full mx-auto" style="width:640px;">
-            {{ section.copy }}
+            {{ data.copy }}
         </div>
     {% endif %}
     <video-shim class="js-container">
         <img 
             src="{{ image[0].url }}" 
             srcset="{{ craft.imager.srcset(image) }}" 
-            alt="{{ section.thumbnailImage[0].description }}" 
+            alt="{{ data.thumbnailImage[0].description }}" 
             loading="lazy" 
             width="100"
             style="opacity:0;transition: opacity 300ms ease-out;"

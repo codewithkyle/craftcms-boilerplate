@@ -1,14 +1,14 @@
 <call-to-action-cards lazy-css="call-to-action-cards">
-    {% if section.heading|length %}
-        <h1>{{ section.heading }}</h1>
+    {% if data.heading|length %}
+        <h1>{{ data.heading }}</h1>
     {% endif %}
-    {% if section.copy|length %}
+    {% if data.copy|length %}
         <div class="block max-w-full mx-auto" style="width:640px;">
-            {{ section.copy }}
+            {{ data.copy }}
         </div>
     {% endif %}
     <card-container>
-        {% for card in section.cards.all() %}
+        {% for card in data.cards.all() %}
             {% set image = card.image[0] ?? null %}
             <a href="{{ card.customLink.url }}" class="cta-card {{ image ? 'has-image' }}">
                 {% if image %}

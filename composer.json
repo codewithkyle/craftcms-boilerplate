@@ -18,7 +18,7 @@
 	},
 	"autoload": {
 		"psr-4": {
-			"modules\\pwamodule\\": "modules/pwamodule/src/"
+			"modules\\papertrainmodule\\": "modules/papertrainmodule/src/"
 		}
 	},
 	"config": {

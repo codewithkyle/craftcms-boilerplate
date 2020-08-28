@@ -3,13 +3,25 @@ fieldLayouts:
   fc27acdc-5f3c-4c89-bf76-02e271a6b01b:
     tabs:
       -
-        fields:
-          82806a86-3ff5-404a-bc1b-9819ca09c888:
+        elements:
+          -
+            fieldUid: 82806a86-3ff5-404a-bc1b-9819ca09c888
+            instructions: null
+            label: null
             required: true
-            sortOrder: 1
-          de741c47-e0f4-402f-a0ed-f50a3c59dff3:
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: de741c47-e0f4-402f-a0ed-f50a3c59dff3
+            instructions: null
+            label: null
             required: false
-            sortOrder: 2
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
         name: Content
         sortOrder: 1
 fields:
@@ -58,10 +70,11 @@ fields:
                 -
                   - width
                   - ''
-      contentTable: '{{%stc_10_slides}}'
+      contentTable: '{{%stc_13_slides}}'
       fieldLayout: row
       maxRows: '3'
       minRows: '1'
+      placeholderKey: null
       propagationMethod: all
       selectionLabel: 'Add a Slide'
       staticField: ''
@@ -76,7 +89,9 @@ fields:
     name: 'Automatic Transition'
     searchable: false
     settings:
-      default: ''
+      default: false
+      offLabel: null
+      onLabel: null
     translationKeyFormat: null
     translationMethod: none
     type: craft\fields\Lightswitch

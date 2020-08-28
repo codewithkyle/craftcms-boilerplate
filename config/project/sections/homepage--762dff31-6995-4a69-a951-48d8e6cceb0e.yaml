@@ -6,6 +6,6 @@ siteSettings:
   8d2ceaf6-270f-4376-a57e-b67d74fe3518:
     enabledByDefault: true
     hasUrls: true
-    template: _pages/index
+    template: _sections/standard-page/index
     uriFormat: __home__
 type: single

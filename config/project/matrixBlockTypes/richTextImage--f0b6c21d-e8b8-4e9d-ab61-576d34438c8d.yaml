@@ -3,28 +3,70 @@ fieldLayouts:
   9ee42bdc-62f8-44e9-91e6-e4624a55f525:
     tabs:
       -
-        fields:
-          6d1ccaa5-5f84-4a09-8f06-707a41d34f06:
+        elements:
+          -
+            fieldUid: 6fb5d678-58a6-480b-b57c-10829b8019ae
+            instructions: null
+            label: null
             required: false
-            sortOrder: 4
-          6fb5d678-58a6-480b-b57c-10829b8019ae:
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: b4c68c10-3cb4-442b-895f-49616e457330
+            instructions: null
+            label: null
             required: false
-            sortOrder: 1
-          73f77785-3998-4816-9988-2001e0f915f5:
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: e3b6e2c5-1cfe-4c35-bdd7-66b90b43a7f6
+            instructions: null
+            label: null
             required: false
-            sortOrder: 5
-          7a91d99a-0526-440a-af03-851dfe8870a0:
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 6d1ccaa5-5f84-4a09-8f06-707a41d34f06
+            instructions: null
+            label: null
             required: false
-            sortOrder: 7
-          b4c68c10-3cb4-442b-895f-49616e457330:
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 73f77785-3998-4816-9988-2001e0f915f5
+            instructions: null
+            label: null
             required: false
-            sortOrder: 2
-          d9ea6ae0-be14-4df0-a59f-b9dd21844f74:
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: d9ea6ae0-be14-4df0-a59f-b9dd21844f74
+            instructions: null
+            label: null
             required: true
-            sortOrder: 6
-          e3b6e2c5-1cfe-4c35-bdd7-66b90b43a7f6:
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 7a91d99a-0526-440a-af03-851dfe8870a0
+            instructions: null
+            label: null
             required: false
-            sortOrder: 3
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
         name: Content
         sortOrder: 1
 fields:
@@ -158,6 +200,7 @@ fields:
       initialRows: '4'
       multiline: ''
       placeholder: ''
+      uiMode: normal
     translationKeyFormat: null
     translationMethod: none
     type: craft\fields\PlainText
@@ -254,14 +297,19 @@ fields:
       availableVolumes: ''
       cleanupHtml: true
       columnType: text
+      configSelectionMode: choose
+      defaultTransform: ''
+      manualConfig: ''
       purifierConfig: ''
       purifyHtml: '1'
       redactorConfig: Standard.json
       removeEmptyTags: '1'
       removeInlineStyles: '1'
       removeNbsp: '1'
+      showHtmlButtonForNonAdmins: '1'
       showUnpermittedFiles: false
       showUnpermittedVolumes: false
+      uiMode: enlarged
     translationKeyFormat: null
     translationMethod: none
     type: craft\redactor\Field
@@ -273,7 +321,7 @@ fields:
     name: Image
     searchable: false
     settings:
-      allowSelfRelations: ''
+      allowSelfRelations: false
       allowedKinds: null
       defaultUploadLocationSource: 'volume:8b0fd7f7-2623-4a21-a578-698d8c0aef75'
       defaultUploadLocationSubpath: ''
@@ -281,6 +329,7 @@ fields:
       localizeRelations: false
       restrictFiles: ''
       selectionLabel: 'Add an Image'
+      showSiteMenu: true
       showUnpermittedFiles: false
       showUnpermittedVolumes: false
       singleUploadLocationSource: 'volume:8b0fd7f7-2623-4a21-a578-698d8c0aef75'
@@ -289,7 +338,7 @@ fields:
       sources: '*'
       targetSiteId: null
       useSingleFolder: true
-      validateRelatedElements: '1'
+      validateRelatedElements: true
       viewMode: large
     translationKeyFormat: null
     translationMethod: site
