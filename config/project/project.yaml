@@ -1,4 +1,4 @@
-dateModified: 1597676278
+dateModified: 1598616373
 email:
   fromEmail: $SYSTEM_EMAIL
   fromName: $SENDER_NAME
@@ -30,6 +30,10 @@ plugins:
     edition: standard
     enabled: true
     schemaVersion: 0.1.0
+  formie:
+    edition: standard
+    enabled: true
+    schemaVersion: 1.0.7
   imager:
     edition: standard
     enabled: true
@@ -38,6 +42,20 @@ plugins:
     edition: standard
     enabled: true
     schemaVersion: 1.0.0
+    settings:
+      advancedSettings: false
+      anonymous: false
+      clsThreshold: 0.1
+      compact: '1'
+      developerEmail: null
+      fcpThreshold: 2000
+      fidThreshold: 100
+      lcpThreshold: 2500
+      minimumAccessibility: '100'
+      minimumBestPractices: '100'
+      minimumPerformance: '90'
+      minimumSeo: '100'
+      ttfbThreshold: 600
   matrixmate:
     edition: standard
     enabled: true
@@ -70,7 +88,7 @@ system:
   edition: pro
   live: true
   name: $SYSTEM_NAME
-  schemaVersion: 3.5.12
+  schemaVersion: 3.5.13
   timeZone: America/Los_Angeles
 users:
   allowPublicRegistration: false

@@ -6,8 +6,8 @@ name: 'No Index'
 searchable: false
 settings:
   default: false
-  offLabel: 'Page visible in search results'
-  onLabel: 'Page hidden from search results'
+  offLabel: null
+  onLabel: null
 translationKeyFormat: null
 translationMethod: none
 type: craft\fields\Lightswitch

@@ -6,8 +6,8 @@ name: 'No Follow'
 searchable: false
 settings:
   default: false
-  offLabel: 'Bots can crawl the page'
-  onLabel: 'Bots will not crawl the page'
+  offLabel: null
+  onLabel: null
 translationKeyFormat: null
 translationMethod: none
 type: craft\fields\Lightswitch

@@ -6,8 +6,8 @@ name: 'No Snippet'
 searchable: false
 settings:
   default: false
-  offLabel: 'Search result snippets are allowed'
-  onLabel: 'Search result snippet will not appear'
+  offLabel: null
+  onLabel: null
 translationKeyFormat: null
 translationMethod: none
 type: craft\fields\Lightswitch
