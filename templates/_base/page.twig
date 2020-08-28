@@ -7,11 +7,11 @@
 
 {% block page %}
     {% if notifications.text1|length %}
-        {% include "_components/banner-notification" %}
+        {% include "_page-components/banner-notification" %}
     {% endif %}
-    {% include "_components/header" %}
+    {% include "_page-components/header" %}
     <main class="page" lazy-css="soft-loading" style="min-height: calc(100% - 2rem);">
         {% block content %}{% endblock %}
     </main>
-    {% include "_components/footer" %}
+    {% include "_page-components/footer" %}
 {% endblock %}
