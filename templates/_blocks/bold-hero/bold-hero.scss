@@ -3,7 +3,9 @@ bold-hero{
     min-height: 600px;
     position: relative;
     padding: 0 2rem;
-    display: block;
+    display: flex;
+    align-items: center;
+    flex-flow: row nowrap;
 
     @media (min-width: 1024px){
         padding: 0 1rem;

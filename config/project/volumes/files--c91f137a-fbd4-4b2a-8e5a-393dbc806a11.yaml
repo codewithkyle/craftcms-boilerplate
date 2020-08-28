@@ -1,5 +1,5 @@
 fieldLayouts:
-  acae1f98-968a-47e4-9474-9929da0d5d16:
+  9584b208-a6ed-4062-9377-d694b57c70b9:
     tabs:
       -
         elements:
@@ -27,22 +27,13 @@ fieldLayouts:
             type: craft\fieldlayoutelements\TitleField
             warning: null
             width: 100
-          -
-            fieldUid: e3ddae84-8d6f-4b5c-b636-2eaaddaa0a0f
-            instructions: null
-            label: null
-            required: '1'
-            tip: null
-            type: craft\fieldlayoutelements\CustomField
-            warning: null
-            width: 100
-        name: 'Meta Data'
+        name: Content
         sortOrder: 1
-handle: images
+handle: files
 hasUrls: true
-name: Images
+name: Files
 settings:
-  path: '@webroot/uploads/images'
-sortOrder: 1
+  path: '@webroot/uploads/files'
+sortOrder: 2
 type: craft\volumes\Local
-url: '@web/uploads/images'
+url: '@web/uploads/files'

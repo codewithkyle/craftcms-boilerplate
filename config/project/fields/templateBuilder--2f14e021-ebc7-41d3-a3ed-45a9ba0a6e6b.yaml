@@ -1,13 +1,13 @@
 contentColumnType: string
 fieldGroup: 1f065b26-61c0-43d3-b24b-c350e672ae18
-handle: pageBuilder
+handle: templateBuilder
 instructions: ''
-name: 'Content Builder'
-searchable: true
+name: 'Template Builder'
+searchable: false
 settings:
-  contentTable: '{{%matrixcontent_pagebuilder}}'
+  contentTable: '{{%matrixcontent_templatebuilder}}'
   maxBlocks: ''
-  minBlocks: '1'
+  minBlocks: ''
   propagationMethod: all
 translationKeyFormat: null
 translationMethod: site

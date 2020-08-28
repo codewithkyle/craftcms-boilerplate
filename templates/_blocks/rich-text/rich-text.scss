@@ -5,15 +5,40 @@ rich-text{
     margin: 0 auto;
     padding: 0 1rem;
 
-    h1{
-        display: block;
-        width: 100%;
-        text-align: left;
-        font-size: var(--font-3xl);
-        font-weight: var(--font-medium);
-        color: var(--grey-800);
-        line-height: 1.375;
-    }
+    h1,
+	h2,
+	h3,
+	h4,
+	h5,
+	h6 {
+		display: block;
+		line-height: 1.375;
+		margin-bottom: 1.5rem;
+	}
+
+	h1 {
+		font-size: var(--font-3xl);
+	}
+
+	h2 {
+		font-size: var(--font-2xl);
+	}
+
+	h3 {
+		font-size: var(--font-xl);
+	}
+
+	h4 {
+		font-size: var(--font-lg);
+	}
+
+	h5 {
+		font-size: var(--font-md);
+	}
+
+	h6 {
+		font-weight: var(--font-base);
+	}
 
     p,
     li{

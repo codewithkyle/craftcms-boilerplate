@@ -5,15 +5,6 @@ fieldLayouts:
       -
         elements:
           -
-            fieldUid: 1aa2697a-4a32-496d-a3f5-f9a1e120a864
-            instructions: null
-            label: null
-            required: false
-            tip: null
-            type: craft\fieldlayoutelements\CustomField
-            warning: null
-            width: 100
-          -
             fieldUid: cc09c5f8-123f-4ecd-ac51-acc522445123
             instructions: null
             label: null
@@ -43,25 +34,6 @@ fieldLayouts:
         name: Content
         sortOrder: 1
 fields:
-  1aa2697a-4a32-496d-a3f5-f9a1e120a864:
-    contentColumnType: text
-    fieldGroup: null
-    handle: heading
-    instructions: ''
-    name: Heading
-    searchable: true
-    settings:
-      byteLimit: null
-      charLimit: null
-      code: ''
-      columnType: null
-      initialRows: '4'
-      multiline: ''
-      placeholder: ''
-      uiMode: normal
-    translationKeyFormat: null
-    translationMethod: none
-    type: craft\fields\PlainText
   2dd47779-aae2-4d6d-b2b7-b1cf6fd6807c:
     contentColumnType: text
     fieldGroup: null

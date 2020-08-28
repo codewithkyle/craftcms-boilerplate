@@ -1,5 +1,5 @@
 fieldLayouts:
-  acae1f98-968a-47e4-9474-9929da0d5d16:
+  d74eb676-257e-4691-b2a3-c97748f61e25:
     tabs:
       -
         elements:
@@ -24,25 +24,25 @@ fieldLayouts:
             step: null
             tip: null
             title: null
-            type: craft\fieldlayoutelements\TitleField
+            type: craft\fieldlayoutelements\EntryTitleField
             warning: null
             width: 100
           -
-            fieldUid: e3ddae84-8d6f-4b5c-b636-2eaaddaa0a0f
-            instructions: null
-            label: null
+            fieldUid: 2f14e021-ebc7-41d3-a3ed-45a9ba0a6e6b
+            instructions: ''
+            label: ''
             required: '1'
             tip: null
             type: craft\fieldlayoutelements\CustomField
             warning: null
             width: 100
-        name: 'Meta Data'
+        name: Content
         sortOrder: 1
-handle: images
-hasUrls: true
-name: Images
-settings:
-  path: '@webroot/uploads/images'
+handle: templates
+hasTitleField: true
+name: Template
+section: ce1ce4c6-f8fa-446d-acc4-04fca4ead755
 sortOrder: 1
-type: craft\volumes\Local
-url: '@web/uploads/images'
+titleFormat: null
+titleTranslationKeyFormat: null
+titleTranslationMethod: site

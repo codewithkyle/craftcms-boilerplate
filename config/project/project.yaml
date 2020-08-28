@@ -1,4 +1,4 @@
-dateModified: 1598619539
+dateModified: 1598621766
 email:
   fromEmail: $SYSTEM_EMAIL
   fromName: $SENDER_NAME
@@ -90,9 +90,3 @@ system:
   name: $SYSTEM_NAME
   schemaVersion: 3.5.13
   timeZone: America/Los_Angeles
-users:
-  allowPublicRegistration: false
-  defaultGroup: null
-  photoSubpath: ''
-  photoVolumeUid: null
-  requireEmailVerification: true
