@@ -10,7 +10,7 @@
         {% include "_page-components/banner-notification" %}
     {% endif %}
     {% include "_page-components/header" %}
-    <main class="page" lazy-css="soft-loading" style="min-height: calc(100% - 2rem);">
+    <main pjax-id="main" class="page" lazy-css="soft-loading" style="min-height: calc(100% - 2rem);">
         {% block content %}{% endblock %}
     </main>
     {% include "_page-components/footer" %}
