@@ -1,14 +1,18 @@
 # Craft CMS Boilerplate
 
-A Craft CMS boilerplate utilizing JIT resource fetching, offline first content strategy, context-specific progressive enhancements, and Pjax navigation. The goal of this boilerplate is to provide the developers with a sturdy foundation to build upon, the client an accessible and high performant website, and the content editors a simple and rich experience.
+A Craft CMS boilerplate utilizing JIT resource fetching, offline first content strategy, context-specific progressive enhancements, and Pjax navigation. The goal of this boilerplate is to provide developers with a sturdy foundation to build upon, the client an accessible and high performant website, and the content editors a simple and rich experience.
 
-> **NOTICE:** This is an opinionated system. It is built around the idea that one matrix field can be used to create a dynamic page builder. It uses [Matrix Mate](https://plugins.craftcms.com/matrixmate) and the [Smith](https://plugins.craftcms.com/smith) plugins to provide an organized and customized content editing experience. Designs should be split into blocks and added to the content matrix field. When blocks become too complicated split them into several smaller/simpler blocks.
+> **NOTICE:** This is an opinionated system. It is built around the idea that one matrix field can be used to create a dynamic page builder. It uses [Matrix Mate](https://plugins.craftcms.com/matrixmate) and the [Smith](https://plugins.craftcms.com/smith) plugins to provide an organized and customized content editing experience. Designs should be split into blocks and added to the content matrix field. When blocks become too complicated they should be split into several smaller, simpler blocks.
 
 ## Key Beliefs
 
--   Follow the KISS principle (keep it stupid simple)
--   Design/blocks should be deliberate and opinionated
--   Observe [Hicks Law](https://lawsofux.com/hicks-law) when creating blocks
+-   blocks should follow the KISS principle (keep it stupid simple)
+    -   use Matrix Mate to group fields within a block
+    -   use Matrix Mate to group blocks into intuitive categories
+-   blocks should be opinionated
+-   [Hicks Law](https://lawsofux.com/hicks-law) will be observed when creating blocks
+-   a website is a living project - as a clients needs change blocks should be added
+-   leverage the benefits of [modular programming](https://en.wikipedia.org/wiki/Modular_programming)
 
 ## Getting Started
 
