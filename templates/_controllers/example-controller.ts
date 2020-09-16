@@ -1,4 +1,4 @@
-import type { example } from "@models/example";
+import type { example } from "types/example";
 
 class ExampleController {
 	private example: example;
