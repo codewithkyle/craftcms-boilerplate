@@ -1,4 +1,4 @@
-import { hookup, reply, disconnect } from "djinnjs/broadcaster";
+import { hookup, reply, disconnect } from "wwibs";
 
 class ConnectionChecker extends HTMLElement {
 	private liteButton: HTMLButtonElement;

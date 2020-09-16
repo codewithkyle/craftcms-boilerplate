@@ -1,4 +1,4 @@
-import { message } from "djinnjs/broadcaster";
+import { message } from "wwibs";
 
 class NavigationBackdrop extends HTMLElement {
 	private handleClick: EventListener = () => {

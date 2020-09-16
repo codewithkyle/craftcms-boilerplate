@@ -6,13 +6,14 @@ A Craft CMS boilerplate utilizing JIT resource fetching, offline first content s
 
 ## Key Beliefs
 
--   blocks should follow the KISS principle (keep it stupid simple)
-    -   use Matrix Mate to group fields within a block
-    -   use Matrix Mate to group blocks into intuitive categories
--   blocks should be opinionated
--   [Hicks Law](https://lawsofux.com/hicks-law) will be observed when creating blocks
--   a website is a living project - as a clients needs change blocks should be added
--   leverage the benefits of [modular programming](https://en.wikipedia.org/wiki/Modular_programming)
+-   Blocks should follow the KISS principle (keep it stupid simple).
+    -   Use Matrix Mate to group fields within a block.
+    -   Use Matrix Mate to group blocks into intuitive categories.
+-   Blocks should be opinionated.
+-   [Hicks Law](https://lawsofux.com/hicks-law) will be observed when creating blocks.
+-   A website is a living project and as a clients needs change blocks should be added.
+-   Leverage the benefits of [modular programming](https://en.wikipedia.org/wiki/Modular_programming).
+-   Resources should only be loaded when they are needed. Read the [JINT Methodology](https://jintmethod.dev/) for additional information about JIT resource management concept.
 
 ## Getting Started
 
@@ -34,9 +35,9 @@ Open the generated `.env` file and input your environment details.
 
 This boilerplate uses a handful of custom build tools. Feel free to uninstall them and write your own.
 
--   [DjinnJS](https://djinnjs.com/) is an ES Module based JavaScript framework.
+-   [DjinnJS](https://djinnjs.com/) is an ES Module based JavaScript framework for working with Web Components.
 -   [CSSMonster](https://github.com/codewithkyle/cssmonster) transpiles [SASS](https://sass-lang.com/) into CSS using [node-sass](https://github.com/sass/node-sass).
--   [Brixi](https://github.com/codewithkyle/brixi) is a CSS variable based utility framework.
+-   [Brixi](https://github.com/codewithkyle/brixi) is a CSS variable based CSS utility framework.
 -   [Snowpack](https://www.snowpack.dev/) bundles NPM packages into ES Modules.
 
 ### Commands
@@ -85,3 +86,11 @@ The organization of code is restricted as a measure of preventing breaking chang
 **So why not just test the pages?**
 
 As sites grow it can be difficult and time-consuming to test every page and every possible combination of every page. It's much easier and faster to update a few `{% include %}` tags to point to a new location.
+
+### Code Architecture
+
+This boilerplate is build around the [model-view-viewmodel-controller software architecture pattern](https://mvvmc.jintmethod.dev/). For your convenience several custom import paths have been defined in the `tsconfig.json` file.
+
+1. Web Components can globally access controllers using the `controllers/` import.
+1. Web Components can globally access 3rd party JavaScript libraries using the `lib/` import.
+1. Web Components and Web Workers can globally access TypeScript definition files using the `types/` import.

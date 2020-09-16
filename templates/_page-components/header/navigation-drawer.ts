@@ -1,4 +1,4 @@
-import { hookup, message } from "djinnjs/broadcaster";
+import { hookup, message } from "wwibs";
 
 type NavigationDrawerState = {
 	open: boolean;
