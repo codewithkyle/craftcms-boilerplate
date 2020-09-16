@@ -8,7 +8,7 @@ class ConnectionChecker extends HTMLElement {
 
 	constructor() {
 		super();
-		this.inbox = hookup("user-input", this.inbox.bind(this));
+		this.inboxUid = hookup("user-input", this.inbox.bind(this));
 		this.liteButton = this.querySelector(".js-lite");
 		this.fullButton = this.querySelector(".js-full");
 	}
