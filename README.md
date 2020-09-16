@@ -89,7 +89,7 @@ As sites grow it can be difficult and time-consuming to test every page and ever
 
 ### Code Architecture
 
-This boilerplate is build around the [model-view-viewmodel-controller software architecture pattern](https://mvvmc.jintmethod.dev/). For your convenience several custom import paths have been defined in the `tsconfig.json` file.
+This boilerplate is build around the [model-view-viewmodel-controller software architecture pattern](https://mvvmc.jintmethod.dev/). For your convenience several custom import paths have been predefined in the `tsconfig.json` file.
 
 1. Web Components can globally access controllers using the `controllers/` import.
 1. Web Components can globally access 3rd party JavaScript libraries using the `lib/` import.
