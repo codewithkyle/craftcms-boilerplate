@@ -9,9 +9,9 @@
 		"moduleResolution": "Node",
 		"baseUrl": "./templates",
 		"paths": {
-			"@controllers/*": ["_controllers/*"],
-			"@lib/*": ["_lib/*"],
-			"@models/*": ["_models/*"]
+			"controllers/*": ["_controllers/*"],
+			"lib/*": ["_lib/*"],
+			"types/*": ["_types/*"]
 		}
 	},
 	"include": ["templates", "web_modules"],
