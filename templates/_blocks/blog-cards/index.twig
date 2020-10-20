@@ -12,11 +12,11 @@
             {% set image = card.singleImage1[0] ?? null %}
             <a href="{{ card.url }}" class="blog-card {{ image ? 'has-image' }}">
                 {% if image %}
-                    {% set transformedImage = craft.imager.transformImage(image, { width: 360, ratio: 4/3, position: image.getFocalPoint(), format: imageFormat }) %}
+                    {% set transformedImage = craft.jitter.transformImage(image, { w: 360, ar: "4:3" }) %}
                     <img-shim>
                         <img 
                             draggable="false"
-                            src="{{ transformedImage.url }}" 
+                            src="{{ transformedImage }}" 
                             alt="{{ image.description }}" 
                             loading="lazy" 
                             width="360" 

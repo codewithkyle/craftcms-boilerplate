@@ -2,10 +2,10 @@
 <pull-quote-block lazy-css="pull-quote-block">
     <pull-quote>
         {% if image %}
-            {% set transformedImage = craft.imager.transformImage(image, { width: 250, ratio: 1/1, position: image.getFocalPoint(), format: imageFormat }) %}
+            {% set transformedImage = craft.jitter.transformImage(image, { w: 250, ar: "1:1" }) %}
             <img-shim>
                 <img 
-                    src="{{ transformedImage.url }}" 
+                    src="{{ transformedImage }}" 
                     alt="{{ image.description }}" 
                     loading="lazy" 
                     width="250" 

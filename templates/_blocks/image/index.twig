@@ -1,15 +1,17 @@
-{% set image = craft.imager.transformImage(data.image[0], [
-    { width: 320, ratio: 16/9, position: data.image[0].getFocalPoint(), format: imageFormat },
-    { width: 425, ratio: 16/9, position: data.image[0].getFocalPoint(), format: imageFormat },
-    { width: 768, ratio: 16/9, position: data.image[0].getFocalPoint(), format: imageFormat },
-    { width: 1024, ratio: 16/9, position: data.image[0].getFocalPoint(), format: imageFormat }
+{% set transformedImage = craft.jitter.transformImage(image, { w: 320, ar: "16:9" }) %}
+
+{% set image = craft.jitter.srcset(data.image[0], [
+    { w: 320, ar: "16:9" },
+    { w: 425, ar: "16:9" },
+    { w: 768, ar: "16:9" },
+    { w: 1024, ar: "16:9" }
 ]) %}
 
 <section class="block w-full">
     <lazy-image lazy-css="lazy-image">
         <img 
-            src="{{ image[0].url }}" 
-            srcset="{{ craft.imager.srcset(image) }}" 
+            src="{{ transformedImage }}" 
+            srcset="{{ image }}" 
             alt="{{ data.image[0].description }}" 
             loading="lazy" 
             width="320"

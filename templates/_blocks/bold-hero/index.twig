@@ -13,13 +13,14 @@
             <a href="{{ data.secondaryAction.url }}" class="button -tall -wide -solid -primary -light mt-1 font-md">{{ data.secondaryAction.customText }}</a>
         {% endif %}
     </copy-wrapper>
-    {% set images = craft.imager.transformImage(data.image[0], [
-        { width: 320, height: 600, position: data.image[0].getFocalPoint(), format: imageFormat },
-        { width: 384, height: 600, position: data.image[0].getFocalPoint(), format: imageFormat },
-        { width: 640, height: 600, position: data.image[0].getFocalPoint(), format: imageFormat },
-        { width: 960, height: 600, position: data.image[0].getFocalPoint(), format: imageFormat },
+    {% set transformedImage = craft.jitter.transformImage(image, { w: 360, h: 600 }) %}
+    {% set images = craft.jitter.srcset(data.image[0], [
+        { w: 320, h: 600 },
+        { w: 384, h: 600 },
+        { w: 640, h: 600 },
+        { w: 960, h: 600 },
     ]) %}
     <img-shim>
-        <img alt="{{ data.image[0].description }}" src="{{ images[0].url }}" srcset="{{ craft.imager.srcset(images) }}" width="320" loading="lazy" style="opacity:0;transition:opacity 300ms ease-in-out;" onload="this.style.opacity = '1';">
+        <img alt="{{ data.image[0].description }}" src="{{ transformedImage }}" srcset="{{ images }}" width="320" loading="lazy" style="opacity:0;transition:opacity 300ms ease-in-out;" onload="this.style.opacity = '1';">
     </img-shim>
 </bold-hero>

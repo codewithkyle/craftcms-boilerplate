@@ -1,28 +1,26 @@
 {% set image = data.image[0] ?? null %}
 {% if image %}
     {% if image.width > 320 and image.width <= 520 %}
-        {% set transformedImages = craft.imager.transformImage(image, 
+        {% set transformedImages = craft.jitter.srcset(image, 
             [
-                { width: 320, mode: 'fit', format: imageFormat, position: image.getFocalPoint() },
-                { width: image.width, mode: 'fit', format: imageFormat, position: image.getFocalPoint() },
+                { w: 320, m: 'fit' },
+                { w: image.width, m: 'fit' },
             ])
         %}
     {% elseif image.width > 520 %}
-        {% set transformedImages = craft.imager.transformImage(image, 
+        {% set transformedImages = craft.jitter.srcset(image, 
             [
-                { width: 320, mode: 'fit', format: imageFormat, position: image.getFocalPoint() },
-                { width: 520, mode: 'fit', format: imageFormat, position: image.getFocalPoint() },
+                { w: 320, m: 'fit' },
+                { w: 520, m: 'fit' },
             ])
         %}
     {% else %}
-        {% set transformedImages = craft.imager.transformImage(image, [
-            { format: imageFormat, position: image.getFocalPoint() }
-        ]) %}
+        {% set transformedImages = craft.jitter.srcset(image) %}
     {% endif %}
     <rich-text-image-block lazy-css="rich-text-image-block buttons">
         {% if data.imagePosition == 'left' %}
             <img-shim>
-                <img src="{{ transformedImages[0].url }}" alt="{{ image.description }}" loading="lazy" width="320" srcset="{{ craft.imager.srcset(transformedImages) }}" />
+                <img alt="{{ image.description }}" loading="lazy" width="320" srcset="{{ transformedImages }}" />
             </img-shim>
         {% endif %}
         <content-wrapper style="margin:{{ data.verticalAlignment }};">
@@ -37,7 +35,7 @@
         </content-wrapper>
         {% if data.imagePosition == 'right' %}
             <img-shim>
-                <img src="{{ transformedImages[0].url }}" alt="{{ image.description }}" loading="lazy" width="320" srcset="{{ craft.imager.srcset(transformedImages) }}" />
+                <img alt="{{ image.description }}" loading="lazy" width="320" srcset="{{ transformedImages }}" />
             </img-shim>
         {% endif %}
     </rich-text-image-block>

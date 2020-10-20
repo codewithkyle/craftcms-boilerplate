@@ -2,16 +2,17 @@
 <carousel-hero lazy-css="carousel-hero buttons" web-component>
     {% for slide in slides %}
         <carousel-slide class="{{ (loop.first) ? 'is-active' : '' }}">
-            {% set images = craft.imager.transformImage(slide.backgroundImage[0], [
-                { width: 320, height: 600, position: slide.backgroundImage[0].getFocalPoint(), format: imageFormat },
-                { width: 411, height: 600, position: slide.backgroundImage[0].getFocalPoint(), format: imageFormat },
-                { width: 768, ratio: 16/9, position: slide.backgroundImage[0].getFocalPoint(), format: imageFormat },
-                { width: 1024, ratio: 16/9, position: slide.backgroundImage[0].getFocalPoint(), format: imageFormat },
-                { width: 1280, ratio: 16/9, position: slide.backgroundImage[0].getFocalPoint(), format: imageFormat },
-                { width: 1600, ratio: 16/9, position: slide.backgroundImage[0].getFocalPoint(), format: imageFormat },
-                { width: 1920, ratio: 16/9, position: slide.backgroundImage[0].getFocalPoint(), format: imageFormat }
+            {% set transformedImage = craft.jitter.transformImage(image, { w: 320, h: 600 }) %}
+            {% set images = craft.jitter.srcset(slide.backgroundImage[0], [
+                { w: 320, h: 600 },
+                { w: 411, h: 600 },
+                { w: 768, ar: "16:9" },
+                { w: 1024, ar: "16:9" },
+                { w: 1280, ar: "16:9" },
+                { w: 1600, ar: "16:9" },
+                { w: 1920, ar: "16:9" }
             ]) %}
-            <img alt="{{ slide.backgroundImage[0].description }}" src="{{ images[0].url }}" srcset="{{ craft.imager.srcset(images) }}" width="320" loading="lazy" style="opacity:0;transition:opacity 300ms ease-in-out;" onload="this.style.opacity = '1';">
+            <img alt="{{ slide.backgroundImage[0].description }}" src="{{ transformedImage }}" srcset="{{ images }}" width="320" loading="lazy" style="opacity:0;transition:opacity 300ms ease-in-out;" onload="this.style.opacity = '1';">
             {% if slide.heading|length or slide.copy|length %}
                 <content-shim>
                     <div>

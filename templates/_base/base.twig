@@ -32,14 +32,6 @@
     {% endif %}
 {% endif %}
 
-{% if craft.imager.serverSupportsWebp() and craft.imager.clientSupportsWebp() %}
-    {% set solidFormat = 'webp' %}
-    {% set transparentFormat = 'webp' %}
-{% else %}
-    {% set solidFormat = 'jpg' %}
-    {% set transparentFormat = 'png' %}
-{% endif %}
-
 {% spaceless %}
 <!DOCTYPE html>
 <html 

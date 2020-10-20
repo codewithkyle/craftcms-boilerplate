@@ -5,19 +5,20 @@
 {% endif %}
 <call-to-action-banner lazy-css="call-to-action-banner buttons" background="{{ backgroundColor }}">
     {% if image %}
-        {% set transformedImages = craft.imager.transformImage(image, [
-            { width: 320, ratio: 21/4, position: image.getFocalPoint(), format: imageFormat },
-            { width: 425, ratio: 21/4, position: image.getFocalPoint(), format: imageFormat },
-            { width: 768, ratio: 21/4, position: image.getFocalPoint(), format: imageFormat },
-            { width: 1024, ratio: 21/4, position: image.getFocalPoint(), format: imageFormat },
-            { width: 1280, ratio: 21/4, position: image.getFocalPoint(), format: imageFormat },
-            { width: 1600, ratio: 21/4, position: image.getFocalPoint(), format: imageFormat },
-            { width: 1920, ratio: 21/4, position: image.getFocalPoint(), format: imageFormat },
+        {% set transformedImage = craft.jitter.transformImage(image, { w: 320, ar: "21:4" }) %}
+        {% set transformedImages = craft.jitter.srcset(image, [
+            { w: 320, ar: "21/4" },
+            { w: 425, ar: "21/4" },
+            { w: 768, ar: "21/4" },
+            { w: 1024, ar: "21/4" },
+            { w: 1280, ar: "21/4" },
+            { w: 1600, ar: "21/4" },
+            { w: 1920, ar: "21/4" },
         ]) %}
         <img-shim>
             <img 
-                src="{{ transformedImages[0].url }}" 
-                srcset="{{ craft.imager.srcset(transformedImages) }}" 
+                src="{{ transformedImage }}" 
+                srcset="{{ transformedImages }}" 
                 alt="{{ image.description }}" 
                 loading="lazy" 
                 width="320"

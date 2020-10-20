@@ -1,9 +1,11 @@
-{% set image = craft.imager.transformImage(data.thumbnailImage[0], [
-    { width: 100, ratio: 16/9, position: data.thumbnailImage[0].getFocalPoint(), format: imageFormat, webpQuality: 5 },
-    { width: 320, ratio: 16/9, position: data.thumbnailImage[0].getFocalPoint(), format: imageFormat },
-    { width: 425, ratio: 16/9, position: data.thumbnailImage[0].getFocalPoint(), format: imageFormat },
-    { width: 768, ratio: 16/9, position: data.thumbnailImage[0].getFocalPoint(), format: imageFormat },
-    { width: 1024, ratio: 16/9, position: data.thumbnailImage[0].getFocalPoint(), format: imageFormat }
+{% set transformedImage = craft.jitter.transformImage(image, { w: 100, ar: "16:9", q: 5 }) %}
+
+{% set image = craft.jitter.srcset(data.thumbnailImage[0], [
+    { w: 100, ar: "16:9", q: 5 },
+    { w: 320, ar: "16:9" },
+    { w: 425, ar: "16:9" },
+    { w: 768, ar: "16:9" },
+    { w: 1024, ar: "16:9" }
 ]) %}
 
 <lazy-video lazy-css="lazy-video loading-spinner" web-component data-video-id="{{ data.videoId }}" data-platform="{{ data.source }}" required-connection="3g" removable>
@@ -17,8 +19,8 @@
     {% endif %}
     <video-shim class="js-container">
         <img 
-            src="{{ image[0].url }}" 
-            srcset="{{ craft.imager.srcset(image) }}" 
+            src="{{ transformedImage }}" 
+            srcset="{{ image }}" 
             alt="{{ data.thumbnailImage[0].description }}" 
             loading="lazy" 
             width="100"
