@@ -1,7 +1,6 @@
 {
 	"require": {
-		"aelvan/imager": "v2.4.0",
-		"codewithkyle/field-buddy": "0.1.3",
+		"codewithkyle/jitter": "1.0.1",
 		"codewithkyle/lightkeeper": "1.1.1",
 		"craftcms/cms": "3.5.13.2",
 		"craftcms/element-api": "2.6.0",

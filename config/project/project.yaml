@@ -1,4 +1,4 @@
-dateModified: 1603211153
+dateModified: 1603211240
 email:
   fromEmail: $SYSTEM_EMAIL
   fromName: $SENDER_NAME
@@ -26,18 +26,14 @@ plugins:
     edition: standard
     enabled: true
     schemaVersion: 1.0.0
-  field-buddy:
-    edition: standard
-    enabled: true
-    schemaVersion: 0.1.0
   formie:
     edition: standard
     enabled: true
     schemaVersion: 1.0.13
-  imager:
+  jitter:
     edition: standard
     enabled: true
-    schemaVersion: 2.0.0
+    schemaVersion: 1.0.0
   lightkeeper:
     edition: standard
     enabled: true
