@@ -26,12 +26,7 @@ class PapertrainModuleVariable
 
     public function css($css)
     {
-        return PapertrainModule::getInstance()->papertrainService->injectCriticalCSS($css);
-    }
-
-    public function renderBlock(string $block)
-    {
-        return  PapertrainModule::getInstance()->papertrainService->renderBlock($block);
+        return PapertrainModule::getInstance()->pwaService->injectCriticalCSS($css);
     }
 
     public function getCache(string $entryId)

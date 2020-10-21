@@ -100,43 +100,9 @@ class PapertrainModule extends Module
         self::$instance = $this;
 
         Event::on(
-            Cp::class,
-            Cp::EVENT_REGISTER_CP_NAV_ITEMS,
-            function(RegisterCpNavItemsEvent $event) {
-                $event->navItems[] = [
-                    'url' => 'papertrain/page-builder',
-                    'label' => 'Layout Designer',
-                    'icon' => '@modules/papertrainmodule/assets/img/page-builder-icon.svg',
-                ];
-
-                $event->navItems[] = [
-                    'url' => 'papertrain/templates',
-                    'label' => 'Templates',
-                    'icon' => '@modules/papertrainmodule/assets/img/template.svg',
-                ];
-                
-                // $event->navItems[] = [
-                //     'url' => 'papertrain/blocks/defaults',
-                //     'label' => 'Demo Blocks',
-                //     'icon' => '@modules/papertrainmodule/assets/img/default-blocks.svg',
-                // ];
-                
-            }
-        );
-
-        Event::on(
             UrlManager::class,
             UrlManager::EVENT_REGISTER_CP_URL_RULES,
             function (RegisterUrlRulesEvent $event) {
-                // API
-                $event->rules['papertrain/api/render/block/<id:\d+>/<handle:.*>'] = 'papertrain-module/default/render-block';
-                $event->rules['papertrain/api/config.json'] = 'papertrain-module/default/load-config';
-                $event->rules['papertrain/api/block/<id:\d+>.json'] = 'papertrain-module/default/get-block';
-
-                // Utility
-                $event->rules['papertrain/core/preact/<script:.*>'] = 'papertrain-module/default/load-core-script';
-
-                // PWA
                 $event->rules['/pwa/cachebust.json'] = 'papertrain-module/default/cachebust';
                 $event->rules['/pwa/get-csrf'] = 'papertrain-module/default/get-csrf';
             }

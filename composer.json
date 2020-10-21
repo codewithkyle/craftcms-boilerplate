@@ -2,7 +2,7 @@
 	"require": {
 		"codewithkyle/jitter": "1.0.1",
 		"codewithkyle/lightkeeper": "1.1.1",
-		"craftcms/cms": "3.5.13.2",
+		"craftcms/cms": "3.5.14",
 		"craftcms/element-api": "2.6.0",
 		"craftcms/redactor": "2.8.3",
 		"ether/splash": "3.0.5",
@@ -10,7 +10,7 @@
 		"sebastianlenz/linkfield": "1.0.23",
 		"vaersaagod/matrixmate": "1.2.7",
 		"verbb/formie": "1.2.24",
-		"verbb/smith": "1.1.9",
+		"verbb/smith": "1.1.10",
 		"verbb/super-table": "2.6.3",
 		"vlucas/phpdotenv": "^3.4.0",
 		"yiisoft/yii2-redis": "^2.0"

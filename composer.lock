@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "dee182cc6a1ee18ad5199c72f1863e11",
+    "content-hash": "ce051a2345e45333202334ca81237086",
     "packages": [
         {
             "name": "aws/aws-sdk-php",
@@ -612,11 +612,11 @@
         },
         {
             "name": "craftcms/cms",
-            "version": "3.5.13.2",
+            "version": "3.5.14",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/craftcms/cms/zipball/90891b1d386aa8e31c2daeb86851a7aed96f4ff2",
-                "reference": "90891b1d386aa8e31c2daeb86851a7aed96f4ff2",
+                "url": "https://api.github.com/repos/craftcms/cms/zipball/81a574b56f0f08e3847ad01f80242e78cdb18195",
+                "reference": "81a574b56f0f08e3847ad01f80242e78cdb18195",
                 "shasum": ""
             },
             "require": {
@@ -697,7 +697,7 @@
                 "docs": "https://craftcms.com/docs/3.x/",
                 "rss": "https://github.com/craftcms/cms/releases.atom"
             },
-            "time": "2020-10-16T10:55:46+00:00"
+            "time": "2020-10-20T22:27:53+00:00"
         },
         {
             "name": "craftcms/element-api",
@@ -5735,11 +5735,11 @@
         },
         {
             "name": "verbb/smith",
-            "version": "1.1.9",
+            "version": "1.1.10",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/verbb/smith/zipball/4827a3f166f5a34116641c72439eb905bb9eeb05",
-                "reference": "4827a3f166f5a34116641c72439eb905bb9eeb05",
+                "url": "https://api.github.com/repos/verbb/smith/zipball/8842126e9caae7c7fa5d3863f0361e18bca18f82",
+                "reference": "8842126e9caae7c7fa5d3863f0361e18bca18f82",
                 "shasum": ""
             },
             "require": {
@@ -5782,7 +5782,7 @@
                 "docs": "https://github.com/verbb/smith",
                 "rss": "https://github.com/verbb/smith/commits/v2.atom"
             },
-            "time": "2020-10-18T04:41:07+00:00"
+            "time": "2020-10-20T22:14:33+00:00"
         },
         {
             "name": "verbb/super-table",

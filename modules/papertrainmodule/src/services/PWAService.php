@@ -22,6 +22,8 @@ use GuzzleHttp\Client;
 use craft\mail\Message;
 use craft\helpers\UrlHelper;
 use craft\elements\Entry;
+use craft\helpers\Template as TemplateHelper;
+
 /**
  * @author    Kyle Andrews
  * @package   PapertrainModule
@@ -128,5 +130,34 @@ class PWAService extends Component
             $cache->set($entryId, '0');
         }
         return $ret;
+    }
+
+    public function injectCriticalCSS($css)
+    {
+        $files = array();
+        if (is_array($css))
+        {
+            $files = $css;
+        }
+        elseif (is_string($css))
+        {
+            $files[] = $css;
+        }
+        else
+        {
+            return;
+        }
+
+        $css = '';
+        foreach ($files as $file)
+        {
+            $path = $_SERVER['DOCUMENT_ROOT'] . '/assets/' . $file . '.css';
+            if (file_exists($path))
+            {
+                $css .= file_get_contents($path);
+            }
+        }
+        $html = '<style>' . $css . '</style>';
+        return TemplateHelper::raw($html);
     }
 }
