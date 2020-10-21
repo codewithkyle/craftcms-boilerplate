@@ -11,11 +11,11 @@ return [
                     ],
                     [
                         'label' => 'Basic Content',
-                        'types' => ['richText', 'image', 'richTextImage', 'video'],
+                        'types' => ['richText', 'imageBlock', 'richTextImage', 'videoBlock'],
                     ],
                     [
                         'label' => 'Rich Content Blocks',
-                        'types' => ['testimonials', 'pullQuote'],
+                        'types' => ['testimonialsBlock', 'pullQuote'],
                     ],
                     [
                         'label' => 'Calls to Action Blocks',
@@ -23,7 +23,7 @@ return [
                     ],
                     [
                         'label' => 'Layout Blocks',
-                        'types' => ['horizontalRule', 'spacer'],
+                        'types' => ['horizontalRule', 'spacerBlock'],
                     ],
                 ],
                 'types' => [
@@ -200,7 +200,7 @@ return [
                     ],
                     [
                         'label' => 'Media',
-                        'types' => ['image', 'video'],
+                        'types' => ['imageBlock', 'videoBlock'],
                     ],
                     [
                         'label' => 'Calls to Action',

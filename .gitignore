@@ -6,7 +6,7 @@
 /node_modules
 /public/uploads/*
 !/public/uploads/.gitkeep
-/public/imager
+/public/jitter
 /_compiled
 /_css
 /storage/*

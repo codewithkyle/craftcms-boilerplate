@@ -3,7 +3,7 @@
 {% if image %}
     {% set backgroundColor = 'image' %}
 {% endif %}
-<call-to-action-banner lazy-css="call-to-action-banner buttons" background="{{ backgroundColor }}">
+<call-to-action-banner css="call-to-action-banner buttons" background="{{ backgroundColor }}">
     {% if image %}
         {% set transformedImage = craft.jitter.transformImage(image, { w: 320, ar: "21:4" }) %}
         {% set transformedImages = craft.jitter.srcset(image, [

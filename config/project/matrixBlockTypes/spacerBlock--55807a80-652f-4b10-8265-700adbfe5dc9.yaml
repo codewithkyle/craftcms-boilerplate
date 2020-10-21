@@ -29,11 +29,13 @@ fields:
       max: null
       min: '1'
       prefix: ''
+      previewCurrency: ''
+      previewFormat: decimal
       size: null
       suffix: ''
     translationKeyFormat: null
     translationMethod: none
     type: craft\fields\Number
-handle: spacer
+handle: spacerBlock
 name: Spacer
 sortOrder: 14

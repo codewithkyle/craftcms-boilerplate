@@ -1,6 +1,6 @@
+{% set image = data.image[0] %}
 {% set transformedImage = craft.jitter.transformImage(image, { w: 320, ar: "16:9" }) %}
-
-{% set image = craft.jitter.srcset(data.image[0], [
+{% set image = craft.jitter.srcset(image, [
     { w: 320, ar: "16:9" },
     { w: 425, ar: "16:9" },
     { w: 768, ar: "16:9" },
@@ -8,7 +8,7 @@
 ]) %}
 
 <section class="block w-full">
-    <lazy-image lazy-css="lazy-image">
+    <lazy-image css="image-block">
         <img 
             src="{{ transformedImage }}" 
             srcset="{{ image }}" 

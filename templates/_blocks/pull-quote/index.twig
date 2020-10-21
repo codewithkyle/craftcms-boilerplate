@@ -1,5 +1,5 @@
 {% set image = data.image[0] ?? null %}
-<pull-quote-block lazy-css="pull-quote-block">
+<pull-quote-block css="pull-quote">
     <pull-quote>
         {% if image %}
             {% set transformedImage = craft.jitter.transformImage(image, { w: 250, ar: "1:1" }) %}

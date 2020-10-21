@@ -130,6 +130,6 @@ fields:
     translationKeyFormat: null
     translationMethod: none
     type: craft\fields\PlainText
-handle: testimonials
+handle: testimonialsBlock
 name: Testimonials
 sortOrder: 5

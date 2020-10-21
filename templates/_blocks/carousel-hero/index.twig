@@ -1,5 +1,5 @@
 {% set slides = data.slides.all() %}
-<carousel-hero lazy-css="carousel-hero buttons" web-component>
+<carousel-hero css="carousel-hero buttons" web-component>
     {% for slide in slides %}
         <carousel-slide class="{{ (loop.first) ? 'is-active' : '' }}">
             {% set transformedImage = craft.jitter.transformImage(image, { w: 320, h: 600 }) %}
