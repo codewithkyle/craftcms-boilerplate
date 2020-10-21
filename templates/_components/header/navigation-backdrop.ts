@@ -1,6 +1,6 @@
 import { message } from "wwibs";
 
-class NavigationBackdrop extends HTMLElement {
+export default class NavigationBackdrop extends HTMLElement {
 	private handleClick: EventListener = () => {
 		message({
 			recipient: "navigation-drawer",
@@ -14,4 +14,3 @@ class NavigationBackdrop extends HTMLElement {
 		this.addEventListener("click", this.handleClick);
 	}
 }
-customElements.define("navigation-backdrop", NavigationBackdrop);

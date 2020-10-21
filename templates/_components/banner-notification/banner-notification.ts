@@ -1,4 +1,4 @@
-class BannerNotification extends HTMLElement {
+export default class BannerNotification extends HTMLElement {
 	connectedCallback() {
 		if (!localStorage.getItem("notificationBannerHash")) {
 			localStorage.setItem("notificationBannerHash", this.dataset.hash);
@@ -12,4 +12,3 @@ class BannerNotification extends HTMLElement {
 		}
 	}
 }
-customElements.define("banner-notification", BannerNotification);

@@ -1,4 +1,4 @@
-class CarouselHeroComponent extends HTMLElement {
+export default class CarouselHeroComponent extends HTMLElement {
 	private slides: Array<HTMLElement>;
 	private buttons: Array<HTMLButtonElement>;
 	private index: number;
@@ -105,4 +105,3 @@ class CarouselHeroComponent extends HTMLElement {
 		}
 	}
 }
-customElements.define("carousel-hero", CarouselHeroComponent);

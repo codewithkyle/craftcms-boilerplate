@@ -1,6 +1,6 @@
 import { hookup, reply, disconnect } from "wwibs";
 
-class ConnectionChecker extends HTMLElement {
+export default class ConnectionChecker extends HTMLElement {
 	private liteButton: HTMLButtonElement;
 	private fullButton: HTMLButtonElement;
 	private replyId: string;
@@ -51,4 +51,3 @@ class ConnectionChecker extends HTMLElement {
 		disconnect(this.inboxUid);
 	}
 }
-customElements.define("connection-checker", ConnectionChecker);

@@ -1,6 +1,6 @@
 import { message } from "wwibs";
 
-class NavigationDrawerToggle extends HTMLElement {
+export default class NavigationDrawerToggle extends HTMLElement {
 	private input: HTMLInputElement;
 	private label: HTMLLabelElement;
 	constructor() {
@@ -34,4 +34,3 @@ class NavigationDrawerToggle extends HTMLElement {
 		this.label.addEventListener("keydown", this.handleKeyboard);
 	}
 }
-customElements.define("navigation-drawer-toggle", NavigationDrawerToggle);

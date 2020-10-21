@@ -1,6 +1,6 @@
 import { env, dataSaver } from "djinnjs/env";
 
-class LazyVideoComponent extends HTMLElement {
+export default class LazyVideoComponent extends HTMLElement {
 	private video: HTMLIFrameElement | null;
 	private playerState: "loading" | "loaded" | "waiting";
 	private container: HTMLElement;
@@ -90,4 +90,3 @@ class LazyVideoComponent extends HTMLElement {
 		}
 	}
 }
-customElements.define("lazy-video", LazyVideoComponent);

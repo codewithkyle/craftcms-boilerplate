@@ -4,7 +4,7 @@ type NavigationDrawerState = {
 	open: boolean;
 };
 
-class NavigationDrawer extends HTMLElement {
+export default class NavigationDrawer extends HTMLElement {
 	private state: NavigationDrawerState;
 	private closeButton: HTMLElement;
 	constructor() {
@@ -56,4 +56,3 @@ class NavigationDrawer extends HTMLElement {
 		this.closeButton.addEventListener("click", this.closeDrawer);
 	}
 }
-customElements.define("navigation-drawer", NavigationDrawer);
