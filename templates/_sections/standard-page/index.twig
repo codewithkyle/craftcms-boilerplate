@@ -1,1 +1,17 @@
-{% include "_components/page-builder" %}
+{% extends "_base/page" %}
+
+{% do eagerLoadElements(entry, [
+    'pageBuilder',
+]) %}
+
+{% block head %}
+    {% set blocks = [] %}
+    {% for block in entry.pageBuilder|slice(0, 3) %}
+        {% set blocks = blocks|merge([block.type|kebab]) %}
+    {% endfor %}
+    {{ craft.papertrain.css(blocks) }}
+{% endblock %}
+
+{% block content %}
+    {% include "_components/page-builder" %}
+{% endblock %}

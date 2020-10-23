@@ -22,7 +22,7 @@
 		"@typescript-eslint/eslint-plugin": "^2.34.0",
 		"@typescript-eslint/parser": "^2.34.0",
 		"eslint": "^6.8.0",
-		"eslint-config-prettier": "^6.13.0",
+		"eslint-config-prettier": "^6.14.0",
 		"eslint-plugin-prettier": "^3.1.4",
 		"glob": "^7.1.6",
 		"husky": "^3.1.0",
@@ -41,9 +41,9 @@
 	},
 	"dependencies": {
 		"@codewithkyle/notifyjs": "^2.0.3",
-		"brixi": "^0.2.2",
+		"brixi": "^0.2.3",
 		"cssmonster": "^0.2.1",
-		"djinnjs": "^0.2.0",
+		"djinnjs": "^0.2.1",
 		"flatpickr": "^4.6.6",
 		"wwibs": "^0.1.2"
 	},
