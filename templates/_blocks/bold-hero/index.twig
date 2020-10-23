@@ -13,7 +13,7 @@
             <a href="{{ data.secondaryAction.url }}" class="button -tall -wide -solid -primary -light mt-1 font-md">{{ data.secondaryAction.customText }}</a>
         {% endif %}
     </copy-wrapper>
-    {% set transformedImage = craft.jitter.transformImage(image, { w: 360, h: 600 }) %}
+    {% set transformedImage = craft.jitter.transformImage(data.image[0], { w: 360, h: 600 }) %}
     {% set images = craft.jitter.srcset(data.image[0], [
         { w: 320, h: 600 },
         { w: 384, h: 600 },

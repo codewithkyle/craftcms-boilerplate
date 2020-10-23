@@ -2,7 +2,7 @@
 <carousel-hero css="carousel-hero buttons" web-component>
     {% for slide in slides %}
         <carousel-slide class="{{ (loop.first) ? 'is-active' : '' }}">
-            {% set transformedImage = craft.jitter.transformImage(image, { w: 320, h: 600 }) %}
+            {% set transformedImage = craft.jitter.transformImage(slide.backgroundImage[0], { w: 320, h: 600 }) %}
             {% set images = craft.jitter.srcset(slide.backgroundImage[0], [
                 { w: 320, h: 600 },
                 { w: 411, h: 600 },

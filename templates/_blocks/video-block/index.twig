@@ -1,4 +1,4 @@
-{% set transformedImage = craft.jitter.transformImage(image, { w: 100, ar: "16:9", q: 5 }) %}
+{% set transformedImage = craft.jitter.transformImage(data.thumbnailImage[0], { w: 100, ar: "16:9", q: 5 }) %}
 
 {% set image = craft.jitter.srcset(data.thumbnailImage[0], [
     { w: 100, ar: "16:9", q: 5 },

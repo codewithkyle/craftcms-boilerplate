@@ -1,0 +1,32 @@
+contentColumnType: text
+fieldGroup: a7c4f891-d179-4c87-981e-2a644510060c
+handle: keywords
+instructions: ''
+name: Keywords
+searchable: false
+settings:
+  addRowLabel: 'Add a keyword'
+  columnType: text
+  columns:
+    __assoc__:
+      -
+        - col1
+        -
+          __assoc__:
+            -
+              - heading
+              - Keyword
+            -
+              - handle
+              - keyword
+            -
+              - width
+              - ''
+            -
+              - type
+              - singleline
+  maxRows: ''
+  minRows: ''
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\Table

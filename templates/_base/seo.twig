@@ -9,6 +9,19 @@
 	<link rel="canonical" href="{{ page.canonicalUrl }}">
 {% endif %}
 
+{# Keywords #}
+{% if page['keywords'] is defined %}
+	{% set keywords = "" %}
+	{% for keyword in page['keywords'] %}
+	{% if loop.first %}
+		{% set keywords = keyword.keyword %}
+	{% else %}
+		{% set keywords = keywords ~ ", " ~ keyword.keyword %}
+	{% endif %}
+	{% endfor %}
+	<meta name="keywords" content="{{ keywords }}" />
+{% endif %}
+
 {# Languages #}
 {% set locale = craft.app.locale %}
 {% set locales = craft.app.i18n.siteLocaleIds|without(locale) %}
