@@ -1,4 +1,4 @@
-dateModified: 1603460952
+dateModified: 1603461285
 email:
   fromEmail: $SYSTEM_EMAIL
   fromName: $SENDER_NAME
@@ -64,6 +64,10 @@ plugins:
     edition: standard
     enabled: true
     schemaVersion: 2.3.0
+  retour:
+    edition: standard
+    enabled: true
+    schemaVersion: 3.0.9
   smith:
     edition: standard
     enabled: true
