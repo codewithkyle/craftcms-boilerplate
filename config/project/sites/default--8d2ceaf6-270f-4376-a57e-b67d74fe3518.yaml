@@ -1,4 +1,5 @@
-baseUrl: '@rootUrl'
+baseUrl: 'http://boilerplate.local/'
+enabled: true
 handle: default
 hasUrls: true
 language: en-US

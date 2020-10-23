@@ -1,4 +1,4 @@
-dateModified: 1603283726
+dateModified: 1603458961
 email:
   fromEmail: $SYSTEM_EMAIL
   fromName: $SENDER_NAME
@@ -13,10 +13,6 @@ email:
     useAuthentication: '1'
     username: $GMAIL_USERNAME
   transportType: craft\mail\transportadapters\Smtp
-graphql:
-  publicToken:
-    enabled: false
-    expiryDate: null
 plugins:
   eager-beaver:
     edition: standard
@@ -52,6 +48,10 @@ plugins:
       minimumPerformance: '90'
       minimumSeo: '100'
       ttfbThreshold: 600
+  logs:
+    edition: standard
+    enabled: true
+    schemaVersion: 3.0.0
   matrixmate:
     edition: standard
     enabled: true

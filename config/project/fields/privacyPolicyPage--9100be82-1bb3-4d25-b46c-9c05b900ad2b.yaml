@@ -5,14 +5,16 @@ instructions: ''
 name: 'Privacy Policy Page'
 searchable: false
 settings:
+  allowSelfRelations: false
   limit: '1'
   localizeRelations: false
   selectionLabel: 'Link Privacy Policy Page'
+  showSiteMenu: true
   source: null
   sources:
     - 'section:cefc4625-a115-4b71-b22d-5f6784b3aada'
   targetSiteId: null
-  validateRelatedElements: '1'
+  validateRelatedElements: true
   viewMode: null
 translationKeyFormat: null
 translationMethod: site

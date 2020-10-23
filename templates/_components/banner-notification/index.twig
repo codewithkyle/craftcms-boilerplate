@@ -1,4 +1,4 @@
-{% set bannerHash = craft.pwa.makeMD5Hash(notifications.text1) %}
+{% set bannerHash = craft.papertrain.makeMD5Hash(notifications.text1) %}
 <banner-notification role="alert" css="banner-notification" web-component data-hash="{{ bannerHash }}" style="visibility: hidden;transform: translateY(-100%);">
     <p>{{ notifications.text1 }}</p>
     <button aria-label="close notification banner">

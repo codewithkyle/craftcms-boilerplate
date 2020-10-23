@@ -5,6 +5,7 @@
 		"craftcms/cms": "3.5.14",
 		"craftcms/element-api": "2.6.0",
 		"craftcms/redactor": "2.8.3",
+		"ether/logs": "3.0.3",
 		"ether/splash": "3.0.5",
 		"nystudio107/craft-eagerbeaver": "1.0.4",
 		"sebastianlenz/linkfield": "1.0.23",

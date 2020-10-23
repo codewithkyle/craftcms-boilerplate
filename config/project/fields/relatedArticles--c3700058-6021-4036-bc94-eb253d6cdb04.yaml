@@ -5,14 +5,16 @@ instructions: ''
 name: 'Related Articles'
 searchable: false
 settings:
+  allowSelfRelations: false
   limit: '3'
   localizeRelations: false
   selectionLabel: 'Link Articles'
+  showSiteMenu: true
   source: null
   sources:
     - 'section:2f1f0ea0-4b22-4e9d-bb51-9e1e32a94cba'
   targetSiteId: null
-  validateRelatedElements: '1'
+  validateRelatedElements: true
   viewMode: null
 translationKeyFormat: null
 translationMethod: site
