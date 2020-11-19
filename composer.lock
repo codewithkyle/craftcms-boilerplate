@@ -4,15 +4,15 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "4d0b7ba940d95ae326b06583d4d2562b",
+    "content-hash": "fd6b793ee3902f8128a77f90c7d44111",
     "packages": [
         {
             "name": "aws/aws-sdk-php",
-            "version": "3.158.13",
+            "version": "3.163.0",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/4d81b3f456435c30a4f9c71852164b6b46dc4d97",
-                "reference": "4d81b3f456435c30a4f9c71852164b6b46dc4d97",
+                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/d3f51c57f17581d79151c9b5265e131391bd191f",
+                "reference": "d3f51c57f17581d79151c9b5265e131391bd191f",
                 "shasum": ""
             },
             "require": {
@@ -67,7 +67,7 @@
                 "s3",
                 "sdk"
             ],
-            "time": "2020-10-23T18:11:41+00:00"
+            "time": "2020-11-18T19:12:41+00:00"
         },
         {
             "name": "cebe/markdown",
@@ -126,11 +126,11 @@
         },
         {
             "name": "codewithkyle/jitter",
-            "version": "1.1.0",
+            "version": "1.1.1",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/codewithkyle/craft-jitter/zipball/16accd5d2c4dc9d93e332aae6d927130e289bb8f",
-                "reference": "16accd5d2c4dc9d93e332aae6d927130e289bb8f",
+                "url": "https://api.github.com/repos/codewithkyle/craft-jitter/zipball/546500745d360688d150c0e628980fe3035a14bb",
+                "reference": "546500745d360688d150c0e628980fe3035a14bb",
                 "shasum": ""
             },
             "require": {
@@ -176,7 +176,7 @@
                 "docs": "https://github.com/codewithkyle/craft-jitter/blob/master/README.md",
                 "issues": "https://github.com/codewithkyle/craft-jitter/issues"
             },
-            "time": "2020-10-26T22:52:40+00:00"
+            "time": "2020-11-19T19:10:19+00:00"
         },
         {
             "name": "codewithkyle/lightkeeper",

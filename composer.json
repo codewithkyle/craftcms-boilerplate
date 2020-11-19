@@ -1,6 +1,6 @@
 {
 	"require": {
-		"codewithkyle/jitter": "1.1.0",
+		"codewithkyle/jitter": "1.1.1",
 		"codewithkyle/lightkeeper": "^1.1",
 		"craftcms/cms": "3.5.15.1",
 		"craftcms/element-api": "2.6.0",
