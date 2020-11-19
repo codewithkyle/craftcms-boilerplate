@@ -1,4 +1,4 @@
-dateModified: 1603461897
+dateModified: 1603749966
 email:
   fromEmail: $SYSTEM_EMAIL
   fromName: $SENDER_NAME
@@ -34,20 +34,6 @@ plugins:
     edition: standard
     enabled: true
     schemaVersion: 1.0.0
-    settings:
-      advancedSettings: false
-      anonymous: false
-      clsThreshold: 0.1
-      compact: '1'
-      developerEmail: null
-      fcpThreshold: 2000
-      fidThreshold: 100
-      lcpThreshold: 2500
-      minimumAccessibility: '100'
-      minimumBestPractices: '100'
-      minimumPerformance: '90'
-      minimumSeo: '100'
-      ttfbThreshold: 600
   logs:
     edition: standard
     enabled: true
