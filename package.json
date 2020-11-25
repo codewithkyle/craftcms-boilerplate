@@ -43,7 +43,7 @@
 		"@codewithkyle/notifyjs": "^2.1.0",
 		"brixi": "^0.2.3",
 		"cssmonster": "^0.2.1",
-		"djinnjs": "^0.2.3",
+		"djinnjs": "^0.2.4",
 		"flatpickr": "^4.6.6",
 		"wwibs": "^0.1.2"
 	},

@@ -155,7 +155,7 @@ class PWAService extends Component
             if (file_exists($path))
             {
                 $css = file_get_contents($path);
-                $html .= '<style file="' . $file . '"';
+                $html .= '<style file="' . $file . '.css"';
                 if ($pjaxId)
                 {
                     $html .= ' pjax-id="' . $pjaxId . '"';
