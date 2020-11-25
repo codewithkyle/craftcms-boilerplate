@@ -148,16 +148,21 @@ class PWAService extends Component
             return;
         }
 
-        $css = '';
+        $html = "";
         foreach ($files as $file)
         {
             $path = $_SERVER['DOCUMENT_ROOT'] . '/assets/' . $file . '.css';
             if (file_exists($path))
             {
-                $css .= file_get_contents($path);
+                $css = file_get_contents($path);
+                $html .= '<style file="' . $file . '"';
+                if ($pjaxId)
+                {
+                    $html .= ' pjax-id="' . $pjaxId . '"';
+                }
+                $html .= '>' . $css . '</style>';
             }
         }
-        $html = '<style>' . $css . '</style>';
         return TemplateHelper::raw($html);
     }
 }
