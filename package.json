@@ -2,7 +2,7 @@
 	"scripts": {
 		"cleanup": "node ./build-tools/cleanup.js",
 		"setup": "npm ci && node ./build-tools/setup.js && composer install",
-		"bundle": "snowpack",
+		"bundle": "snowpack install",
 		"brixi": "brixi",
 		"compile": "tsc",
 		"eslint": "eslint -c .eslintrc.js templates/**/*.ts",
@@ -22,28 +22,28 @@
 		"@typescript-eslint/eslint-plugin": "^2.34.0",
 		"@typescript-eslint/parser": "^2.34.0",
 		"eslint": "^6.8.0",
-		"eslint-config-prettier": "^6.14.0",
+		"eslint-config-prettier": "^6.15.0",
 		"eslint-plugin-prettier": "^3.1.4",
 		"glob": "^7.1.6",
 		"husky": "^3.1.0",
 		"lighthouse": "^6.4.1",
 		"minify": "^4.1.3",
 		"node-sass": "^4.14.1",
-		"prettier": "^2.1.2",
+		"prettier": "^2.2.0",
 		"rollup": "^1.32.1",
 		"rollup-plugin-commonjs": "^10.1.0",
 		"rollup-plugin-node-resolve": "^5.2.0",
-		"snowpack": "^1.7.1",
+		"snowpack": "^2.17.1",
 		"stylelint": "^12.0.1",
 		"stylelint-config-recommended": "^3.0.0",
 		"tslint": "^5.20.1",
 		"typescript": "^3.9.7"
 	},
 	"dependencies": {
-		"@codewithkyle/notifyjs": "^2.0.3",
+		"@codewithkyle/notifyjs": "^2.1.0",
 		"brixi": "^0.2.3",
 		"cssmonster": "^0.2.1",
-		"djinnjs": "^0.2.1",
+		"djinnjs": "^0.2.3",
 		"flatpickr": "^4.6.6",
 		"wwibs": "^0.1.2"
 	},
@@ -53,7 +53,7 @@
 		}
 	},
 	"snowpack": {
-		"webDependencies": [
+		"install": [
 			"@codewithkyle/notifyjs",
 			"flatpickr",
 			"wwibs"
