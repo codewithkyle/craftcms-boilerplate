@@ -11,7 +11,7 @@ A Craft CMS boilerplate utilizing JIT resource fetching, offline first content s
     -   Use Matrix Mate to group blocks into intuitive categories.
 -   Blocks should be opinionated. When they become generic or complicated split the functionality into several smaller blocks within a new group.
 -   [Hicks Law](https://lawsofux.com/hicks-law) will be observed when creating blocks.
--   A website is a living project and as a clients needs change blocks should be added.
+-   A website is a living project and as the clients needs change new blocks should be added.
 -   Leverage the benefits of [modular programming](https://en.wikipedia.org/wiki/Modular_programming).
 -   Resources should only be loaded when they are needed. Read the [JINT Methodology](https://jintmethod.dev/) for additional information about JIT resource management concept.
 
