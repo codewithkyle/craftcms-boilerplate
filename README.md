@@ -2,14 +2,14 @@
 
 A Craft CMS boilerplate utilizing JIT resource fetching, offline first content strategy, context-specific progressive enhancements, and Pjax navigation. The goal of this boilerplate is to provide developers with a sturdy foundation to build upon, the client an accessible and high performant website, and the content editors a simple and rich experience.
 
-> **NOTICE:** This is an opinionated system. It is built around the idea that one matrix field can be used to create a dynamic page builder. It uses [Matrix Mate](https://plugins.craftcms.com/matrixmate) and the [Smith](https://plugins.craftcms.com/smith) plugins to provide an organized and customized content editing experience. Designs should be split into blocks and added to the content matrix field. When blocks become too complicated they should be split into several smaller, simpler blocks.
+> **NOTICE:** This boilerplate is built around the idea that one matrix field can be used to create a dynamic page builder. It uses the [Matrix Mate](https://plugins.craftcms.com/matrixmate) and [Smith](https://plugins.craftcms.com/smith) plugins to provide an organized and customized content editing experience. Designs should be split into blocks and added to the page builder matrix field. When blocks become too complicated they should be split into several smaller, simpler blocks.
 
 ## Key Beliefs
 
 -   Blocks should follow the KISS principle (keep it stupid simple).
     -   Use Matrix Mate to group fields within a block.
     -   Use Matrix Mate to group blocks into intuitive categories.
--   Blocks should be opinionated.
+-   Blocks should be opinionated. When they become generic or complicated split the functionality into several smaller blocks within a new group.
 -   [Hicks Law](https://lawsofux.com/hicks-law) will be observed when creating blocks.
 -   A website is a living project and as a clients needs change blocks should be added.
 -   Leverage the benefits of [modular programming](https://en.wikipedia.org/wiki/Modular_programming).
@@ -35,9 +35,9 @@ Open the generated `.env` file and input your environment details.
 
 This boilerplate uses a handful of custom build tools. Feel free to uninstall them and write your own.
 
--   [DjinnJS](https://djinnjs.com/) is an ES Module based JavaScript framework for working with Web Components.
+-   [DjinnJS](https://djinnjs.com/) is a lightweight JavaScript and CSS boostrapper built around Web Components.
 -   [CSSMonster](https://github.com/codewithkyle/cssmonster) transpiles [SASS](https://sass-lang.com/) into CSS using [node-sass](https://github.com/sass/node-sass).
--   [Brixi](https://github.com/codewithkyle/brixi) is a CSS variable based CSS utility framework.
+-   [Brixi](https://brixi.dev/) is a lightweight utility-frist CSS framework.
 -   [Snowpack](https://www.snowpack.dev/) bundles NPM packages into ES Modules.
 
 ### Commands
