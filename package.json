@@ -42,9 +42,9 @@
 	},
 	"dependencies": {
 		"@codewithkyle/notifyjs": "^2.1.0",
-		"brixi": "^0.2.3",
-		"cssmonster": "^0.2.1",
-		"djinnjs": "^0.2.4",
+		"brixi": "^0.3.0",
+		"cssmonster": "^0.3.0",
+		"djinnjs": "^0.3.2",
 		"flatpickr": "^4.6.9",
 		"wwibs": "^0.1.2"
 	},

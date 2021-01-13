@@ -13,6 +13,7 @@
 !/storage/.gitkeep
 /audits
 .editorconfig
+web_modules
 
 # Public
 # --------
