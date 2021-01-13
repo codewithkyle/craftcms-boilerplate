@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "ec3f100396d86d04f432b4bee4964087",
+    "content-hash": "ab5f81b8e3be80df7def9b4ec778996e",
     "packages": [
         {
             "name": "aws/aws-sdk-php",
@@ -6027,11 +6027,11 @@
         },
         {
             "name": "verbb/super-table",
-            "version": "2.6.3",
+            "version": "2.6.5",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/verbb/super-table/zipball/d1e7b06082aebb67750e0793eaa7f0e5a868107e",
-                "reference": "d1e7b06082aebb67750e0793eaa7f0e5a868107e",
+                "url": "https://api.github.com/repos/verbb/super-table/zipball/348c41fc687254036a58cfa0d82a614bedc41707",
+                "reference": "348c41fc687254036a58cfa0d82a614bedc41707",
                 "shasum": ""
             },
             "require": {
@@ -6052,7 +6052,6 @@
                     "verbb\\supertable\\": "src/"
                 }
             },
-            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -6064,26 +6063,20 @@
             ],
             "description": "Super-charge your Craft workflow with Super Table. Use it to group fields together or build complex Matrix-in-Matrix solutions.",
             "keywords": [
-                "Craft",
                 "cms",
+                "craft",
                 "craft-plugin",
                 "craftcms",
                 "super table"
             ],
             "support": {
-                "docs": "https://github.com/verbb/super-table",
                 "email": "support@verbb.io",
                 "issues": "https://github.com/verbb/super-table/issues?state=open",
-                "rss": "https://github.com/verbb/super-table/commits/v2.atom",
-                "source": "https://github.com/verbb/super-table"
+                "source": "https://github.com/verbb/super-table",
+                "docs": "https://github.com/verbb/super-table",
+                "rss": "https://github.com/verbb/super-table/commits/v2.atom"
             },
-            "funding": [
-                {
-                    "url": "https://github.com/verbb",
-                    "type": "github"
-                }
-            ],
-            "time": "2020-09-29T00:19:36+00:00"
+            "time": "2020-12-16T01:37:53+00:00"
         },
         {
             "name": "vlucas/phpdotenv",
