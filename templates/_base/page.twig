@@ -7,7 +7,7 @@
 
 {% block page %}
     {% if notifications.text1|length %}
-        {% include "_components/banner-notification" %}
+        {% include "_components/banner-notification" with { message: notifications.text1 } %}
     {% endif %}
     {% include "_components/header" %}
     <main pjax-id="main" class="page" css="soft-loading" style="min-height: calc(100% - 2rem);">

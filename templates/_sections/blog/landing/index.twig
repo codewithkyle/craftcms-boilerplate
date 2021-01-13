@@ -1,23 +1,8 @@
 {% extends "_base/page" %}
 
-{% if entry is not defined %}
-    {% set entry = craft.entries({
-        section: 'blog',
-        with: [
-            'heroArea'
-        ]
-    }).one() %}
-{% endif %}
-
-{% if slug is defined %}
-    {% set activeCategory = craft.categories({
-        slug: slug
-    }).one() %}
-{% endif %}
-
 {% set query = craft.app.request.getParam('q') %}
 {% set articleQuery = craft.entries({
-    section: 'blog',
+    section: 'articles',
     limit: 6,
     search: query,
     relatedTo: activeCategory ?? null
@@ -30,7 +15,7 @@
 }).all() %}
 
 {% block content %}
-    {% cache using key entry.slug ~ "-" ~ imageFormat %}
+    {% cache using key entry.slug %}
         <article style="display:block;width:100%;">
             <blog-content eager-css="blog buttons">
                 <aside>
@@ -46,7 +31,7 @@
                 </aside>
                 <section pjax-id="blog-cards">
                     {% for card in articles %}
-                        {% include "_blog/article-card" %}
+						<a href="{{ card.url }}">{{ card.title }}</a>
                     {% endfor %}
                 </section>
             </blog-content>

@@ -1,6 +1,6 @@
 {% for block in entry.pageBuilder %}
-    {% set data = block %}
-    <template-block style="display: block;width: 100%;position: relative;content-visibility: auto;">
-        {% include "_blocks/" ~ block.type|kebab %}
+	<template-block style="display: block;width: 100%;position: relative;content-visibility: auto;">
+		{% set path = "_blocks/" ~ block.type|kebab %}
+        {% include path with { data: block } %}
     </template-block>
 {% endfor %}
