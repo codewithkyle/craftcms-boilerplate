@@ -1,16 +1,16 @@
-footer.-base{
+footer.-base {
     display: block;
     width: 100vw;
     background-color: var(--white);
     border-top: 1px solid var(--neutral-200);
-    
-    .sub{
+
+    .sub {
         display: block;
         width: 100%;
         background-color: var(--neutral-100);
         padding: 2rem 2rem 1.75rem;
 
-        .container{
+        .container {
             width: 1280px;
             max-width: 100%;
             display: flex;
@@ -21,66 +21,66 @@ footer.-base{
             font-size: var(--font-sm);
             color: var(--grey-700);
 
-            @media (min-width: 1024px){
+            @media (min-width: 1024px) {
                 flex-flow: row nowrap;
                 justify-content: space-between;
             }
 
-            div{
+            div {
                 width: 100%;
                 display: block;
                 text-align: center;
 
-                @media (min-width: 1024px){
+                @media (min-width: 1024px) {
                     display: inline-block;
                     width: auto;
                 }
             }
 
-            .social-media-links{
+            .social-media-links {
                 margin-top: 2rem;
 
-                @media (min-width: 1024px){
+                @media (min-width: 1024px) {
                     text-align: right;
                     margin-top: 0;
                 }
             }
 
-            a{
+            a {
                 margin: 1rem;
                 display: block;
                 transition: all 150ms var(--ease-in-out);
 
-                &:last-of-type{
+                &:last-of-type {
                     margin-bottom: 0;
                 }
 
-                &:hover{
+                &:hover {
                     color: var(--primary-700);
                 }
 
-                &:focus-visible{
+                &:focus-visible {
                     color: var(--primary-700);
                 }
 
-                &:active{
+                &:active {
                     color: var(--primary-800);
                 }
 
-                @media (min-width: 1024px){
+                @media (min-width: 1024px) {
                     margin: 0 0 0 1rem;
                     display: inline-block;
                 }
             }
 
-            .social-media{
+            .social-media {
                 width: 36px;
                 height: 36px;
                 display: inline-block;
                 position: relative;
                 margin: 0;
 
-                svg{
+                svg {
                     position: absolute;
                     top: 50%;
                     left: 50%;
@@ -90,38 +90,38 @@ footer.-base{
         }
     }
 
-    .primary{
+    .primary {
         display: block;
         width: 100%;
         background-color: var(--white);
         padding: 4rem 2rem 2rem;
 
-        .container{
+        .container {
             width: 1280px;
             max-width: 100%;
             margin: 0 auto;
             display: flex;
             flex-flow: column wrap;
 
-            @media (min-width: 1024px){
+            @media (min-width: 1024px) {
                 flex-flow: row nowrap;
             }
 
-            .org-block{
+            .org-block {
                 display: inline-block;
                 padding-right: 4rem;
                 padding-bottom: 2rem;
                 max-width: 320px;
 
-                @media (min-width: 1024px){
+                @media (min-width: 1024px) {
                     padding-bottom: 0;
                 }
 
-                .org-details{
+                .org-details {
                     margin-top: 1rem;
 
                     p,
-                    a{
+                    a {
                         font-size: var(--font-sm);
                         color: var(--grey-700);
                         line-height: 1.618;
@@ -129,34 +129,34 @@ footer.-base{
                         margin-bottom: 0.5rem;
                     }
 
-                    a{
-                        &:hover{
+                    a {
+                        &:hover {
                             color: var(--primary-700);
                         }
-                        &:focus-visible{
+                        &:focus-visible {
                             color: var(--primary-700);
                         }
-                        &:active{
+                        &:active {
                             color: var(--primary-800);
                         }
                     }
                 }
             }
-            
-            .footer-nav{
+
+            .footer-nav {
                 width: 100%;
                 flex: 1;
                 display: grid;
                 gap: 2rem;
                 grid-template-columns: repeat(auto-fill, minmax(275px, 1fr));
 
-                .block{
+                .block {
                     display: inline-block;
                 }
             }
 
             h3,
-            .heading{
+            .heading {
                 color: var(--grey-800);
                 font-weight: var(--font-medium);
                 display: block;
@@ -165,7 +165,7 @@ footer.-base{
                 user-select: none;
             }
 
-            a{
+            a {
                 user-select: none;
                 font-size: var(--font-sm);
                 color: var(--grey-700);
@@ -174,21 +174,21 @@ footer.-base{
                 min-height: 36px;
                 transition: all 150ms var(--ease-in-out);
 
-                &:hover{
+                &:hover {
                     color: var(--primary-700);
                 }
-                &:focus-visible{
+                &:focus-visible {
                     color: var(--primary-700);
                 }
-                &:active{
+                &:active {
                     color: var(--primary-800);
                 }
             }
 
-            .org-logo{
+            .org-logo {
                 user-select: none;
-                
-                img{
+
+                img {
                     max-width: 175px;
                     max-height: 64px;
                     object-fit: contain;

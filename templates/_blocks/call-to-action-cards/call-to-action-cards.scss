@@ -1,152 +1,152 @@
 call-to-action-cards {
-	display: block;
-	width: 100%;
-	padding: 0 1rem;
-	background-color: var(--neutral-100);
+    display: block;
+    width: 100%;
+    padding: 0 1rem;
+    background-color: var(--neutral-100);
 
-	h1 {
-		display: block;
-		width: 100%;
-		text-align: center;
-		font-size: var(--font-3xl);
-		font-weight: var(--font-medium);
-		color: var(--grey-800);
-		line-height: 1.375;
-		margin-bottom: 1rem;
-	}
+    h1 {
+        display: block;
+        width: 100%;
+        text-align: center;
+        font-size: var(--font-3xl);
+        font-weight: var(--font-medium);
+        color: var(--grey-800);
+        line-height: 1.375;
+        margin-bottom: 1rem;
+    }
 
-	p {
-		margin-bottom: 1rem;
-		font-size: var(--font-base);
-		line-height: 1.618;
-		color: var(--grey-700);
+    p {
+        margin-bottom: 1rem;
+        font-size: var(--font-base);
+        line-height: 1.618;
+        color: var(--grey-700);
 
-		a {
-			color: var(--primary-700);
-			cursor: pointer;
-			transition: all 150ms var(--ease-in-out);
+        a {
+            color: var(--primary-700);
+            cursor: pointer;
+            transition: all 150ms var(--ease-in-out);
 
-			&:hover {
-				color: var(--primary-600);
-				text-decoration: underline;
-			}
-			&:focus-visible {
-				color: var(--primary-600);
-				text-decoration: underline;
-			}
-			&:active {
-				color: var(--primary-800);
-				text-decoration: underline;
-			}
-		}
-	}
+            &:hover {
+                color: var(--primary-600);
+                text-decoration: underline;
+            }
+            &:focus-visible {
+                color: var(--primary-600);
+                text-decoration: underline;
+            }
+            &:active {
+                color: var(--primary-800);
+                text-decoration: underline;
+            }
+        }
+    }
 
-	card-container {
-		display: flex;
-		flex-flow: column wrap;
-		width: 100%;
-		justify-content: center;
-		padding-top: 2rem;
+    card-container {
+        display: flex;
+        flex-flow: column wrap;
+        width: 100%;
+        justify-content: center;
+        padding-top: 2rem;
 
-		@media (min-width: 768px) {
-			flex-flow: row wrap;
-		}
+        @media (min-width: 768px) {
+            flex-flow: row wrap;
+        }
 
-		@media (min-width: 1024px) {
-			flex-flow: row nowrap;
-		}
+        @media (min-width: 1024px) {
+            flex-flow: row nowrap;
+        }
 
-		.cta-card {
-			display: inline-block;
-			margin: 1rem auto;
-			background-color: var(--white);
-			box-shadow: var(--shadow-lg);
-			border-radius: 0.5rem;
-			overflow: hidden;
-			transition: all 150ms var(--ease-in-out);
-			transform-origin: center;
-			transform: scale(1);
-			width: 320px;
-			cursor: pointer;
-			user-select: none;
+        .cta-card {
+            display: inline-block;
+            margin: 1rem auto;
+            background-color: var(--white);
+            box-shadow: var(--shadow-lg);
+            border-radius: 0.5rem;
+            overflow: hidden;
+            transition: all 150ms var(--ease-in-out);
+            transform-origin: center;
+            transform: scale(1);
+            width: 320px;
+            cursor: pointer;
+            user-select: none;
 
-			&.has-image {
-				card-copy {
-					border-radius: 0 0 0.5rem 0.5rem;
-					border-width: 0 1px 1px 1px;
-					border-style: solid;
-					border-color: var(--grey-100);
-				}
-			}
+            &.has-image {
+                card-copy {
+                    border-radius: 0 0 0.5rem 0.5rem;
+                    border-width: 0 1px 1px 1px;
+                    border-style: solid;
+                    border-color: var(--grey-100);
+                }
+            }
 
-			&:not(.has-image) {
-				border: 1px solid var(--grey-100);
-			}
+            &:not(.has-image) {
+                border: 1px solid var(--grey-100);
+            }
 
-			&:hover {
-				box-shadow: var(--shadow-xl);
-			}
-			&:focus-visible {
-				box-shadow: var(--shadow-xl);
-			}
-			&:active {
-				box-shadow: var(--shadow-md);
-				transform: scale(0.95);
-				background-color: var(--neutral-100);
-				transition: filter 75ms var(--ease-in-out);
+            &:hover {
+                box-shadow: var(--shadow-xl);
+            }
+            &:focus-visible {
+                box-shadow: var(--shadow-xl);
+            }
+            &:active {
+                box-shadow: var(--shadow-md);
+                transform: scale(0.95);
+                background-color: var(--neutral-100);
+                transition: filter 75ms var(--ease-in-out);
 
-				img {
-					filter: brightness(0.87);
-					transition: filter 75ms var(--ease-in-out);
-				}
-			}
+                img {
+                    filter: brightness(0.87);
+                    transition: filter 75ms var(--ease-in-out);
+                }
+            }
 
-			@media (min-width: 768px) {
-				margin: 1rem;
-			}
+            @media (min-width: 768px) {
+                margin: 1rem;
+            }
 
-			img-shim {
-				display: block;
-				width: 100%;
-				position: relative;
+            img-shim {
+                display: block;
+                width: 100%;
+                position: relative;
 
-				&::before {
-					content: "";
-					display: block;
-					width: 100%;
-					padding-bottom: 56.25%;
-				}
+                &::before {
+                    content: "";
+                    display: block;
+                    width: 100%;
+                    padding-bottom: 56.25%;
+                }
 
-				img {
-					position: absolute;
-					top: 0;
-					left: 0;
-					width: 100%;
-					height: 100%;
-					object-fit: cover;
-					user-select: none;
-				}
-			}
+                img {
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                    user-select: none;
+                }
+            }
 
-			card-copy {
-				display: block;
-				width: 100%;
-				padding: 1rem;
+            card-copy {
+                display: block;
+                width: 100%;
+                padding: 1rem;
 
-				h2 {
-					display: block;
-					width: 100%;
-					font-size: var(--font-lg);
-					color: var(--grey-800);
-					line-height: 1.375;
-					margin-bottom: 0.5rem;
-				}
+                h2 {
+                    display: block;
+                    width: 100%;
+                    font-size: var(--font-lg);
+                    color: var(--grey-800);
+                    line-height: 1.375;
+                    margin-bottom: 0.5rem;
+                }
 
-				p {
-					font-size: var(--font-sm);
-					margin: 0;
-				}
-			}
-		}
-	}
+                p {
+                    font-size: var(--font-sm);
+                    margin: 0;
+                }
+            }
+        }
+    }
 }

@@ -1,8 +1,8 @@
 <?php
-/** 
+/**
  * papertrain module for Craft CMS 3.x
  *
- * Papertrain core  
+ * Papertrain core
  *
  * @link      https://papertrain.io/
  * @copyright Copyright (c) 2020 Kyle Andrews
@@ -36,67 +36,56 @@ class PWAService extends Component
 
     public function cachebust()
     {
-        $settings = include(FileHelper::normalizePath(Craft::$app->getPath()->getConfigPath() . '/pwa.php'));
-        $cache = include(FileHelper::normalizePath(Craft::$app->getPath()->getRuntimePath() . '/pwa/cache.php'));
-        if ($settings)
-        {
+        $settings = include FileHelper::normalizePath(Craft::$app->getPath()->getConfigPath() . "/pwa.php");
+        $cache = include FileHelper::normalizePath(Craft::$app->getPath()->getRuntimePath() . "/pwa/cache.php");
+        if ($settings) {
             $response = [
-                'success' => true,
-                'contentCacheDuration' => $settings['contentCacheDuration'],
-                'maximumContentPrompts' => $settings['maximumContentPrompts']
+                "success" => true,
+                "contentCacheDuration" => $settings["contentCacheDuration"],
+                "maximumContentPrompts" => $settings["maximumContentPrompts"],
             ];
 
             // Sets content cache timestamp based on automated cache busting when possible
-            if ($cache)
-            {
-                $response['cacheTimestamp'] = $cache['contentCache'];
+            if ($cache) {
+                $response["cacheTimestamp"] = $cache["contentCache"];
             }
-        }
-        else
-        {
+        } else {
             $response = [
-                'success' => false,
-                'error' => 'Failed to find pwa.php file in the config/ directory'
+                "success" => false,
+                "error" => "Failed to find pwa.php file in the config/ directory",
             ];
         }
-        
+
         return $response;
     }
 
-    public function updateRevisions(Array $entries)
+    public function updateRevisions(array $entries)
     {
         $cache = new Cache();
         $cache->redis->init();
 
-        foreach ($entries as $id)
-        {
-            if ($cache->exists($id))
-            {
+        foreach ($entries as $id) {
+            if ($cache->exists($id)) {
                 $value = $cache->get($id);
                 $value = $value + 1;
                 $cache->set($id, $value);
-            }
-            else
-            {
-                $cache->set($id, '0');
-                return '0';
+            } else {
+                $cache->set($id, "0");
+                return "0";
             }
         }
-        
     }
 
     public function setupContentCache()
     {
-        $dirPath = FileHelper::normalizePath(Craft::$app->getPath()->getRuntimePath() . '/pwa');
-        if (!is_dir($dirPath))
-        {
+        $dirPath = FileHelper::normalizePath(Craft::$app->getPath()->getRuntimePath() . "/pwa");
+        if (!is_dir($dirPath)) {
             mkdir($dirPath);
         }
 
-        if (!file_exists($dirPath . '/cache.php'))
-        {
-            $file = fopen($dirPath . '/cache.php', "w");
-            fwrite($file,"<?php\nreturn [\n\t'contentCache' => '" . time() . "',\n];");
+        if (!file_exists($dirPath . "/cache.php")) {
+            $file = fopen($dirPath . "/cache.php", "w");
+            fwrite($file, "<?php\nreturn [\n\t'contentCache' => '" . time() . "',\n];");
             fclose($file);
         }
     }
@@ -105,9 +94,8 @@ class PWAService extends Component
     {
         $requiresLogin = false;
         $currEntry = $entry;
-        do
-        {
-            if ($currEntry->requireLogin){
+        do {
+            if ($currEntry->requireLogin) {
                 $requiresLogin = true;
                 break;
             }
@@ -116,51 +104,40 @@ class PWAService extends Component
         return $requiresLogin;
     }
 
-    public function getCache(string $entryId) : string
+    public function getCache(string $entryId): string
     {
-        $ret = '0';
+        $ret = "0";
         $cache = new Cache();
         $cache->redis->init();
-        if ($cache->exists($entryId))
-        {
+        if ($cache->exists($entryId)) {
             $ret = $cache->get($entryId);
-        }
-        else
-        {
-            $cache->set($entryId, '0');
+        } else {
+            $cache->set($entryId, "0");
         }
         return $ret;
     }
 
     public function injectCriticalCSS($css)
     {
-        $files = array();
-        if (is_array($css))
-        {
+        $files = [];
+        if (is_array($css)) {
             $files = $css;
-        }
-        elseif (is_string($css))
-        {
+        } elseif (is_string($css)) {
             $files[] = $css;
-        }
-        else
-        {
+        } else {
             return;
         }
 
         $html = "";
-        foreach ($files as $file)
-        {
-            $path = $_SERVER['DOCUMENT_ROOT'] . '/assets/' . $file . '.css';
-            if (file_exists($path))
-            {
+        foreach ($files as $file) {
+            $path = $_SERVER["DOCUMENT_ROOT"] . "/assets/" . $file . ".css";
+            if (file_exists($path)) {
                 $css = file_get_contents($path);
                 $html .= '<style file="' . $file . '.css"';
-                if ($pjaxId)
-                {
+                if ($pjaxId) {
                     $html .= ' pjax-id="' . $pjaxId . '"';
                 }
-                $html .= '>' . $css . '</style>';
+                $html .= ">" . $css . "</style>";
             }
         }
         return TemplateHelper::raw($html);

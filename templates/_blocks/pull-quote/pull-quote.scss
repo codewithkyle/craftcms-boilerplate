@@ -1,152 +1,152 @@
 pull-quote-block {
-	display: block;
-	width: 100%;
-	padding: 0 1rem;
+    display: block;
+    width: 100%;
+    padding: 0 1rem;
 
-	pull-quote {
-		width: 1024px;
-		max-width: 100%;
-		border-radius: 0.5rem;
-		box-shadow: var(--shadow-2xl);
-		background-color: var(--white);
-		display: flex;
-		flex-flow: row nowrap;
-		margin: 0 auto;
-		overflow: hidden;
-		border: 1px solid var(--grey-100);
+    pull-quote {
+        width: 1024px;
+        max-width: 100%;
+        border-radius: 0.5rem;
+        box-shadow: var(--shadow-2xl);
+        background-color: var(--white);
+        display: flex;
+        flex-flow: row nowrap;
+        margin: 0 auto;
+        overflow: hidden;
+        border: 1px solid var(--grey-100);
 
-		@media (min-width: 1024px) {
-			border: none;
-		}
+        @media (min-width: 1024px) {
+            border: none;
+        }
 
-		img-shim {
-			width: 33.33%;
-			height: 100%;
-			overflow: hidden;
-			position: relative;
-			display: none;
-			margin: auto;
-			background-color: var(--grey-100);
+        img-shim {
+            width: 33.33%;
+            height: 100%;
+            overflow: hidden;
+            position: relative;
+            display: none;
+            margin: auto;
+            background-color: var(--grey-100);
 
-			@media (min-width: 1024px) {
-				display: inline-block;
-			}
+            @media (min-width: 1024px) {
+                display: inline-block;
+            }
 
-			&::before {
-				display: block;
-				width: 100%;
-				content: "";
-				padding-bottom: 100%;
-			}
+            &::before {
+                display: block;
+                width: 100%;
+                content: "";
+                padding-bottom: 100%;
+            }
 
-			img {
-				user-select: none;
-				position: absolute;
-				top: 0;
-				left: 0;
-				width: 100%;
-				height: 100%;
-				object-fit: contain;
-			}
-		}
+            img {
+                user-select: none;
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                object-fit: contain;
+            }
+        }
 
-		content-wrapper {
-			width: 100%;
-			display: inline-flex;
-			flex-flow: column wrap;
-			justify-content: center;
-			flex: 1;
-			padding: 2rem;
+        content-wrapper {
+            width: 100%;
+            display: inline-flex;
+            flex-flow: column wrap;
+            justify-content: center;
+            flex: 1;
+            padding: 2rem;
 
-			@media (min-width: 1024px) {
-				border-width: 1px 1px 1px 0;
-				border-radius: 0 0.5rem 0.5rem 0;
-				border-style: solid;
-				border-color: var(--grey-100);
-			}
+            @media (min-width: 1024px) {
+                border-width: 1px 1px 1px 0;
+                border-radius: 0 0.5rem 0.5rem 0;
+                border-style: solid;
+                border-color: var(--grey-100);
+            }
 
-			blockquote {
-				display: block;
-				width: 100%;
+            blockquote {
+                display: block;
+                width: 100%;
 
-				p {
-					margin-bottom: 1rem;
-					font-size: var(--font-base);
-					line-height: 2;
-					color: var(--grey-700);
+                p {
+                    margin-bottom: 1rem;
+                    font-size: var(--font-base);
+                    line-height: 2;
+                    color: var(--grey-700);
 
-					&:last-of-type {
-						margin-bottom: 0;
-					}
+                    &:last-of-type {
+                        margin-bottom: 0;
+                    }
 
-					a {
-						color: var(--primary-700);
-						cursor: pointer;
-						transition: all 150ms var(--ease-in-out);
+                    a {
+                        color: var(--primary-700);
+                        cursor: pointer;
+                        transition: all 150ms var(--ease-in-out);
 
-						&:hover {
-							color: var(--primary-600);
-							text-decoration: underline;
-						}
-						&:focus-visible {
-							color: var(--primary-600);
-							text-decoration: underline;
-						}
-						&:active {
-							color: var(--primary-800);
-							text-decoration: underline;
-						}
-					}
-				}
-			}
+                        &:hover {
+                            color: var(--primary-600);
+                            text-decoration: underline;
+                        }
+                        &:focus-visible {
+                            color: var(--primary-600);
+                            text-decoration: underline;
+                        }
+                        &:active {
+                            color: var(--primary-800);
+                            text-decoration: underline;
+                        }
+                    }
+                }
+            }
 
-			cite {
-				display: block;
-				width: 100%;
-				color: var(--grey-700);
-				font-size: var(--font-base);
-				font-weight: var(--font-medium);
-				line-height: 2;
-				margin-top: 0.5rem;
-			}
+            cite {
+                display: block;
+                width: 100%;
+                color: var(--grey-700);
+                font-size: var(--font-base);
+                font-weight: var(--font-medium);
+                line-height: 2;
+                margin-top: 0.5rem;
+            }
 
-			.cta-link {
-				margin-top: 0.5rem;
-				font-size: var(--font-base);
-				line-height: 2;
-				color: var(--primary-700);
-				cursor: pointer;
-				transition: all 150ms var(--ease-in-out);
-				display: inline-flex;
-				flex-flow: row nowrap;
-				align-items: center;
+            .cta-link {
+                margin-top: 0.5rem;
+                font-size: var(--font-base);
+                line-height: 2;
+                color: var(--primary-700);
+                cursor: pointer;
+                transition: all 150ms var(--ease-in-out);
+                display: inline-flex;
+                flex-flow: row nowrap;
+                align-items: center;
 
-				&:hover {
-					color: var(--primary-700);
+                &:hover {
+                    color: var(--primary-700);
 
-					svg {
-						transform: translateX(1rem);
-					}
-				}
-				&:focus-visible {
-					color: var(--primary-700);
+                    svg {
+                        transform: translateX(1rem);
+                    }
+                }
+                &:focus-visible {
+                    color: var(--primary-700);
 
-					svg {
-						transform: translateX(1rem);
-					}
-				}
-				&:active {
-					color: var(--primary-800);
-				}
+                    svg {
+                        transform: translateX(1rem);
+                    }
+                }
+                &:active {
+                    color: var(--primary-800);
+                }
 
-				svg {
-					width: 14px;
-					height: 14px;
-					display: inline-block;
-					transform: translateX(0.5rem);
-					transition: all 150ms var(--ease-in-out);
-				}
-			}
-		}
-	}
+                svg {
+                    width: 14px;
+                    height: 14px;
+                    display: inline-block;
+                    transform: translateX(0.5rem);
+                    transition: all 150ms var(--ease-in-out);
+                }
+            }
+        }
+    }
 }

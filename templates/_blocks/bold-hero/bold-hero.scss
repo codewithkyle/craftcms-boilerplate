@@ -1,4 +1,4 @@
-bold-hero{
+bold-hero {
     width: 100%;
     min-height: 600px;
     position: relative;
@@ -7,11 +7,11 @@ bold-hero{
     align-items: center;
     flex-flow: row nowrap;
 
-    @media (min-width: 1024px){
+    @media (min-width: 1024px) {
         padding: 0 1rem;
     }
 
-    img-shim{
+    img-shim {
         position: absolute;
         top: 0;
         right: 0;
@@ -20,11 +20,11 @@ bold-hero{
         overflow: hidden;
         display: none;
 
-        @media (min-width: 1024px){
+        @media (min-width: 1024px) {
             display: inline-block;
         }
 
-        &::after{
+        &::after {
             content: "";
             display: inline-block;
             width: 25%;
@@ -36,7 +36,7 @@ bold-hero{
             transform: translateY(-50%) skewX(-7deg);
         }
 
-        img{
+        img {
             position: absolute;
             top: 0;
             left: 0;
@@ -47,34 +47,34 @@ bold-hero{
         }
     }
 
-    copy-wrapper{
+    copy-wrapper {
         display: inline-block;
         width: 100%;
 
-        @media (min-width: 1024px){
+        @media (min-width: 1024px) {
             width: 50%;
             padding: 0 4rem 0 3rem;
         }
 
-        h1{
+        h1 {
             font-size: 2.5rem;
             font-weight: var(--font-bold);
             line-height: 1.125;
             margin-bottom: 1rem;
             color: var(--grey-800);
 
-            @media (min-width:768px){
+            @media (min-width: 768px) {
                 font-size: 4rem;
             }
         }
 
-        p{
+        p {
             font-size: var(--font-sm);
             line-height: 1.618;
             margin-bottom: 1rem;
             color: var(--grey-700);
 
-            @media (min-width:768px){
+            @media (min-width: 768px) {
                 font-size: var(--font-lg);
             }
         }

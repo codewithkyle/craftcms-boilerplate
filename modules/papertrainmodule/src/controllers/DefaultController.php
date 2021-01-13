@@ -22,7 +22,6 @@ use craft\web\Controller;
  */
 class DefaultController extends Controller
 {
-
     // Protected Properties
     // =========================================================================
 
@@ -31,7 +30,7 @@ class DefaultController extends Controller
      *         The actions must be in 'kebab-case'
      * @access protected
      */
-    protected $allowAnonymous = ['cachebust', 'form-submit', 'get-csrf'];
+    protected $allowAnonymous = ["cachebust", "form-submit", "get-csrf"];
 
     // Public Methods
     // =========================================================================
@@ -50,14 +49,11 @@ class DefaultController extends Controller
     public function actionLoadCoreScript(string $script)
     {
         $filePath = dirname(__DIR__);
-        $filePath .= '/assets/js/';
+        $filePath .= "/assets/js/";
         $filePath .= $script;
-        if (file_exists($filePath))
-        {
+        if (file_exists($filePath)) {
             return Craft::$app->response->sendFile($filePath, $script);
-        }
-        else
-        {
+        } else {
             return Craft::$app->getResponse()->setStatusCode(404);
         }
     }
@@ -79,8 +75,8 @@ class DefaultController extends Controller
     {
         $this->requireAcceptsJson();
         $response = [
-            'success' => true,
-            'csrf' => Craft::$app->request->getCsrfToken()
+            "success" => true,
+            "csrf" => Craft::$app->request->getCsrfToken(),
         ];
         return json_encode($response);
     }

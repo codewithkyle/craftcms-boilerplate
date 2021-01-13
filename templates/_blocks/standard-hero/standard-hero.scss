@@ -1,4 +1,4 @@
-standard-hero{
+standard-hero {
     width: 100%;
     padding: 6rem 1rem 8rem;
     display: flex;
@@ -7,48 +7,48 @@ standard-hero{
     position: relative;
     min-height: 600px;
 
-    &.light{
+    &.light {
         background-color: var(--neutral-100);
 
-        h1{
+        h1 {
             color: var(--grey-900);
         }
-        p{
+        p {
             color: var(--grey-700);
         }
     }
 
     &.dark,
-    &.has-image{
+    &.has-image {
         background-color: var(--neutral-900);
 
-        h1{
+        h1 {
             color: var(--white);
         }
-        p{
+        p {
             color: var(--neutral-300);
         }
     }
 
-    &.color{
+    &.color {
         background-color: var(--primary-700);
 
-        h1{
+        h1 {
             color: var(--white);
         }
-        p{
+        p {
             color: var(--primary-100);
         }
     }
 
-    img-shim{
+    img-shim {
         position: absolute;
         top: 0;
         left: 0;
         width: 100%;
         height: 100%;
 
-        &::after{
+        &::after {
             content: "";
             display: inline-block;
             width: 100%;
@@ -56,10 +56,10 @@ standard-hero{
             position: absolute;
             top: 0;
             left: 0;
-            background-color: rgba(51,51,51,0.6);
+            background-color: rgba(51, 51, 51, 0.6);
         }
 
-        img{
+        img {
             user-select: none;
             position: absolute;
             top: 0;
@@ -71,32 +71,31 @@ standard-hero{
     }
 
     h1,
-    p{
+    p {
         text-align: center;
-        margin-bottom: 1rem;        
+        margin-bottom: 1rem;
 
-        &:last-child{
+        &:last-child {
             margin-bottom: 0;
         }
     }
 
-    h1{
+    h1 {
         font-size: 2.5rem;
         font-weight: var(--font-bold);
         line-height: 1.375;
 
-        @media (min-width:768px){
+        @media (min-width: 768px) {
             font-size: 4rem;
         }
     }
 
-    p{
+    p {
         font-size: var(--font-sm);
         line-height: 1.618;
 
-        @media (min-width:768px){
+        @media (min-width: 768px) {
             font-size: var(--font-lg);
         }
     }
-    
 }

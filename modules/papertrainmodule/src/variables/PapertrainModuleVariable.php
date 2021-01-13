@@ -43,8 +43,7 @@ class PapertrainModuleVariable
     public function checkRequireLogin($entry)
     {
         $requiresLogin = false;
-        if (!empty($entry) && isset($entry['requireLogin']))
-        {
+        if (!empty($entry) && isset($entry["requireLogin"])) {
             $requiresLogin = PapertrainModule::getInstance()->pwaService->checkRequireLogin($entry);
         }
         return $requiresLogin;

@@ -1,4 +1,4 @@
-lazy-image{
+lazy-image {
     display: block;
     width: 1024px;
     max-width: 100%;
@@ -8,16 +8,14 @@ lazy-image{
     background-color: var(--grey-100);
     border-radius: 0.25rem;
 
-    &::before
-    {
+    &::before {
         content: "";
         display: block;
         width: 100%;
         padding-bottom: 56.25%;
     }
 
-    img
-    {
+    img {
         position: absolute;
         top: 0;
         left: 0;
@@ -29,7 +27,7 @@ lazy-image{
     }
 }
 
-image-cite{
+image-cite {
     display: block;
     text-align: center;
     font-size: var(--text-xs);

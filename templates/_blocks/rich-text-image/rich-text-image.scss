@@ -1,131 +1,131 @@
 rich-text-image-block {
-	position: relative;
-	width: 1280px;
-	max-width: 100%;
-	display: grid;
-	grid-template-columns: 1fr;
-	gap: 2rem;
-	padding: 0 1rem;
-	margin: 0 auto;
+    position: relative;
+    width: 1280px;
+    max-width: 100%;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    padding: 0 1rem;
+    margin: 0 auto;
 
-	@media (min-width: 1024px) {
-		grid-template-columns: minmax(1px, 520px) 1fr;
-	}
+    @media (min-width: 1024px) {
+        grid-template-columns: minmax(1px, 520px) 1fr;
+    }
 
-	img-shim {
-		max-width: 520px;
-		display: block;
-		margin: 0 auto;
+    img-shim {
+        max-width: 520px;
+        display: block;
+        margin: 0 auto;
 
-		img {
-			object-fit: contain;
-			user-select: none;
-			width: 100%;
-			overflow: hidden;
-			border-radius: 0.25rem;
-		}
-	}
+        img {
+            object-fit: contain;
+            user-select: none;
+            width: 100%;
+            overflow: hidden;
+            border-radius: 0.25rem;
+        }
+    }
 
-	content-wrapper {
-		display: block;
-		width: 100%;
+    content-wrapper {
+        display: block;
+        width: 100%;
 
-		h1,
-		h2,
-		h3,
-		h4,
-		h5,
-		h6 {
-			display: block;
-			line-height: 1.375;
-			margin-bottom: 1.5rem;
-		}
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            display: block;
+            line-height: 1.375;
+            margin-bottom: 1.5rem;
+        }
 
-		h1 {
-			font-size: var(--font-3xl);
-		}
+        h1 {
+            font-size: var(--font-3xl);
+        }
 
-		h2 {
-			font-size: var(--font-2xl);
-		}
+        h2 {
+            font-size: var(--font-2xl);
+        }
 
-		h3 {
-			font-size: var(--font-xl);
-		}
+        h3 {
+            font-size: var(--font-xl);
+        }
 
-		h4 {
-			font-size: var(--font-lg);
-		}
+        h4 {
+            font-size: var(--font-lg);
+        }
 
-		h5 {
-			font-size: var(--font-md);
-		}
+        h5 {
+            font-size: var(--font-md);
+        }
 
-		h6 {
-			font-weight: var(--font-base);
-		}
+        h6 {
+            font-weight: var(--font-base);
+        }
 
-		p,
-		li {
-			a {
-				color: var(--primary-700);
-				cursor: pointer;
-				transition: all 150ms var(--ease-in-out);
+        p,
+        li {
+            a {
+                color: var(--primary-700);
+                cursor: pointer;
+                transition: all 150ms var(--ease-in-out);
 
-				&:hover {
-					color: var(--primary-600);
-					text-decoration: underline;
-				}
-				&:focus-visible {
-					color: var(--primary-600);
-					text-decoration: underline;
-				}
-				&:active {
-					color: var(--primary-800);
-					text-decoration: underline;
-				}
-			}
-		}
+                &:hover {
+                    color: var(--primary-600);
+                    text-decoration: underline;
+                }
+                &:focus-visible {
+                    color: var(--primary-600);
+                    text-decoration: underline;
+                }
+                &:active {
+                    color: var(--primary-800);
+                    text-decoration: underline;
+                }
+            }
+        }
 
-		p {
-			margin-top: 1rem;
-			font-size: var(--font-base);
-			line-height: 1.618;
-			color: var(--grey-700);
+        p {
+            margin-top: 1rem;
+            font-size: var(--font-base);
+            line-height: 1.618;
+            color: var(--grey-700);
 
-			&:first-child {
-				margin-top: 0;
-			}
-		}
+            &:first-child {
+                margin-top: 0;
+            }
+        }
 
-		ul,
-		ol {
-			margin-top: 1rem;
-			margin-left: 0.25rem;
-		}
+        ul,
+        ol {
+            margin-top: 1rem;
+            margin-left: 0.25rem;
+        }
 
-		ul li {
-			list-style-type: disc;
-		}
+        ul li {
+            list-style-type: disc;
+        }
 
-		ol li {
-			list-style-type: decimal;
-		}
+        ol li {
+            list-style-type: decimal;
+        }
 
-		ul ul,
-		ol ul,
-		ul ol,
-		ol ol {
-			padding-left: 1.25rem;
-			margin-top: 0.25rem;
-		}
+        ul ul,
+        ol ul,
+        ul ol,
+        ol ol {
+            padding-left: 1.25rem;
+            margin-top: 0.25rem;
+        }
 
-		li {
-			list-style-position: inside;
-			padding-bottom: 0.25rem;
-			font-size: var(--font-base);
-			line-height: 2;
-			color: var(--grey-700);
-		}
-	}
+        li {
+            list-style-position: inside;
+            padding-bottom: 0.25rem;
+            font-size: var(--font-base);
+            line-height: 2;
+            color: var(--grey-700);
+        }
+    }
 }

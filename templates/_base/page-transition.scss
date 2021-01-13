@@ -1,102 +1,86 @@
-:root
-{
-	--loading-bar-shadow: rgba(0, 191, 255, 0.87);
+:root {
+    --loading-bar-shadow: rgba(0, 191, 255, 0.87);
 }
-page-transition
-{
-	width: 100vw;
-	height: 2px;
-	position: fixed;
-	top: 0;
-	left: 0;
-	z-index: 99999;
-	display: inline-block;
-	visibility: hidden;
-	user-select: none;
-	pointer-events: none;
+page-transition {
+    width: 100vw;
+    height: 2px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 99999;
+    display: inline-block;
+    visibility: hidden;
+    user-select: none;
+    pointer-events: none;
 
-	html[state="page-loading"] &,
-	html[state="page-loading-complete"] &
-	{
-		visibility: visible;
-	}
+    html[state="page-loading"] &,
+    html[state="page-loading-complete"] & {
+        visibility: visible;
+    }
 
-	page-transition-bar
-	{
-		position: absolute;
-		top: 0;
-		left: 0;
-		display: inline-block;
-		width: 100%;
-		height: 100%;
-		transform: scaleX(0);
-		transform-origin: left center;
-		background-color: var(--loading-bar);
-		box-shadow: 0 0 3px var(--loading-bar-shadow);
-		overflow: hidden;
+    page-transition-bar {
+        position: absolute;
+        top: 0;
+        left: 0;
+        display: inline-block;
+        width: 100%;
+        height: 100%;
+        transform: scaleX(0);
+        transform-origin: left center;
+        background-color: var(--loading-bar);
+        box-shadow: 0 0 3px var(--loading-bar-shadow);
+        overflow: hidden;
 
-		html[state="page-loading"] &
-		{
-			animation: startLoading 600ms ease-out forwards;
-		}
+        html[state="page-loading"] & {
+            animation: startLoading 600ms ease-out forwards;
+        }
 
-		html[state="page-loading-complete"] &
-		{
-			transform: scaleX(0.33);
-			animation: endLoading 600ms ease forwards;
-		}
+        html[state="page-loading-complete"] & {
+            transform: scaleX(0.33);
+            animation: endLoading 600ms ease forwards;
+        }
 
-		&::after
-		{
-			content:"";
-			display: inline-block;
-			position: absolute;
-			top: 0;
-			left: 0;
-			width: 100%;
-			height: 100%;
-			background: linear-gradient(to right, rgba(255,255,255,0), rgba(255,255,255,0.3), rgba(255,255,255,0), rgba(255,255,255,0.3), rgba(255,255,255,0));
-			animation: gradientLoop 2000ms infinite;
-		}
-	}
+        &::after {
+            content: "";
+            display: inline-block;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to right, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0));
+            animation: gradientLoop 2000ms infinite;
+        }
+    }
 }
 
-@keyframes gradientLoop
-{
-	from
-	{
-		transform: translateX(100%);
-	}
-	to
-	{
-		transform: translateX(-100%);
-	}
+@keyframes gradientLoop {
+    from {
+        transform: translateX(100%);
+    }
+    to {
+        transform: translateX(-100%);
+    }
 }
 
-@keyframes startLoading
-{
-	from
-	{
-		transform: scaleX(0);
-	}
-	to
-	{
-		transform: scaleX(0.66);
-	}
+@keyframes startLoading {
+    from {
+        transform: scaleX(0);
+    }
+    to {
+        transform: scaleX(0.66);
+    }
 }
 
-@keyframes endLoading
-{
-	0%
-	{
-		transform: scaleX(0.66) translateX(0);
-	}
-	25%, 50%
-	{
-		transform: scaleX(1) translateX(0);
-	}
-	100%
-	{
-		transform: scaleX(1) translateX(100%);
-	}
+@keyframes endLoading {
+    0% {
+        transform: scaleX(0.66) translateX(0);
+    }
+    25%,
+    50% {
+        transform: scaleX(1) translateX(0);
+    }
+    100% {
+        transform: scaleX(1) translateX(100%);
+    }
 }
