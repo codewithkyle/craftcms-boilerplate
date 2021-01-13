@@ -14,5 +14,5 @@
  * @since     1.0.0
  */
 return [
-    "papertrain plugin loaded" => "papertrain plugin loaded",
+	"papertrain plugin loaded" => "papertrain plugin loaded",
 ];

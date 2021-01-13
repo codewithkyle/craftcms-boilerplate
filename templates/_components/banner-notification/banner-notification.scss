@@ -1,67 +1,67 @@
 banner-notification {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    padding: 2.5rem 3rem;
-    background-color: var(--primary-700);
-    color: var(--white);
-    z-index: 2000;
-    transition: all 150ms var(--ease-in);
-    box-shadow: var(--shadow-xl);
-    display: flex;
-    justify-content: center;
-    flex-flow: row nowrap;
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	padding: 2.5rem 3rem;
+	background-color: var(--primary-700);
+	color: var(--white);
+	z-index: 2000;
+	transition: all 150ms var(--ease-in);
+	box-shadow: var(--shadow-xl);
+	display: flex;
+	justify-content: center;
+	flex-flow: row nowrap;
 
-    p {
-        flex: 1;
-        display: block;
-        margin: 0;
-        width: 100%;
-        text-align: center;
-        font-weight: var(--font-bold);
-        font-size: var(--font-xl);
-    }
+	p {
+		flex: 1;
+		display: block;
+		margin: 0;
+		width: 100%;
+		text-align: center;
+		font-weight: var(--font-bold);
+		font-size: var(--font-xl);
+	}
 
-    button {
-        width: 36px;
-        height: 36px;
-        color: var(--white);
-        margin-left: 1rem;
-        display: inline-flex;
-        justify-content: center;
-        align-items: center;
+	button {
+		width: 36px;
+		height: 36px;
+		color: var(--white);
+		margin-left: 1rem;
+		display: inline-flex;
+		justify-content: center;
+		align-items: center;
 
-        &:focus,
-        &:hover {
-            &::before {
-                transform: scale(1);
-            }
-        }
+		&:focus,
+		&:hover {
+			&::before {
+				transform: scale(1);
+			}
+		}
 
-        &:active {
-            &::before {
-                transform: scale(1.15);
-                opacity: 0.2;
-            }
-        }
+		&:active {
+			&::before {
+				transform: scale(1.15);
+				opacity: 0.2;
+			}
+		}
 
-        &::before {
-            content: "";
-            display: inline-block;
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            border-radius: 50%;
-            background-color: var(--white);
-            opacity: 0.15;
-            transform: scale(0);
-            transition: all 150ms var(--ease-bounce);
-        }
+		&::before {
+			content: "";
+			display: inline-block;
+			position: absolute;
+			width: 100%;
+			height: 100%;
+			border-radius: 50%;
+			background-color: var(--white);
+			opacity: 0.15;
+			transform: scale(0);
+			transition: all 150ms var(--ease-bounce);
+		}
 
-        svg {
-            width: 24px;
-            height: 24px;
-        }
-    }
+		svg {
+			width: 24px;
+			height: 24px;
+		}
+	}
 }

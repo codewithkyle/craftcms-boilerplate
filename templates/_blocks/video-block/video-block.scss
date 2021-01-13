@@ -1,196 +1,196 @@
 lazy-video {
-    width: 1024px;
-    max-width: 100%;
-    display: block;
-    margin: 0 auto;
-    padding: 0 1rem;
+	width: 1024px;
+	max-width: 100%;
+	display: block;
+	margin: 0 auto;
+	padding: 0 1rem;
 
-    h1 {
-        display: block;
-        width: 100%;
-        text-align: center;
-        font-size: var(--font-3xl);
-        font-weight: var(--font-medium);
-        color: var(--grey-800);
-        line-height: 1.375;
-        margin-bottom: 1rem;
-    }
+	h1 {
+		display: block;
+		width: 100%;
+		text-align: center;
+		font-size: var(--font-3xl);
+		font-weight: var(--font-medium);
+		color: var(--grey-800);
+		line-height: 1.375;
+		margin-bottom: 1rem;
+	}
 
-    p {
-        margin-bottom: 1rem;
-        font-size: var(--font-base);
-        line-height: 1.618;
-        color: var(--grey-700);
+	p {
+		margin-bottom: 1rem;
+		font-size: var(--font-base);
+		line-height: 1.618;
+		color: var(--grey-700);
 
-        a {
-            color: var(--primary-700);
-            cursor: pointer;
-            transition: all 150ms var(--ease-in-out);
+		a {
+			color: var(--primary-700);
+			cursor: pointer;
+			transition: all 150ms var(--ease-in-out);
 
-            &:hover {
-                color: var(--primary-600);
-                text-decoration: underline;
-            }
-            &:focus-visible {
-                color: var(--primary-600);
-                text-decoration: underline;
-            }
-            &:active {
-                color: var(--primary-800);
-                text-decoration: underline;
-            }
-        }
-    }
+			&:hover {
+				color: var(--primary-600);
+				text-decoration: underline;
+			}
+			&:focus-visible {
+				color: var(--primary-600);
+				text-decoration: underline;
+			}
+			&:active {
+				color: var(--primary-800);
+				text-decoration: underline;
+			}
+		}
+	}
 
-    video-shim {
-        margin: 0 auto;
-        display: block;
-        width: 100%;
-        position: relative;
-        background-color: var(--grey-100);
-        cursor: pointer;
-        border-radius: 0.25rem;
-        overflow: hidden;
+	video-shim {
+		margin: 0 auto;
+		display: block;
+		width: 100%;
+		position: relative;
+		background-color: var(--grey-100);
+		cursor: pointer;
+		border-radius: 0.25rem;
+		overflow: hidden;
 
-        &:not(:first-child) {
-            margin-top: 3rem;
-        }
+		&:not(:first-child) {
+			margin-top: 3rem;
+		}
 
-        &::before {
-            content: "";
-            display: block;
-            width: 100%;
-            padding-bottom: 56.25%;
-        }
+		&::before {
+			content: "";
+			display: block;
+			width: 100%;
+			padding-bottom: 56.25%;
+		}
 
-        &::after {
-            z-index: 11;
-            content: "";
-            width: 100%;
-            height: 100%;
-            position: absolute;
-            top: 0;
-            left: 0;
-            background-color: rgba(51, 51, 51, 0.3);
-            transition: all 150ms ease-in-out;
-            pointer-events: none;
-        }
+		&::after {
+			z-index: 11;
+			content: "";
+			width: 100%;
+			height: 100%;
+			position: absolute;
+			top: 0;
+			left: 0;
+			background-color: rgba(51, 51, 51, 0.3);
+			transition: all 150ms ease-in-out;
+			pointer-events: none;
+		}
 
-        &:hover,
-        &:focus {
-            button {
-                transform: scale(1) translate(-50%, -50%);
-            }
-        }
+		&:hover,
+		&:focus {
+			button {
+				transform: scale(1) translate(-50%, -50%);
+			}
+		}
 
-        &:active {
-            button {
-                transform: scale(0.95) translate(-50%, -50%);
-                box-shadow: 0 1px 3px rgba(51, 51, 51, 0.6);
-                background-color: var(--grey-100);
-            }
-        }
+		&:active {
+			button {
+				transform: scale(0.95) translate(-50%, -50%);
+				box-shadow: 0 1px 3px rgba(51, 51, 51, 0.6);
+				background-color: var(--grey-100);
+			}
+		}
 
-        &[player-state="loading"] {
-            button {
-                opacity: 0 !important;
-                visibility: hidden !important;
-                pointer-events: none;
-            }
+		&[player-state="loading"] {
+			button {
+				opacity: 0 !important;
+				visibility: hidden !important;
+				pointer-events: none;
+			}
 
-            loading-spinner {
-                opacity: 1;
-                visibility: visible;
-            }
-        }
+			loading-spinner {
+				opacity: 1;
+				visibility: visible;
+			}
+		}
 
-        &[player-state="playing"] {
-            &::after {
-                opacity: 0;
-                visibility: hidden;
-            }
+		&[player-state="playing"] {
+			&::after {
+				opacity: 0;
+				visibility: hidden;
+			}
 
-            button {
-                opacity: 0 !important;
-                visibility: hidden !important;
-                pointer-events: none;
-            }
+			button {
+				opacity: 0 !important;
+				visibility: hidden !important;
+				pointer-events: none;
+			}
 
-            img {
-                opacity: 0;
-                visibility: hidden;
-                pointer-events: none;
-            }
-        }
+			img {
+				opacity: 0;
+				visibility: hidden;
+				pointer-events: none;
+			}
+		}
 
-        img {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            z-index: 10;
-        }
+		img {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+			z-index: 10;
+		}
 
-        iframe {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-        }
+		iframe {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+		}
 
-        button {
-            width: 64px;
-            height: 64px;
-            display: inline-flex;
-            justify-content: center;
-            align-items: center;
-            flex-flow: column wrap;
-            border-radius: 50%;
-            box-shadow: 0 1px 3px rgba(51, 51, 51, 0.3), 0 4px 24px rgba(51, 51, 51, 0.3);
-            background-color: var(--white);
-            color: var(--primary-500);
-            transition: all 150ms ease-in-out;
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%) scale(0.975);
-            transform-origin: center;
-            z-index: 15;
-            opacity: 0;
-            visibility: hidden;
+		button {
+			width: 64px;
+			height: 64px;
+			display: inline-flex;
+			justify-content: center;
+			align-items: center;
+			flex-flow: column wrap;
+			border-radius: 50%;
+			box-shadow: 0 1px 3px rgba(51, 51, 51, 0.3), 0 4px 24px rgba(51, 51, 51, 0.3);
+			background-color: var(--white);
+			color: var(--primary-500);
+			transition: all 150ms ease-in-out;
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%) scale(0.975);
+			transform-origin: center;
+			z-index: 15;
+			opacity: 0;
+			visibility: hidden;
 
-            &.is-visible {
-                opacity: 1;
-                visibility: visible;
-            }
+			&.is-visible {
+				opacity: 1;
+				visibility: visible;
+			}
 
-            svg {
-                width: 24px;
-                height: 24px;
-                margin-left: 0.25rem;
-            }
-        }
+			svg {
+				width: 24px;
+				height: 24px;
+				margin-left: 0.25rem;
+			}
+		}
 
-        loading-spinner {
-            z-index: 15;
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            transform-origin: center;
-            margin: 0;
-            opacity: 1;
-            visibility: visible;
-            pointer-events: none;
-            transition: all 150ms ease-in-out;
+		loading-spinner {
+			z-index: 15;
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+			transform-origin: center;
+			margin: 0;
+			opacity: 1;
+			visibility: visible;
+			pointer-events: none;
+			transition: all 150ms ease-in-out;
 
-            &.is-hidden {
-                visibility: hidden;
-                opacity: 0;
-            }
-        }
-    }
+			&.is-hidden {
+				visibility: hidden;
+				opacity: 0;
+			}
+		}
+	}
 }

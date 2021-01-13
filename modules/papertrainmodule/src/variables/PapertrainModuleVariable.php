@@ -21,31 +21,31 @@ use Craft;
  */
 class PapertrainModuleVariable
 {
-    // Public Methods
-    // =========================================================================
+	// Public Methods
+	// =========================================================================
 
-    public function css($css)
-    {
-        return PapertrainModule::getInstance()->pwaService->injectCriticalCSS($css);
-    }
+	public function css($css)
+	{
+		return PapertrainModule::getInstance()->pwaService->injectCriticalCSS($css);
+	}
 
-    public function getCache(string $entryId)
-    {
-        return PapertrainModule::getInstance()->pwaService->getCache($entryId);
-    }
+	public function getCache(string $entryId)
+	{
+		return PapertrainModule::getInstance()->pwaService->getCache($entryId);
+	}
 
-    public function makeMD5Hash($string)
-    {
-        $hashed = md5($string);
-        return $hashed;
-    }
+	public function makeMD5Hash($string)
+	{
+		$hashed = md5($string);
+		return $hashed;
+	}
 
-    public function checkRequireLogin($entry)
-    {
-        $requiresLogin = false;
-        if (!empty($entry) && isset($entry["requireLogin"])) {
-            $requiresLogin = PapertrainModule::getInstance()->pwaService->checkRequireLogin($entry);
-        }
-        return $requiresLogin;
-    }
+	public function checkRequireLogin($entry)
+	{
+		$requiresLogin = false;
+		if (!empty($entry) && isset($entry["requireLogin"])) {
+			$requiresLogin = PapertrainModule::getInstance()->pwaService->checkRequireLogin($entry);
+		}
+		return $requiresLogin;
+	}
 }

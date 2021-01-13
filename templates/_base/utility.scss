@@ -1,110 +1,110 @@
 header.-utility {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    display: block;
-    text-align: center;
-    padding: 1.125rem 2rem 0.875rem;
-    background-color: var(--white);
-    box-shadow: var(--shadow-md);
-    z-index: 1000;
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100vw;
+	display: block;
+	text-align: center;
+	padding: 1.125rem 2rem 0.875rem;
+	background-color: var(--white);
+	box-shadow: var(--shadow-md);
+	z-index: 1000;
 
-    .org-logo {
-        user-select: none;
-        display: inline-block;
+	.org-logo {
+		user-select: none;
+		display: inline-block;
 
-        img {
-            width: 100%;
-            height: 100%;
-            max-width: 128px;
-            max-height: 48px;
-        }
-    }
+		img {
+			width: 100%;
+			height: 100%;
+			max-width: 128px;
+			max-height: 48px;
+		}
+	}
 }
 footer.-utility {
-    display: block;
-    width: 100%;
-    background-color: var(--white);
-    border-top: 1px solid var(--grey-200);
-    padding: 2rem 2rem 1.75rem;
+	display: block;
+	width: 100%;
+	background-color: var(--white);
+	border-top: 1px solid var(--grey-200);
+	padding: 2rem 2rem 1.75rem;
 
-    .container {
-        width: 1280px;
-        max-width: 100%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-flow: column wrap;
-        margin: 0 auto;
-        font-size: var(--font-sm);
-        color: var(--grey-700);
+	.container {
+		width: 1280px;
+		max-width: 100%;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		flex-flow: column wrap;
+		margin: 0 auto;
+		font-size: var(--font-sm);
+		color: var(--grey-700);
 
-        @media (min-width: 1024px) {
-            flex-flow: row nowrap;
-            justify-content: space-between;
-        }
+		@media (min-width: 1024px) {
+			flex-flow: row nowrap;
+			justify-content: space-between;
+		}
 
-        div {
-            width: 100%;
-            display: block;
-            text-align: center;
+		div {
+			width: 100%;
+			display: block;
+			text-align: center;
 
-            @media (min-width: 1024px) {
-                display: inline-block;
-                width: auto;
-            }
-        }
+			@media (min-width: 1024px) {
+				display: inline-block;
+				width: auto;
+			}
+		}
 
-        .social-media-links {
-            margin-top: 2rem;
+		.social-media-links {
+			margin-top: 2rem;
 
-            @media (min-width: 1024px) {
-                text-align: right;
-                margin-top: 0;
-            }
-        }
+			@media (min-width: 1024px) {
+				text-align: right;
+				margin-top: 0;
+			}
+		}
 
-        a {
-            margin: 1rem;
-            display: block;
-            transition: all 150ms var(--ease-in-out);
+		a {
+			margin: 1rem;
+			display: block;
+			transition: all 150ms var(--ease-in-out);
 
-            &:last-of-type {
-                margin-bottom: 0;
-            }
+			&:last-of-type {
+				margin-bottom: 0;
+			}
 
-            &:hover {
-                color: var(--primary-700);
-            }
+			&:hover {
+				color: var(--primary-700);
+			}
 
-            &:focus-visible {
-                color: var(--primary-700);
-            }
+			&:focus-visible {
+				color: var(--primary-700);
+			}
 
-            &:active {
-                color: var(--primary-800);
-            }
+			&:active {
+				color: var(--primary-800);
+			}
 
-            @media (min-width: 1024px) {
-                margin: 0 0 0 1rem;
-                display: inline-block;
-            }
-        }
+			@media (min-width: 1024px) {
+				margin: 0 0 0 1rem;
+				display: inline-block;
+			}
+		}
 
-        .social-media {
-            width: 36px;
-            height: 36px;
-            display: inline-block;
-            position: relative;
-            margin: 0;
+		.social-media {
+			width: 36px;
+			height: 36px;
+			display: inline-block;
+			position: relative;
+			margin: 0;
 
-            svg {
-                position: absolute;
-                top: 50%;
-                left: 50%;
-                transform: translate(-50%, -50%);
-            }
-        }
-    }
+			svg {
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				transform: translate(-50%, -50%);
+			}
+		}
+	}
 }

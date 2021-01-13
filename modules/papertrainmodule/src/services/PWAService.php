@@ -31,115 +31,115 @@ use craft\helpers\Template as TemplateHelper;
  */
 class PWAService extends Component
 {
-    // Public Methods
-    // =========================================================================
+	// Public Methods
+	// =========================================================================
 
-    public function cachebust()
-    {
-        $settings = include FileHelper::normalizePath(Craft::$app->getPath()->getConfigPath() . "/pwa.php");
-        $cache = include FileHelper::normalizePath(Craft::$app->getPath()->getRuntimePath() . "/pwa/cache.php");
-        if ($settings) {
-            $response = [
-                "success" => true,
-                "contentCacheDuration" => $settings["contentCacheDuration"],
-                "maximumContentPrompts" => $settings["maximumContentPrompts"],
-            ];
+	public function cachebust()
+	{
+		$settings = include FileHelper::normalizePath(Craft::$app->getPath()->getConfigPath() . "/pwa.php");
+		$cache = include FileHelper::normalizePath(Craft::$app->getPath()->getRuntimePath() . "/pwa/cache.php");
+		if ($settings) {
+			$response = [
+				"success" => true,
+				"contentCacheDuration" => $settings["contentCacheDuration"],
+				"maximumContentPrompts" => $settings["maximumContentPrompts"],
+			];
 
-            // Sets content cache timestamp based on automated cache busting when possible
-            if ($cache) {
-                $response["cacheTimestamp"] = $cache["contentCache"];
-            }
-        } else {
-            $response = [
-                "success" => false,
-                "error" => "Failed to find pwa.php file in the config/ directory",
-            ];
-        }
+			// Sets content cache timestamp based on automated cache busting when possible
+			if ($cache) {
+				$response["cacheTimestamp"] = $cache["contentCache"];
+			}
+		} else {
+			$response = [
+				"success" => false,
+				"error" => "Failed to find pwa.php file in the config/ directory",
+			];
+		}
 
-        return $response;
-    }
+		return $response;
+	}
 
-    public function updateRevisions(array $entries)
-    {
-        $cache = new Cache();
-        $cache->redis->init();
+	public function updateRevisions(array $entries)
+	{
+		$cache = new Cache();
+		$cache->redis->init();
 
-        foreach ($entries as $id) {
-            if ($cache->exists($id)) {
-                $value = $cache->get($id);
-                $value = $value + 1;
-                $cache->set($id, $value);
-            } else {
-                $cache->set($id, "0");
-                return "0";
-            }
-        }
-    }
+		foreach ($entries as $id) {
+			if ($cache->exists($id)) {
+				$value = $cache->get($id);
+				$value = $value + 1;
+				$cache->set($id, $value);
+			} else {
+				$cache->set($id, "0");
+				return "0";
+			}
+		}
+	}
 
-    public function setupContentCache()
-    {
-        $dirPath = FileHelper::normalizePath(Craft::$app->getPath()->getRuntimePath() . "/pwa");
-        if (!is_dir($dirPath)) {
-            mkdir($dirPath);
-        }
+	public function setupContentCache()
+	{
+		$dirPath = FileHelper::normalizePath(Craft::$app->getPath()->getRuntimePath() . "/pwa");
+		if (!is_dir($dirPath)) {
+			mkdir($dirPath);
+		}
 
-        if (!file_exists($dirPath . "/cache.php")) {
-            $file = fopen($dirPath . "/cache.php", "w");
-            fwrite($file, "<?php\nreturn [\n\t'contentCache' => '" . time() . "',\n];");
-            fclose($file);
-        }
-    }
+		if (!file_exists($dirPath . "/cache.php")) {
+			$file = fopen($dirPath . "/cache.php", "w");
+			fwrite($file, "<?php\nreturn [\n\t'contentCache' => '" . time() . "',\n];");
+			fclose($file);
+		}
+	}
 
-    public function checkRequireLogin(Entry $entry)
-    {
-        $requiresLogin = false;
-        $currEntry = $entry;
-        do {
-            if ($currEntry->requireLogin) {
-                $requiresLogin = true;
-                break;
-            }
-            $currEntry = $currEntry->getParent();
-        } while ($currEntry !== null || $requiresLogin);
-        return $requiresLogin;
-    }
+	public function checkRequireLogin(Entry $entry)
+	{
+		$requiresLogin = false;
+		$currEntry = $entry;
+		do {
+			if ($currEntry->requireLogin) {
+				$requiresLogin = true;
+				break;
+			}
+			$currEntry = $currEntry->getParent();
+		} while ($currEntry !== null || $requiresLogin);
+		return $requiresLogin;
+	}
 
-    public function getCache(string $entryId): string
-    {
-        $ret = "0";
-        $cache = new Cache();
-        $cache->redis->init();
-        if ($cache->exists($entryId)) {
-            $ret = $cache->get($entryId);
-        } else {
-            $cache->set($entryId, "0");
-        }
-        return $ret;
-    }
+	public function getCache(string $entryId): string
+	{
+		$ret = "0";
+		$cache = new Cache();
+		$cache->redis->init();
+		if ($cache->exists($entryId)) {
+			$ret = $cache->get($entryId);
+		} else {
+			$cache->set($entryId, "0");
+		}
+		return $ret;
+	}
 
-    public function injectCriticalCSS($css)
-    {
-        $files = [];
-        if (is_array($css)) {
-            $files = $css;
-        } elseif (is_string($css)) {
-            $files[] = $css;
-        } else {
-            return;
-        }
+	public function injectCriticalCSS($css)
+	{
+		$files = [];
+		if (is_array($css)) {
+			$files = $css;
+		} elseif (is_string($css)) {
+			$files[] = $css;
+		} else {
+			return;
+		}
 
-        $html = "";
-        foreach ($files as $file) {
-            $path = $_SERVER["DOCUMENT_ROOT"] . "/assets/" . $file . ".css";
-            if (file_exists($path)) {
-                $css = file_get_contents($path);
-                $html .= '<style file="' . $file . '.css"';
-                if ($pjaxId) {
-                    $html .= ' pjax-id="' . $pjaxId . '"';
-                }
-                $html .= ">" . $css . "</style>";
-            }
-        }
-        return TemplateHelper::raw($html);
-    }
+		$html = "";
+		foreach ($files as $file) {
+			$path = $_SERVER["DOCUMENT_ROOT"] . "/assets/" . $file . ".css";
+			if (file_exists($path)) {
+				$css = file_get_contents($path);
+				$html .= '<style file="' . $file . '.css"';
+				if ($pjaxId) {
+					$html .= ' pjax-id="' . $pjaxId . '"';
+				}
+				$html .= ">" . $css . "</style>";
+			}
+		}
+		return TemplateHelper::raw($html);
+	}
 }

@@ -12,6 +12,7 @@
 /storage/*
 !/storage/.gitkeep
 /audits
+.editorconfig
 
 # Public
 # --------

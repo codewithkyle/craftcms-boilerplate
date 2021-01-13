@@ -47,99 +47,99 @@ use craft\services\Revisions;
  */
 class PapertrainModule extends Module
 {
-    // Static Properties
-    // =========================================================================
+	// Static Properties
+	// =========================================================================
 
-    /**
-     * @var PapertrainModule
-     */
-    public static $instance;
+	/**
+	 * @var PapertrainModule
+	 */
+	public static $instance;
 
-    // Public Methods
-    // =========================================================================
+	// Public Methods
+	// =========================================================================
 
-    /**
-     * @inheritdoc
-     */
-    public function __construct($id, $parent = null, array $config = [])
-    {
-        Craft::setAlias("@modules/papertrainmodule", $this->getBasePath());
-        $this->controllerNamespace = "modules\papertrainmodule\controllers";
+	/**
+	 * @inheritdoc
+	 */
+	public function __construct($id, $parent = null, array $config = [])
+	{
+		Craft::setAlias("@modules/papertrainmodule", $this->getBasePath());
+		$this->controllerNamespace = "modules\papertrainmodule\controllers";
 
-        // Translation category
-        $i18n = Craft::$app->getI18n();
-        /** @noinspection UnSafeIsSetOverArrayInspection */
-        if (!isset($i18n->translations[$id]) && !isset($i18n->translations[$id . "*"])) {
-            $i18n->translations[$id] = [
-                "class" => PhpMessageSource::class,
-                "sourceLanguage" => "en-US",
-                "basePath" => "@modules/papertrainmodule/translations",
-                "forceTranslation" => true,
-                "allowOverrides" => true,
-            ];
-        }
+		// Translation category
+		$i18n = Craft::$app->getI18n();
+		/** @noinspection UnSafeIsSetOverArrayInspection */
+		if (!isset($i18n->translations[$id]) && !isset($i18n->translations[$id . "*"])) {
+			$i18n->translations[$id] = [
+				"class" => PhpMessageSource::class,
+				"sourceLanguage" => "en-US",
+				"basePath" => "@modules/papertrainmodule/translations",
+				"forceTranslation" => true,
+				"allowOverrides" => true,
+			];
+		}
 
-        Event::on(View::class, View::EVENT_REGISTER_CP_TEMPLATE_ROOTS, function (RegisterTemplateRootsEvent $e) {
-            if (is_dir($baseDir = $this->getBasePath() . DIRECTORY_SEPARATOR . "templates")) {
-                $e->roots["papertrain"] = $this->getBasePath() . DIRECTORY_SEPARATOR . "templates";
-            }
-        });
+		Event::on(View::class, View::EVENT_REGISTER_CP_TEMPLATE_ROOTS, function (RegisterTemplateRootsEvent $e) {
+			if (is_dir($baseDir = $this->getBasePath() . DIRECTORY_SEPARATOR . "templates")) {
+				$e->roots["papertrain"] = $this->getBasePath() . DIRECTORY_SEPARATOR . "templates";
+			}
+		});
 
-        // Set this as the global instance of this module class
-        static::setInstance($this);
+		// Set this as the global instance of this module class
+		static::setInstance($this);
 
-        parent::__construct($id, $parent, $config);
-    }
+		parent::__construct($id, $parent, $config);
+	}
 
-    /**
-     * @inheritdoc
-     */
-    public function init()
-    {
-        parent::init();
-        self::$instance = $this;
+	/**
+	 * @inheritdoc
+	 */
+	public function init()
+	{
+		parent::init();
+		self::$instance = $this;
 
-        Event::on(UrlManager::class, UrlManager::EVENT_REGISTER_CP_URL_RULES, function (RegisterUrlRulesEvent $event) {
-            $event->rules["/pwa/cachebust.json"] = "papertrain-module/default/cachebust";
-            $event->rules["/pwa/get-csrf"] = "papertrain-module/default/get-csrf";
-        });
+		Event::on(UrlManager::class, UrlManager::EVENT_REGISTER_CP_URL_RULES, function (RegisterUrlRulesEvent $event) {
+			$event->rules["/pwa/cachebust.json"] = "papertrain-module/default/cachebust";
+			$event->rules["/pwa/get-csrf"] = "papertrain-module/default/get-csrf";
+		});
 
-        // Trigger revision updates when an element is saved
-        Event::on(Elements::class, Elements::EVENT_AFTER_SAVE_ELEMENT, function (ElementEvent $event) {
-            if ($event->element instanceof Entry) {
-                $entry = $event->element;
-                $entryIds = [];
-                $entryIds[] = $entry->id;
-                $relatedEntries = Entry::find()
-                    ->relatedTo($entry)
-                    ->all();
-                foreach ($relatedEntries as $relatedEntry) {
-                    $entryIds[] = $relatedEntry->id;
-                }
-                PapertrainModule::getInstance()->pwaService->updateRevisions($entryIds);
-            }
-        });
+		// Trigger revision updates when an element is saved
+		Event::on(Elements::class, Elements::EVENT_AFTER_SAVE_ELEMENT, function (ElementEvent $event) {
+			if ($event->element instanceof Entry) {
+				$entry = $event->element;
+				$entryIds = [];
+				$entryIds[] = $entry->id;
+				$relatedEntries = Entry::find()
+					->relatedTo($entry)
+					->all();
+				foreach ($relatedEntries as $relatedEntry) {
+					$entryIds[] = $relatedEntry->id;
+				}
+				PapertrainModule::getInstance()->pwaService->updateRevisions($entryIds);
+			}
+		});
 
-        // Adds content cachebust file path to the list of things the Clear Caches tool can delete
-        Event::on(ClearCaches::class, ClearCaches::EVENT_REGISTER_CACHE_OPTIONS, function (RegisterCacheOptionsEvent $event) {
-            $event->options[] = [
-                "key" => "pwa-offline-content-cache",
-                "label" => Craft::t("papertrain-module", "PWA offline content cache"),
-                "action" => FileHelper::normalizePath(Craft::$app->getPath()->getRuntimePath() . "/pwa/"),
-            ];
-        });
+		// Adds content cachebust file path to the list of things the Clear Caches tool can delete
+		Event::on(ClearCaches::class, ClearCaches::EVENT_REGISTER_CACHE_OPTIONS, function (RegisterCacheOptionsEvent $event) {
+			$event->options[] = [
+				"key" => "pwa-offline-content-cache",
+				"label" => Craft::t("papertrain-module", "PWA offline content cache"),
+				"action" => FileHelper::normalizePath(Craft::$app->getPath()->getRuntimePath() . "/pwa/"),
+			];
+		});
 
-        PapertrainModule::getInstance()->pwaService->setupContentCache();
+		PapertrainModule::getInstance()->pwaService->setupContentCache();
 
-        Event::on(CraftVariable::class, CraftVariable::EVENT_INIT, function (Event $event) {
-            /** @var CraftVariable $variable */
-            $variable = $event->sender;
-            $variable->set("papertrain", PapertrainModuleVariable::class);
-        });
+		Event::on(CraftVariable::class, CraftVariable::EVENT_INIT, function (Event $event) {
+			/** @var CraftVariable $variable */
+			$variable = $event->sender;
+			$variable->set("papertrain", PapertrainModuleVariable::class);
+		});
 
-        Craft::info(Craft::t("papertrain-module", "{name} module loaded", ["name" => "papertrain"]), __METHOD__);
-    }
+		Craft::info(Craft::t("papertrain-module", "{name} module loaded", ["name" => "papertrain"]), __METHOD__);
+	}
 
-    // Protected Methods
-    // =========================================================================
+	// Protected Methods
+	// =========================================================================
 }

@@ -1,147 +1,147 @@
 :root {
-    --loading-bar: #51b1f6;
-    --loading-bar-background: #163b52;
+	--loading-bar: #51b1f6;
+	--loading-bar-background: #163b52;
 }
 soft-loading {
-    width: 100vw;
-    height: 3px;
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: 99999;
-    transform: translate3d(0, -101%, 0);
-    transition: transform 125ms cubic-bezier(0.4, 0, 0.6, 1);
-    background-color: var(--loading-bar-background);
-    display: inline-block;
-    opacity: 0;
-    user-select: none;
-    visibility: hidden;
-    pointer-events: none;
+	width: 100vw;
+	height: 3px;
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: 99999;
+	transform: translate3d(0, -101%, 0);
+	transition: transform 125ms cubic-bezier(0.4, 0, 0.6, 1);
+	background-color: var(--loading-bar-background);
+	display: inline-block;
+	opacity: 0;
+	user-select: none;
+	visibility: hidden;
+	pointer-events: none;
 }
 
 html[state="soft-loading"] * {
-    cursor: wait !important;
+	cursor: wait !important;
 }
 
 html[state="soft-loading"] soft-loading {
-    transform: translate3d(0, 0, 0);
-    opacity: 1;
-    visibility: visible;
-    transition: transform 150ms cubic-bezier(0, 0, 0.2, 1);
+	transform: translate3d(0, 0, 0);
+	opacity: 1;
+	visibility: visible;
+	transition: transform 150ms cubic-bezier(0, 0, 0.2, 1);
 }
 
 html[state="soft-loading"] soft-loading transition-bar-one {
-    animation: primaryBar 2s infinite linear;
+	animation: primaryBar 2s infinite linear;
 }
 
 html[state="soft-loading"] soft-loading transition-bar-one:before {
-    animation: primaryScale 2s infinite linear;
+	animation: primaryScale 2s infinite linear;
 }
 
 html[state="soft-loading"] soft-loading transition-bar-two {
-    animation: secondaryBar 2s infinite linear;
+	animation: secondaryBar 2s infinite linear;
 }
 
 html[state="soft-loading"] soft-loading transition-bar-two:before {
-    animation: secondaryScale 2s infinite linear;
+	animation: secondaryScale 2s infinite linear;
 }
 
 soft-loading transition-bar-one {
-    left: -145%;
-    position: absolute;
-    width: 100%;
-    height: 100%;
+	left: -145%;
+	position: absolute;
+	width: 100%;
+	height: 100%;
 }
 
 soft-loading transition-bar-one::before {
-    content: "";
-    background-color: var(--loading-bar);
-    box-shadow: 0 0 3px var(--loading-bar-shadow);
-    display: inline-block;
-    position: absolute;
-    width: 100%;
-    height: 100%;
+	content: "";
+	background-color: var(--loading-bar);
+	box-shadow: 0 0 3px var(--loading-bar-shadow);
+	display: inline-block;
+	position: absolute;
+	width: 100%;
+	height: 100%;
 }
 
 soft-loading transition-bar-two {
-    left: -54%;
-    position: absolute;
-    width: 100%;
-    height: 100%;
+	left: -54%;
+	position: absolute;
+	width: 100%;
+	height: 100%;
 }
 
 soft-loading transition-bar-two::before {
-    content: "";
-    background-color: var(--loading-bar);
-    box-shadow: 0 0 3px var(--loading-bar-shadow);
-    display: inline-block;
-    position: absolute;
-    width: 100%;
-    height: 100%;
+	content: "";
+	background-color: var(--loading-bar);
+	box-shadow: 0 0 3px var(--loading-bar-shadow);
+	display: inline-block;
+	position: absolute;
+	width: 100%;
+	height: 100%;
 }
 @keyframes primaryBar {
-    0% {
-        transform: translateX(0);
-    }
-    20% {
-        transform: translateX(0);
-        animation-timing-function: cubic-bezier(0.5, 0, 0.70173, 0.49582);
-    }
-    59% {
-        transform: translateX(83.67142%);
-        animation-timing-function: cubic-bezier(0.30244, 0.38135, 0.55, 0.95635);
-    }
-    100% {
-        transform: translateX(200.61106%);
-    }
+	0% {
+		transform: translateX(0);
+	}
+	20% {
+		transform: translateX(0);
+		animation-timing-function: cubic-bezier(0.5, 0, 0.70173, 0.49582);
+	}
+	59% {
+		transform: translateX(83.67142%);
+		animation-timing-function: cubic-bezier(0.30244, 0.38135, 0.55, 0.95635);
+	}
+	100% {
+		transform: translateX(200.61106%);
+	}
 }
 @keyframes secondaryBar {
-    0% {
-        transform: translateX(0);
-        animation-timing-function: cubic-bezier(0.15, 0, 0.51506, 0.40969);
-    }
-    25% {
-        animation-timing-function: cubic-bezier(0.31033, 0.28406, 0.8, 0.73371);
-        transform: translateX(37.65191%);
-    }
-    48.35% {
-        animation-timing-function: cubic-bezier(0.4, 0.62704, 0.6, 0.90203);
-        transform: translateX(84.38617%);
-    }
-    100% {
-        transform: translateX(160.27778%);
-    }
+	0% {
+		transform: translateX(0);
+		animation-timing-function: cubic-bezier(0.15, 0, 0.51506, 0.40969);
+	}
+	25% {
+		animation-timing-function: cubic-bezier(0.31033, 0.28406, 0.8, 0.73371);
+		transform: translateX(37.65191%);
+	}
+	48.35% {
+		animation-timing-function: cubic-bezier(0.4, 0.62704, 0.6, 0.90203);
+		transform: translateX(84.38617%);
+	}
+	100% {
+		transform: translateX(160.27778%);
+	}
 }
 @keyframes primaryScale {
-    0% {
-        transform: scaleX(0.08);
-    }
-    36% {
-        animation-timing-function: cubic-bezier(0.33473, 0.12482, 0.78584, 1);
-        transform: scaleX(0.08);
-    }
-    69% {
-        animation-timing-function: cubic-bezier(0.06, 0.11, 0.6, 1);
-        transform: scaleX(0.66148);
-    }
-    100% {
-        transform: scaleX(0.08);
-    }
+	0% {
+		transform: scaleX(0.08);
+	}
+	36% {
+		animation-timing-function: cubic-bezier(0.33473, 0.12482, 0.78584, 1);
+		transform: scaleX(0.08);
+	}
+	69% {
+		animation-timing-function: cubic-bezier(0.06, 0.11, 0.6, 1);
+		transform: scaleX(0.66148);
+	}
+	100% {
+		transform: scaleX(0.08);
+	}
 }
 @keyframes secondaryScale {
-    0% {
-        animation-timing-function: cubic-bezier(0.20503, 0.05705, 0.57661, 0.45397);
-        transform: scaleX(0.08);
-    }
-    19% {
-        animation-timing-function: cubic-bezier(0.15231, 0.19643, 0.64837, 1.00432);
-        transform: scaleX(0.4571);
-    }
-    44% {
-        animation-timing-function: cubic-bezier(0.25776, -0.00316, 0.21176, 1.38179);
-        transform: scaleX(0.72796);
-    }
-    100% {
-        transform: scaleX(0.08);
-    }
+	0% {
+		animation-timing-function: cubic-bezier(0.20503, 0.05705, 0.57661, 0.45397);
+		transform: scaleX(0.08);
+	}
+	19% {
+		animation-timing-function: cubic-bezier(0.15231, 0.19643, 0.64837, 1.00432);
+		transform: scaleX(0.4571);
+	}
+	44% {
+		animation-timing-function: cubic-bezier(0.25776, -0.00316, 0.21176, 1.38179);
+		transform: scaleX(0.72796);
+	}
+	100% {
+		transform: scaleX(0.08);
+	}
 }
