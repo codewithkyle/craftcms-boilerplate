@@ -5,8 +5,8 @@ fieldLayouts:
         elements:
           -
             fieldUid: e35ca729-8355-4faf-ae53-07d599ba0a3a
-            instructions: null
-            label: null
+            instructions: 'For optimal performance and visual clarity please provide the logo in an SVG format.'
+            label: ''
             required: '1'
             tip: null
             type: craft\fieldlayoutelements\CustomField
@@ -23,9 +23,9 @@ fieldLayouts:
             width: 100
           -
             fieldUid: f697001b-d1ba-48d7-92ee-0eb172e00ac1
-            instructions: null
-            label: null
-            required: '0'
+            instructions: ''
+            label: 'Organization Information'
+            required: ''
             tip: null
             type: craft\fieldlayoutelements\CustomField
             warning: null
