@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "ab5f81b8e3be80df7def9b4ec778996e",
+    "content-hash": "3199237f6bf703fbac417e23cec1fda6",
     "packages": [
         {
             "name": "aws/aws-sdk-php",
@@ -4500,19 +4500,16 @@
         },
         {
             "name": "sebastianlenz/linkfield",
-            "version": "1.0.23",
+            "version": "1.0.24",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastian-lenz/craft-linkfield/zipball/6d835d0419578861de3297f556b2049627b1cb1e",
-                "reference": "6d835d0419578861de3297f556b2049627b1cb1e",
+                "url": "https://api.github.com/repos/sebastian-lenz/craft-linkfield/zipball/d6d509b96931a469507fd2472783b3e5419e8bab",
+                "reference": "d6d509b96931a469507fd2472783b3e5419e8bab",
                 "shasum": ""
             },
             "require": {
                 "craftcms/cms": "^3.0.0-RC1",
                 "php": "^7.0"
-            },
-            "require-dev": {
-                "phpunit/phpunit": "^7.5"
             },
             "type": "craft-plugin",
             "extra": {
@@ -4526,16 +4523,11 @@
                     "typedlinkfield\\": "src/"
                 }
             },
-            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
             "description": "A Craft field type for selecting links",
-            "support": {
-                "issues": "https://github.com/sebastian-lenz/craft-linkfield/issues",
-                "source": "https://github.com/sebastian-lenz/craft-linkfield/tree/master"
-            },
-            "time": "2020-06-09T19:46:52+00:00"
+            "time": "2020-11-21T19:26:53+00:00"
         },
         {
             "name": "seld/cli-prompt",
