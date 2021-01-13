@@ -1,4 +1,4 @@
-dateModified: 1605813600
+dateModified: 1610547106
 email:
   fromEmail: $SYSTEM_EMAIL
   fromName: $SENDER_NAME
@@ -25,7 +25,7 @@ plugins:
   formie:
     edition: standard
     enabled: true
-    schemaVersion: 1.0.14
+    schemaVersion: 1.1.5
   jitter:
     edition: standard
     enabled: true
