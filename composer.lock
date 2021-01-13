@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "5dfae27a32966ce019e91b286325ffad",
+    "content-hash": "ec3f100396d86d04f432b4bee4964087",
     "packages": [
         {
             "name": "aws/aws-sdk-php",
@@ -3800,20 +3800,16 @@
         },
         {
             "name": "nystudio107/craft-retour",
-            "version": "3.1.42",
+            "version": "3.1.45",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nystudio107/craft-retour/zipball/400542fb8f79a6c3226ff4b9c69b4e1cd6f95e43",
-                "reference": "400542fb8f79a6c3226ff4b9c69b4e1cd6f95e43",
+                "url": "https://api.github.com/repos/nystudio107/craft-retour/zipball/9c2e9862ac2a014fcadf666443dcb7a1b19469e6",
+                "reference": "9c2e9862ac2a014fcadf666443dcb7a1b19469e6",
                 "shasum": ""
             },
             "require": {
                 "craftcms/cms": "^3.0.0",
                 "league/csv": "^8.2"
-            },
-            "require-dev": {
-                "codeception/codeception": "^3.0",
-                "vlucas/phpdotenv": "^3.0"
             },
             "type": "craft-plugin",
             "extra": {
@@ -3833,7 +3829,6 @@
                     "nystudio107\\retour\\": "src/"
                 }
             },
-            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "proprietary"
             ],
@@ -3854,10 +3849,9 @@
             ],
             "support": {
                 "docs": "https://nystudio107.com/plugins/retour/documentation",
-                "issues": "https://nystudio107.com/plugins/retour/support",
-                "source": "https://github.com/nystudio107/craft-retour/tree/3.1.42"
+                "issues": "https://nystudio107.com/plugins/retour/support"
             },
-            "time": "2020-10-05T02:56:59+00:00"
+            "time": "2020-12-11T03:18:35+00:00"
         },
         {
             "name": "opis/closure",
