@@ -13,7 +13,7 @@
 {% endif %}
 
 {% set requireLogin = craft.papertrain.checkRequireLogin(page) %}
-{% if requireLogin and not currentUser%}
+{% if requireLogin and not currentUser %}
     {% redirect '/login?redirect=' ~ craft.app.request.pathInfo %}
 {% elseif not requireLogin %}
     {% set expiry = now|date_modify('+7 days') %}
@@ -22,13 +22,7 @@
     {% header "Expires: " ~ expiry|date('D, d M Y H:i:s', 'GMT') ~ " GMT" %}
     {% header "Access-Control-Expose-Headers: etag" %}
     {% if page.uid %}
-        {% header "ETag: " ~ page.uid ~ '-' ~ craft.papertrain.getCache(page.id) %}
-    {% endif %}
-{% endif %}
-
-{% if craft.app.config.env == 'dev' or craft.app.config.env == 'staging' %}
-    {% if currentUser and currentUser['admin'] %}
-        {% header "Feature-Policy:  oversized-images 'self'(2.0) *(inf); unoptimized-lossy-images 'self'(0.5) *(inf); unoptimized-lossless-images 'self'(1) *(inf); unoptimized-lossless-images-strict 'self'(1) *(inf);" %}
+        {% header "ETag: " ~ page.uid ~ '-' ~ craft.papertrain.getRevisionNumber(page.id) %}
     {% endif %}
 {% endif %}
 
@@ -36,13 +30,11 @@
 <!DOCTYPE html>
 <html 
     lang="{{ currentSite.language }}" 
-    state="hard-loading" 
     {% if isDebug and currentUser and currentUser['admin'] or craft.app.config.env == 'dev' or craft.app.config.env == 'staging'  %}
         debug="true"
     {% endif %} 
     data-csrf="{{ craft.app.request.csrfToken }}" 
     data-environment="{{ craft.app.config.env }}" 
-    data-ga-id=""
 >
     <head>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -91,8 +83,6 @@
         </soft-loading>
 
         {% block page %}{% endblock %}
-        
-        {% include "_components/connection-checker" %}
 
         <noscript>
             <p id="noscript-message">{{ "Parts of this website require JavaScript. Please re-enable JavaScript and reload the page. We apologize for the inconvenience."|t }}</p>

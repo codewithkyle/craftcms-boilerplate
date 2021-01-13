@@ -99,37 +99,17 @@ class PapertrainModule extends Module
 		parent::init();
 		self::$instance = $this;
 
-		Event::on(UrlManager::class, UrlManager::EVENT_REGISTER_CP_URL_RULES, function (RegisterUrlRulesEvent $event) {
-			$event->rules["/pwa/cachebust.json"] = "papertrain-module/default/cachebust";
-			$event->rules["/pwa/get-csrf"] = "papertrain-module/default/get-csrf";
+		Event::on(UrlManager::class, UrlManager::EVENT_REGISTER_SITE_URL_RULES, function (RegisterUrlRulesEvent $event) {
+			$event->rules["/pwa/get-csrf"] = "papertrain-module/utility/get-csrf";
 		});
 
 		// Trigger revision updates when an element is saved
 		Event::on(Elements::class, Elements::EVENT_AFTER_SAVE_ELEMENT, function (ElementEvent $event) {
 			if ($event->element instanceof Entry) {
 				$entry = $event->element;
-				$entryIds = [];
-				$entryIds[] = $entry->id;
-				$relatedEntries = Entry::find()
-					->relatedTo($entry)
-					->all();
-				foreach ($relatedEntries as $relatedEntry) {
-					$entryIds[] = $relatedEntry->id;
-				}
-				PapertrainModule::getInstance()->pwaService->updateRevisions($entryIds);
+				PapertrainModule::getInstance()->viewService->updateEntryRevisions($entry);
 			}
 		});
-
-		// Adds content cachebust file path to the list of things the Clear Caches tool can delete
-		Event::on(ClearCaches::class, ClearCaches::EVENT_REGISTER_CACHE_OPTIONS, function (RegisterCacheOptionsEvent $event) {
-			$event->options[] = [
-				"key" => "pwa-offline-content-cache",
-				"label" => Craft::t("papertrain-module", "PWA offline content cache"),
-				"action" => FileHelper::normalizePath(Craft::$app->getPath()->getRuntimePath() . "/pwa/"),
-			];
-		});
-
-		PapertrainModule::getInstance()->pwaService->setupContentCache();
 
 		Event::on(CraftVariable::class, CraftVariable::EVENT_INIT, function (Event $event) {
 			/** @var CraftVariable $variable */

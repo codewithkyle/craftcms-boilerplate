@@ -13,31 +13,28 @@
  * built-in system components.
  */
 return [
-    'components' => [
-        'redis' => [
-            'class' => yii\redis\Connection::class,
-            'hostname' => getenv('REDIS_SERVER'),
-            'port' => 6379,
-            'password' => getenv('REDIS_PASSWORD'),
-        ],
-        'cache' => [
-            'class' => yii\redis\Cache::class,
-            'defaultDuration' => 86400,
-            'keyPrefix' => 'redis_key',
-        ],
-    ],
-    'modules' => [
-        'papertrain-module' => [
-            'class' => \modules\papertrainmodule\PapertrainModule::class,
-            'components' => [
-                'papertrainService' => [
-                    'class' => 'modules\papertrainmodule\services\PapertrainService',
-                ],
-                'pwaService' => [
-                    'class' => 'modules\papertrainmodule\services\PWAService',
-                ],
-            ],
-        ],
-    ],
-    'bootstrap' => ['papertrain-module'],
+	"components" => [
+		"redis" => [
+			"class" => yii\redis\Connection::class,
+			"hostname" => getenv("REDIS_SERVER"),
+			"port" => 6379,
+			"password" => getenv("REDIS_PASSWORD"),
+		],
+		"cache" => [
+			"class" => yii\redis\Cache::class,
+			"defaultDuration" => 86400,
+			"keyPrefix" => "redis_key",
+		],
+	],
+	"modules" => [
+		"papertrain-module" => [
+			"class" => \modules\papertrainmodule\PapertrainModule::class,
+			"components" => [
+				"viewService" => [
+					"class" => "modules\papertrainmodule\services\ViewService",
+				],
+			],
+		],
+	],
+	"bootstrap" => ["papertrain-module"],
 ];

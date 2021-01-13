@@ -13,6 +13,7 @@ namespace modules\papertrainmodule\variables;
 use modules\papertrainmodule\PapertrainModule;
 
 use Craft;
+use craft\helpers\Template as TemplateHelper;
 
 /**
  * @author    Kyle Andrews
@@ -24,28 +25,23 @@ class PapertrainModuleVariable
 	// Public Methods
 	// =========================================================================
 
-	public function css($css)
+	public function css(array $filenames): \Twig\Markup
 	{
-		return PapertrainModule::getInstance()->pwaService->injectCriticalCSS($css);
+		return TemplateHelper::raw(PapertrainModule::getInstance()->viewService->getCriticalCSS($filenames));
 	}
 
-	public function getCache(string $entryId)
+	public function getRevisionNumber(string $elementId): string
 	{
-		return PapertrainModule::getInstance()->pwaService->getCache($entryId);
+		return PapertrainModule::getInstance()->viewService->getRevisionNumberFromRedis($elementId);
 	}
 
-	public function makeMD5Hash($string)
+	public function hash(string $string): string
 	{
-		$hashed = md5($string);
-		return $hashed;
+		return md5($string);
 	}
 
-	public function checkRequireLogin($entry)
+	public function checkRequireLogin(craft\base\Element $entry): bool
 	{
-		$requiresLogin = false;
-		if (!empty($entry) && isset($entry["requireLogin"])) {
-			$requiresLogin = PapertrainModule::getInstance()->pwaService->checkRequireLogin($entry);
-		}
-		return $requiresLogin;
+		return PapertrainModule::getInstance()->viewService->checkRequireLogin($entry);
 	}
 }
