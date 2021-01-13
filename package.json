@@ -1,7 +1,7 @@
 {
 	"scripts": {
-		"cleanup": "node ./build-tools/cleanup.js",
-		"setup": "npm ci && node ./build-tools/setup.js && composer install",
+		"cleanup": "node ./build/cleanup.js",
+		"setup": "npm ci && node ./build/setup.js && composer install",
 		"bundle": "snowpack install --reload",
 		"brixi": "brixi",
 		"compile": "tsc",
