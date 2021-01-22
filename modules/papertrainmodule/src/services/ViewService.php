@@ -85,7 +85,7 @@ class ViewService extends Component
 	{
 		$html = "";
 		foreach ($filenames as $file) {
-			$filename = rtrim($file, ".css");
+			$filename = str_replace(".css", "", $file);
 			$path = FileHelper::normalizePath(rtrim(Yii::getAlias("@webroot"), "/\\") . "/assets/" . $filename . ".css");
 			$css = $this->getFileContents($path);
 			if (!empty($css)) {
