@@ -1,0 +1,68 @@
+.headings {
+	h1,
+	h2,
+	h3,
+	h4,
+	h5,
+	h6 {
+		display: block;
+		line-height: 1.375;
+	}
+
+	h1 {
+		font-size: var(--font-3xl);
+	}
+
+	h2 {
+		font-size: var(--font-2xl);
+	}
+
+	h3 {
+		font-size: var(--font-xl);
+	}
+
+	h4 {
+		font-size: var(--font-lg);
+	}
+
+	h5 {
+		font-size: var(--font-md);
+	}
+
+	h6 {
+		font-weight: var(--font-base);
+	}
+}
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6 {
+	display: block;
+	line-height: 1.375;
+}
+
+.h1 {
+	font-size: var(--font-3xl);
+}
+
+.h2 {
+	font-size: var(--font-2xl);
+}
+
+.h3 {
+	font-size: var(--font-xl);
+}
+
+.h4 {
+	font-size: var(--font-lg);
+}
+
+.h5 {
+	font-size: var(--font-md);
+}
+
+.h6 {
+	font-weight: var(--font-base);
+}
