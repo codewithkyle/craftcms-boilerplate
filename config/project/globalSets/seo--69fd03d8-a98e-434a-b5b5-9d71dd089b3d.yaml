@@ -1,0 +1,54 @@
+fieldLayouts:
+  1972bc20-cb3e-4269-81cd-df36ae885805:
+    tabs:
+      -
+        elements:
+          -
+            fieldUid: d56e3403-95de-4e0c-a834-92147acc2ab1
+            instructions: 'Use this field to control the page title format. Use the **`{title}`** token to control where the page''s title will appear. If the token is not used anything written within this field will be appended to the end of the page''s title.'
+            label: ''
+            required: '1'
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: e3ddae84-8d6f-4b5c-b636-2eaaddaa0a0f
+            instructions: 'A page description is an important part of your sites SEO. You should customize the description for each page instead of relying on this fallback description.'
+            label: 'Fallback Description'
+            required: '1'
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: cf314fa5-a36a-4d9c-81bc-566c50663f4c
+            instructions: 'These keywords will be added to every page.'
+            label: 'Global Keywords'
+            required: ''
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: cc85bfde-9ba9-499c-87b8-9218a81aba15
+            instructions: ''
+            label: 'Fallback Facebook Image'
+            required: ''
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 77592d7e-e995-46fe-843f-6d9d2cacfe7c
+            instructions: ''
+            label: 'Fallback Twitter Image'
+            required: ''
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+        name: 'Tab 1'
+        sortOrder: 1
+handle: seo
+name: SEO

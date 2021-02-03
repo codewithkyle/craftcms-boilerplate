@@ -1,24 +1,37 @@
 {# General #}
-{% set seoTitle = page['seoTitle'] is defined and page['seoTitle']|length ? page.seoTitle : page.title %}
+{% set seoTitle = craft.papertrain.buildSEOTitle(page) %}
 <title>{{ seoTitle }}</title>
-{% if page['description'] is defined %}
-	<meta name="description" content="{{ page.description }}" />
+{% set seoDescription = "" %}
+{% if page['description'] is defined and page.description|length %}
+	{% set seoDescription = page.description %}
+{% elseif seo.description|length %}
+	{% set seoDescription = seo.description %}
 {% endif %}
+<meta name="description" content="{{ seoDescription}}" />
 <link rel="home" href="{{ siteUrl }}" />
 {% if page['canonicalUrl'] is defined and page['canonicalUrl']|length %}
 	<link rel="canonical" href="{{ page.canonicalUrl }}">
 {% endif %}
 
 {# Keywords #}
+{% set keywords = "" %}
 {% if page['keywords'] is defined %}
-	{% set keywords = "" %}
 	{% for keyword in page['keywords'] %}
-	{% if loop.first %}
+		{% if loop.first %}
+			{% set keywords = keyword.keyword %}
+		{% else %}
+			{% set keywords = keywords ~ ", " ~ keyword.keyword %}
+		{% endif %}
+	{% endfor %}
+{% endif %}
+{% for keyword in seo.keywords %}
+	{% if not keywords|length %}
 		{% set keywords = keyword.keyword %}
 	{% else %}
 		{% set keywords = keywords ~ ", " ~ keyword.keyword %}
 	{% endif %}
-	{% endfor %}
+{% endfor %}
+{% if keywords|length %}
 	<meta name="keywords" content="{{ keywords }}" />
 {% endif %}
 
@@ -36,23 +49,23 @@
 <meta property="og:title" content="{{ seoTitle }}" />
 {% if page['facebookImage'] is defined and page['facebookImage']|length %}
 	<meta property="og:image" content="{{ page.facebookImage[0].url }}" />
+{% elseif seo.facebookImage|length %}
+	<meta property="og:image" content="{{ seo.facebookImage[0].url }}" />
 {% endif %}
 <meta property="og:image:width" content="1200" />
 <meta property="og:image:height" content="630" />
-{% if page['description'] is defined %}
-	<meta property="og:description" content="{{ page.description }}" />
-{% endif %}
+<meta property="og:description" content="{{ seoDescription }}" />
 <meta property="og:site_name" content="{{ siteName }}" />
 
 {# Twitter #}
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:url" content="{{ craft.app.request.absoluteUrl }}" />
-{% if page['description'] is defined %}
-	<meta name="twitter:description" content="{{ page.description }}" />
-{% endif %}
+<meta name="twitter:description" content="{{ seoDescription }}" />
 <meta name="twitter:title" content="{{ seoTitle }}" />
 {% if page['twitterImage'] is defined and page['twitterImage']|length %}
 	<meta name="twitter:image" content="{{ page.twitterImage[0].url }}" />
+{% elseif seo.twitterImage|length %}
+	<meta name="twitter:image" content="{{ seo.twitterImage[0].url }}" />
 {% endif %}
 
 {# Robots #}

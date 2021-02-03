@@ -34,6 +34,33 @@ class ViewService extends Component
 	// Public Methods
 	// =========================================================================
 
+	public function buildSEOTitle(craft\base\Element $page): string
+	{
+		$seoInfo = \Craft::$app->getGlobals()->getSetByHandle("seo");
+		$output = "";
+		if (isset($page->seoTitle) && !empty($page->seoTitle)) {
+			$output = $page->seoTitle;
+		} else {
+			$output = $page->title;
+		}
+		if (!empty($seoInfo->seoTitle)) {
+			$tokens = ["{title}", "{ title }", "{title }", "{ title}"];
+			$hasPageToken = false;
+			foreach ($tokens as $token) {
+				if (\strpos($seoInfo->seoTitle, $token) !== false) {
+					$hasPageToken = true;
+					break;
+				}
+			}
+			if ($hasPageToken) {
+				$output = \str_replace($tokens, $output, $seoInfo->seoTitle);
+			} else {
+				$output = $output . " - " . $seoInfo->seoTitle;
+			}
+		}
+		return $output;
+	}
+
 	public function updateEntryRevisions(Entry $entry): void
 	{
 		$relatedEntries = Entry::find()

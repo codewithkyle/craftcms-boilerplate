@@ -1,7 +1,7 @@
 contentColumnType: string
 fieldGroup: a7c4f891-d179-4c87-981e-2a644510060c
 handle: facebookImage
-instructions: 'This image will be used when this page is posted on Twitter.'
+instructions: 'This image will be used when this page is posted on Facebook.'
 name: 'Facebook Image'
 searchable: false
 settings:

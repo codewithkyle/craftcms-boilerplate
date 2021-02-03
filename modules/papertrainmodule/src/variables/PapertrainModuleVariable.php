@@ -44,4 +44,9 @@ class PapertrainModuleVariable
 	{
 		return PapertrainModule::getInstance()->viewService->checkRequireLogin($entry);
 	}
+
+	public function buildSEOTitle(craft\base\Element $page): string
+	{
+		return PapertrainModule::getInstance()->viewService->buildSEOTitle($page);
+	}
 }

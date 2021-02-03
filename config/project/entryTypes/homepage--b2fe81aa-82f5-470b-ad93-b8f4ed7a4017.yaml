@@ -52,7 +52,7 @@ fieldLayouts:
             fieldUid: e3ddae84-8d6f-4b5c-b636-2eaaddaa0a0f
             instructions: 'This text will be displayed below the page title on search engines.'
             label: ''
-            required: '1'
+            required: ''
             tip: null
             type: craft\fieldlayoutelements\CustomField
             warning: null
