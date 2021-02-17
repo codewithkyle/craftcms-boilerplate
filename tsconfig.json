@@ -1,6 +1,6 @@
 {
 	"compilerOptions": {
-		"outDir": "_compiled",
+		"outDir": "_js",
 		"allowJs": true,
 		"checkJs": false,
 		"target": "ES2019",

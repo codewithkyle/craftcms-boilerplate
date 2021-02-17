@@ -1,4 +1,4 @@
 module.exports = {
-	src: ["./_compiled", "./_css"],
+	src: ["./_js", "./_css"],
 	minimumConnection: "slow-2g",
 };
