@@ -23,11 +23,11 @@ fieldLayouts:
             step: null
             tip: null
             title: null
-            type: craft\fieldlayoutelements\TitleField
+            type: craft\fieldlayoutelements\AssetTitleField
             warning: null
             width: 100
           -
-            fieldUid: e3ddae84-8d6f-4b5c-b636-2eaaddaa0a0f
+            fieldUid: e3ddae84-8d6f-4b5c-b636-2eaaddaa0a0f # Description
             instructions: null
             label: null
             required: '1'
@@ -43,5 +43,7 @@ name: Images
 settings:
   path: '@webroot/uploads/images'
 sortOrder: 1
+titleTranslationKeyFormat: null
+titleTranslationMethod: site
 type: craft\volumes\Local
 url: '@web/uploads/images'

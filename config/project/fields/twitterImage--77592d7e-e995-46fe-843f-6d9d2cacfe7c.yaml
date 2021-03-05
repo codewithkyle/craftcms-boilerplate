@@ -1,5 +1,5 @@
 contentColumnType: string
-fieldGroup: a7c4f891-d179-4c87-981e-2a644510060c
+fieldGroup: a7c4f891-d179-4c87-981e-2a644510060c # SEO
 handle: twitterImage
 instructions: 'This image will be used when this page is posted on Twitter.'
 name: 'Twitter Image'
@@ -9,7 +9,7 @@ settings:
   allowUploads: true
   allowedKinds:
     - image
-  defaultUploadLocationSource: 'volume:8b0fd7f7-2623-4a21-a578-698d8c0aef75'
+  defaultUploadLocationSource: 'volume:8b0fd7f7-2623-4a21-a578-698d8c0aef75' # Images
   defaultUploadLocationSubpath: ''
   limit: '1'
   localizeRelations: false
@@ -19,7 +19,7 @@ settings:
   showSiteMenu: true
   showUnpermittedFiles: false
   showUnpermittedVolumes: false
-  singleUploadLocationSource: 'volume:8b0fd7f7-2623-4a21-a578-698d8c0aef75'
+  singleUploadLocationSource: 'volume:8b0fd7f7-2623-4a21-a578-698d8c0aef75' # Images
   singleUploadLocationSubpath: ''
   source: null
   sources: '*'

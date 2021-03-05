@@ -1,11 +1,11 @@
-field: 1eb0ac2f-150c-4071-b0a0-cdbc98ace82e
+field: 1eb0ac2f-150c-4071-b0a0-cdbc98ace82e # Content Builder
 fieldLayouts:
   5a6da519-d818-4a31-9d5c-9fecd916d300:
     tabs:
       -
         elements:
           -
-            fieldUid: 8d673834-7514-4a4a-9cf3-36a6589eecfa
+            fieldUid: 8d673834-7514-4a4a-9cf3-36a6589eecfa # Heading
             instructions: null
             label: null
             required: false
@@ -14,7 +14,7 @@ fieldLayouts:
             warning: null
             width: 100
           -
-            fieldUid: d92119f7-6ca6-4ee4-9f2d-9816a865e449
+            fieldUid: d92119f7-6ca6-4ee4-9f2d-9816a865e449 # Copy
             instructions: null
             label: null
             required: false
@@ -23,7 +23,7 @@ fieldLayouts:
             warning: null
             width: 100
           -
-            fieldUid: 33f500f2-2eec-4f40-a805-4b2f44dfcf5f
+            fieldUid: 33f500f2-2eec-4f40-a805-4b2f44dfcf5f # Thumbnail Image
             instructions: null
             label: null
             required: true
@@ -32,7 +32,7 @@ fieldLayouts:
             warning: null
             width: 100
           -
-            fieldUid: 35958387-7672-4675-8c27-88be958785df
+            fieldUid: 35958387-7672-4675-8c27-88be958785df # Source
             instructions: null
             label: null
             required: true
@@ -41,7 +41,7 @@ fieldLayouts:
             warning: null
             width: 100
           -
-            fieldUid: 7d04901c-8ecd-4062-970e-ee5fee357416
+            fieldUid: 7d04901c-8ecd-4062-970e-ee5fee357416 # Video ID
             instructions: null
             label: null
             required: true
@@ -52,7 +52,7 @@ fieldLayouts:
         name: Content
         sortOrder: 1
 fields:
-  33f500f2-2eec-4f40-a805-4b2f44dfcf5f:
+  33f500f2-2eec-4f40-a805-4b2f44dfcf5f: # Thumbnail Image
     contentColumnType: string
     fieldGroup: null
     handle: thumbnailImage
@@ -64,7 +64,7 @@ fields:
       allowUploads: true
       allowedKinds:
         - image
-      defaultUploadLocationSource: 'volume:8b0fd7f7-2623-4a21-a578-698d8c0aef75'
+      defaultUploadLocationSource: 'volume:8b0fd7f7-2623-4a21-a578-698d8c0aef75' # Images
       defaultUploadLocationSubpath: ''
       limit: '1'
       localizeRelations: false
@@ -74,7 +74,7 @@ fields:
       showSiteMenu: true
       showUnpermittedFiles: false
       showUnpermittedVolumes: false
-      singleUploadLocationSource: 'volume:8b0fd7f7-2623-4a21-a578-698d8c0aef75'
+      singleUploadLocationSource: 'volume:8b0fd7f7-2623-4a21-a578-698d8c0aef75' # Images
       singleUploadLocationSubpath: ''
       source: null
       sources: '*'
@@ -85,7 +85,7 @@ fields:
     translationKeyFormat: null
     translationMethod: site
     type: craft\fields\Assets
-  35958387-7672-4675-8c27-88be958785df:
+  35958387-7672-4675-8c27-88be958785df: # Source
     contentColumnType: string
     fieldGroup: null
     handle: source
@@ -120,7 +120,7 @@ fields:
     translationKeyFormat: null
     translationMethod: none
     type: craft\fields\Dropdown
-  7d04901c-8ecd-4062-970e-ee5fee357416:
+  7d04901c-8ecd-4062-970e-ee5fee357416: # Video ID
     contentColumnType: text
     fieldGroup: null
     handle: videoId
@@ -134,12 +134,12 @@ fields:
       columnType: null
       initialRows: '4'
       multiline: ''
-      placeholder: ''
+      placeholder: null
       uiMode: normal
     translationKeyFormat: null
     translationMethod: none
     type: craft\fields\PlainText
-  8d673834-7514-4a4a-9cf3-36a6589eecfa:
+  8d673834-7514-4a4a-9cf3-36a6589eecfa: # Heading
     contentColumnType: text
     fieldGroup: null
     handle: heading
@@ -153,12 +153,12 @@ fields:
       columnType: null
       initialRows: '4'
       multiline: ''
-      placeholder: ''
+      placeholder: null
       uiMode: normal
     translationKeyFormat: null
     translationMethod: none
     type: craft\fields\PlainText
-  d92119f7-6ca6-4ee4-9f2d-9816a865e449:
+  d92119f7-6ca6-4ee4-9f2d-9816a865e449: # Copy
     contentColumnType: text
     fieldGroup: null
     handle: copy

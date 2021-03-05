@@ -1,5 +1,5 @@
 contentColumnType: text
-fieldGroup: 225c7f29-a1ba-4281-a207-621cab6d37b7
+fieldGroup: 225c7f29-a1ba-4281-a207-621cab6d37b7 # Common
 handle: navigationLink
 instructions: ''
 name: 'Navigation Link'
@@ -47,8 +47,8 @@ settings:
               - sources
               -
                 - singles
-                - 'section:2f1f0ea0-4b22-4e9d-bb51-9e1e32a94cba'
-                - 'section:cefc4625-a115-4b71-b22d-5f6784b3aada'
+                - 'section:2f1f0ea0-4b22-4e9d-bb51-9e1e32a94cba' # Articles
+                - 'section:cefc4625-a115-4b71-b22d-5f6784b3aada' # Pages
             -
               - allowCustomQuery
               - ''

@@ -3,7 +3,7 @@ handle: utilityNavigaiton
 name: 'Utility Navigaiton'
 propagationMethod: all
 siteSettings:
-  8d2ceaf6-270f-4376-a57e-b67d74fe3518:
+  8d2ceaf6-270f-4376-a57e-b67d74fe3518: # Boilerplate
     enabledByDefault: true
     hasUrls: false
     template: null

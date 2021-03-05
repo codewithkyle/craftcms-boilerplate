@@ -4,7 +4,7 @@ fieldLayouts:
       -
         elements:
           -
-            fieldUid: 2e2cf186-585b-46ee-a435-b3a1737847ca
+            fieldUid: 2e2cf186-585b-46ee-a435-b3a1737847ca # Text 1
             instructions: ''
             label: 'Notification Copy'
             required: ''

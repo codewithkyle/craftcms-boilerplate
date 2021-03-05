@@ -1,5 +1,5 @@
 contentColumnType: string
-fieldGroup: 225c7f29-a1ba-4281-a207-621cab6d37b7
+fieldGroup: 225c7f29-a1ba-4281-a207-621cab6d37b7 # Common
 handle: categories
 instructions: ''
 name: Categories
@@ -13,7 +13,7 @@ settings:
   localizeRelations: false
   selectionLabel: 'Add a Category'
   showSiteMenu: true
-  source: 'group:b95bb343-4e19-404d-bcec-952a2d7ab08e'
+  source: 'group:b95bb343-4e19-404d-bcec-952a2d7ab08e' # Blog Categories
   sources: '*'
   targetSiteId: null
   validateRelatedElements: true

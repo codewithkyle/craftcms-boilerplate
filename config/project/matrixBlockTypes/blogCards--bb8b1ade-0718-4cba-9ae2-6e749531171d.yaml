@@ -1,11 +1,11 @@
-field: 1eb0ac2f-150c-4071-b0a0-cdbc98ace82e
+field: 1eb0ac2f-150c-4071-b0a0-cdbc98ace82e # Content Builder
 fieldLayouts:
   a16aee75-e3c6-4b89-8ebd-d670b08018ad:
     tabs:
       -
         elements:
           -
-            fieldUid: d2ed2223-7bc8-4e0b-a214-aac9858b9f7d
+            fieldUid: d2ed2223-7bc8-4e0b-a214-aac9858b9f7d # Heading
             instructions: null
             label: null
             required: false
@@ -14,7 +14,7 @@ fieldLayouts:
             warning: null
             width: 100
           -
-            fieldUid: dee15867-e67b-485e-9bb4-462d27a45db3
+            fieldUid: dee15867-e67b-485e-9bb4-462d27a45db3 # Copy
             instructions: null
             label: null
             required: false
@@ -23,7 +23,7 @@ fieldLayouts:
             warning: null
             width: 100
           -
-            fieldUid: 3b64d0d5-85c3-4d4c-ae24-37fc64796b59
+            fieldUid: 3b64d0d5-85c3-4d4c-ae24-37fc64796b59 # Articles
             instructions: null
             label: null
             required: true
@@ -34,7 +34,7 @@ fieldLayouts:
         name: Content
         sortOrder: 1
 fields:
-  3b64d0d5-85c3-4d4c-ae24-37fc64796b59:
+  3b64d0d5-85c3-4d4c-ae24-37fc64796b59: # Articles
     contentColumnType: string
     fieldGroup: null
     handle: articles
@@ -49,14 +49,14 @@ fields:
       showSiteMenu: true
       source: null
       sources:
-        - 'section:2f1f0ea0-4b22-4e9d-bb51-9e1e32a94cba'
+        - 'section:2f1f0ea0-4b22-4e9d-bb51-9e1e32a94cba' # Articles
       targetSiteId: null
       validateRelatedElements: true
       viewMode: null
     translationKeyFormat: null
     translationMethod: site
     type: craft\fields\Entries
-  d2ed2223-7bc8-4e0b-a214-aac9858b9f7d:
+  d2ed2223-7bc8-4e0b-a214-aac9858b9f7d: # Heading
     contentColumnType: text
     fieldGroup: null
     handle: heading
@@ -70,12 +70,12 @@ fields:
       columnType: null
       initialRows: '4'
       multiline: ''
-      placeholder: ''
+      placeholder: null
       uiMode: normal
     translationKeyFormat: null
     translationMethod: none
     type: craft\fields\PlainText
-  dee15867-e67b-485e-9bb4-462d27a45db3:
+  dee15867-e67b-485e-9bb4-462d27a45db3: # Copy
     contentColumnType: text
     fieldGroup: null
     handle: copy

@@ -1,11 +1,11 @@
-field: 1eb0ac2f-150c-4071-b0a0-cdbc98ace82e
+field: 1eb0ac2f-150c-4071-b0a0-cdbc98ace82e # Content Builder
 fieldLayouts:
   a8782727-ee5c-40f4-bbdf-2d5f8eef01ee:
     tabs:
       -
         elements:
           -
-            fieldUid: 8ec3afee-8219-49e7-a6f8-611c35380df6
+            fieldUid: 8ec3afee-8219-49e7-a6f8-611c35380df6 # Heading
             instructions: null
             label: null
             required: false
@@ -14,7 +14,7 @@ fieldLayouts:
             warning: null
             width: 100
           -
-            fieldUid: 810faeb7-e1cf-4279-87a8-daf95ed656d9
+            fieldUid: 810faeb7-e1cf-4279-87a8-daf95ed656d9 # Copy
             instructions: null
             label: null
             required: false
@@ -23,7 +23,7 @@ fieldLayouts:
             warning: null
             width: 100
           -
-            fieldUid: 2329cff0-226e-4404-94bc-1eafd6fef322
+            fieldUid: 2329cff0-226e-4404-94bc-1eafd6fef322 # Testimonials
             instructions: null
             label: null
             required: true
@@ -34,7 +34,7 @@ fieldLayouts:
         name: Content
         sortOrder: 1
 fields:
-  2329cff0-226e-4404-94bc-1eafd6fef322:
+  2329cff0-226e-4404-94bc-1eafd6fef322: # Testimonials
     contentColumnType: string
     fieldGroup: null
     handle: testimonials
@@ -45,28 +45,28 @@ fields:
       columns:
         __assoc__:
           -
-            - e2021c59-d040-4c11-ad30-b12cf22cd59e
+            - e2021c59-d040-4c11-ad30-b12cf22cd59e # Copy
             -
               __assoc__:
                 -
                   - width
                   - ''
           -
-            - c164c20f-11e1-439c-af06-a46c22dd2426
+            - c164c20f-11e1-439c-af06-a46c22dd2426 # Author
             -
               __assoc__:
                 -
                   - width
                   - ''
           -
-            - 7bffe00b-1d84-4b18-8a73-fd2ccd0641d2
+            - 7bffe00b-1d84-4b18-8a73-fd2ccd0641d2 # Author Type
             -
               __assoc__:
                 -
                   - width
                   - ''
           -
-            - 80140a2c-054f-4ec4-957e-58640facee9d
+            - 80140a2c-054f-4ec4-957e-58640facee9d # Image
             -
               __assoc__:
                 -
@@ -83,7 +83,7 @@ fields:
     translationKeyFormat: null
     translationMethod: site
     type: verbb\supertable\fields\SuperTableField
-  810faeb7-e1cf-4279-87a8-daf95ed656d9:
+  810faeb7-e1cf-4279-87a8-daf95ed656d9: # Copy
     contentColumnType: text
     fieldGroup: null
     handle: copy
@@ -111,7 +111,7 @@ fields:
     translationKeyFormat: null
     translationMethod: none
     type: craft\redactor\Field
-  8ec3afee-8219-49e7-a6f8-611c35380df6:
+  8ec3afee-8219-49e7-a6f8-611c35380df6: # Heading
     contentColumnType: text
     fieldGroup: null
     handle: heading
@@ -125,7 +125,7 @@ fields:
       columnType: null
       initialRows: '4'
       multiline: ''
-      placeholder: ''
+      placeholder: null
       uiMode: normal
     translationKeyFormat: null
     translationMethod: none

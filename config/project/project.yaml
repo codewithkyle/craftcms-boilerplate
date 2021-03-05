@@ -1,4 +1,4 @@
-dateModified: 1612364241
+dateModified: 1614971505
 email:
   fromEmail: $SYSTEM_EMAIL
   fromName: $SENDER_NAME
@@ -25,7 +25,8 @@ plugins:
   formie:
     edition: standard
     enabled: true
-    schemaVersion: 1.1.5
+    licenseKey: 9IGMRK2MX1DX7BWLDICIIZ91
+    schemaVersion: 1.1.6
   jitter:
     edition: standard
     enabled: true
@@ -53,6 +54,7 @@ plugins:
   retour:
     edition: standard
     enabled: true
+    licenseKey: HDCAS6CQHSWMR6JKR3UTIUG7
     schemaVersion: 3.0.9
   smith:
     edition: standard
@@ -74,5 +76,5 @@ system:
   edition: pro
   live: true
   name: $SYSTEM_NAME
-  schemaVersion: 3.5.13
+  schemaVersion: 3.6.6
   timeZone: America/Los_Angeles

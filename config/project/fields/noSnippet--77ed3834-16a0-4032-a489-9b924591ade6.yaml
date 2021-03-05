@@ -1,5 +1,5 @@
 contentColumnType: boolean
-fieldGroup: a7c4f891-d179-4c87-981e-2a644510060c
+fieldGroup: a7c4f891-d179-4c87-981e-2a644510060c # SEO
 handle: noSnippet
 instructions: 'Do not show a text snippet or video preview in the search results for this page. A static thumbnail (if available) will still be visible.'
 name: 'No Snippet'

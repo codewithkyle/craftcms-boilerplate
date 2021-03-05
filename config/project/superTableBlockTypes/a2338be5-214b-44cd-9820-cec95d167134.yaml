@@ -1,11 +1,11 @@
-field: 2329cff0-226e-4404-94bc-1eafd6fef322
+field: 2329cff0-226e-4404-94bc-1eafd6fef322 # Testimonials
 fieldLayouts:
   45615a0e-1639-4a6b-a8ba-075775f3042c:
     tabs:
       -
         elements:
           -
-            fieldUid: e2021c59-d040-4c11-ad30-b12cf22cd59e
+            fieldUid: e2021c59-d040-4c11-ad30-b12cf22cd59e # Copy
             instructions: null
             label: null
             required: true
@@ -14,7 +14,7 @@ fieldLayouts:
             warning: null
             width: 100
           -
-            fieldUid: c164c20f-11e1-439c-af06-a46c22dd2426
+            fieldUid: c164c20f-11e1-439c-af06-a46c22dd2426 # Author
             instructions: null
             label: null
             required: true
@@ -23,7 +23,7 @@ fieldLayouts:
             warning: null
             width: 100
           -
-            fieldUid: 7bffe00b-1d84-4b18-8a73-fd2ccd0641d2
+            fieldUid: 7bffe00b-1d84-4b18-8a73-fd2ccd0641d2 # Author Type
             instructions: null
             label: null
             required: false
@@ -32,7 +32,7 @@ fieldLayouts:
             warning: null
             width: 100
           -
-            fieldUid: 80140a2c-054f-4ec4-957e-58640facee9d
+            fieldUid: 80140a2c-054f-4ec4-957e-58640facee9d # Image
             instructions: null
             label: null
             required: false
@@ -43,7 +43,7 @@ fieldLayouts:
         name: Content
         sortOrder: 1
 fields:
-  7bffe00b-1d84-4b18-8a73-fd2ccd0641d2:
+  7bffe00b-1d84-4b18-8a73-fd2ccd0641d2: # Author Type
     contentColumnType: text
     fieldGroup: null
     handle: authorType
@@ -57,12 +57,12 @@ fields:
       columnType: null
       initialRows: '4'
       multiline: ''
-      placeholder: ''
+      placeholder: null
       uiMode: normal
     translationKeyFormat: null
     translationMethod: none
     type: craft\fields\PlainText
-  80140a2c-054f-4ec4-957e-58640facee9d:
+  80140a2c-054f-4ec4-957e-58640facee9d: # Image
     contentColumnType: string
     fieldGroup: null
     handle: image
@@ -74,7 +74,7 @@ fields:
       allowUploads: true
       allowedKinds:
         - image
-      defaultUploadLocationSource: 'volume:8b0fd7f7-2623-4a21-a578-698d8c0aef75'
+      defaultUploadLocationSource: 'volume:8b0fd7f7-2623-4a21-a578-698d8c0aef75' # Images
       defaultUploadLocationSubpath: ''
       limit: '1'
       localizeRelations: false
@@ -84,7 +84,7 @@ fields:
       showSiteMenu: true
       showUnpermittedFiles: false
       showUnpermittedVolumes: false
-      singleUploadLocationSource: 'volume:8b0fd7f7-2623-4a21-a578-698d8c0aef75'
+      singleUploadLocationSource: 'volume:8b0fd7f7-2623-4a21-a578-698d8c0aef75' # Images
       singleUploadLocationSubpath: ''
       source: null
       sources: '*'
@@ -95,7 +95,7 @@ fields:
     translationKeyFormat: null
     translationMethod: site
     type: craft\fields\Assets
-  c164c20f-11e1-439c-af06-a46c22dd2426:
+  c164c20f-11e1-439c-af06-a46c22dd2426: # Author
     contentColumnType: text
     fieldGroup: null
     handle: author
@@ -109,12 +109,12 @@ fields:
       columnType: null
       initialRows: '4'
       multiline: ''
-      placeholder: ''
+      placeholder: null
       uiMode: normal
     translationKeyFormat: null
     translationMethod: none
     type: craft\fields\PlainText
-  e2021c59-d040-4c11-ad30-b12cf22cd59e:
+  e2021c59-d040-4c11-ad30-b12cf22cd59e: # Copy
     contentColumnType: text
     fieldGroup: null
     handle: copy

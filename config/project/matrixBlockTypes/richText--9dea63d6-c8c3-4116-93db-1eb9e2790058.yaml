@@ -1,11 +1,11 @@
-field: 1eb0ac2f-150c-4071-b0a0-cdbc98ace82e
+field: 1eb0ac2f-150c-4071-b0a0-cdbc98ace82e # Content Builder
 fieldLayouts:
   4ce6f8b6-8ea1-46c5-92e7-7c9200277743:
     tabs:
       -
         elements:
           -
-            fieldUid: cc09c5f8-123f-4ecd-ac51-acc522445123
+            fieldUid: cc09c5f8-123f-4ecd-ac51-acc522445123 # Copy
             instructions: null
             label: null
             required: false
@@ -14,7 +14,7 @@ fieldLayouts:
             warning: null
             width: 100
           -
-            fieldUid: 2dd47779-aae2-4d6d-b2b7-b1cf6fd6807c
+            fieldUid: 2dd47779-aae2-4d6d-b2b7-b1cf6fd6807c # Call to Action Button
             instructions: null
             label: null
             required: false
@@ -23,7 +23,7 @@ fieldLayouts:
             warning: null
             width: 100
           -
-            fieldUid: acf69f98-cbe4-4a1e-9b48-d2d213c68a4f
+            fieldUid: acf69f98-cbe4-4a1e-9b48-d2d213c68a4f # Button Style
             instructions: null
             label: null
             required: false
@@ -34,7 +34,7 @@ fieldLayouts:
         name: Content
         sortOrder: 1
 fields:
-  2dd47779-aae2-4d6d-b2b7-b1cf6fd6807c:
+  2dd47779-aae2-4d6d-b2b7-b1cf6fd6807c: # Call to Action Button
     contentColumnType: text
     fieldGroup: null
     handle: callToActionButton
@@ -84,8 +84,8 @@ fields:
                   - sources
                   -
                     - singles
-                    - 'section:2f1f0ea0-4b22-4e9d-bb51-9e1e32a94cba'
-                    - 'section:cefc4625-a115-4b71-b22d-5f6784b3aada'
+                    - 'section:2f1f0ea0-4b22-4e9d-bb51-9e1e32a94cba' # Articles
+                    - 'section:cefc4625-a115-4b71-b22d-5f6784b3aada' # Pages
                 -
                   - allowCustomQuery
                   - ''
@@ -149,7 +149,7 @@ fields:
     translationKeyFormat: null
     translationMethod: none
     type: typedlinkfield\fields\LinkField
-  acf69f98-cbe4-4a1e-9b48-d2d213c68a4f:
+  acf69f98-cbe4-4a1e-9b48-d2d213c68a4f: # Button Style
     contentColumnType: string
     fieldGroup: null
     handle: buttonStyle
@@ -195,7 +195,7 @@ fields:
     translationKeyFormat: null
     translationMethod: none
     type: craft\fields\Dropdown
-  cc09c5f8-123f-4ecd-ac51-acc522445123:
+  cc09c5f8-123f-4ecd-ac51-acc522445123: # Copy
     contentColumnType: text
     fieldGroup: null
     handle: copy

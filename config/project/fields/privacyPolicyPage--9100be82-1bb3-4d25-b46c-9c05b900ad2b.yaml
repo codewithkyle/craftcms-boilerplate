@@ -1,5 +1,5 @@
 contentColumnType: string
-fieldGroup: 451b931d-873f-460e-8d38-e836680cfe09
+fieldGroup: 451b931d-873f-460e-8d38-e836680cfe09 # Organization
 handle: privacyPolicyPage
 instructions: ''
 name: 'Privacy Policy Page'
@@ -12,7 +12,7 @@ settings:
   showSiteMenu: true
   source: null
   sources:
-    - 'section:cefc4625-a115-4b71-b22d-5f6784b3aada'
+    - 'section:cefc4625-a115-4b71-b22d-5f6784b3aada' # Pages
   targetSiteId: null
   validateRelatedElements: true
   viewMode: null

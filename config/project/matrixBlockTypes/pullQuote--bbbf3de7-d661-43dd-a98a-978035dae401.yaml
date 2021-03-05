@@ -1,11 +1,11 @@
-field: 1eb0ac2f-150c-4071-b0a0-cdbc98ace82e
+field: 1eb0ac2f-150c-4071-b0a0-cdbc98ace82e # Content Builder
 fieldLayouts:
   da5a158b-2242-46e6-b249-975006211ad4:
     tabs:
       -
         elements:
           -
-            fieldUid: 71126e09-32d3-4987-962a-da5c02492042
+            fieldUid: 71126e09-32d3-4987-962a-da5c02492042 # Quote
             instructions: null
             label: null
             required: true
@@ -14,7 +14,7 @@ fieldLayouts:
             warning: null
             width: 100
           -
-            fieldUid: a194d79b-0aa4-40a9-87f9-d4523dbbf44b
+            fieldUid: a194d79b-0aa4-40a9-87f9-d4523dbbf44b # Image
             instructions: null
             label: null
             required: false
@@ -23,7 +23,7 @@ fieldLayouts:
             warning: null
             width: 100
           -
-            fieldUid: 31ecffca-3812-4519-bda2-18bbf6468634
+            fieldUid: 31ecffca-3812-4519-bda2-18bbf6468634 # Author
             instructions: null
             label: null
             required: false
@@ -32,7 +32,7 @@ fieldLayouts:
             warning: null
             width: 100
           -
-            fieldUid: 40a5b3f1-f521-4585-b3d0-55b840b99a85
+            fieldUid: 40a5b3f1-f521-4585-b3d0-55b840b99a85 # Call to Action Link
             instructions: null
             label: null
             required: false
@@ -43,7 +43,7 @@ fieldLayouts:
         name: Content
         sortOrder: 1
 fields:
-  31ecffca-3812-4519-bda2-18bbf6468634:
+  31ecffca-3812-4519-bda2-18bbf6468634: # Author
     contentColumnType: text
     fieldGroup: null
     handle: author
@@ -57,12 +57,12 @@ fields:
       columnType: null
       initialRows: '4'
       multiline: ''
-      placeholder: ''
+      placeholder: null
       uiMode: normal
     translationKeyFormat: null
     translationMethod: none
     type: craft\fields\PlainText
-  40a5b3f1-f521-4585-b3d0-55b840b99a85:
+  40a5b3f1-f521-4585-b3d0-55b840b99a85: # Call to Action Link
     contentColumnType: text
     fieldGroup: null
     handle: callToActionLink
@@ -112,8 +112,8 @@ fields:
                   - sources
                   -
                     - singles
-                    - 'section:2f1f0ea0-4b22-4e9d-bb51-9e1e32a94cba'
-                    - 'section:cefc4625-a115-4b71-b22d-5f6784b3aada'
+                    - 'section:2f1f0ea0-4b22-4e9d-bb51-9e1e32a94cba' # Articles
+                    - 'section:cefc4625-a115-4b71-b22d-5f6784b3aada' # Pages
                 -
                   - allowCustomQuery
                   - ''
@@ -177,7 +177,7 @@ fields:
     translationKeyFormat: null
     translationMethod: none
     type: typedlinkfield\fields\LinkField
-  71126e09-32d3-4987-962a-da5c02492042:
+  71126e09-32d3-4987-962a-da5c02492042: # Quote
     contentColumnType: text
     fieldGroup: null
     handle: quote
@@ -205,7 +205,7 @@ fields:
     translationKeyFormat: null
     translationMethod: none
     type: craft\redactor\Field
-  a194d79b-0aa4-40a9-87f9-d4523dbbf44b:
+  a194d79b-0aa4-40a9-87f9-d4523dbbf44b: # Image
     contentColumnType: string
     fieldGroup: null
     handle: image
@@ -217,7 +217,7 @@ fields:
       allowUploads: true
       allowedKinds:
         - image
-      defaultUploadLocationSource: 'volume:8b0fd7f7-2623-4a21-a578-698d8c0aef75'
+      defaultUploadLocationSource: 'volume:8b0fd7f7-2623-4a21-a578-698d8c0aef75' # Images
       defaultUploadLocationSubpath: ''
       limit: '1'
       localizeRelations: false
@@ -227,7 +227,7 @@ fields:
       showSiteMenu: true
       showUnpermittedFiles: false
       showUnpermittedVolumes: false
-      singleUploadLocationSource: 'volume:8b0fd7f7-2623-4a21-a578-698d8c0aef75'
+      singleUploadLocationSource: 'volume:8b0fd7f7-2623-4a21-a578-698d8c0aef75' # Images
       singleUploadLocationSubpath: ''
       source: null
       sources: '*'

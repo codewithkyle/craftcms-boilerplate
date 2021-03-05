@@ -1,11 +1,11 @@
-field: 1eb0ac2f-150c-4071-b0a0-cdbc98ace82e
+field: 1eb0ac2f-150c-4071-b0a0-cdbc98ace82e # Content Builder
 fieldLayouts:
   afc10c64-cf62-4a91-9346-dfff6c5d78f2:
     tabs:
       -
         elements:
           -
-            fieldUid: ce11e6d6-11cf-44cd-94da-6c0a2f79b19b
+            fieldUid: ce11e6d6-11cf-44cd-94da-6c0a2f79b19b # Heading
             instructions: null
             label: null
             required: false
@@ -14,7 +14,7 @@ fieldLayouts:
             warning: null
             width: 100
           -
-            fieldUid: 2c9e67c9-b58c-4ef8-ba01-f11a6273747b
+            fieldUid: 2c9e67c9-b58c-4ef8-ba01-f11a6273747b # Copy
             instructions: null
             label: null
             required: false
@@ -23,7 +23,7 @@ fieldLayouts:
             warning: null
             width: 100
           -
-            fieldUid: b7e77750-23a3-4d65-9793-70e7782204b4
+            fieldUid: b7e77750-23a3-4d65-9793-70e7782204b4 # Cards
             instructions: null
             label: null
             required: true
@@ -34,7 +34,7 @@ fieldLayouts:
         name: Content
         sortOrder: 1
 fields:
-  2c9e67c9-b58c-4ef8-ba01-f11a6273747b:
+  2c9e67c9-b58c-4ef8-ba01-f11a6273747b: # Copy
     contentColumnType: text
     fieldGroup: null
     handle: copy
@@ -62,7 +62,7 @@ fields:
     translationKeyFormat: null
     translationMethod: none
     type: craft\redactor\Field
-  b7e77750-23a3-4d65-9793-70e7782204b4:
+  b7e77750-23a3-4d65-9793-70e7782204b4: # Cards
     contentColumnType: string
     fieldGroup: null
     handle: cards
@@ -73,28 +73,28 @@ fields:
       columns:
         __assoc__:
           -
-            - a538518b-d594-484e-a083-9f5df7dea3d9
+            - a538518b-d594-484e-a083-9f5df7dea3d9 # Image
             -
               __assoc__:
                 -
                   - width
                   - ''
           -
-            - 630bcfcd-7f1c-4395-9be5-63844c0edce9
+            - 630bcfcd-7f1c-4395-9be5-63844c0edce9 # Heading
             -
               __assoc__:
                 -
                   - width
                   - ''
           -
-            - ddf74a4a-c638-4ea0-8a09-f090b9f43287
+            - ddf74a4a-c638-4ea0-8a09-f090b9f43287 # Brief Copy
             -
               __assoc__:
                 -
                   - width
                   - ''
           -
-            - 351a49ae-188d-4aaf-a5b6-25e9840a6621
+            - 351a49ae-188d-4aaf-a5b6-25e9840a6621 # Link
             -
               __assoc__:
                 -
@@ -111,7 +111,7 @@ fields:
     translationKeyFormat: null
     translationMethod: site
     type: verbb\supertable\fields\SuperTableField
-  ce11e6d6-11cf-44cd-94da-6c0a2f79b19b:
+  ce11e6d6-11cf-44cd-94da-6c0a2f79b19b: # Heading
     contentColumnType: text
     fieldGroup: null
     handle: heading
@@ -125,7 +125,7 @@ fields:
       columnType: null
       initialRows: '4'
       multiline: ''
-      placeholder: ''
+      placeholder: null
       uiMode: normal
     translationKeyFormat: null
     translationMethod: none

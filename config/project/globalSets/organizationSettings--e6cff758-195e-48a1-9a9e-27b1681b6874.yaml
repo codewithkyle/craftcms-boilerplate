@@ -4,7 +4,7 @@ fieldLayouts:
       -
         elements:
           -
-            fieldUid: e35ca729-8355-4faf-ae53-07d599ba0a3a
+            fieldUid: e35ca729-8355-4faf-ae53-07d599ba0a3a # Logo
             instructions: 'For optimal performance and visual clarity please provide the logo in an SVG format.'
             label: ''
             required: '1'
@@ -13,7 +13,7 @@ fieldLayouts:
             warning: null
             width: 100
           -
-            fieldUid: 4e119a0c-5a69-4b77-9f74-ca2f857374ff
+            fieldUid: 4e119a0c-5a69-4b77-9f74-ca2f857374ff # Organization Name
             instructions: null
             label: null
             required: '1'
@@ -22,7 +22,7 @@ fieldLayouts:
             warning: null
             width: 100
           -
-            fieldUid: f697001b-d1ba-48d7-92ee-0eb172e00ac1
+            fieldUid: f697001b-d1ba-48d7-92ee-0eb172e00ac1 # Simple Copy 1
             instructions: ''
             label: 'Organization Information'
             required: ''
@@ -31,7 +31,7 @@ fieldLayouts:
             warning: null
             width: 100
           -
-            fieldUid: 076e5aa3-2dc5-45c2-9f27-22086feb220d
+            fieldUid: 076e5aa3-2dc5-45c2-9f27-22086feb220d # Terms and Conditions Page
             instructions: null
             label: null
             required: '0'
@@ -40,7 +40,7 @@ fieldLayouts:
             warning: null
             width: 100
           -
-            fieldUid: 9100be82-1bb3-4d25-b46c-9c05b900ad2b
+            fieldUid: 9100be82-1bb3-4d25-b46c-9c05b900ad2b # Privacy Policy Page
             instructions: null
             label: null
             required: '0'
@@ -53,7 +53,7 @@ fieldLayouts:
       -
         elements:
           -
-            fieldUid: 0b71f571-ae1d-4b03-85f6-b6bb4acbb430
+            fieldUid: 0b71f571-ae1d-4b03-85f6-b6bb4acbb430 # Facebook URL
             instructions: null
             label: null
             required: '0'
@@ -62,7 +62,7 @@ fieldLayouts:
             warning: null
             width: 100
           -
-            fieldUid: c6c24fc2-32de-4289-8f1a-b2ee6d7d0d92
+            fieldUid: c6c24fc2-32de-4289-8f1a-b2ee6d7d0d92 # Twitter URL
             instructions: null
             label: null
             required: '0'
@@ -71,7 +71,7 @@ fieldLayouts:
             warning: null
             width: 100
           -
-            fieldUid: 0f860c17-f79b-48b7-8d1f-15243ef39303
+            fieldUid: 0f860c17-f79b-48b7-8d1f-15243ef39303 # LinkedIn URL
             instructions: null
             label: null
             required: '0'
@@ -80,7 +80,7 @@ fieldLayouts:
             warning: null
             width: 100
           -
-            fieldUid: 26b75c67-742d-41d4-94c0-cbbf13985a33
+            fieldUid: 26b75c67-742d-41d4-94c0-cbbf13985a33 # YouTube URL
             instructions: null
             label: null
             required: '0'
@@ -89,7 +89,7 @@ fieldLayouts:
             warning: null
             width: 100
           -
-            fieldUid: 7a0e5822-9917-4e3f-9da1-8b3368bbec1f
+            fieldUid: 7a0e5822-9917-4e3f-9da1-8b3368bbec1f # Instagram URL
             instructions: null
             label: null
             required: '0'
@@ -98,7 +98,7 @@ fieldLayouts:
             warning: null
             width: 100
           -
-            fieldUid: 9cfc6137-662b-4553-8ae8-9d1176fdddcb
+            fieldUid: 9cfc6137-662b-4553-8ae8-9d1176fdddcb # Pinterest URL
             instructions: null
             label: null
             required: '0'
@@ -107,7 +107,7 @@ fieldLayouts:
             warning: null
             width: 100
           -
-            fieldUid: 9c8011f9-3ae4-45a4-b562-5e7beee514d2
+            fieldUid: 9c8011f9-3ae4-45a4-b562-5e7beee514d2 # Snapchat URL
             instructions: null
             label: null
             required: '0'
@@ -116,7 +116,7 @@ fieldLayouts:
             warning: null
             width: 100
           -
-            fieldUid: 30cd9bf0-cc40-4149-ab16-af53a8c72449
+            fieldUid: 30cd9bf0-cc40-4149-ab16-af53a8c72449 # Tumblr URL
             instructions: null
             label: null
             required: '0'
@@ -125,7 +125,7 @@ fieldLayouts:
             warning: null
             width: 100
           -
-            fieldUid: 81a96522-33ab-4162-a188-88892876a535
+            fieldUid: 81a96522-33ab-4162-a188-88892876a535 # Vimeo URL
             instructions: null
             label: null
             required: '0'

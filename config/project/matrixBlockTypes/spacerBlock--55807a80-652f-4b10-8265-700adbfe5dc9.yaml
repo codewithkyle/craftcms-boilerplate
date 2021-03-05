@@ -1,11 +1,11 @@
-field: 1eb0ac2f-150c-4071-b0a0-cdbc98ace82e
+field: 1eb0ac2f-150c-4071-b0a0-cdbc98ace82e # Content Builder
 fieldLayouts:
   dca09ec8-08a6-4e2b-af92-f85a241f2e7e:
     tabs:
       -
         elements:
           -
-            fieldUid: 0ea10383-1f7d-4a48-92c7-b81f37c01612
+            fieldUid: 0ea10383-1f7d-4a48-92c7-b81f37c01612 # Gap
             instructions: null
             label: null
             required: true
@@ -16,7 +16,7 @@ fieldLayouts:
         name: Content
         sortOrder: 1
 fields:
-  0ea10383-1f7d-4a48-92c7-b81f37c01612:
+  0ea10383-1f7d-4a48-92c7-b81f37c01612: # Gap
     contentColumnType: integer(10)
     fieldGroup: null
     handle: gap
@@ -28,11 +28,11 @@ fields:
       defaultValue: '1'
       max: null
       min: '1'
-      prefix: ''
+      prefix: null
       previewCurrency: ''
       previewFormat: decimal
       size: null
-      suffix: ''
+      suffix: null
     translationKeyFormat: null
     translationMethod: none
     type: craft\fields\Number

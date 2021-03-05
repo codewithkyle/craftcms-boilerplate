@@ -1,5 +1,5 @@
 contentColumnType: text
-fieldGroup: c4451265-86dd-4e29-8607-338f8dff61d4
+fieldGroup: c4451265-86dd-4e29-8607-338f8dff61d4 # Global
 handle: text2
 instructions: ''
 name: 'Text 2'
@@ -11,7 +11,7 @@ settings:
   columnType: null
   initialRows: '4'
   multiline: ''
-  placeholder: ''
+  placeholder: null
   uiMode: normal
 translationKeyFormat: null
 translationMethod: none

@@ -27,7 +27,7 @@ fieldLayouts:
             warning: null
             width: 100
           -
-            fieldUid: 1eb0ac2f-150c-4071-b0a0-cdbc98ace82e
+            fieldUid: 1eb0ac2f-150c-4071-b0a0-cdbc98ace82e # Content Builder
             instructions: null
             label: null
             required: '1'
@@ -40,7 +40,7 @@ fieldLayouts:
       -
         elements:
           -
-            fieldUid: d56e3403-95de-4e0c-a834-92147acc2ab1
+            fieldUid: d56e3403-95de-4e0c-a834-92147acc2ab1 # SEO Title
             instructions: null
             label: null
             required: false
@@ -49,7 +49,7 @@ fieldLayouts:
             warning: null
             width: 100
           -
-            fieldUid: e3ddae84-8d6f-4b5c-b636-2eaaddaa0a0f
+            fieldUid: e3ddae84-8d6f-4b5c-b636-2eaaddaa0a0f # Description
             instructions: ''
             label: ''
             required: ''
@@ -58,7 +58,7 @@ fieldLayouts:
             warning: null
             width: 100
           -
-            fieldUid: 44e14175-4318-4b6c-b34e-9d7d2f85a147
+            fieldUid: 44e14175-4318-4b6c-b34e-9d7d2f85a147 # Canonical URL
             instructions: null
             label: null
             required: false
@@ -67,7 +67,7 @@ fieldLayouts:
             warning: null
             width: 100
           -
-            fieldUid: cf314fa5-a36a-4d9c-81bc-566c50663f4c
+            fieldUid: cf314fa5-a36a-4d9c-81bc-566c50663f4c # Keywords
             instructions: null
             label: null
             required: false
@@ -76,7 +76,7 @@ fieldLayouts:
             warning: null
             width: 100
           -
-            fieldUid: cc85bfde-9ba9-499c-87b8-9218a81aba15
+            fieldUid: cc85bfde-9ba9-499c-87b8-9218a81aba15 # Facebook Image
             instructions: null
             label: null
             required: false
@@ -85,7 +85,7 @@ fieldLayouts:
             warning: null
             width: 50
           -
-            fieldUid: 77592d7e-e995-46fe-843f-6d9d2cacfe7c
+            fieldUid: 77592d7e-e995-46fe-843f-6d9d2cacfe7c # Twitter Image
             instructions: null
             label: null
             required: false
@@ -94,7 +94,7 @@ fieldLayouts:
             warning: null
             width: 50
           -
-            fieldUid: 90685513-4fd4-464b-abd2-04ff47ac1964
+            fieldUid: 90685513-4fd4-464b-abd2-04ff47ac1964 # No Archive
             instructions: null
             label: null
             required: false
@@ -103,7 +103,7 @@ fieldLayouts:
             warning: null
             width: 50
           -
-            fieldUid: 2b91b082-2c43-4db0-8b24-c848986294af
+            fieldUid: 2b91b082-2c43-4db0-8b24-c848986294af # No Follow
             instructions: null
             label: null
             required: false
@@ -112,7 +112,7 @@ fieldLayouts:
             warning: null
             width: 50
           -
-            fieldUid: 7e62e0af-f834-447b-8850-27aac3144cb0
+            fieldUid: 7e62e0af-f834-447b-8850-27aac3144cb0 # No Index
             instructions: null
             label: null
             required: false
@@ -121,7 +121,7 @@ fieldLayouts:
             warning: null
             width: 50
           -
-            fieldUid: 77ed3834-16a0-4032-a489-9b924591ade6
+            fieldUid: 77ed3834-16a0-4032-a489-9b924591ade6 # No Snippet
             instructions: null
             label: null
             required: false
@@ -134,7 +134,7 @@ fieldLayouts:
       -
         elements:
           -
-            fieldUid: 6d0a70db-0951-40b4-9be4-1fa67bc2d9a4
+            fieldUid: 6d0a70db-0951-40b4-9be4-1fa67bc2d9a4 # Require Login
             instructions: ''
             label: 'Require Login'
             required: ''
@@ -147,7 +147,7 @@ fieldLayouts:
 handle: pages
 hasTitleField: true
 name: Pages
-section: cefc4625-a115-4b71-b22d-5f6784b3aada
+section: cefc4625-a115-4b71-b22d-5f6784b3aada # Pages
 sortOrder: 1
 titleFormat: null
 titleTranslationKeyFormat: null

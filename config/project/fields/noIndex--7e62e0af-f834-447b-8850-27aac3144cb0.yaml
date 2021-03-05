@@ -1,5 +1,5 @@
 contentColumnType: boolean
-fieldGroup: a7c4f891-d179-4c87-981e-2a644510060c
+fieldGroup: a7c4f891-d179-4c87-981e-2a644510060c # SEO
 handle: noIndex
 instructions: 'Do not show this page in search results and do not show a "Cached" link in search results.'
 name: 'No Index'

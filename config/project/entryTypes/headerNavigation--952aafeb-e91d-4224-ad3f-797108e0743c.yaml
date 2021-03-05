@@ -27,7 +27,7 @@ fieldLayouts:
             warning: null
             width: 100
           -
-            fieldUid: 27eb5f6d-5e7b-4401-a20a-5259596e045a
+            fieldUid: 27eb5f6d-5e7b-4401-a20a-5259596e045a # Navigation Link
             instructions: null
             label: null
             required: '0'
@@ -40,7 +40,7 @@ fieldLayouts:
 handle: headerNavigation
 hasTitleField: true
 name: 'Header Navigation'
-section: b9215289-18df-43f7-8aec-9164cf035280
+section: b9215289-18df-43f7-8aec-9164cf035280 # Header Navigation
 sortOrder: 1
 titleFormat: null
 titleTranslationKeyFormat: null

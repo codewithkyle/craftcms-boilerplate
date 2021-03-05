@@ -1,5 +1,5 @@
 contentColumnType: string
-fieldGroup: c4451265-86dd-4e29-8607-338f8dff61d4
+fieldGroup: c4451265-86dd-4e29-8607-338f8dff61d4 # Global
 handle: singleImage1
 instructions: ''
 name: 'Single Image 1'
@@ -8,7 +8,7 @@ settings:
   allowSelfRelations: false
   allowUploads: true
   allowedKinds: null
-  defaultUploadLocationSource: 'volume:8b0fd7f7-2623-4a21-a578-698d8c0aef75'
+  defaultUploadLocationSource: 'volume:8b0fd7f7-2623-4a21-a578-698d8c0aef75' # Images
   defaultUploadLocationSubpath: ''
   limit: '1'
   localizeRelations: false
@@ -18,7 +18,7 @@ settings:
   showSiteMenu: true
   showUnpermittedFiles: false
   showUnpermittedVolumes: false
-  singleUploadLocationSource: 'volume:8b0fd7f7-2623-4a21-a578-698d8c0aef75'
+  singleUploadLocationSource: 'volume:8b0fd7f7-2623-4a21-a578-698d8c0aef75' # Images
   singleUploadLocationSubpath: ''
   source: null
   sources: '*'

@@ -1,11 +1,11 @@
-field: 1eb0ac2f-150c-4071-b0a0-cdbc98ace82e
+field: 1eb0ac2f-150c-4071-b0a0-cdbc98ace82e # Content Builder
 fieldLayouts:
   fc27acdc-5f3c-4c89-bf76-02e271a6b01b:
     tabs:
       -
         elements:
           -
-            fieldUid: 82806a86-3ff5-404a-bc1b-9819ca09c888
+            fieldUid: 82806a86-3ff5-404a-bc1b-9819ca09c888 # Slides
             instructions: null
             label: null
             required: true
@@ -14,7 +14,7 @@ fieldLayouts:
             warning: null
             width: 100
           -
-            fieldUid: de741c47-e0f4-402f-a0ed-f50a3c59dff3
+            fieldUid: de741c47-e0f4-402f-a0ed-f50a3c59dff3 # Automatic Transition
             instructions: null
             label: null
             required: false
@@ -25,7 +25,7 @@ fieldLayouts:
         name: Content
         sortOrder: 1
 fields:
-  82806a86-3ff5-404a-bc1b-9819ca09c888:
+  82806a86-3ff5-404a-bc1b-9819ca09c888: # Slides
     contentColumnType: string
     fieldGroup: null
     handle: slides
@@ -36,35 +36,35 @@ fields:
       columns:
         __assoc__:
           -
-            - 76f37263-7616-44be-9203-c9a00193f2f9
+            - 76f37263-7616-44be-9203-c9a00193f2f9 # Background Image
             -
               __assoc__:
                 -
                   - width
                   - ''
           -
-            - 8049eec0-b05c-482b-820a-83a95460a262
+            - 8049eec0-b05c-482b-820a-83a95460a262 # Heading
             -
               __assoc__:
                 -
                   - width
                   - ''
           -
-            - e659771a-929a-41d2-bab4-9f6dd3ee21aa
+            - e659771a-929a-41d2-bab4-9f6dd3ee21aa # Copy
             -
               __assoc__:
                 -
                   - width
                   - ''
           -
-            - 9f0fd987-261e-4cf3-b47b-ff56a9175a77
+            - 9f0fd987-261e-4cf3-b47b-ff56a9175a77 # Call to Action
             -
               __assoc__:
                 -
                   - width
                   - ''
           -
-            - 84f66ba0-cac2-484e-b97c-e3a5081a4e65
+            - 84f66ba0-cac2-484e-b97c-e3a5081a4e65 # Secondary Action
             -
               __assoc__:
                 -
@@ -81,7 +81,7 @@ fields:
     translationKeyFormat: null
     translationMethod: site
     type: verbb\supertable\fields\SuperTableField
-  de741c47-e0f4-402f-a0ed-f50a3c59dff3:
+  de741c47-e0f4-402f-a0ed-f50a3c59dff3: # Automatic Transition
     contentColumnType: boolean
     fieldGroup: null
     handle: automaticTransition

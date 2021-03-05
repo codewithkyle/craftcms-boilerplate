@@ -1,5 +1,5 @@
 contentColumnType: boolean
-fieldGroup: a7c4f891-d179-4c87-981e-2a644510060c
+fieldGroup: a7c4f891-d179-4c87-981e-2a644510060c # SEO
 handle: noFollow
 instructions: 'Do not allow web crawlers to follow the links on this page.'
 name: 'No Follow'

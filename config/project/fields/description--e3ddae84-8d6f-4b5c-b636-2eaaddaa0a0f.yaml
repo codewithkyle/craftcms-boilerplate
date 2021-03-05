@@ -1,5 +1,5 @@
 contentColumnType: text
-fieldGroup: 225c7f29-a1ba-4281-a207-621cab6d37b7
+fieldGroup: 225c7f29-a1ba-4281-a207-621cab6d37b7 # Common
 handle: description
 instructions: ''
 name: Description
@@ -11,7 +11,7 @@ settings:
   columnType: null
   initialRows: '4'
   multiline: ''
-  placeholder: ''
+  placeholder: null
   uiMode: normal
 translationKeyFormat: null
 translationMethod: none

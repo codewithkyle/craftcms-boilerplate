@@ -31,7 +31,7 @@ fieldLayouts:
 handle: blogCategories
 name: 'Blog Categories'
 siteSettings:
-  8d2ceaf6-270f-4376-a57e-b67d74fe3518:
+  8d2ceaf6-270f-4376-a57e-b67d74fe3518: # Boilerplate
     hasUrls: false
     template: null
     uriFormat: null

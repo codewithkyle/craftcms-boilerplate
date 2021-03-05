@@ -1,5 +1,5 @@
 contentColumnType: text
-fieldGroup: 451b931d-873f-460e-8d38-e836680cfe09
+fieldGroup: 451b931d-873f-460e-8d38-e836680cfe09 # Organization
 handle: organizationName
 instructions: ''
 name: 'Organization Name'
@@ -11,7 +11,7 @@ settings:
   columnType: null
   initialRows: '4'
   multiline: ''
-  placeholder: ''
+  placeholder: null
   uiMode: normal
 translationKeyFormat: null
 translationMethod: none

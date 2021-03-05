@@ -1,11 +1,11 @@
-field: 1eb0ac2f-150c-4071-b0a0-cdbc98ace82e
+field: 1eb0ac2f-150c-4071-b0a0-cdbc98ace82e # Content Builder
 fieldLayouts:
   19515e65-e73c-4825-8de6-5ad9c100ecde:
     tabs:
       -
         elements:
           -
-            fieldUid: 69261eb7-e62a-420c-92a7-4761b132995d
+            fieldUid: 69261eb7-e62a-420c-92a7-4761b132995d # Heading
             instructions: null
             label: null
             required: false
@@ -14,7 +14,7 @@ fieldLayouts:
             warning: null
             width: 100
           -
-            fieldUid: d4e23e98-4af3-44d4-b91c-748d6eaf4272
+            fieldUid: d4e23e98-4af3-44d4-b91c-748d6eaf4272 # Copy
             instructions: null
             label: null
             required: false
@@ -23,7 +23,7 @@ fieldLayouts:
             warning: null
             width: 100
           -
-            fieldUid: bf1fc6ec-b372-4a28-be13-72424071f4d8
+            fieldUid: bf1fc6ec-b372-4a28-be13-72424071f4d8 # Call to Action Button
             instructions: null
             label: null
             required: false
@@ -32,7 +32,7 @@ fieldLayouts:
             warning: null
             width: 100
           -
-            fieldUid: 325b8bb4-67d3-4441-84dc-60dc8d5e3190
+            fieldUid: 325b8bb4-67d3-4441-84dc-60dc8d5e3190 # Secondary Call to Action Button
             instructions: null
             label: null
             required: false
@@ -41,7 +41,7 @@ fieldLayouts:
             warning: null
             width: 100
           -
-            fieldUid: 329db0af-cfda-438a-a8a0-aed3ff3313a8
+            fieldUid: 329db0af-cfda-438a-a8a0-aed3ff3313a8 # Background Color
             instructions: null
             label: null
             required: false
@@ -50,7 +50,7 @@ fieldLayouts:
             warning: null
             width: 100
           -
-            fieldUid: 13076857-9d13-487b-99e9-284c9b084157
+            fieldUid: 13076857-9d13-487b-99e9-284c9b084157 # Background Image
             instructions: null
             label: null
             required: false
@@ -61,7 +61,7 @@ fieldLayouts:
         name: Content
         sortOrder: 1
 fields:
-  13076857-9d13-487b-99e9-284c9b084157:
+  13076857-9d13-487b-99e9-284c9b084157: # Background Image
     contentColumnType: string
     fieldGroup: null
     handle: backgroundImage
@@ -73,7 +73,7 @@ fields:
       allowUploads: true
       allowedKinds:
         - image
-      defaultUploadLocationSource: 'volume:8b0fd7f7-2623-4a21-a578-698d8c0aef75'
+      defaultUploadLocationSource: 'volume:8b0fd7f7-2623-4a21-a578-698d8c0aef75' # Images
       defaultUploadLocationSubpath: ''
       limit: '1'
       localizeRelations: false
@@ -83,7 +83,7 @@ fields:
       showSiteMenu: true
       showUnpermittedFiles: false
       showUnpermittedVolumes: false
-      singleUploadLocationSource: 'volume:8b0fd7f7-2623-4a21-a578-698d8c0aef75'
+      singleUploadLocationSource: 'volume:8b0fd7f7-2623-4a21-a578-698d8c0aef75' # Images
       singleUploadLocationSubpath: ''
       source: null
       sources: '*'
@@ -94,7 +94,7 @@ fields:
     translationKeyFormat: null
     translationMethod: site
     type: craft\fields\Assets
-  325b8bb4-67d3-4441-84dc-60dc8d5e3190:
+  325b8bb4-67d3-4441-84dc-60dc8d5e3190: # Secondary Call to Action Button
     contentColumnType: text
     fieldGroup: null
     handle: secondaryCallToActionButton
@@ -144,8 +144,8 @@ fields:
                   - sources
                   -
                     - singles
-                    - 'section:2f1f0ea0-4b22-4e9d-bb51-9e1e32a94cba'
-                    - 'section:cefc4625-a115-4b71-b22d-5f6784b3aada'
+                    - 'section:2f1f0ea0-4b22-4e9d-bb51-9e1e32a94cba' # Articles
+                    - 'section:cefc4625-a115-4b71-b22d-5f6784b3aada' # Pages
                 -
                   - allowCustomQuery
                   - ''
@@ -209,7 +209,7 @@ fields:
     translationKeyFormat: null
     translationMethod: none
     type: typedlinkfield\fields\LinkField
-  329db0af-cfda-438a-a8a0-aed3ff3313a8:
+  329db0af-cfda-438a-a8a0-aed3ff3313a8: # Background Color
     contentColumnType: string
     fieldGroup: null
     handle: backgroundColor
@@ -255,7 +255,7 @@ fields:
     translationKeyFormat: null
     translationMethod: none
     type: craft\fields\Dropdown
-  69261eb7-e62a-420c-92a7-4761b132995d:
+  69261eb7-e62a-420c-92a7-4761b132995d: # Heading
     contentColumnType: text
     fieldGroup: null
     handle: heading
@@ -269,12 +269,12 @@ fields:
       columnType: null
       initialRows: '4'
       multiline: ''
-      placeholder: ''
+      placeholder: null
       uiMode: normal
     translationKeyFormat: null
     translationMethod: none
     type: craft\fields\PlainText
-  bf1fc6ec-b372-4a28-be13-72424071f4d8:
+  bf1fc6ec-b372-4a28-be13-72424071f4d8: # Call to Action Button
     contentColumnType: text
     fieldGroup: null
     handle: callToActionButton
@@ -324,8 +324,8 @@ fields:
                   - sources
                   -
                     - singles
-                    - 'section:2f1f0ea0-4b22-4e9d-bb51-9e1e32a94cba'
-                    - 'section:cefc4625-a115-4b71-b22d-5f6784b3aada'
+                    - 'section:2f1f0ea0-4b22-4e9d-bb51-9e1e32a94cba' # Articles
+                    - 'section:cefc4625-a115-4b71-b22d-5f6784b3aada' # Pages
                 -
                   - allowCustomQuery
                   - ''
@@ -389,7 +389,7 @@ fields:
     translationKeyFormat: null
     translationMethod: none
     type: typedlinkfield\fields\LinkField
-  d4e23e98-4af3-44d4-b91c-748d6eaf4272:
+  d4e23e98-4af3-44d4-b91c-748d6eaf4272: # Copy
     contentColumnType: text
     fieldGroup: null
     handle: copy

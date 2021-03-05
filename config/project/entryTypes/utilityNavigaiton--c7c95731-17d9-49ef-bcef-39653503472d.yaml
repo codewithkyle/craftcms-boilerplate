@@ -27,7 +27,7 @@ fieldLayouts:
             warning: null
             width: 100
           -
-            fieldUid: 27eb5f6d-5e7b-4401-a20a-5259596e045a
+            fieldUid: 27eb5f6d-5e7b-4401-a20a-5259596e045a # Navigation Link
             instructions: null
             label: null
             required: '1'
@@ -40,7 +40,7 @@ fieldLayouts:
 handle: utilityNavigaiton
 hasTitleField: true
 name: 'Utility Navigaiton'
-section: 28b71e8e-d2dc-4c34-98c4-66e91dfbbab4
+section: 28b71e8e-d2dc-4c34-98c4-66e91dfbbab4 # Utility Navigaiton
 sortOrder: 1
 titleFormat: null
 titleTranslationKeyFormat: null
