@@ -33,6 +33,7 @@
 	},
 	"dependencies": {
 		"@codewithkyle/notifyjs": "^2.1.1",
+		"@codewithkyle/pubsub": "^1.1.0",
 		"@codewithkyle/supercomponent": "^1.0.0",
 		"brixi": "^0.3.1",
 		"cssmonster": "^0.3.1",
@@ -49,6 +50,7 @@
 		"webDependencies": [
 			"@codewithkyle/notifyjs",
 			"@codewithkyle/supercomponent",
+			"@codewithkyle/pubsub",
 			"flatpickr",
 			"lit-html"
 		]
