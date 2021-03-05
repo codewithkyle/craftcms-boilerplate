@@ -2,9 +2,9 @@
 	"scripts": {
 		"cleanup": "node ./build/cleanup.js",
 		"setup": "npm ci && node ./build/setup.js && composer install",
-		"bundle": "snowpack install --reload",
+		"bundle": "snowpack",
 		"brixi": "brixi",
-		"compile": "node ./build/build.js",
+		"compile": "tsc",
 		"eslint": "eslint -c .eslintrc.js templates/**/*.ts",
 		"stylelint": "stylelint \"templates/**/*.scss\"",
 		"lint": "npm run eslint && npm run stylelint",
@@ -14,40 +14,31 @@
 		"sass:dev": "cssmonster --e dev",
 		"sass:prod": "cssmonster",
 		"build": "npm run cleanup && npm run compile && npm run sass:dev && djinnjs -e dev && npm run cleanup",
-		"production": "npm run cleanup && npm run compile && npm run sass:prod && djinnjs -e production && npm run cleanup",
-		"audit": "lightkeeper -o ./audits"
+		"production": "npm run cleanup && npm run compile && npm run sass:prod && djinnjs -e production && npm run cleanup"
 	},
 	"devDependencies": {
-		"@codewithkyle/lightkeeper": "^0.1.1",
 		"@prettier/plugin-php": "^0.16.1",
 		"@typescript-eslint/eslint-plugin": "^2.34.0",
 		"@typescript-eslint/parser": "^2.34.0",
-		"esbuild": "^0.8.46",
 		"eslint": "^6.8.0",
 		"eslint-config-prettier": "^6.15.0",
 		"eslint-plugin-prettier": "^3.3.1",
-		"glob": "^7.1.6",
 		"husky": "^3.1.0",
-		"lighthouse": "^6.5.0",
-		"minify": "^4.1.3",
-		"node-sass": "^4.14.1",
 		"prettier": "^2.2.1",
-		"rollup": "^1.32.1",
-		"rollup-plugin-commonjs": "^10.1.0",
-		"rollup-plugin-node-resolve": "^5.2.0",
-		"snowpack": "^2.18.5",
+		"snowpack": "^1.0.0",
 		"stylelint": "^12.0.1",
 		"stylelint-config-recommended": "^3.0.0",
 		"tslint": "^5.20.1",
-		"typescript": "^3.9.7"
+		"typescript": "^3.9.9"
 	},
 	"dependencies": {
-		"@codewithkyle/notifyjs": "^2.1.0",
-		"brixi": "^0.3.0",
-		"cssmonster": "^0.3.0",
+		"@codewithkyle/notifyjs": "^2.1.1",
+		"@codewithkyle/supercomponent": "^1.0.0",
+		"brixi": "^0.3.1",
+		"cssmonster": "^0.3.1",
 		"djinnjs": "^0.3.2",
 		"flatpickr": "^4.6.9",
-		"wwibs": "^0.1.2"
+		"lit-html": "^1.3.0"
 	},
 	"husky": {
 		"hooks": {
@@ -55,10 +46,11 @@
 		}
 	},
 	"snowpack": {
-		"install": [
+		"webDependencies": [
 			"@codewithkyle/notifyjs",
+			"@codewithkyle/supercomponent",
 			"flatpickr",
-			"wwibs"
+			"lit-html"
 		]
 	}
 }
