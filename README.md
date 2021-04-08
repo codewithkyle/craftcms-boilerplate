@@ -1,8 +1,8 @@
 # Craft CMS Boilerplate
 
-A Craft CMS boilerplate utilizing JIT resource fetching, offline first content strategy, context-specific progressive enhancements, and Pjax navigation. The goal of this boilerplate is to provide developers with a sturdy foundation to build upon, the client an accessible and high performant website, and the content editors a simple and rich experience.
+A Craft CMS boilerplate utilizing JIT resource fetching, offline first resource strategy, and context-specific progressive enhancements. The goal of this boilerplate is to provide developers with a sturdy foundation to build upon, the client an accessible and high performant website, and the content editors a simple and rich experience.
 
-> **NOTICE:** This boilerplate is built around the idea that one matrix field can be used to create a dynamic page builder. It uses the [Matrix Mate](https://plugins.craftcms.com/matrixmate) and [Smith](https://plugins.craftcms.com/smith) plugins to provide an organized and customized content editing experience. Designs should be split into blocks and added to the page builder matrix field. When blocks become too complicated they should be split into several smaller, simpler blocks.
+> **Note:** This boilerplate is built around the idea that one matrix field can be used to create a dynamic page builder. It uses the [Matrix Mate](https://plugins.craftcms.com/matrixmate) and [Smith](https://plugins.craftcms.com/smith) plugins to provide an organized and customized content editing experience. Designs should be split into blocks and added to the page builder matrix field. When blocks become too complicated they should be split into several smaller, simpler blocks.
 
 ## Key Beliefs
 
@@ -22,8 +22,11 @@ Download the [latest release](https://github.com/codewithkyle/craftcms-boilerpla
 ### Requirements
 
 -   Craft 3 [server requirements](https://docs.craftcms.com/v3/requirements.html)
+-   [NodeJS >= v14](https://nodejs.org/en/)
+
+### Recommended Additions
+
 -   [Redis](https://redis.io/)
--   [NodeJS >= v12](https://nodejs.org/en/)
 
 ### First Time Setup
 
@@ -35,10 +38,11 @@ Open the generated `.env` file and input your environment details.
 
 This boilerplate uses a handful of custom build tools. Feel free to uninstall them and write your own.
 
--   [DjinnJS](https://djinnjs.com/) is a lightweight JavaScript and CSS boostrapper built around Web Components.
--   [CSSMonster](https://github.com/codewithkyle/cssmonster) transpiles [SASS](https://sass-lang.com/) into CSS using [node-sass](https://github.com/sass/node-sass).
--   [Brixi](https://brixi.dev/) is a lightweight utility-frist CSS framework.
--   [Snowpack](https://www.snowpack.dev/) bundles NPM packages into ES Modules.
+- [Lazy Loader](https://github.com/codewithkyle/lazy-loader) is a lightweight JavaScript and CSS boostrapper built around Web Components.
+- [Twist](https://github.com/codewithkyle/twist) is a simple build tool for managing your ES Module static import paths & transpiling your TypeScript files using [esbuild](https://esbuild.github.io/).
+- [CSSMonster](https://github.com/codewithkyle/cssmonster) transpiles [SASS](https://sass-lang.com/) into CSS using [node-sass](https://github.com/sass/node-sass).
+- [Brixi](https://brixi.dev/) is a lightweight utility-frist CSS framework.
+- [Snowpack](https://www.snowpack.dev/) bundles NPM packages into ES Modules.
 
 ### Commands
 
@@ -52,7 +56,7 @@ npm run production
 # Generate Brixi CSS
 npm run brixi
 
-# Bundle NPM Packages
+# Bundle NPM Packages into the templates/_lib/ directory
 npm run bundle
 ```
 
