@@ -4,7 +4,7 @@
 		"setup": "npm ci && node ./build/setup.js && composer install",
 		"bundle": "snowpack && node ./build/bundle.js",
 		"brixi": "brixi",
-		"compile": "tsc",
+		"compile": "twist --src=./templates --outdir=./public/js",
 		"eslint": "eslint -c .eslintrc.js templates/**/*.ts",
 		"stylelint": "stylelint \"templates/**/*.scss\"",
 		"lint": "npm run eslint && npm run stylelint",
@@ -13,8 +13,8 @@
 		"predeploy": "npm run eslint && npm run stylelint && npm run production",
 		"sass:dev": "cssmonster --e dev",
 		"sass:prod": "cssmonster",
-		"build": "npm run cleanup && npm run compile && npm run sass:dev && djinnjs -e dev && npm run cleanup",
-		"production": "npm run cleanup && npm run compile && npm run sass:prod && djinnjs -e production && npm run cleanup"
+		"build": "npm run cleanup && npm run compile && npm run sass:dev && npm run cleanup",
+		"production": "npm run cleanup && npm run compile && npm run sass:prod && npm run cleanup"
 	},
 	"devDependencies": {
 		"@codewithkyle/twist": "^1.0.0",

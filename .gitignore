@@ -16,11 +16,9 @@
 web_modules
 _js
 
-# Public
+# Remove before release
 # --------
 /vendor
-/public/assets
-/public/broadcaster-worker.min.js
-/public/resources-cachebust.json
-/config/pwa-auto.php
-/public/service-worker.js
+/public/js
+/public/css
+/config/license
