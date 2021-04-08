@@ -1,4 +1,4 @@
-import { message } from "wwibs";
+import { message } from "@codewithkyle/messaging";
 
 export default class NavigationDrawerToggle extends HTMLElement {
 	private input: HTMLInputElement;
@@ -11,8 +11,8 @@ export default class NavigationDrawerToggle extends HTMLElement {
 	private handleChange: EventListener = (e: Event) => {
 		message({
 			recipient: "navigation-drawer",
-			type: "toggle",
 			data: {
+				type: "toggle",
 				open: true,
 			},
 		});
@@ -22,8 +22,8 @@ export default class NavigationDrawerToggle extends HTMLElement {
 		if (key === " ") {
 			message({
 				recipient: "navigation-drawer",
-				type: "toggle",
 				data: {
+					type: "toggle",
 					open: true,
 				},
 			});

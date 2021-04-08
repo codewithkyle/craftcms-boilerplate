@@ -36,7 +36,7 @@
 	"dependencies": {
 		"@codewithkyle/asset-manager": "^1.0.0",
 		"@codewithkyle/lazy-loader": "^1.0.0",
-		"@codewithkyle/messaging": "^1.0.0",
+		"@codewithkyle/messaging": "^1.0.1",
 		"@codewithkyle/modal-maker": "^1.1.1",
 		"@codewithkyle/notifyjs": "^2.1.1",
 		"@codewithkyle/postie": "^1.0.0",

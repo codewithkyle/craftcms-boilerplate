@@ -1,26 +1,27 @@
-import { hookup, message } from "wwibs";
+import { register, message } from "@codewithkyle/messaging";
+import SuperComponent from "@codewithkyle/supercomponent";
 
 type NavigationDrawerState = {
 	open: boolean;
 };
 
-export default class NavigationDrawer extends HTMLElement {
-	private state: NavigationDrawerState;
+export default class NavigationDrawer extends SuperComponent<NavigationDrawerState> {
 	private closeButton: HTMLElement;
 	constructor() {
 		super();
-		this.state = {
+		this.model = {
 			open: false,
 		};
 		this.closeButton = this.querySelector("button");
 	}
 
-	private inbox(data): void {
-		const { type } = data;
+	private inbox(e): void {
+		const { type, open } = e.data;
 		switch (type) {
 			case "toggle":
-				this.state.open = data.open;
-				this.update();
+				this.update({
+					open: open,
+				});
 				break;
 			default:
 				console.warn(`Undefined Navigation Drawer message type: "${type}"`);
@@ -28,30 +29,33 @@ export default class NavigationDrawer extends HTMLElement {
 		}
 	}
 
-	private update() {
-		this.setAttribute("state", `${this.state.open ? "open" : "closed"}`);
-		if (this.state.open) {
+	render() {
+		this.setAttribute("state", `${this.model.open ? "open" : "closed"}`);
+		if (this.model.open) {
 			this.closeButton.focus();
 		}
 	}
 
 	private handleKeypress: EventListener = (e: KeyboardEvent) => {
 		if (e.key.toLowerCase() === "escape") {
-			this.state.open = false;
-			this.update();
+			this.update({
+				open: false,
+			});
 		}
 	};
 
 	private closeDrawer: EventListener = (e: Event) => {
 		message({
 			recipient: "navigation-drawer",
-			type: "toggle",
-			data: { open: false },
+			data: {
+				type: "toggle",
+				open: false,
+			},
 		});
 	};
 
-	connectedCallback() {
-		hookup("navigation-drawer", this.inbox.bind(this));
+	connected() {
+		register("navigation-drawer", this.inbox.bind(this));
 		document.addEventListener("keyup", this.handleKeypress);
 		this.closeButton.addEventListener("click", this.closeDrawer);
 	}

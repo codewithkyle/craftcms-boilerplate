@@ -1,11 +1,11 @@
-import { message } from "wwibs";
+import { message } from "@codewithkyle/messaging";
 
 export default class NavigationBackdrop extends HTMLElement {
 	private handleClick: EventListener = () => {
 		message({
 			recipient: "navigation-drawer",
-			type: "toggle",
 			data: {
+				type: "toggle",
 				open: false,
 			},
 		});
