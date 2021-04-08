@@ -15,14 +15,17 @@ use modules\papertrainmodule\PapertrainModule;
 use Craft;
 use craft\base\Component;
 use craft\helpers\FileHelper;
-use yii\redis\Cache;
-use yii\redis\Connection;
 use craft\helpers\StringHelper;
-use GuzzleHttp\Client;
 use craft\mail\Message;
 use craft\helpers\UrlHelper;
+use craft\base\Element;
 use craft\elements\Entry;
+
 use Yii;
+
+use GuzzleHttp\Client;
+
+use modules\papertrainmodule\helpers\Cache;
 
 /**
  * @author    Kyle Andrews
@@ -34,7 +37,7 @@ class ViewService extends Component
 	// Public Methods
 	// =========================================================================
 
-	public function buildSEOTitle(craft\base\Element $page): string
+	public function buildSEOTitle(Element $page): string
 	{
 		$seoInfo = \Craft::$app->getGlobals()->getSetByHandle("seo");
 		$output = "";
@@ -61,21 +64,22 @@ class ViewService extends Component
 		return $output;
 	}
 
-	public function updateEntryRevisions(Entry $entry): void
+	public function updateEntryRevisions(Element $entry): void
+	{
+		$number = (int) Cache::get($entry->id, 0);
+		$number = $number + 1;
+		Cache::set($entry->id, $number);
+	}
+
+	private function updateRealtedEntries(Element $entry): void
 	{
 		$relatedEntries = Entry::find()
 			->relatedTo($entry)
 			->all();
-		$cache = new Cache();
-		$cache->redis->init();
 		foreach ($relatedEntries as $relatedEntry) {
-			if ($cache->exists($id)) {
-				$value = $cache->get($id);
-				$value = $value + 1;
-				$cache->set($id, $value);
-			} else {
-				$cache->set($id, "0");
-			}
+			$number = (int) Cache::get($relatedEntry->id, 0);
+			$number = $number + 1;
+			Cache::set($relatedEntry->id, $number);
 		}
 	}
 
@@ -95,28 +99,19 @@ class ViewService extends Component
 		return $requiresLogin;
 	}
 
-	public function getRevisionNumberFromRedis(string $elementId): string
+	public function getRevisionNumber(string $elementId): string
 	{
-		$revision = "0";
-		$cache = new Cache();
-		$cache->redis->init();
-		if ($cache->exists($elementId)) {
-			$revision = $cache->get($elementId);
-		} else {
-			$cache->set($elementId, "0");
-		}
-		return $revision;
+		return Cache::get($elementId, 0);
 	}
 
 	public function getCriticalCSS(array $filenames): string
 	{
 		$html = "";
 		foreach ($filenames as $file) {
-			$filename = str_replace(".css", "", $file);
-			$path = FileHelper::normalizePath(rtrim(Yii::getAlias("@webroot"), "/\\") . "/assets/" . $filename . ".css");
+			$path = FileHelper::normalizePath(rtrim(Yii::getAlias("@webroot"), "/\\") . "/css/" . $filename . ".css");
 			$css = $this->getFileContents($path);
 			if (!empty($css)) {
-				$html .= '<style file="' . $filename . '.css">' . $css . "</style>";
+				$html .= "<style>" . $css . "</style>";
 			}
 		}
 		return $html;

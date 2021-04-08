@@ -1,0 +1,20 @@
+  
+{
+	"compilerOptions": {
+		"allowJs": true,
+		"checkJs": false,
+		"target": "ES2020",
+		"module": "ESNext",
+		"lib": ["dom", "esnext"],
+		"moduleResolution": "Node",
+		"baseUrl": "./templates",
+		"paths": {
+			"controllers/*": ["_controllers/*"],
+			"lib/*": ["_lib/*"],
+			"types/*": ["_types/*"],
+			"utils/*": ["_utils/*"]
+		}
+	},
+	"include": ["templates", "web_modules"],
+	"exclude": ["vendor", "node_modules"]
+}

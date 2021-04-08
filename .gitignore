@@ -18,3 +18,4 @@ web_modules
 /public/js
 /public/css
 /config/license.key
+/public/service-worker-assets.js

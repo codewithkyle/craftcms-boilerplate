@@ -32,7 +32,7 @@ class PapertrainModuleVariable
 
 	public function getRevisionNumber(string $elementId): string
 	{
-		return PapertrainModule::getInstance()->viewService->getRevisionNumberFromRedis($elementId);
+		return PapertrainModule::getInstance()->viewService->getRevisionNumber($elementId);
 	}
 
 	public function hash(string $string): string
