@@ -1,6 +1,6 @@
 <?php
 
-namespace modules\pageworksmodule\helpers;
+namespace modules\papertrainmodule\helpers;
 
 use Craft;
 

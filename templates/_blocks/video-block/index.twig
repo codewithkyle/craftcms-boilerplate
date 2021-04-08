@@ -8,7 +8,7 @@
     { w: 1024, ar: "16:9" }
 ]) %}
 
-<lazy-video css="video-block loading-spinner" web-component data-video-id="{{ data.videoId }}" data-platform="{{ data.source }}" required-connection="3g" removable>
+<lazy-video css="video-block loading-spinner" web-component data-video-id="{{ data.videoId }}" data-platform="{{ data.source }}">
     {% if data.heading|length %}
         <h1>{{ data.heading }}</h1>
     {% endif %}

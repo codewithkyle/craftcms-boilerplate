@@ -60,7 +60,7 @@
                     z-index: 2000;
                 }
             </style>
-            <link rel="stylesheet" href="{{ alias('@rootUrl')|trim('/') }}/assets/noscript.css">
+            <link rel="stylesheet" href="{{ alias('@rootUrl')|trim('/') }}/css/noscript.css">
         </noscript>
 
         {{ craft.papertrain.css(['normalize', 'brixi', 'base']) }}
@@ -68,7 +68,7 @@
 
         {% hook 'lightkeeper' %}
 
-        <script type="module" src="{{ alias('@rootUrl')|trim('/') }}/assets/bootstrap.mjs"></script>
+        <script type="module" src="{{ alias('@rootUrl')|trim('/') }}/js/bootstrap.js"></script>
         <script type="text/javascript" nomodule src="{{ alias('@rootUrl')|trim('/') }}/static/scripts/ie-warning.js"></script>
 
     </head>
