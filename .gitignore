@@ -1,24 +1,20 @@
 # General
 # --------
 /.env
-/.idea
 .DS_Store
 /node_modules
 /public/uploads/*
 !/public/uploads/.gitkeep
 /public/jitter
-/_compiled
 /_css
 /storage/*
 !/storage/.gitkeep
-/audits
 .editorconfig
 web_modules
-_js
 
 # Remove before release
 # --------
 /vendor
 /public/js
 /public/css
-/config/license
+/config/license.key
