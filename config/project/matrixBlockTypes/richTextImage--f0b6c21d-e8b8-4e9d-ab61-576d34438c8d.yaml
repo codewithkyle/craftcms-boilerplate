@@ -176,6 +176,41 @@ fields:
     translationKeyFormat: null
     translationMethod: none
     type: typedlinkfield\fields\LinkField
+  7a91d99a-0526-440a-af03-851dfe8870a0: # Image Position
+    contentColumnType: string
+    fieldGroup: null
+    handle: imagePosition
+    instructions: ''
+    name: 'Image Position'
+    searchable: true
+    settings:
+      optgroups: true
+      options:
+        -
+          __assoc__:
+            -
+              - label
+              - Right
+            -
+              - value
+              - right
+            -
+              - default
+              - '1'
+        -
+          __assoc__:
+            -
+              - label
+              - Left
+            -
+              - value
+              - left
+            -
+              - default
+              - ''
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\Dropdown
   73f77785-3998-4816-9988-2001e0f915f5: # Button Style
     contentColumnType: string
     fieldGroup: null
@@ -216,41 +251,6 @@ fields:
             -
               - value
               - '-solid -raised'
-            -
-              - default
-              - ''
-    translationKeyFormat: null
-    translationMethod: none
-    type: craft\fields\Dropdown
-  7a91d99a-0526-440a-af03-851dfe8870a0: # Image Position
-    contentColumnType: string
-    fieldGroup: null
-    handle: imagePosition
-    instructions: ''
-    name: 'Image Position'
-    searchable: true
-    settings:
-      optgroups: true
-      options:
-        -
-          __assoc__:
-            -
-              - label
-              - Right
-            -
-              - value
-              - right
-            -
-              - default
-              - '1'
-        -
-          __assoc__:
-            -
-              - label
-              - Left
-            -
-              - value
-              - left
             -
               - default
               - ''

@@ -61,39 +61,6 @@ fieldLayouts:
         name: Content
         sortOrder: 1
 fields:
-  13076857-9d13-487b-99e9-284c9b084157: # Background Image
-    contentColumnType: string
-    fieldGroup: null
-    handle: backgroundImage
-    instructions: 'If a background image is provided the background color will not be used.'
-    name: 'Background Image'
-    searchable: true
-    settings:
-      allowSelfRelations: false
-      allowUploads: true
-      allowedKinds:
-        - image
-      defaultUploadLocationSource: 'volume:8b0fd7f7-2623-4a21-a578-698d8c0aef75' # Images
-      defaultUploadLocationSubpath: ''
-      limit: '1'
-      localizeRelations: false
-      previewMode: full
-      restrictFiles: '1'
-      selectionLabel: 'Set a Background Image'
-      showSiteMenu: true
-      showUnpermittedFiles: false
-      showUnpermittedVolumes: false
-      singleUploadLocationSource: 'volume:8b0fd7f7-2623-4a21-a578-698d8c0aef75' # Images
-      singleUploadLocationSubpath: ''
-      source: null
-      sources: '*'
-      targetSiteId: null
-      useSingleFolder: true
-      validateRelatedElements: true
-      viewMode: large
-    translationKeyFormat: null
-    translationMethod: site
-    type: craft\fields\Assets
   325b8bb4-67d3-4441-84dc-60dc8d5e3190: # Secondary Call to Action Button
     contentColumnType: text
     fieldGroup: null
@@ -274,6 +241,39 @@ fields:
     translationKeyFormat: null
     translationMethod: none
     type: craft\fields\PlainText
+  13076857-9d13-487b-99e9-284c9b084157: # Background Image
+    contentColumnType: string
+    fieldGroup: null
+    handle: backgroundImage
+    instructions: 'If a background image is provided the background color will not be used.'
+    name: 'Background Image'
+    searchable: true
+    settings:
+      allowSelfRelations: false
+      allowUploads: true
+      allowedKinds:
+        - image
+      defaultUploadLocationSource: 'volume:8b0fd7f7-2623-4a21-a578-698d8c0aef75' # Images
+      defaultUploadLocationSubpath: ''
+      limit: '1'
+      localizeRelations: false
+      previewMode: full
+      restrictFiles: '1'
+      selectionLabel: 'Set a Background Image'
+      showSiteMenu: true
+      showUnpermittedFiles: false
+      showUnpermittedVolumes: false
+      singleUploadLocationSource: 'volume:8b0fd7f7-2623-4a21-a578-698d8c0aef75' # Images
+      singleUploadLocationSubpath: ''
+      source: null
+      sources: '*'
+      targetSiteId: null
+      useSingleFolder: true
+      validateRelatedElements: true
+      viewMode: large
+    translationKeyFormat: null
+    translationMethod: site
+    type: craft\fields\Assets
   bf1fc6ec-b372-4a28-be13-72424071f4d8: # Call to Action Button
     contentColumnType: text
     fieldGroup: null

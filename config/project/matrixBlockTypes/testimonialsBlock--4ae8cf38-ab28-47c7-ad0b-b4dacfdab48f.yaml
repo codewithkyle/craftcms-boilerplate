@@ -34,6 +34,53 @@ fieldLayouts:
         name: Content
         sortOrder: 1
 fields:
+  8ec3afee-8219-49e7-a6f8-611c35380df6: # Heading
+    contentColumnType: text
+    fieldGroup: null
+    handle: heading
+    instructions: ''
+    name: Heading
+    searchable: true
+    settings:
+      byteLimit: null
+      charLimit: null
+      code: ''
+      columnType: null
+      initialRows: '4'
+      multiline: ''
+      placeholder: null
+      uiMode: normal
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\PlainText
+  810faeb7-e1cf-4279-87a8-daf95ed656d9: # Copy
+    contentColumnType: text
+    fieldGroup: null
+    handle: copy
+    instructions: ''
+    name: Copy
+    searchable: true
+    settings:
+      availableTransforms: '*'
+      availableVolumes: '*'
+      cleanupHtml: true
+      columnType: text
+      configSelectionMode: choose
+      defaultTransform: ''
+      manualConfig: ''
+      purifierConfig: ''
+      purifyHtml: '1'
+      redactorConfig: Simple.json
+      removeEmptyTags: '1'
+      removeInlineStyles: '1'
+      removeNbsp: '1'
+      showHtmlButtonForNonAdmins: '1'
+      showUnpermittedFiles: false
+      showUnpermittedVolumes: false
+      uiMode: enlarged
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\redactor\Field
   2329cff0-226e-4404-94bc-1eafd6fef322: # Testimonials
     contentColumnType: string
     fieldGroup: null
@@ -83,53 +130,6 @@ fields:
     translationKeyFormat: null
     translationMethod: site
     type: verbb\supertable\fields\SuperTableField
-  810faeb7-e1cf-4279-87a8-daf95ed656d9: # Copy
-    contentColumnType: text
-    fieldGroup: null
-    handle: copy
-    instructions: ''
-    name: Copy
-    searchable: true
-    settings:
-      availableTransforms: '*'
-      availableVolumes: '*'
-      cleanupHtml: true
-      columnType: text
-      configSelectionMode: choose
-      defaultTransform: ''
-      manualConfig: ''
-      purifierConfig: ''
-      purifyHtml: '1'
-      redactorConfig: Simple.json
-      removeEmptyTags: '1'
-      removeInlineStyles: '1'
-      removeNbsp: '1'
-      showHtmlButtonForNonAdmins: '1'
-      showUnpermittedFiles: false
-      showUnpermittedVolumes: false
-      uiMode: enlarged
-    translationKeyFormat: null
-    translationMethod: none
-    type: craft\redactor\Field
-  8ec3afee-8219-49e7-a6f8-611c35380df6: # Heading
-    contentColumnType: text
-    fieldGroup: null
-    handle: heading
-    instructions: ''
-    name: Heading
-    searchable: true
-    settings:
-      byteLimit: null
-      charLimit: null
-      code: ''
-      columnType: null
-      initialRows: '4'
-      multiline: ''
-      placeholder: null
-      uiMode: normal
-    translationKeyFormat: null
-    translationMethod: none
-    type: craft\fields\PlainText
 handle: testimonialsBlock
 name: Testimonials
 sortOrder: 5

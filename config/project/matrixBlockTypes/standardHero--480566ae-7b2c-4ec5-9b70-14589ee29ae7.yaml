@@ -61,39 +61,6 @@ fieldLayouts:
         name: Content
         sortOrder: 1
 fields:
-  308c03a6-af97-4fe6-b8b5-3c94791f071d: # Background Image
-    contentColumnType: string
-    fieldGroup: null
-    handle: backgroundImage
-    instructions: 'This image will replace the selected background color.'
-    name: 'Background Image'
-    searchable: false
-    settings:
-      allowSelfRelations: false
-      allowUploads: true
-      allowedKinds:
-        - image
-      defaultUploadLocationSource: 'volume:8b0fd7f7-2623-4a21-a578-698d8c0aef75' # Images
-      defaultUploadLocationSubpath: ''
-      limit: '1'
-      localizeRelations: false
-      previewMode: full
-      restrictFiles: '1'
-      selectionLabel: 'Add a Background Image'
-      showSiteMenu: true
-      showUnpermittedFiles: false
-      showUnpermittedVolumes: false
-      singleUploadLocationSource: 'volume:8b0fd7f7-2623-4a21-a578-698d8c0aef75' # Images
-      singleUploadLocationSubpath: ''
-      source: null
-      sources: '*'
-      targetSiteId: null
-      useSingleFolder: true
-      validateRelatedElements: true
-      viewMode: large
-    translationKeyFormat: null
-    translationMethod: site
-    type: craft\fields\Assets
   72e1ae43-c9f1-4b48-866b-aeb1d8484094: # Heading
     contentColumnType: text
     fieldGroup: null
@@ -256,6 +223,39 @@ fields:
     translationKeyFormat: null
     translationMethod: none
     type: craft\redactor\Field
+  308c03a6-af97-4fe6-b8b5-3c94791f071d: # Background Image
+    contentColumnType: string
+    fieldGroup: null
+    handle: backgroundImage
+    instructions: 'This image will replace the selected background color.'
+    name: 'Background Image'
+    searchable: false
+    settings:
+      allowSelfRelations: false
+      allowUploads: true
+      allowedKinds:
+        - image
+      defaultUploadLocationSource: 'volume:8b0fd7f7-2623-4a21-a578-698d8c0aef75' # Images
+      defaultUploadLocationSubpath: ''
+      limit: '1'
+      localizeRelations: false
+      previewMode: full
+      restrictFiles: '1'
+      selectionLabel: 'Add a Background Image'
+      showSiteMenu: true
+      showUnpermittedFiles: false
+      showUnpermittedVolumes: false
+      singleUploadLocationSource: 'volume:8b0fd7f7-2623-4a21-a578-698d8c0aef75' # Images
+      singleUploadLocationSubpath: ''
+      source: null
+      sources: '*'
+      targetSiteId: null
+      useSingleFolder: true
+      validateRelatedElements: true
+      viewMode: large
+    translationKeyFormat: null
+    translationMethod: site
+    type: craft\fields\Assets
   b31561a2-5d04-451e-bec3-203a9a0b62f8: # Secondary Action
     contentColumnType: text
     fieldGroup: null

@@ -52,173 +52,6 @@ fieldLayouts:
         name: Content
         sortOrder: 1
 fields:
-  76f37263-7616-44be-9203-c9a00193f2f9: # Background Image
-    contentColumnType: string
-    fieldGroup: null
-    handle: backgroundImage
-    instructions: ''
-    name: 'Background Image'
-    searchable: false
-    settings:
-      allowSelfRelations: false
-      allowUploads: true
-      allowedKinds:
-        - image
-      defaultUploadLocationSource: 'volume:8b0fd7f7-2623-4a21-a578-698d8c0aef75' # Images
-      defaultUploadLocationSubpath: ''
-      limit: '1'
-      localizeRelations: false
-      previewMode: full
-      restrictFiles: '1'
-      selectionLabel: 'Add a Background Image'
-      showSiteMenu: true
-      showUnpermittedFiles: false
-      showUnpermittedVolumes: false
-      singleUploadLocationSource: 'volume:8b0fd7f7-2623-4a21-a578-698d8c0aef75' # Images
-      singleUploadLocationSubpath: ''
-      source: null
-      sources: '*'
-      targetSiteId: null
-      useSingleFolder: true
-      validateRelatedElements: true
-      viewMode: large
-    translationKeyFormat: null
-    translationMethod: site
-    type: craft\fields\Assets
-  8049eec0-b05c-482b-820a-83a95460a262: # Heading
-    contentColumnType: text
-    fieldGroup: null
-    handle: heading
-    instructions: ''
-    name: Heading
-    searchable: true
-    settings:
-      byteLimit: null
-      charLimit: null
-      code: ''
-      columnType: null
-      initialRows: '4'
-      multiline: ''
-      placeholder: null
-      uiMode: normal
-    translationKeyFormat: null
-    translationMethod: none
-    type: craft\fields\PlainText
-  84f66ba0-cac2-484e-b97c-e3a5081a4e65: # Secondary Action
-    contentColumnType: text
-    fieldGroup: null
-    handle: secondaryAction
-    instructions: ''
-    name: 'Secondary Action'
-    searchable: false
-    settings:
-      allowCustomText: '1'
-      allowTarget: ''
-      allowedLinkNames:
-        3: entry
-        6: custom
-        7: email
-        8: tel
-      autoNoReferrer: ''
-      defaultLinkName: entry
-      defaultText: ''
-      enableAriaLabel: ''
-      enableTitle: ''
-      typeSettings:
-        __assoc__:
-          -
-            - asset
-            -
-              __assoc__:
-                -
-                  - sources
-                  - '*'
-                -
-                  - allowCustomQuery
-                  - ''
-          -
-            - category
-            -
-              __assoc__:
-                -
-                  - sources
-                  - '*'
-                -
-                  - allowCustomQuery
-                  - ''
-          -
-            - entry
-            -
-              __assoc__:
-                -
-                  - sources
-                  -
-                    - singles
-                    - 'section:2f1f0ea0-4b22-4e9d-bb51-9e1e32a94cba' # Articles
-                    - 'section:cefc4625-a115-4b71-b22d-5f6784b3aada' # Pages
-                -
-                  - allowCustomQuery
-                  - ''
-          -
-            - site
-            -
-              __assoc__:
-                -
-                  - sites
-                  - '*'
-          -
-            - user
-            -
-              __assoc__:
-                -
-                  - sources
-                  - '*'
-                -
-                  - allowCustomQuery
-                  - ''
-          -
-            - custom
-            -
-              __assoc__:
-                -
-                  - disableValidation
-                  - ''
-                -
-                  - allowAliases
-                  - ''
-          -
-            - email
-            -
-              __assoc__:
-                -
-                  - disableValidation
-                  - ''
-                -
-                  - allowAliases
-                  - ''
-          -
-            - tel
-            -
-              __assoc__:
-                -
-                  - disableValidation
-                  - ''
-                -
-                  - allowAliases
-                  - ''
-          -
-            - url
-            -
-              __assoc__:
-                -
-                  - disableValidation
-                  - ''
-                -
-                  - allowAliases
-                  - ''
-    translationKeyFormat: null
-    translationMethod: none
-    type: typedlinkfield\fields\LinkField
   9f0fd987-261e-4cf3-b47b-ff56a9175a77: # Call to Action
     contentColumnType: text
     fieldGroup: null
@@ -334,6 +167,173 @@ fields:
     translationKeyFormat: null
     translationMethod: none
     type: typedlinkfield\fields\LinkField
+  76f37263-7616-44be-9203-c9a00193f2f9: # Background Image
+    contentColumnType: string
+    fieldGroup: null
+    handle: backgroundImage
+    instructions: ''
+    name: 'Background Image'
+    searchable: false
+    settings:
+      allowSelfRelations: false
+      allowUploads: true
+      allowedKinds:
+        - image
+      defaultUploadLocationSource: 'volume:8b0fd7f7-2623-4a21-a578-698d8c0aef75' # Images
+      defaultUploadLocationSubpath: ''
+      limit: '1'
+      localizeRelations: false
+      previewMode: full
+      restrictFiles: '1'
+      selectionLabel: 'Add a Background Image'
+      showSiteMenu: true
+      showUnpermittedFiles: false
+      showUnpermittedVolumes: false
+      singleUploadLocationSource: 'volume:8b0fd7f7-2623-4a21-a578-698d8c0aef75' # Images
+      singleUploadLocationSubpath: ''
+      source: null
+      sources: '*'
+      targetSiteId: null
+      useSingleFolder: true
+      validateRelatedElements: true
+      viewMode: large
+    translationKeyFormat: null
+    translationMethod: site
+    type: craft\fields\Assets
+  84f66ba0-cac2-484e-b97c-e3a5081a4e65: # Secondary Action
+    contentColumnType: text
+    fieldGroup: null
+    handle: secondaryAction
+    instructions: ''
+    name: 'Secondary Action'
+    searchable: false
+    settings:
+      allowCustomText: '1'
+      allowTarget: ''
+      allowedLinkNames:
+        3: entry
+        6: custom
+        7: email
+        8: tel
+      autoNoReferrer: ''
+      defaultLinkName: entry
+      defaultText: ''
+      enableAriaLabel: ''
+      enableTitle: ''
+      typeSettings:
+        __assoc__:
+          -
+            - asset
+            -
+              __assoc__:
+                -
+                  - sources
+                  - '*'
+                -
+                  - allowCustomQuery
+                  - ''
+          -
+            - category
+            -
+              __assoc__:
+                -
+                  - sources
+                  - '*'
+                -
+                  - allowCustomQuery
+                  - ''
+          -
+            - entry
+            -
+              __assoc__:
+                -
+                  - sources
+                  -
+                    - singles
+                    - 'section:2f1f0ea0-4b22-4e9d-bb51-9e1e32a94cba' # Articles
+                    - 'section:cefc4625-a115-4b71-b22d-5f6784b3aada' # Pages
+                -
+                  - allowCustomQuery
+                  - ''
+          -
+            - site
+            -
+              __assoc__:
+                -
+                  - sites
+                  - '*'
+          -
+            - user
+            -
+              __assoc__:
+                -
+                  - sources
+                  - '*'
+                -
+                  - allowCustomQuery
+                  - ''
+          -
+            - custom
+            -
+              __assoc__:
+                -
+                  - disableValidation
+                  - ''
+                -
+                  - allowAliases
+                  - ''
+          -
+            - email
+            -
+              __assoc__:
+                -
+                  - disableValidation
+                  - ''
+                -
+                  - allowAliases
+                  - ''
+          -
+            - tel
+            -
+              __assoc__:
+                -
+                  - disableValidation
+                  - ''
+                -
+                  - allowAliases
+                  - ''
+          -
+            - url
+            -
+              __assoc__:
+                -
+                  - disableValidation
+                  - ''
+                -
+                  - allowAliases
+                  - ''
+    translationKeyFormat: null
+    translationMethod: none
+    type: typedlinkfield\fields\LinkField
+  8049eec0-b05c-482b-820a-83a95460a262: # Heading
+    contentColumnType: text
+    fieldGroup: null
+    handle: heading
+    instructions: ''
+    name: Heading
+    searchable: true
+    settings:
+      byteLimit: null
+      charLimit: null
+      code: ''
+      columnType: null
+      initialRows: '4'
+      multiline: ''
+      placeholder: null
+      uiMode: normal
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\PlainText
   e659771a-929a-41d2-bab4-9f6dd3ee21aa: # Copy
     contentColumnType: text
     fieldGroup: null

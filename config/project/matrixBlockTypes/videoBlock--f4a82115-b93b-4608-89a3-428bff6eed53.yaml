@@ -52,6 +52,44 @@ fieldLayouts:
         name: Content
         sortOrder: 1
 fields:
+  7d04901c-8ecd-4062-970e-ee5fee357416: # Video ID
+    contentColumnType: text
+    fieldGroup: null
+    handle: videoId
+    instructions: ''
+    name: 'Video ID'
+    searchable: false
+    settings:
+      byteLimit: null
+      charLimit: null
+      code: '1'
+      columnType: null
+      initialRows: '4'
+      multiline: ''
+      placeholder: null
+      uiMode: normal
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\PlainText
+  8d673834-7514-4a4a-9cf3-36a6589eecfa: # Heading
+    contentColumnType: text
+    fieldGroup: null
+    handle: heading
+    instructions: ''
+    name: Heading
+    searchable: true
+    settings:
+      byteLimit: null
+      charLimit: null
+      code: ''
+      columnType: null
+      initialRows: '4'
+      multiline: ''
+      placeholder: null
+      uiMode: normal
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\PlainText
   33f500f2-2eec-4f40-a805-4b2f44dfcf5f: # Thumbnail Image
     contentColumnType: string
     fieldGroup: null
@@ -120,44 +158,6 @@ fields:
     translationKeyFormat: null
     translationMethod: none
     type: craft\fields\Dropdown
-  7d04901c-8ecd-4062-970e-ee5fee357416: # Video ID
-    contentColumnType: text
-    fieldGroup: null
-    handle: videoId
-    instructions: ''
-    name: 'Video ID'
-    searchable: false
-    settings:
-      byteLimit: null
-      charLimit: null
-      code: '1'
-      columnType: null
-      initialRows: '4'
-      multiline: ''
-      placeholder: null
-      uiMode: normal
-    translationKeyFormat: null
-    translationMethod: none
-    type: craft\fields\PlainText
-  8d673834-7514-4a4a-9cf3-36a6589eecfa: # Heading
-    contentColumnType: text
-    fieldGroup: null
-    handle: heading
-    instructions: ''
-    name: Heading
-    searchable: true
-    settings:
-      byteLimit: null
-      charLimit: null
-      code: ''
-      columnType: null
-      initialRows: '4'
-      multiline: ''
-      placeholder: null
-      uiMode: normal
-    translationKeyFormat: null
-    translationMethod: none
-    type: craft\fields\PlainText
   d92119f7-6ca6-4ee4-9f2d-9816a865e449: # Copy
     contentColumnType: text
     fieldGroup: null
