@@ -1,5 +1,6 @@
 allowPublicRegistration: false
-defaultGroup: null
-photoSubpath: ''
-photoVolumeUid: null
+defaultGroup: ''
+photoSubpath: null
+photoVolumeUid: 83f6bddd-09df-463e-9987-9db84fa5d1b9 # Avatars
 requireEmailVerification: true
+suspendByDefault: false
