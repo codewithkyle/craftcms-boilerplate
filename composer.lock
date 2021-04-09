@@ -4,15 +4,15 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "2443583d4dde9fc0600abf333413ff62",
+    "content-hash": "01b46ba2b27ef9b1e3739c565e5483b0",
     "packages": [
         {
             "name": "aws/aws-sdk-php",
-            "version": "3.163.0",
+            "version": "3.178.0",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/d3f51c57f17581d79151c9b5265e131391bd191f",
-                "reference": "d3f51c57f17581d79151c9b5265e131391bd191f",
+                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/214e3d98c54277cd8965f1cf307dce39631407bf",
+                "reference": "214e3d98c54277cd8965f1cf307dce39631407bf",
                 "shasum": ""
             },
             "require": {
@@ -20,26 +20,10 @@
                 "ext-pcre": "*",
                 "ext-simplexml": "*",
                 "guzzlehttp/guzzle": "^5.3.3|^6.2.1|^7.0",
-                "guzzlehttp/promises": "^1.0",
-                "guzzlehttp/psr7": "^1.4.1",
-                "mtdowling/jmespath.php": "^2.5",
+                "guzzlehttp/promises": "^1.4.0",
+                "guzzlehttp/psr7": "^1.7.0",
+                "mtdowling/jmespath.php": "^2.6",
                 "php": ">=5.5"
-            },
-            "require-dev": {
-                "andrewsville/php-token-reflection": "^1.4",
-                "aws/aws-php-sns-message-validator": "~1.0",
-                "behat/behat": "~3.0",
-                "doctrine/cache": "~1.4",
-                "ext-dom": "*",
-                "ext-openssl": "*",
-                "ext-pcntl": "*",
-                "ext-sockets": "*",
-                "nette/neon": "^2.3",
-                "paragonie/random_compat": ">= 2",
-                "phpunit/phpunit": "^4.8.35|^5.4.3",
-                "psr/cache": "^1.0",
-                "psr/simple-cache": "^1.0",
-                "sebastian/comparator": "^1.2.3"
             },
             "suggest": {
                 "aws/aws-php-sns-message-validator": "To validate incoming SNS notifications",
@@ -62,7 +46,6 @@
                     "src/functions.php"
                 ]
             },
-            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "Apache-2.0"
             ],
@@ -84,12 +67,7 @@
                 "s3",
                 "sdk"
             ],
-            "support": {
-                "forum": "https://forums.aws.amazon.com/forum.jspa?forumID=80",
-                "issues": "https://github.com/aws/aws-sdk-php/issues",
-                "source": "https://github.com/aws/aws-sdk-php/tree/3.163.0"
-            },
-            "time": "2020-11-18T19:12:41+00:00"
+            "time": "2021-04-08T18:13:16+00:00"
         },
         {
             "name": "cebe/markdown",
@@ -139,6 +117,49 @@
                 "markdown-extra"
             ],
             "time": "2018-03-26T11:24:36+00:00"
+        },
+        {
+            "name": "clue/stream-filter",
+            "version": "v1.5.0",
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/clue/php-stream-filter/zipball/aeb7d8ea49c7963d3b581378955dbf5bc49aa320",
+                "reference": "aeb7d8ea49c7963d3b581378955dbf5bc49aa320",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Clue\\StreamFilter\\": "src/"
+                },
+                "files": [
+                    "src/functions_include.php"
+                ]
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Christian Lück",
+                    "email": "christian@clue.engineering"
+                }
+            ],
+            "description": "A simple and modern approach to stream filtering in PHP",
+            "homepage": "https://github.com/clue/php-stream-filter",
+            "keywords": [
+                "bucket brigade",
+                "callback",
+                "filter",
+                "php_user_filter",
+                "stream",
+                "stream_filter_append",
+                "stream_filter_register"
+            ],
+            "time": "2020-10-02T12:38:20+00:00"
         },
         {
             "name": "codewithkyle/jitter",
@@ -554,6 +575,57 @@
             "time": "2021-03-25T17:01:18+00:00"
         },
         {
+            "name": "craftcms/aws-s3",
+            "version": "1.2.11",
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/craftcms/aws-s3/zipball/d9934e0d34c3a1617a5e120d58b7062f8d302751",
+                "reference": "d9934e0d34c3a1617a5e120d58b7062f8d302751",
+                "shasum": ""
+            },
+            "require": {
+                "craftcms/cms": "^3.1.5",
+                "league/flysystem-aws-s3-v3": "^1.0.28"
+            },
+            "type": "craft-plugin",
+            "extra": {
+                "name": "Amazon S3",
+                "handle": "aws-s3",
+                "documentationUrl": "https://github.com/craftcms/aws-s3/blob/master/README.md"
+            },
+            "autoload": {
+                "psr-4": {
+                    "craft\\awss3\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Pixel & Tonic",
+                    "homepage": "https://pixelandtonic.com/"
+                }
+            ],
+            "description": "Amazon S3 integration for Craft CMS",
+            "keywords": [
+                "aws",
+                "cms",
+                "craftcms",
+                "flysystem",
+                "s3",
+                "yii2"
+            ],
+            "support": {
+                "email": "support@craftcms.com",
+                "issues": "https://github.com/craftcms/aws-s3/issues?state=open",
+                "source": "https://github.com/craftcms/aws-s3",
+                "docs": "https://github.com/craftcms/aws-s3/blob/master/README.md",
+                "rss": "https://github.com/craftcms/aws-s3/commits/master.atom"
+            },
+            "time": "2020-08-24T09:31:11+00:00"
+        },
+        {
             "name": "craftcms/cms",
             "version": "3.6.11.2",
             "dist": {
@@ -689,6 +761,57 @@
                 "source": "https://github.com/craftcms/element-api"
             },
             "time": "2019-08-01T22:45:15+00:00"
+        },
+        {
+            "name": "craftcms/mailgun",
+            "version": "1.4.3",
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/craftcms/mailgun/zipball/fcd9c9fb4021881ae681f461021bd4f41c5c7f5c",
+                "reference": "fcd9c9fb4021881ae681f461021bd4f41c5c7f5c",
+                "shasum": ""
+            },
+            "require": {
+                "craftcms/cms": "^3.1.5",
+                "cspoo/swiftmailer-mailgun-bundle": "^1.0.0",
+                "php-http/guzzle6-adapter": "^1.1.1 || ^2.0"
+            },
+            "type": "craft-plugin",
+            "extra": {
+                "name": "Mailgun",
+                "handle": "mailgun",
+                "documentationUrl": "https://github.com/craftcms/mailgun/blob/v1/README.md"
+            },
+            "autoload": {
+                "psr-4": {
+                    "craft\\mailgun\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Pixel & Tonic",
+                    "homepage": "https://pixelandtonic.com/"
+                }
+            ],
+            "description": "Mailgun integration for Craft CMS",
+            "keywords": [
+                "cms",
+                "craftcms",
+                "mailer",
+                "mailgun",
+                "yii2"
+            ],
+            "support": {
+                "email": "support@craftcms.com",
+                "issues": "https://github.com/craftcms/mailgun/issues?state=open",
+                "source": "https://github.com/craftcms/mailgun",
+                "docs": "https://github.com/craftcms/mailgun/blob/v1/README.md",
+                "rss": "https://github.com/craftcms/mailgun/commits/master.atom"
+            },
+            "time": "2020-07-31T00:01:47+00:00"
         },
         {
             "name": "craftcms/oauth2-craftid",
@@ -876,6 +999,53 @@
                 "yii2"
             ],
             "time": "2015-01-27T10:53:51+00:00"
+        },
+        {
+            "name": "cspoo/swiftmailer-mailgun-bundle",
+            "version": "1.2.0",
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/tehplague/swiftmailer-mailgun-bundle/zipball/e54da0c7e4bb90609cc89d524bff56497ca2a664",
+                "reference": "e54da0c7e4bb90609cc89d524bff56497ca2a664",
+                "shasum": ""
+            },
+            "require": {
+                "mailgun/mailgun-php": "^2.3",
+                "php": "^7.0",
+                "swiftmailer/swiftmailer": "^6.0",
+                "symfony/config": "^3.3 || ^4.0",
+                "symfony/dependency-injection": "^3.3 || ^4.0",
+                "symfony/http-kernel": "^3.3 || ^4.0"
+            },
+            "suggest": {
+                "azine/mailgunwebhooks-bundle": "Allows to handle Mailgun event webhooks",
+                "php-http/httplug-bundle": "To manage your http clients"
+            },
+            "type": "symfony-bundle",
+            "autoload": {
+                "psr-4": {
+                    "cspoo\\Swiftmailer\\MailgunBundle\\": ""
+                }
+            },
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "Christian Spoo",
+                    "email": "mail@christian-spoo.info",
+                    "homepage": "http://www.christian-spoo.info/",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Swiftmailer Mailgun bundle",
+            "homepage": "https://github.com/tehplague/swiftmailer-mailgun-bundle",
+            "keywords": [
+                "e-mail",
+                "mailgun",
+                "swiftmailer"
+            ],
+            "time": "2018-12-17T15:48:06+00:00"
         },
         {
             "name": "defuse/php-encryption",
@@ -1378,32 +1548,27 @@
         },
         {
             "name": "guzzlehttp/guzzle",
-            "version": "7.3.0",
+            "version": "6.5.5",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/guzzle/guzzle/zipball/7008573787b430c1c1f650e3722d9bba59967628",
-                "reference": "7008573787b430c1c1f650e3722d9bba59967628",
+                "url": "https://api.github.com/repos/guzzle/guzzle/zipball/9d4290de1cfd701f38099ef7e183b64b4b7b0c5e",
+                "reference": "9d4290de1cfd701f38099ef7e183b64b4b7b0c5e",
                 "shasum": ""
             },
             "require": {
                 "ext-json": "*",
-                "guzzlehttp/promises": "^1.4",
-                "guzzlehttp/psr7": "^1.7 || ^2.0",
-                "php": "^7.2.5 || ^8.0",
-                "psr/http-client": "^1.0"
-            },
-            "provide": {
-                "psr/http-client-implementation": "1.0"
+                "guzzlehttp/promises": "^1.0",
+                "guzzlehttp/psr7": "^1.6.1",
+                "php": ">=5.5",
+                "symfony/polyfill-intl-idn": "^1.17.0"
             },
             "suggest": {
-                "ext-curl": "Required for CURL handler support",
-                "ext-intl": "Required for Internationalized Domain Name (IDN) support",
                 "psr/log": "Required for using the Log middleware"
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "7.3-dev"
+                    "dev-master": "6.5-dev"
                 }
             },
             "autoload": {
@@ -1422,11 +1587,6 @@
                     "name": "Michael Dowling",
                     "email": "mtdowling@gmail.com",
                     "homepage": "https://github.com/mtdowling"
-                },
-                {
-                    "name": "Márk Sági-Kazár",
-                    "email": "mark.sagikazar@gmail.com",
-                    "homepage": "https://sagikazarmark.hu"
                 }
             ],
             "description": "Guzzle is a PHP HTTP client library",
@@ -1437,12 +1597,10 @@
                 "framework",
                 "http",
                 "http client",
-                "psr-18",
-                "psr-7",
                 "rest",
                 "web service"
             ],
-            "time": "2021-03-23T11:33:13+00:00"
+            "time": "2020-06-16T21:01:06+00:00"
         },
         {
             "name": "guzzlehttp/oauth-subscriber",
@@ -2379,6 +2537,74 @@
             "time": "2021-02-22T10:52:38+00:00"
         },
         {
+            "name": "jeremykendall/php-domain-parser",
+            "version": "5.7.2",
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/jeremykendall/php-domain-parser/zipball/a2f61eb1fa1ebe0ea67a64b5d631495c304a189b",
+                "reference": "a2f61eb1fa1ebe0ea67a64b5d631495c304a189b",
+                "shasum": ""
+            },
+            "require": {
+                "ext-intl": "*",
+                "ext-json": "*",
+                "php": "^7.2.5 || ^8.0",
+                "psr/log": "^1.1",
+                "psr/simple-cache": "^1.0.1"
+            },
+            "suggest": {
+                "ext-curl": "To use the package http client",
+                "league/uri": "To parse URL and validate host",
+                "psr/simple-cache-implementation": "To enable using other cache providers"
+            },
+            "bin": [
+                "bin/update-psl"
+            ],
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "5.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Pdp\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Jeremy Kendall",
+                    "homepage": "http://about.me/jeremykendall",
+                    "role": "Developer"
+                },
+                {
+                    "name": "Ignace Nyamagana Butera",
+                    "homepage": "http://nyamsprod.com",
+                    "role": "Developer"
+                },
+                {
+                    "name": "Contributors",
+                    "homepage": "https://github.com/jeremykendall/php-domain-parser/graphs/contributors"
+                }
+            ],
+            "description": "Public Suffix List based URL parsing implemented in PHP.",
+            "homepage": "https://github.com/jeremykendall/php-domain-parser",
+            "keywords": [
+                "PSL",
+                "Public Suffix List",
+                "Top Level Domains",
+                "domain parsing",
+                "iana",
+                "icann",
+                "idn",
+                "tld"
+            ],
+            "time": "2020-10-26T06:41:32+00:00"
+        },
+        {
             "name": "justinrainbow/json-schema",
             "version": "5.2.10",
             "dist": {
@@ -2722,6 +2948,43 @@
             "time": "2020-08-23T07:39:11+00:00"
         },
         {
+            "name": "league/flysystem-aws-s3-v3",
+            "version": "1.0.29",
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/thephpleague/flysystem-aws-s3-v3/zipball/4e25cc0582a36a786c31115e419c6e40498f6972",
+                "reference": "4e25cc0582a36a786c31115e419c6e40498f6972",
+                "shasum": ""
+            },
+            "require": {
+                "aws/aws-sdk-php": "^3.20.0",
+                "league/flysystem": "^1.0.40",
+                "php": ">=5.5.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "League\\Flysystem\\AwsS3v3\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Frank de Jonge",
+                    "email": "info@frenky.net"
+                }
+            ],
+            "description": "Flysystem adapter for the AWS S3 SDK v3.x",
+            "time": "2020-10-08T18:58:37+00:00"
+        },
+        {
             "name": "league/fractal",
             "version": "0.18.0",
             "dist": {
@@ -3020,6 +3283,46 @@
             "time": "2021-01-27T16:09:03+00:00"
         },
         {
+            "name": "mailgun/mailgun-php",
+            "version": "2.8.1",
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/mailgun/mailgun-php/zipball/4af0346851914ae0d9a58bf9ddf17eb48f6498c8",
+                "reference": "4af0346851914ae0d9a58bf9ddf17eb48f6498c8",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^5.5 || ^7.0",
+                "php-http/client-common": "^1.1",
+                "php-http/discovery": "^1.0",
+                "php-http/httplug": "^1.0 || ^2.0",
+                "php-http/message": "^1.0",
+                "php-http/multipart-stream-builder": "^1.0",
+                "webmozart/assert": "^1.2"
+            },
+            "suggest": {
+                "guzzlehttp/psr7": "PSR-7 message implementation that also provides common utility methods",
+                "php-http/curl-client": "cURL client for PHP-HTTP"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Mailgun": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Travis Swientek",
+                    "email": "travis@mailgunhq.com"
+                }
+            ],
+            "description": "The Mailgun SDK provides methods for all API functions.",
+            "time": "2019-02-02T07:14:32+00:00"
+        },
+        {
             "name": "mikehaertl/php-shellcommand",
             "version": "1.6.4",
             "dist": {
@@ -3065,10 +3368,6 @@
                 "php": "^5.4 || ^7.0 || ^8.0",
                 "symfony/polyfill-mbstring": "^1.17"
             },
-            "require-dev": {
-                "composer/xdebug-handler": "^1.4",
-                "phpunit/phpunit": "^4.8.36 || ^7.5.15"
-            },
             "bin": [
                 "bin/jp.php"
             ],
@@ -3086,7 +3385,6 @@
                     "src/JmesPath.php"
                 ]
             },
-            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -3102,10 +3400,6 @@
                 "json",
                 "jsonpath"
             ],
-            "support": {
-                "issues": "https://github.com/jmespath/jmespath.php/issues",
-                "source": "https://github.com/jmespath/jmespath.php/tree/2.6.0"
-            },
             "time": "2020-07-31T21:01:56+00:00"
         },
         {
@@ -3337,6 +3631,395 @@
                 "random"
             ],
             "time": "2020-10-15T08:29:30+00:00"
+        },
+        {
+            "name": "php-http/client-common",
+            "version": "1.10.0",
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/php-http/client-common/zipball/c0390ae3c8f2ae9d50901feef0127fb9e396f6b4",
+                "reference": "c0390ae3c8f2ae9d50901feef0127fb9e396f6b4",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^5.4 || ^7.0",
+                "php-http/httplug": "^1.1",
+                "php-http/message": "^1.6",
+                "php-http/message-factory": "^1.0",
+                "symfony/options-resolver": "^2.6 || ^3.0 || ^4.0 || ^5.0"
+            },
+            "suggest": {
+                "php-http/cache-plugin": "PSR-6 Cache plugin",
+                "php-http/logger-plugin": "PSR-3 Logger plugin",
+                "php-http/stopwatch-plugin": "Symfony Stopwatch plugin"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.10.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Http\\Client\\Common\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Márk Sági-Kazár",
+                    "email": "mark.sagikazar@gmail.com"
+                }
+            ],
+            "description": "Common HTTP Client implementations and tools for HTTPlug",
+            "homepage": "http://httplug.io",
+            "keywords": [
+                "client",
+                "common",
+                "http",
+                "httplug"
+            ],
+            "time": "2019-11-18T08:54:36+00:00"
+        },
+        {
+            "name": "php-http/discovery",
+            "version": "1.13.0",
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/php-http/discovery/zipball/788f72d64c43dc361e7fcc7464c3d947c64984a7",
+                "reference": "788f72d64c43dc361e7fcc7464c3d947c64984a7",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^7.1 || ^8.0"
+            },
+            "conflict": {
+                "nyholm/psr7": "<1.0"
+            },
+            "suggest": {
+                "php-http/message": "Allow to use Guzzle, Diactoros or Slim Framework factories",
+                "puli/composer-plugin": "Sets up Puli which is recommended for Discovery to work. Check http://docs.php-http.org/en/latest/discovery.html for more details."
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.9-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Http\\Discovery\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Márk Sági-Kazár",
+                    "email": "mark.sagikazar@gmail.com"
+                }
+            ],
+            "description": "Finds installed HTTPlug implementations and PSR-7 message factories",
+            "homepage": "http://php-http.org",
+            "keywords": [
+                "adapter",
+                "client",
+                "discovery",
+                "factory",
+                "http",
+                "message",
+                "psr7"
+            ],
+            "time": "2020-11-27T14:49:42+00:00"
+        },
+        {
+            "name": "php-http/guzzle6-adapter",
+            "version": "v1.1.1",
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/php-http/guzzle6-adapter/zipball/a56941f9dc6110409cfcddc91546ee97039277ab",
+                "reference": "a56941f9dc6110409cfcddc91546ee97039277ab",
+                "shasum": ""
+            },
+            "require": {
+                "guzzlehttp/guzzle": "^6.0",
+                "php": ">=5.5.0",
+                "php-http/httplug": "^1.0"
+            },
+            "provide": {
+                "php-http/async-client-implementation": "1.0",
+                "php-http/client-implementation": "1.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.2-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Http\\Adapter\\Guzzle6\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Márk Sági-Kazár",
+                    "email": "mark.sagikazar@gmail.com"
+                },
+                {
+                    "name": "David de Boer",
+                    "email": "david@ddeboer.nl"
+                }
+            ],
+            "description": "Guzzle 6 HTTP Adapter",
+            "homepage": "http://httplug.io",
+            "keywords": [
+                "Guzzle",
+                "http"
+            ],
+            "time": "2016-05-10T06:13:32+00:00"
+        },
+        {
+            "name": "php-http/httplug",
+            "version": "v1.1.0",
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/php-http/httplug/zipball/1c6381726c18579c4ca2ef1ec1498fdae8bdf018",
+                "reference": "1c6381726c18579c4ca2ef1ec1498fdae8bdf018",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.4",
+                "php-http/promise": "^1.0",
+                "psr/http-message": "^1.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.1-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Http\\Client\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Eric GELOEN",
+                    "email": "geloen.eric@gmail.com"
+                },
+                {
+                    "name": "Márk Sági-Kazár",
+                    "email": "mark.sagikazar@gmail.com"
+                }
+            ],
+            "description": "HTTPlug, the HTTP client abstraction for PHP",
+            "homepage": "http://httplug.io",
+            "keywords": [
+                "client",
+                "http"
+            ],
+            "time": "2016-08-31T08:30:17+00:00"
+        },
+        {
+            "name": "php-http/message",
+            "version": "1.11.0",
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/php-http/message/zipball/fb0dbce7355cad4f4f6a225f537c34d013571f29",
+                "reference": "fb0dbce7355cad4f4f6a225f537c34d013571f29",
+                "shasum": ""
+            },
+            "require": {
+                "clue/stream-filter": "^1.5",
+                "php": "^7.1 || ^8.0",
+                "php-http/message-factory": "^1.0.2",
+                "psr/http-message": "^1.0"
+            },
+            "provide": {
+                "php-http/message-factory-implementation": "1.0"
+            },
+            "suggest": {
+                "ext-zlib": "Used with compressor/decompressor streams",
+                "guzzlehttp/psr7": "Used with Guzzle PSR-7 Factories",
+                "laminas/laminas-diactoros": "Used with Diactoros Factories",
+                "slim/slim": "Used with Slim Framework PSR-7 implementation"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.10-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Http\\Message\\": "src/"
+                },
+                "files": [
+                    "src/filters.php"
+                ]
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Márk Sági-Kazár",
+                    "email": "mark.sagikazar@gmail.com"
+                }
+            ],
+            "description": "HTTP Message related tools",
+            "homepage": "http://php-http.org",
+            "keywords": [
+                "http",
+                "message",
+                "psr-7"
+            ],
+            "time": "2021-02-01T08:54:58+00:00"
+        },
+        {
+            "name": "php-http/message-factory",
+            "version": "v1.0.2",
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/php-http/message-factory/zipball/a478cb11f66a6ac48d8954216cfed9aa06a501a1",
+                "reference": "a478cb11f66a6ac48d8954216cfed9aa06a501a1",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.4",
+                "psr/http-message": "^1.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Http\\Message\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Márk Sági-Kazár",
+                    "email": "mark.sagikazar@gmail.com"
+                }
+            ],
+            "description": "Factory interfaces for PSR-7 HTTP Message",
+            "homepage": "http://php-http.org",
+            "keywords": [
+                "factory",
+                "http",
+                "message",
+                "stream",
+                "uri"
+            ],
+            "time": "2015-12-19T14:08:53+00:00"
+        },
+        {
+            "name": "php-http/multipart-stream-builder",
+            "version": "1.1.2",
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/php-http/multipart-stream-builder/zipball/121299c2aad475a19087bc6298a1c9aa4d5c1ecc",
+                "reference": "121299c2aad475a19087bc6298a1c9aa4d5c1ecc",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^7.1 || ^8.0",
+                "php-http/discovery": "^1.7",
+                "php-http/message-factory": "^1.0.2",
+                "psr/http-factory": "^1.0",
+                "psr/http-message": "^1.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.1-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Http\\Message\\MultipartStream\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Tobias Nyholm",
+                    "email": "tobias.nyholm@gmail.com"
+                }
+            ],
+            "description": "A builder class that help you create a multipart stream",
+            "homepage": "http://php-http.org",
+            "keywords": [
+                "factory",
+                "http",
+                "message",
+                "multipart stream",
+                "stream"
+            ],
+            "time": "2020-07-13T15:48:43+00:00"
+        },
+        {
+            "name": "php-http/promise",
+            "version": "1.1.0",
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/php-http/promise/zipball/4c4c1f9b7289a2ec57cde7f1e9762a5789506f88",
+                "reference": "4c4c1f9b7289a2ec57cde7f1e9762a5789506f88",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^7.1 || ^8.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.1-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Http\\Promise\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Joel Wurtz",
+                    "email": "joel.wurtz@gmail.com"
+                },
+                {
+                    "name": "Márk Sági-Kazár",
+                    "email": "mark.sagikazar@gmail.com"
+                }
+            ],
+            "description": "Promise used for asynchronous HTTP requests",
+            "homepage": "http://httplug.io",
+            "keywords": [
+                "promise"
+            ],
+            "time": "2020-07-07T09:29:14+00:00"
         },
         {
             "name": "phpdocumentor/reflection-common",
@@ -3611,16 +4294,16 @@
             "time": "2021-03-05T17:36:06+00:00"
         },
         {
-            "name": "psr/http-client",
+            "name": "psr/http-factory",
             "version": "1.0.1",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/php-fig/http-client/zipball/2dfb5f6c5eff0e91e20e913f8c5452ed95b86621",
-                "reference": "2dfb5f6c5eff0e91e20e913f8c5452ed95b86621",
+                "url": "https://api.github.com/repos/php-fig/http-factory/zipball/12ac7fcd07e5b077433f5f2bee95b3a771bf61be",
+                "reference": "12ac7fcd07e5b077433f5f2bee95b3a771bf61be",
                 "shasum": ""
             },
             "require": {
-                "php": "^7.0 || ^8.0",
+                "php": ">=7.0.0",
                 "psr/http-message": "^1.0"
             },
             "type": "library",
@@ -3631,7 +4314,7 @@
             },
             "autoload": {
                 "psr-4": {
-                    "Psr\\Http\\Client\\": "src/"
+                    "Psr\\Http\\Message\\": "src/"
                 }
             },
             "license": [
@@ -3643,15 +4326,18 @@
                     "homepage": "http://www.php-fig.org/"
                 }
             ],
-            "description": "Common interface for HTTP clients",
-            "homepage": "https://github.com/php-fig/http-client",
+            "description": "Common interfaces for PSR-7 HTTP message factories",
             "keywords": [
+                "factory",
                 "http",
-                "http-client",
+                "message",
                 "psr",
-                "psr-18"
+                "psr-17",
+                "psr-7",
+                "request",
+                "response"
             ],
-            "time": "2020-06-29T06:28:15+00:00"
+            "time": "2019-04-30T12:38:16+00:00"
         },
         {
             "name": "psr/http-message",
@@ -3737,6 +4423,48 @@
                 "psr-3"
             ],
             "time": "2020-03-23T09:12:05+00:00"
+        },
+        {
+            "name": "psr/simple-cache",
+            "version": "1.0.1",
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/php-fig/simple-cache/zipball/408d5eafb83c57f6365a3ca330ff23aa4a5fa39b",
+                "reference": "408d5eafb83c57f6365a3ca330ff23aa4a5fa39b",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Psr\\SimpleCache\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "PHP-FIG",
+                    "homepage": "http://www.php-fig.org/"
+                }
+            ],
+            "description": "Common interfaces for simple caching",
+            "keywords": [
+                "cache",
+                "caching",
+                "psr",
+                "psr-16",
+                "simple-cache"
+            ],
+            "time": "2017-10-23T01:57:42+00:00"
         },
         {
             "name": "ralouphie/getallheaders",
@@ -4008,6 +4736,52 @@
             "time": "2021-03-09T12:30:35+00:00"
         },
         {
+            "name": "symfony/config",
+            "version": "v4.4.20",
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/config/zipball/98606c6fa1a8f55ff964ccdd704275bf5b9f71b3",
+                "reference": "98606c6fa1a8f55ff964ccdd704275bf5b9f71b3",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.1.3",
+                "symfony/filesystem": "^3.4|^4.0|^5.0",
+                "symfony/polyfill-ctype": "~1.8"
+            },
+            "conflict": {
+                "symfony/finder": "<3.4"
+            },
+            "suggest": {
+                "symfony/yaml": "To use the yaml reference dumper"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Symfony\\Component\\Config\\": ""
+                },
+                "exclude-from-classmap": [
+                    "/Tests/"
+                ]
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Fabien Potencier",
+                    "email": "fabien@symfony.com"
+                },
+                {
+                    "name": "Symfony Community",
+                    "homepage": "https://symfony.com/contributors"
+                }
+            ],
+            "description": "Helps you find, load, combine, autofill and validate configuration values of any kind",
+            "homepage": "https://symfony.com",
+            "time": "2021-02-22T15:36:50+00:00"
+        },
+        {
             "name": "symfony/console",
             "version": "v5.2.6",
             "dist": {
@@ -4073,6 +4847,106 @@
             "time": "2021-03-28T09:42:18+00:00"
         },
         {
+            "name": "symfony/debug",
+            "version": "v4.4.20",
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/debug/zipball/157bbec4fd773bae53c5483c50951a5530a2cc16",
+                "reference": "157bbec4fd773bae53c5483c50951a5530a2cc16",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.1.3",
+                "psr/log": "~1.0",
+                "symfony/polyfill-php80": "^1.15"
+            },
+            "conflict": {
+                "symfony/http-kernel": "<3.4"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Symfony\\Component\\Debug\\": ""
+                },
+                "exclude-from-classmap": [
+                    "/Tests/"
+                ]
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Fabien Potencier",
+                    "email": "fabien@symfony.com"
+                },
+                {
+                    "name": "Symfony Community",
+                    "homepage": "https://symfony.com/contributors"
+                }
+            ],
+            "description": "Provides tools to ease debugging PHP code",
+            "homepage": "https://symfony.com",
+            "time": "2021-01-28T16:54:48+00:00"
+        },
+        {
+            "name": "symfony/dependency-injection",
+            "version": "v4.4.21",
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/dependency-injection/zipball/b5f97557faa48ead4671bc311cfca423d476e93e",
+                "reference": "b5f97557faa48ead4671bc311cfca423d476e93e",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.1.3",
+                "psr/container": "^1.0",
+                "symfony/service-contracts": "^1.1.6|^2"
+            },
+            "conflict": {
+                "symfony/config": "<4.3|>=5.0",
+                "symfony/finder": "<3.4",
+                "symfony/proxy-manager-bridge": "<3.4",
+                "symfony/yaml": "<3.4"
+            },
+            "provide": {
+                "psr/container-implementation": "1.0",
+                "symfony/service-implementation": "1.0|2.0"
+            },
+            "suggest": {
+                "symfony/config": "",
+                "symfony/expression-language": "For using expressions in service container configuration",
+                "symfony/finder": "For using double-star glob patterns or when GLOB_BRACE portability is required",
+                "symfony/proxy-manager-bridge": "Generate service proxies to lazy load them",
+                "symfony/yaml": ""
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Symfony\\Component\\DependencyInjection\\": ""
+                },
+                "exclude-from-classmap": [
+                    "/Tests/"
+                ]
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Fabien Potencier",
+                    "email": "fabien@symfony.com"
+                },
+                {
+                    "name": "Symfony Community",
+                    "homepage": "https://symfony.com/contributors"
+                }
+            ],
+            "description": "Allows you to standardize and centralize the way objects are constructed in your application",
+            "homepage": "https://symfony.com",
+            "time": "2021-03-05T18:16:26+00:00"
+        },
+        {
             "name": "symfony/deprecation-contracts",
             "version": "v2.2.0",
             "dist": {
@@ -4115,6 +4989,112 @@
             "description": "A generic function and convention to trigger deprecation notices",
             "homepage": "https://symfony.com",
             "time": "2020-09-07T11:33:47+00:00"
+        },
+        {
+            "name": "symfony/event-dispatcher",
+            "version": "v4.4.20",
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/event-dispatcher/zipball/c352647244bd376bf7d31efbd5401f13f50dad0c",
+                "reference": "c352647244bd376bf7d31efbd5401f13f50dad0c",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.1.3",
+                "symfony/event-dispatcher-contracts": "^1.1"
+            },
+            "conflict": {
+                "symfony/dependency-injection": "<3.4"
+            },
+            "provide": {
+                "psr/event-dispatcher-implementation": "1.0",
+                "symfony/event-dispatcher-implementation": "1.1"
+            },
+            "suggest": {
+                "symfony/dependency-injection": "",
+                "symfony/http-kernel": ""
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Symfony\\Component\\EventDispatcher\\": ""
+                },
+                "exclude-from-classmap": [
+                    "/Tests/"
+                ]
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Fabien Potencier",
+                    "email": "fabien@symfony.com"
+                },
+                {
+                    "name": "Symfony Community",
+                    "homepage": "https://symfony.com/contributors"
+                }
+            ],
+            "description": "Provides tools that allow your application components to communicate with each other by dispatching events and listening to them",
+            "homepage": "https://symfony.com",
+            "time": "2021-01-27T09:09:26+00:00"
+        },
+        {
+            "name": "symfony/event-dispatcher-contracts",
+            "version": "v1.1.9",
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/event-dispatcher-contracts/zipball/84e23fdcd2517bf37aecbd16967e83f0caee25a7",
+                "reference": "84e23fdcd2517bf37aecbd16967e83f0caee25a7",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.1.3"
+            },
+            "suggest": {
+                "psr/event-dispatcher": "",
+                "symfony/event-dispatcher-implementation": ""
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.1-dev"
+                },
+                "thanks": {
+                    "name": "symfony/contracts",
+                    "url": "https://github.com/symfony/contracts"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Symfony\\Contracts\\EventDispatcher\\": ""
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Nicolas Grekas",
+                    "email": "p@tchwork.com"
+                },
+                {
+                    "name": "Symfony Community",
+                    "homepage": "https://symfony.com/contributors"
+                }
+            ],
+            "description": "Generic abstractions related to dispatching event",
+            "homepage": "https://symfony.com",
+            "keywords": [
+                "abstractions",
+                "contracts",
+                "decoupling",
+                "interfaces",
+                "interoperability",
+                "standards"
+            ],
+            "time": "2020-07-06T13:19:58+00:00"
         },
         {
             "name": "symfony/filesystem",
@@ -4192,6 +5172,212 @@
             "description": "Finds files and directories via an intuitive fluent interface",
             "homepage": "https://symfony.com",
             "time": "2021-02-15T18:55:04+00:00"
+        },
+        {
+            "name": "symfony/http-foundation",
+            "version": "v4.4.20",
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/http-foundation/zipball/02d968647fe61b2f419a8dc70c468a9d30a48d3a",
+                "reference": "02d968647fe61b2f419a8dc70c468a9d30a48d3a",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.1.3",
+                "symfony/mime": "^4.3|^5.0",
+                "symfony/polyfill-mbstring": "~1.1",
+                "symfony/polyfill-php80": "^1.15"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Symfony\\Component\\HttpFoundation\\": ""
+                },
+                "exclude-from-classmap": [
+                    "/Tests/"
+                ]
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Fabien Potencier",
+                    "email": "fabien@symfony.com"
+                },
+                {
+                    "name": "Symfony Community",
+                    "homepage": "https://symfony.com/contributors"
+                }
+            ],
+            "description": "Defines an object-oriented layer for the HTTP specification",
+            "homepage": "https://symfony.com",
+            "time": "2021-02-25T17:11:33+00:00"
+        },
+        {
+            "name": "symfony/http-kernel",
+            "version": "v4.3.11",
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/http-kernel/zipball/fcd8fe5b98d435da856b310a01a4f281668607c0",
+                "reference": "fcd8fe5b98d435da856b310a01a4f281668607c0",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^7.1.3",
+                "psr/log": "~1.0",
+                "symfony/debug": "~3.4|~4.0",
+                "symfony/event-dispatcher": "^4.3",
+                "symfony/http-foundation": "^4.1.1",
+                "symfony/polyfill-ctype": "~1.8",
+                "symfony/polyfill-php73": "^1.9"
+            },
+            "conflict": {
+                "symfony/browser-kit": "<4.3",
+                "symfony/config": "<3.4",
+                "symfony/dependency-injection": "<4.3",
+                "symfony/translation": "<4.2",
+                "symfony/var-dumper": "<4.1.1",
+                "twig/twig": "<1.34|<2.4,>=2"
+            },
+            "provide": {
+                "psr/log-implementation": "1.0"
+            },
+            "suggest": {
+                "symfony/browser-kit": "",
+                "symfony/config": "",
+                "symfony/console": "",
+                "symfony/dependency-injection": "",
+                "symfony/var-dumper": ""
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "4.3-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Symfony\\Component\\HttpKernel\\": ""
+                },
+                "exclude-from-classmap": [
+                    "/Tests/"
+                ]
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Fabien Potencier",
+                    "email": "fabien@symfony.com"
+                },
+                {
+                    "name": "Symfony Community",
+                    "homepage": "https://symfony.com/contributors"
+                }
+            ],
+            "description": "Symfony HttpKernel Component",
+            "homepage": "https://symfony.com",
+            "time": "2020-01-31T12:38:38+00:00"
+        },
+        {
+            "name": "symfony/mime",
+            "version": "v5.2.6",
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/mime/zipball/1b2092244374cbe48ae733673f2ca0818b37197b",
+                "reference": "1b2092244374cbe48ae733673f2ca0818b37197b",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.2.5",
+                "symfony/deprecation-contracts": "^2.1",
+                "symfony/polyfill-intl-idn": "^1.10",
+                "symfony/polyfill-mbstring": "^1.0",
+                "symfony/polyfill-php80": "^1.15"
+            },
+            "conflict": {
+                "egulias/email-validator": "~3.0.0",
+                "phpdocumentor/reflection-docblock": "<3.2.2",
+                "phpdocumentor/type-resolver": "<1.4.0",
+                "symfony/mailer": "<4.4"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Symfony\\Component\\Mime\\": ""
+                },
+                "exclude-from-classmap": [
+                    "/Tests/"
+                ]
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Fabien Potencier",
+                    "email": "fabien@symfony.com"
+                },
+                {
+                    "name": "Symfony Community",
+                    "homepage": "https://symfony.com/contributors"
+                }
+            ],
+            "description": "Allows manipulating MIME messages",
+            "homepage": "https://symfony.com",
+            "keywords": [
+                "mime",
+                "mime-type"
+            ],
+            "time": "2021-03-12T13:18:39+00:00"
+        },
+        {
+            "name": "symfony/options-resolver",
+            "version": "v5.2.4",
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/options-resolver/zipball/5d0f633f9bbfcf7ec642a2b5037268e61b0a62ce",
+                "reference": "5d0f633f9bbfcf7ec642a2b5037268e61b0a62ce",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.2.5",
+                "symfony/deprecation-contracts": "^2.1",
+                "symfony/polyfill-php73": "~1.0",
+                "symfony/polyfill-php80": "^1.15"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Symfony\\Component\\OptionsResolver\\": ""
+                },
+                "exclude-from-classmap": [
+                    "/Tests/"
+                ]
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Fabien Potencier",
+                    "email": "fabien@symfony.com"
+                },
+                {
+                    "name": "Symfony Community",
+                    "homepage": "https://symfony.com/contributors"
+                }
+            ],
+            "description": "Provides an improved replacement for the array_replace PHP function",
+            "homepage": "https://symfony.com",
+            "keywords": [
+                "config",
+                "configuration",
+                "options"
+            ],
+            "time": "2021-01-27T12:56:27+00:00"
         },
         {
             "name": "symfony/polyfill-ctype",
@@ -5602,11 +6788,11 @@
         },
         {
             "name": "voku/stringy",
-            "version": "6.4.0",
+            "version": "6.4.1",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/voku/Stringy/zipball/b534a95b58b020faf3e3b779abc0bc277b5fb83c",
-                "reference": "b534a95b58b020faf3e3b779abc0bc277b5fb83c",
+                "url": "https://api.github.com/repos/voku/Stringy/zipball/5b74e0e428e466bda91489b4c6e9ab385aa7c73a",
+                "reference": "5b74e0e428e466bda91489b4c6e9ab385aa7c73a",
                 "shasum": ""
             },
             "require": {
@@ -5614,8 +6800,8 @@
                 "ext-json": "*",
                 "php": ">=7.0.0",
                 "voku/anti-xss": "~4.1",
-                "voku/arrayy": "~7.5",
-                "voku/email-check": "~3.0",
+                "voku/arrayy": "~7.8",
+                "voku/email-check": "~3.1",
                 "voku/portable-ascii": "~1.5",
                 "voku/portable-utf8": "~5.4",
                 "voku/urlify": "~5.0"
@@ -5645,7 +6831,7 @@
                 {
                     "name": "Lars Moelleken",
                     "email": "lars@moelleken.org",
-                    "homepage": "http://www.moelleken.org/",
+                    "homepage": "https://www.moelleken.org/",
                     "role": "Fork-Maintainer"
                 }
             ],
@@ -5662,7 +6848,7 @@
                 "utility",
                 "utils"
             ],
-            "time": "2020-09-27T21:32:36+00:00"
+            "time": "2021-04-07T09:23:38+00:00"
         },
         {
             "name": "voku/urlify",
@@ -5794,6 +6980,66 @@
                 "graphql"
             ],
             "time": "2021-01-23T09:55:10+00:00"
+        },
+        {
+            "name": "workingconcept/craft-cloudflare",
+            "version": "1.0.1",
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/workingconcept/cloudflare-craft-plugin/zipball/717f77e8397b6d44c535d1aef06fe80fae4378d8",
+                "reference": "717f77e8397b6d44c535d1aef06fe80fae4378d8",
+                "shasum": ""
+            },
+            "require": {
+                "craftcms/cms": "^3.6.0",
+                "jeremykendall/php-domain-parser": "^5.6",
+                "php": "^7.2.0"
+            },
+            "type": "craft-plugin",
+            "extra": {
+                "name": "Cloudflare",
+                "handle": "cloudflare",
+                "changelogUrl": "https://raw.githubusercontent.com/workingconcept/cloudflare-craft-plugin/master/CHANGELOG.md",
+                "components": {
+                    "cloudflareService": "workingconcept\\cloudflare\\services\\CloudflareService",
+                    "rulesService": "workingconcept\\cloudflare\\services\\RulesService"
+                },
+                "class": "workingconcept\\cloudflare\\Cloudflare",
+                "downloadUrl": "https://github.com/workingconcept/cloudflare-craft-plugin/archive/master.zip",
+                "developer": "Working Concept",
+                "developerUrl": "https://workingconcept.com/"
+            },
+            "autoload": {
+                "psr-4": {
+                    "workingconcept\\cloudflare\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Working Concept",
+                    "homepage": "https://workingconcept.com"
+                },
+                {
+                    "name": "Mo",
+                    "email": "m@9dev.de"
+                }
+            ],
+            "description": "Purge Cloudflare caches from Craft.",
+            "keywords": [
+                "cloudflare",
+                "cms",
+                "craft",
+                "craft-plugin",
+                "craftcms"
+            ],
+            "support": {
+                "docs": "https://github.com/workingconcept/cloudflare-craft-plugin/blob/master/readme.md",
+                "issues": "https://github.com/workingconcept/cloudflare-craft-plugin/issues"
+            },
+            "time": "2021-02-02T15:21:51+00:00"
         },
         {
             "name": "yii2tech/ar-softdelete",

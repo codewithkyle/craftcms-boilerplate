@@ -2,8 +2,10 @@
 	"require": {
 		"codewithkyle/jitter": "1.1.1",
 		"codewithkyle/lightkeeper": "^1.1",
+		"craftcms/aws-s3": "1.2.11",
 		"craftcms/cms": "3.6.11.2",
 		"craftcms/element-api": "2.6.0",
+		"craftcms/mailgun": "1.4.3",
 		"craftcms/redactor": "2.8.5",
 		"ether/logs": "3.0.3",
 		"ether/splash": "3.0.5",
@@ -15,6 +17,7 @@
 		"verbb/smith": "1.1.13",
 		"verbb/super-table": "2.6.7",
 		"vlucas/phpdotenv": "^3.4.0",
+		"workingconcept/craft-cloudflare": "1.0.1",
 		"yiisoft/yii2-redis": "^2.0"
 	},
 	"autoload": {

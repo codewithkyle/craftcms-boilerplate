@@ -1,4 +1,4 @@
-dateModified: 1617983535
+dateModified: 1617984082
 email:
   fromEmail: $SYSTEM_EMAIL
   fromName: $SENDER_NAME
@@ -14,6 +14,27 @@ email:
     username: $GMAIL_USERNAME
   transportType: craft\mail\transportadapters\Smtp
 plugins:
+  aws-s3:
+    edition: standard
+    enabled: true
+    schemaVersion: '1.2'
+  cloudflare:
+    edition: standard
+    enabled: true
+    schemaVersion: 1.0.1
+    settings:
+      apiKey: $CLOUDFLARE_API_KEY
+      apiToken: null
+      authType: key
+      email: $CLOUDFLARE_ACCOUNT_EMAIL
+      purgeElements:
+        - craft\elements\Asset
+        - craft\elements\Category
+        - craft\elements\Entry
+        - craft\elements\Tag
+      userServiceKey: ''
+      zone: $CLOUDFLARE_ZONE_ID
+      zoneName: null
   eager-beaver:
     edition: standard
     enabled: true
@@ -39,6 +60,10 @@ plugins:
     edition: standard
     enabled: true
     schemaVersion: 3.0.0
+  mailgun:
+    edition: standard
+    enabled: true
+    schemaVersion: 1.0.0
   matrixmate:
     edition: standard
     enabled: true
