@@ -26,7 +26,7 @@ fieldLayouts:
             type: craft\fieldlayoutelements\EntryTitleField
             warning: null
             width: 100
-        name: Settings
+        name: Details
         sortOrder: 1
       -
         elements:
@@ -122,6 +122,19 @@ fieldLayouts:
             width: 50
         name: SEO
         sortOrder: 2
+      -
+        elements:
+          -
+            fieldUid: 6d0a70db-0951-40b4-9be4-1fa67bc2d9a4 # Require Login
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+        name: Settings
+        sortOrder: 3
 handle: blog
 hasTitleField: false
 name: Blog
