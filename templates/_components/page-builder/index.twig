@@ -1,4 +1,9 @@
 {% if page is defined and page["pageBuilder"] is defined and page["pageBuilder"]|length %}
+	{% if not craft.app.request.isLivePreview %}
+		{% do eagerLoadElements(page, [
+			'pageBuilder',
+		]) %}
+	{% endif %}
 	{% for block in page.pageBuilder %}
 		<template-block>
 			{% set path = "_blocks/" ~ block.type|kebab %}
