@@ -30,10 +30,16 @@ class UtilityController extends Controller
 	 *         The actions must be in 'kebab-case'
 	 * @access protected
 	 */
-	protected $allowAnonymous = ["get-csrf"];
+	protected $allowAnonymous = ["get-csrf", "render-block"];
 
 	// Public Methods
 	// =========================================================================
+
+	public function actionRenderBlock($ownerId, $blockId)
+	{
+		$html = PapertrainModule::getInstance()->viewService->renderBlock((int) $ownerId, (int) $blockId);
+		return $html;
+	}
 
 	public function actionGetCsrf()
 	{

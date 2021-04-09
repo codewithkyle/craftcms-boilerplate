@@ -1,6 +1,8 @@
-{% for block in entry.pageBuilder %}
-	<template-block style="display: block;width: 100%;position: relative;content-visibility: auto;contain-intrinsic-size: 1000px;">
-		{% set path = "_blocks/" ~ block.type|kebab %}
-        {% include path with { data: block } %}
-    </template-block>
-{% endfor %}
+{% if page is defined and page["pageBuilder"] is defined and page["pageBuilder"]|length %}
+	{% for block in page.pageBuilder %}
+		<template-block>
+			{% set path = "_blocks/" ~ block.type|kebab %}
+			{% include path with { data: block } %}
+		</template-block>
+	{% endfor %}
+{% endif %}

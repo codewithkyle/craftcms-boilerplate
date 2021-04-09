@@ -20,6 +20,9 @@ use craft\mail\Message;
 use craft\helpers\UrlHelper;
 use craft\base\Element;
 use craft\elements\Entry;
+use craft\elements\MatrixBlock;
+use craft\helpers\Template as TemplateHelper;
+use craft\web\View;
 
 use Yii;
 
@@ -36,6 +39,26 @@ class ViewService extends Component
 {
 	// Public Methods
 	// =========================================================================
+
+	public function renderBlock(int $ownerId, int $id): string
+	{
+		$html = "";
+		$block = MatrixBlock::find()
+			->ownerId($ownerId)
+			->id($id)
+			->one();
+		if (!empty($block)) {
+			$stringHelper = new StringHelper();
+			$handle = $stringHelper->toKebabCase($block->getType());
+			$oldMode = Craft::$app->view->getTemplateMode();
+			Craft::$app->view->setTemplateMode(View::TEMPLATE_MODE_SITE);
+			$html = Craft::$app->view->renderTemplate("_blocks/" . $handle, [
+				"data" => $block,
+			]);
+			Craft::$app->view->setTemplateMode($oldMode);
+		}
+		return TemplateHelper::raw($html);
+	}
 
 	public function buildSEOTitle(Element $page): string
 	{
@@ -104,8 +127,9 @@ class ViewService extends Component
 		return Cache::get($elementId, 0);
 	}
 
-	public function getCriticalCSS(array $filenames): string
+	public function getCriticalCSS($filenames): string
 	{
+		$filenames = (array) $filenames;
 		$html = "";
 		foreach ($filenames as $file) {
 			$filename = str_replace(".css", "", $file);

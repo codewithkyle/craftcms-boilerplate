@@ -101,6 +101,7 @@ class PapertrainModule extends Module
 
 		Event::on(UrlManager::class, UrlManager::EVENT_REGISTER_SITE_URL_RULES, function (RegisterUrlRulesEvent $event) {
 			$event->rules["/papertrain/get-csrf"] = "papertrain-module/utility/get-csrf";
+			$event->rules["/papertrain/block/<ownerId:\d+>/<blockId:\d+>"] = "papertrain-module/utility/render-block";
 		});
 
 		// Trigger revision updates when an element is saved

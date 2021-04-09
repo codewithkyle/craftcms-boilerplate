@@ -1,0 +1,65 @@
+.skeleton {
+	display: block;
+	position: relative;
+	border-radius: 0.25rem;
+	overflow: hidden;
+	background-color: var(--grey-200);
+
+	&.-image {
+		&::before {
+			content: "";
+			display: block;
+			width: 100%;
+			padding-bottom: 75%;
+		}
+
+		&.-round {
+			border-radius: 50%;
+
+			&::before {
+				padding-bottom: 100%;
+			}
+		}
+	}
+
+	&.-heading {
+		height: 36px;
+	}
+
+	&.-copy {
+		height: 24px;
+	}
+
+	&.-button {
+		height: 36px;
+		width: 96px;
+	}
+
+	&.-primary {
+		background-color: var(--primary-100);
+
+		&::after {
+			background: linear-gradient(to right, transparent, var(--primary-200), transparent);
+			opacity: 0.6;
+		}
+	}
+
+	&::after {
+		content: "";
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		background: linear-gradient(to right, transparent, var(--grey-300), transparent);
+		animation: skeletonWave 1.25s var(--ease-in-out) infinite;
+	}
+}
+@keyframes skeletonWave {
+	from {
+		transform: translateX(-200%);
+	}
+	to {
+		transform: translateX(100%);
+	}
+}
