@@ -17,7 +17,7 @@
 		"production": "npm run cleanup && npm run compile && npm run sass:prod && npm run cleanup && asset-manager"
 	},
 	"devDependencies": {
-		"@codewithkyle/twist": "^1.0.0",
+		"@codewithkyle/twist": "^1.0.1",
 		"@prettier/plugin-php": "^0.16.2",
 		"@typescript-eslint/eslint-plugin": "^2.34.0",
 		"@typescript-eslint/parser": "^2.34.0",
@@ -39,7 +39,7 @@
 		"@codewithkyle/messaging": "^1.0.1",
 		"@codewithkyle/modal-maker": "^1.1.1",
 		"@codewithkyle/notifyjs": "^2.1.1",
-		"@codewithkyle/postie": "^1.0.0",
+		"@codewithkyle/postie": "^1.0.1",
 		"@codewithkyle/pubsub": "^1.1.0",
 		"@codewithkyle/supercomponent": "^1.0.0",
 		"brixi": "^0.3.3",

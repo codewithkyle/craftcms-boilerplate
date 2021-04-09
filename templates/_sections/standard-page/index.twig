@@ -1,9 +1,5 @@
 {% extends "_base/page" %}
 
-{% do eagerLoadElements(entry, [
-    'pageBuilder',
-]) %}
-
 {% block head %}
     {% set blocks = [] %}
     {% for block in entry.pageBuilder|slice(0, 3) %}
@@ -13,5 +9,5 @@
 {% endblock %}
 
 {% block content %}
-	{% include "_components/page-builder" %}
+	{% include "_components/page-builder" with { page: entry } %}
 {% endblock %}
