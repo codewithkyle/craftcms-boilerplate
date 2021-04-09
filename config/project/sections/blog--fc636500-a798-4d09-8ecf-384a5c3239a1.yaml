@@ -3,7 +3,7 @@ handle: blog
 name: Blog
 propagationMethod: all
 siteSettings:
-  8d2ceaf6-270f-4376-a57e-b67d74fe3518: # Boilerplate
+  8d2ceaf6-270f-4376-a57e-b67d74fe3518: # $SYSTEM_NAME
     enabledByDefault: true
     hasUrls: true
     template: _sections/blog/landing/index
