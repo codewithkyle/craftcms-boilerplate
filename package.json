@@ -2,33 +2,52 @@
 	"scripts": {
 		"cleanup": "node ./build/cleanup.js",
 		"setup": "npm ci && node ./build/setup.js && composer install",
-		"bundle": "snowpack && node ./build/bundle.js",
+		"bundle": "node ./build/bundle.js",
 		"brixi": "brixi",
 		"compile": "twist --src=./templates --outdir=./public/js",
 		"eslint": "eslint -c .eslintrc.js templates/**/*.ts",
 		"stylelint": "stylelint \"templates/**/*.scss\"",
 		"lint": "npm run eslint && npm run stylelint",
 		"prettier": "prettier --write \"templates/**/*.ts\" && prettier --write \"templates/**/*.scss\" && prettier --write \"modules/**/*.php\"",
-		"precommit": "npm run prettier && git add . && npm run eslint && npm run stylelint",
+		"precommit": "npm run eslint && npm run stylelint",
 		"predeploy": "npm run eslint && npm run stylelint && npm run production",
 		"sass:dev": "cssmonster --e dev",
 		"sass:prod": "cssmonster",
 		"build": "npm run cleanup && npm run compile && npm run sass:dev && npm run cleanup",
-		"production": "npm run cleanup && npm run compile && npm run sass:prod && npm run cleanup && asset-manager"
+		"production": "npm run cleanup && npm run compile && npm run sass:prod && npm run cleanup && asset-manager",
+		"watch": "npm-watch"
+	},
+	"watch": {
+		"build": {
+			"patterns": [
+				"templates"
+			],
+			"extensions": "ts,js,scss,css",
+			"quiet": false
+		},
+		"prettier": {
+			"patterns": [
+				"templates",
+				"modules"
+			],
+			"extensions": "ts,js,scss,css,php",
+			"quiet": true
+		}
 	},
 	"devDependencies": {
 		"@codewithkyle/twist": "^1.0.1",
 		"@prettier/plugin-php": "^0.16.2",
-		"@typescript-eslint/eslint-plugin": "^2.34.0",
-		"@typescript-eslint/parser": "^2.34.0",
+		"@typescript-eslint/eslint-plugin": "^4.22.0",
+		"@typescript-eslint/parser": "^4.22.0",
 		"cssmonster": "^0.3.1",
+		"esinstall": "^1.1.4",
 		"eslint": "^6.8.0",
 		"eslint-config-prettier": "^6.15.0",
 		"eslint-plugin-prettier": "^3.3.1",
 		"glob": "^7.1.6",
 		"husky": "^3.1.0",
+		"npm-watch": "^0.9.0",
 		"prettier": "^2.2.1",
-		"snowpack": "^1.0.0",
 		"stylelint": "^12.0.1",
 		"stylelint-config-recommended": "^3.0.0",
 		"typescript": "^4.2.4"
@@ -51,17 +70,15 @@
 			"pre-commit": "npm run precommit"
 		}
 	},
-	"snowpack": {
-		"webDependencies": [
-			"@codewithkyle/notifyjs",
-			"@codewithkyle/supercomponent",
-			"@codewithkyle/pubsub",
-			"@codewithkyle/lazy-loader",
-			"@codewithkyle/messaging",
-			"@codewithkyle/modal-maker",
-			"@codewithkyle/postie",
-			"flatpickr",
-			"lit-html"
-		]
-	}
+	"bundle": [
+		"@codewithkyle/notifyjs",
+		"@codewithkyle/supercomponent",
+		"@codewithkyle/pubsub",
+		"@codewithkyle/lazy-loader",
+		"@codewithkyle/messaging",
+		"@codewithkyle/modal-maker",
+		"@codewithkyle/postie",
+		"flatpickr",
+		"lit-html"
+	]
 }
