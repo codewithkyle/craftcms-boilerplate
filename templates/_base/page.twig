@@ -1,7 +1,6 @@
 {% extends "_base/base" %}
 
 {% block documentHead %}
-    {{ craft.papertrain.css(['header', 'navigation-drawer', 'page', 'buttons', 'headings', 'copy']) }}
     {% block head %}{% endblock %}
 {% endblock %}
 
@@ -10,7 +9,7 @@
         {% include "_components/banner-notification" with { message: notifications.text1 } %}
     {% endif %}
     {% include "_components/header" %}
-    <main pjax-id="main" class="page" css="soft-loading" style="min-height: calc(100% - 2rem);">
+    <main class="page" css="soft-loading" style="min-height: calc(100% - 2rem);">
         {% block content %}{% endblock %}
     </main>
     {% include "_components/footer" %}

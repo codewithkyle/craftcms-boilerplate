@@ -12,7 +12,7 @@
 		"precommit": "npm run eslint && npm run stylelint",
 		"predeploy": "npm run eslint && npm run stylelint && npm run production",
 		"sass:dev": "cssmonster --e dev",
-		"sass:prod": "cssmonster",
+		"sass:prod": "cssmonster && node ./build/noscript.js",
 		"build": "npm run cleanup && npm run compile && npm run sass:dev && npm run cleanup",
 		"production": "npm run cleanup && npm run compile && npm run sass:prod && npm run cleanup && asset-manager",
 		"watch": "npm-watch"

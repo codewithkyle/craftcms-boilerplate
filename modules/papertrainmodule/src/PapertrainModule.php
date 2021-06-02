@@ -27,6 +27,7 @@ use craft\utilities\ClearCaches;
 use craft\helpers\FileHelper;
 use craft\events\RegisterCacheOptionsEvent;
 
+use Yii;
 use yii\base\Event;
 use yii\base\InvalidConfigException;
 use yii\base\Module;
@@ -104,19 +105,41 @@ class PapertrainModule extends Module
 			$event->rules["/papertrain/block/<ownerId:\d+>/<blockId:\d+>"] = "papertrain-module/utility/render-block";
 		});
 
-		// Trigger revision updates when an element is saved
 		Event::on(Elements::class, Elements::EVENT_AFTER_SAVE_ELEMENT, function (ElementEvent $event) {
+			// Trigger revision updates when an element is saved
 			if ($event->element instanceof Entry) {
 				$entry = $event->element;
 				PapertrainModule::getInstance()->viewService->updateEntryRevisions($entry);
 			}
+			// Trigger cache bust when an element with a URL is saved
+			if (!empty($event->element->url) && !$event->element->isDraft && !$event->element->isRevision) {
+				try {
+					PapertrainModule::getInstance()->viewService->cachePage($event->element);
+				} catch (\Exception $e) {
+					Craft::error($e->getMessage(), __METHOD__);
+				}
+			}
 		});
 
+		// Register variable
 		Event::on(CraftVariable::class, CraftVariable::EVENT_INIT, function (Event $event) {
 			/** @var CraftVariable $variable */
 			$variable = $event->sender;
 			$variable->set("papertrain", PapertrainModuleVariable::class);
 		});
+
+		// Register cache busting utility
+        Event::on(ClearCaches::class, ClearCaches::EVENT_REGISTER_CACHE_OPTIONS,
+            function (RegisterCacheOptionsEvent $event) {
+                $event->options[] = [
+                    'key' => 'papertrain-page-cache',
+                    'label' => "Cached pages",
+                    'action' => function() {
+                        PapertrainModule::getInstance()->viewService->clearCache();
+                    }
+                ];
+            }
+        );
 
 		Craft::info(Craft::t("papertrain-module", "{name} module loaded", ["name" => "papertrain"]), __METHOD__);
 	}

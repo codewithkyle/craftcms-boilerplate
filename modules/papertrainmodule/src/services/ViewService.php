@@ -40,6 +40,86 @@ class ViewService extends Component
 	// Public Methods
 	// =========================================================================
 
+	public function getCachedPage(Element $element)
+	{
+		$pageCachePath = FileHelper::normalizePath(Craft::$app->path->runtimePath . '/page-cache/' . $element->uid . ".html");
+		if (file_exists($pageCachePath)) {
+			return file_get_contents($pageCachePath);
+		}
+		return null;
+	}
+
+	public function clearCache(): void
+	{
+		$pageCachePath = FileHelper::normalizePath(Craft::$app->path->runtimePath . '/page-cache');
+		if (is_dir($pageCachePath)) {
+			array_map('unlink', glob("$pageCachePath/*"));
+		}
+	}
+
+	public function cachePage(Element $element): void
+	{
+		if (getenv("env") !== "production") {
+			return;
+		}
+		$template = $element->route[1]["template"] ?? null;
+		$variables = $element->route[1]["variables"] ?? [];
+		if (!is_null($template)) {
+
+			$pageCachePath = FileHelper::normalizePath(Craft::$app->path->runtimePath . '/page-cache');
+			if (!file_exists($pageCachePath)) {
+				mkdir($pageCachePath);
+			}
+
+			$uid = StringHelper::UUID();
+			$tempHTML = FileHelper::normalizePath($pageCachePath . "/" . $uid . ".tmp");
+			$outputHTML = FileHelper::normalizePath($pageCachePath . "/" . $element->uid . ".html");
+
+			if (file_exists($outputHTML)) {
+				unlink($outputHTML);
+			}
+
+			$oldMode = Craft::$app->view->getTemplateMode();
+			Craft::$app->view->setTemplateMode(View::TEMPLATE_MODE_SITE);
+			$html = Craft::$app->view->renderTemplate($template, [
+				"entry" => $element,
+				"product" => $element,
+				"category" => $element,
+				"nocache" => "1",
+			]);
+			Craft::$app->view->setTemplateMode($oldMode);
+			$html = TemplateHelper::raw($html);
+			file_put_contents($tempHTML, $html);
+
+			$cssPath = FileHelper::normalizePath(Yii::getAlias("@webroot") . '/css/noscript.css');
+			$brixiPath = FileHelper::normalizePath(Yii::getAlias("@webroot") . '/css/brixi.css');
+			$css = file_get_contents($brixiPath);
+			if (file_exists($cssPath)) {
+				$client = new Client([
+					"base_uri" => "http://127.0.0.1:8080",
+				]);
+				$response = $client->request("POST", '/purge', [
+					"headers" => [
+						"Content-Type" => "application/json",
+					],
+					"json" => [
+						"html" => $tempHTML,
+						"css" => $cssPath,
+					],
+				]);
+				$code = $response->getStatusCode();
+				if ($code !== 200){
+					throw new \Exception("Purge CSS server error");
+				}
+				$css .= (string)$response->getBody();
+			}
+			$html = str_replace("</head>", "\n<style>" . $css . "</style>\n" . "</head>", $html);
+			$html = trim($html);
+			file_put_contents($outputHTML, $html);
+			unlink($tempHTML);
+		}
+	}
+
 	public function renderBlock(int $ownerId, int $id): string
 	{
 		$html = "";

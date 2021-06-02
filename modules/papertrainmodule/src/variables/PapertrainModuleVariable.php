@@ -49,4 +49,9 @@ class PapertrainModuleVariable
 	{
 		return PapertrainModule::getInstance()->viewService->buildSEOTitle($page);
 	}
+
+	public function getCachedPage(craft\base\Element $page)
+	{
+		return PapertrainModule::getInstance()->viewService->getCachedPage($page);
+	}
 }

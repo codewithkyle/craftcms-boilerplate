@@ -25,68 +25,82 @@
     {% endif %}
 {% endif %}
 
-{% spaceless %}
-<!DOCTYPE html>
-<html 
-    lang="{{ currentSite.language }}" 
-    data-csrf="{{ craft.app.request.csrfToken }}" 
-    data-environment="{{ craft.app.config.env }}" 
->
-    <head>
-        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-        <meta name="referrer" content="origin-when-cross-origin" />
+{% if nocache is not defined %}
+	{% set nocache = craft.app.request.getParam("nocache") ?? false %}
+{% endif %}
 
-		<script>navigator.serviceWorker.register('service-worker.js');</script>
-        
-        <!-- SEO -->
-        {% include "_base/seo" %}
+{% set cache = craft.papertrain.getCachedPage(page) %}
+{% if cache|length and not nocache|length %}
+	{{ cache|raw }}
+{% else %}
+	{% spaceless %}
+	<!DOCTYPE html>
+	<html 
+		lang="{{ currentSite.language }}" 
+		data-csrf="{{ craft.app.request.csrfToken }}" 
+		data-environment="{{ craft.app.config.env }}" 
+	>
+		<head>
+			<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+			<meta charset="utf-8" />
+			<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+			<meta name="referrer" content="origin-when-cross-origin" />
 
-		<!-- noscript CSS -->
-        <noscript>
-			<style>	
-                #noscript-message
-                {
-                    position: fixed;
-                    bottom: 0;
-                    left: 50%;
-                    transform: translateX(-50%);
-                    padding: 1rem 1rem 1rem;
-                    background-color: var(--background);
-                    box-shadow: 0 -2px 16px rgba(51,51,51,0.1), -6px 32px rgba(51,51,51,0.1);
-                    border-radius: 0.25rem 0.25rem 0 0;
-                    text-align: center;
-                    z-index: 2000;
-                }
-            </style>
-            <link rel="stylesheet" href="{{ alias('@rootUrl')|trim('/') }}/css/noscript.css">
-        </noscript>
+			<script>navigator.serviceWorker.register("{{ alias('@rootUrl')|trim('/') }}/service-worker.js");</script>
+			
+			<!-- SEO -->
+			{% include "_base/seo" %}
 
-        {{ craft.papertrain.css(['normalize', 'brixi', 'base']) }}
-        {% block documentHead %}{% endblock %}
+			<!-- Lightkeeper performance audit scripts -->
+			{% if craft.app.config.env == "production" %}
+				{% hook 'lightkeeper' %}
+			{% endif %}
 
-		{% if craft.app.config.env == "production" %}
-        	{% hook 'lightkeeper' %}
-		{% endif %}
+			<!-- noscript CSS -->
+			<noscript>
+				<style>	
+					#noscript-message {
+						position: fixed;
+						bottom: 0;
+						left: 50%;
+						transform: translateX(-50%);
+						padding: 1rem 1rem 1rem;
+						background-color: var(--background);
+						box-shadow: 0 -2px 16px rgba(51,51,51,0.1), -6px 32px rgba(51,51,51,0.1);
+						border-radius: 0.25rem 0.25rem 0 0;
+						text-align: center;
+						z-index: 2000;
+					}
+				</style>
+				<link rel="stylesheet" href="{{ alias('@rootUrl')|trim('/') }}/css/noscript.css">
+			</noscript>
 
-        <script type="module" src="{{ alias('@rootUrl')|trim('/') }}/js/bootstrap.js"></script>
-        <script type="text/javascript" nomodule src="{{ alias('@rootUrl')|trim('/') }}/static/scripts/ie-warning.js"></script>
+			<!-- Core CSS -->
+			{{ craft.papertrain.css(['normalize', 'brixi']) }}
 
-    </head>
-    <body>
+			<!-- Template specific resources -->
+			{% block documentHead %}{% endblock %}
 
-        {# Infinite progress bar loading animation #}
-        <soft-loading>
-            <transition-bar-one></transition-bar-one>
-            <transition-bar-two></transition-bar-two>
-        </soft-loading>
+			<!-- Core JS -->
+			<script type="module" src="{{ alias('@rootUrl')|trim('/') }}/js/bootstrap.js"></script>
+			<script type="text/javascript" nomodule src="{{ alias('@rootUrl')|trim('/') }}/static/scripts/ie-warning.js"></script>
 
-        {% block page %}{% endblock %}
+		</head>
+		<body>
 
-        <noscript>
-            <p id="noscript-message">{{ "Parts of this website require JavaScript. Please re-enable JavaScript and reload the page. We apologize for the inconvenience."|t }}</p>
-        </noscript>
-    </body>
-</html>
-{% endspaceless %}
+			<!-- Infinite progress bar loading animation -->
+			<soft-loading>
+				<transition-bar-one></transition-bar-one>
+				<transition-bar-two></transition-bar-two>
+			</soft-loading>
+
+			<!-- Content -->
+			{% block page %}{% endblock %}
+
+			<noscript>
+				<p id="noscript-message">{{ "Parts of this website require JavaScript. Please re-enable JavaScript and reload the page. We apologize for the inconvenience."|t }}</p>
+			</noscript>
+		</body>
+	</html>
+	{% endspaceless %}
+{% endif %}
