@@ -22,48 +22,40 @@
 			"patterns": [
 				"templates"
 			],
-			"extensions": "ts,js,scss,css",
+			"extensions": "ts,js,scss,css,tsx,jsx,mjs,cjs",
 			"quiet": false
-		},
-		"prettier": {
-			"patterns": [
-				"templates",
-				"modules"
-			],
-			"extensions": "ts,js,scss,css,php",
-			"quiet": true
 		}
 	},
 	"devDependencies": {
-		"@codewithkyle/twist": "^1.0.1",
-		"@prettier/plugin-php": "^0.16.2",
-		"@typescript-eslint/eslint-plugin": "^4.22.0",
-		"@typescript-eslint/parser": "^4.22.0",
+		"@codewithkyle/twist": "^1.3.0",
+		"@prettier/plugin-php": "^0.16.3",
+		"@typescript-eslint/eslint-plugin": "^4.26.0",
+		"@typescript-eslint/parser": "^4.26.0",
 		"cssmonster": "^0.3.1",
-		"esinstall": "^1.1.4",
+		"esinstall": "^1.1.5",
 		"eslint": "^6.8.0",
 		"eslint-config-prettier": "^6.15.0",
-		"eslint-plugin-prettier": "^3.3.1",
-		"glob": "^7.1.6",
+		"eslint-plugin-prettier": "^3.4.0",
+		"glob": "^7.1.7",
 		"husky": "^3.1.0",
 		"npm-watch": "^0.9.0",
-		"prettier": "^2.2.1",
+		"prettier": "^2.3.0",
 		"stylelint": "^12.0.1",
 		"stylelint-config-recommended": "^3.0.0",
-		"typescript": "^4.2.4"
+		"typescript": "^4.3.2"
 	},
 	"dependencies": {
-		"@codewithkyle/asset-manager": "^1.0.0",
+		"@codewithkyle/asset-manager": "^1.0.1",
 		"@codewithkyle/lazy-loader": "^1.0.0",
 		"@codewithkyle/messaging": "^1.0.1",
 		"@codewithkyle/modal-maker": "^1.1.1",
 		"@codewithkyle/notifyjs": "^2.1.1",
 		"@codewithkyle/postie": "^1.0.1",
-		"@codewithkyle/pubsub": "^1.1.0",
+		"@codewithkyle/pubsub": "^1.1.1",
 		"@codewithkyle/supercomponent": "^1.0.0",
 		"brixi": "^0.3.3",
 		"flatpickr": "^4.6.9",
-		"lit-html": "^1.3.0"
+		"lit-html": "^1.4.1"
 	},
 	"husky": {
 		"hooks": {
