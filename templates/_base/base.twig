@@ -33,6 +33,7 @@
 {% if cache|length and not nocache|length %}
 	{{ cache|raw }}
 {% else %}
+	{% craft.papertrain.cachePage(page) %}
 	{% spaceless %}
 	<!DOCTYPE html>
 	<html 

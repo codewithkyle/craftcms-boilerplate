@@ -14,6 +14,7 @@ use modules\papertrainmodule\PapertrainModule;
 
 use Craft;
 use craft\helpers\Template as TemplateHelper;
+use craft\base\Element;
 
 /**
  * @author    Kyle Andrews
@@ -40,18 +41,27 @@ class PapertrainModuleVariable
 		return md5($string);
 	}
 
-	public function checkRequireLogin(craft\base\Element $entry): bool
+	public function checkRequireLogin(Element $entry): bool
 	{
 		return PapertrainModule::getInstance()->viewService->checkRequireLogin($entry);
 	}
 
-	public function buildSEOTitle(craft\base\Element $page): string
+	public function buildSEOTitle(Element $page): string
 	{
 		return PapertrainModule::getInstance()->viewService->buildSEOTitle($page);
 	}
 
-	public function getCachedPage(craft\base\Element $page)
+	public function getCachedPage(Element $page)
 	{
 		return PapertrainModule::getInstance()->viewService->getCachedPage($page);
+	}
+
+	public function cachePage(Element $page): void
+	{
+		try {
+			PapertrainModule::getInstance()->viewService->cachePage($page);
+		} catch (\Exception $e) {
+			Craft::error($e->getMessage(), __METHOD__);
+		}
 	}
 }
