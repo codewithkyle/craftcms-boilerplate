@@ -59,9 +59,9 @@ class ViewService extends Component
 
 	public function cachePage(Element $element): void
 	{
-		// if (getenv("env") !== "production") {
-		// 	return;
-		// }
+		if (getenv("env") !== "production") {
+			return;
+		}
 
 		$template = $element->route[1]["template"] ?? null;
 		$variables = $element->route[1]["variables"] ?? [];
