@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "purgecss": "^4.0.3",
+    "yargs": "^17.0.1"
+  }
+}

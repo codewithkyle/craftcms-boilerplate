@@ -59,9 +59,10 @@ class ViewService extends Component
 
 	public function cachePage(Element $element): void
 	{
-		if (getenv("env") !== "production") {
-			return;
-		}
+		// if (getenv("env") !== "production") {
+		// 	return;
+		// }
+
 		$template = $element->route[1]["template"] ?? null;
 		$variables = $element->route[1]["variables"] ?? [];
 		if (!is_null($template)) {
@@ -94,24 +95,14 @@ class ViewService extends Component
 			$cssPath = FileHelper::normalizePath(Yii::getAlias("@webroot") . '/css/noscript.css');
 			$brixiPath = FileHelper::normalizePath(Yii::getAlias("@webroot") . '/css/brixi.css');
 			$css = file_get_contents($brixiPath);
+			
+			$nodejs = getenv("NODEJS");
+			if (empty($nodejs)) {
+				throw new \Exception("Your .env file is missing the path to your NODEJS binary.");
+			}
+
 			if (file_exists($cssPath)) {
-				$client = new Client([
-					"base_uri" => "http://127.0.0.1:8080",
-				]);
-				$response = $client->request("POST", '/purge', [
-					"headers" => [
-						"Content-Type" => "application/json",
-					],
-					"json" => [
-						"html" => $tempHTML,
-						"css" => $cssPath,
-					],
-				]);
-				$code = $response->getStatusCode();
-				if ($code !== 200){
-					throw new \Exception("Purge CSS server error");
-				}
-				$css .= (string)$response->getBody();
+				$css .= shell_exec($nodejs . " " . FileHelper::normalizePath(Yii::getAlias("@root") . '/purgecss/purge.js') . " --html=" . $tempHTML . " --css=" . $cssPath);
 			}
 			$html = str_replace("</head>", "\n<style>" . $css . "</style>\n" . "</head>", $html);
 			$html = trim($html);
