@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "a5121e92275a46584bdf8ee5a316530c",
+    "content-hash": "50aebb1e57fa6a3016dd081c7d9b1117",
     "packages": [
         {
             "name": "aws/aws-sdk-php",
@@ -219,11 +219,11 @@
         },
         {
             "name": "codewithkyle/lightkeeper",
-            "version": "1.2.0",
+            "version": "1.3.0",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/codewithkyle/craft-lightkeeper/zipball/a4df92ebc9afb77fdfc32291cb549e2052236a39",
-                "reference": "a4df92ebc9afb77fdfc32291cb549e2052236a39",
+                "url": "https://api.github.com/repos/codewithkyle/craft-lightkeeper/zipball/18bd8e68ea08e003bf75075688d9691123b124fa",
+                "reference": "18bd8e68ea08e003bf75075688d9691123b124fa",
                 "shasum": ""
             },
             "require": {
@@ -272,7 +272,7 @@
                 "docs": "https://github.com/codewithkyle/craft-lightkeeper/blob/master/README.md",
                 "issues": "https://github.com/codewithkyle/craft-lightkeeper/issues"
             },
-            "time": "2021-06-05T13:17:51+00:00"
+            "time": "2021-06-05T14:06:03+00:00"
         },
         {
             "name": "commerceguys/addressing",

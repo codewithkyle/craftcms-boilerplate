@@ -113,7 +113,7 @@ class ViewService extends Component
 
 	public function cachePage(Element $page): void
 	{
-		if (getenv("env") !== "production") {
+		if (getenv("env") == "dev") {
 			return;
 		}
 

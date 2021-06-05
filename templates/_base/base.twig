@@ -63,8 +63,8 @@
 			{% include "_base/seo" %}
 
 			<!-- Lightkeeper performance audit scripts -->
-			{% if craft.app.config.env == "production" %}
-				{% hook 'lightkeeper' %}
+			{% if craft.app.config.env != "dev" %}
+				{% hook 'lightkeeper-raw' %}
 			{% endif %}
 
 			<!-- noscript CSS -->
