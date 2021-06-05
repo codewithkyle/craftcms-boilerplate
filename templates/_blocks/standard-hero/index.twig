@@ -1,4 +1,4 @@
-<standard-hero css="standard-hero buttons" class="{{ data.backgroundColor }} {{ data.backgroundImage|length ? 'has-image' }}">
+<standard-hero class="{{ data.backgroundColor }} {{ data.backgroundImage|length ? 'has-image' }}">
     {% if data.backgroundImage|length %}
         {% set transformedImage = craft.jitter.transformImage(data.backgroundImage[0], { w: 320, h: 600 }) %}
         {% set images = craft.jitter.srcset(data.backgroundImage[0], [

@@ -14,37 +14,45 @@
 {% set requireLogin = craft.papertrain.checkRequireLogin(page) %}
 {% if requireLogin and not currentUser %}
     {% redirect '/login?redirect=' ~ craft.app.request.pathInfo %}
-{% elseif not requireLogin %}
-    {% set expiry = now|date_modify('+7 days') %}
-    {% header "Cache-Control: max-age=" ~ (expiry.timestamp - now.timestamp) %}
-    {% header "Pragma: cache" %}
-    {% header "Expires: " ~ expiry|date('D, d M Y H:i:s', 'GMT') ~ " GMT" %}
-    {% header "Access-Control-Expose-Headers: etag" %}
-    {% if page.uid %}
-        {% header "ETag: " ~ page.uid ~ '-' ~ craft.papertrain.getRevisionNumber(page.id) %}
-    {% endif %}
 {% endif %}
 
 {% if nocache is not defined %}
 	{% set nocache = craft.app.request.getParam("nocache") ?? false %}
 {% endif %}
 
-{% set cache = craft.papertrain.getCachedPage(page) %}
-{% if cache|length and not nocache|length %}
-	{{ cache|raw }}
-{% else %}
-	{% if not nocache|length %}
-		{{ craft.papertrain.cachePage(page) }}
+{% if isPrecacheRender is not defined %}
+	{% set isPrecacheRender = false %}
+{% endif %}
+
+{% if page is defined and page["pageBuilder"] is defined and page["pageBuilder"]|length %}
+	{% for block in page.pageBuilder %}
+		{% if block.type == "formBlock" %}
+			{% set nocache = true %}
+			{% do craft.formie.registerAssets(block.form.handle) %}
+		{% endif %}
+	{% endfor %}
+{% endif %}
+
+{% set cachedPage = craft.papertrain.getCachedPage(page) %}
+{% if cachedPage|length and not nocache and not requireLogin and craft.app.config.env != "dev" %}
+	{% set expiry = now|date_modify('+7 days') %}
+	{% header "Cache-Control: max-age=" ~ (expiry.timestamp - now.timestamp) %}
+	{% header "Pragma: cache" %}
+	{% header "Expires: " ~ expiry|date('D, d M Y H:i:s', 'GMT') ~ " GMT" %}
+	{% header "Access-Control-Expose-Headers: etag" %}
+	{% if page.uid %}
+		{% header "ETag: " ~ page.uid ~ '-' ~ craft.papertrain.getRevisionNumber(page.id) %}
 	{% endif %}
+	{{ cachedPage|raw }}
+{% else %}
 	{% spaceless %}
 	<!DOCTYPE html>
 	<html 
 		lang="{{ currentSite.language }}" 
-		data-csrf="{{ craft.app.request.csrfToken }}" 
+		data-csrf="" 
 		data-environment="{{ craft.app.config.env }}" 
 	>
 		<head>
-			<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 			<meta charset="utf-8" />
 			<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
 			<meta name="referrer" content="origin-when-cross-origin" />
@@ -75,11 +83,20 @@
 						z-index: 2000;
 					}
 				</style>
-				<link rel="stylesheet" href="{{ alias('@rootUrl')|trim('/') }}/css/noscript.css">
 			</noscript>
 
 			<!-- Core CSS -->
-			{{ craft.papertrain.css(['normalize', 'brixi', 'core']) }}
+			{{ craft.papertrain.css(['normalize', 'core']) }}
+
+			<!-- Template specific CSS -->
+			{% if not isPrecacheRender %}
+				{% set templateCSS = craft.papertrain.purgedCSS(page) %}
+				{% if templateCSS|length %}
+					<style>{{ templateCSS|raw }}</style>
+				{% endif %}
+			{% else %}
+				<!-- PURGE_CSS_INJECTION -->
+			{% endif %}
 
 			<!-- Template specific resources -->
 			{% block documentHead %}{% endblock %}
@@ -103,6 +120,8 @@
 			<noscript>
 				<p id="noscript-message">{{ "Parts of this website require JavaScript. Please re-enable JavaScript and reload the page. We apologize for the inconvenience."|t }}</p>
 			</noscript>
+
+			{% do craft.formie.registerAssets('contactForm') %}
 		</body>
 	</html>
 	{% endspaceless %}

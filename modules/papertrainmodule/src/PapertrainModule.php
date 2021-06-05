@@ -107,7 +107,7 @@ class PapertrainModule extends Module
 
 		Event::on(Elements::class, Elements::EVENT_AFTER_SAVE_ELEMENT, function (ElementEvent $event) {
 			// Trigger revision updates when an element is saved
-			if ($event->element instanceof Entry) {
+			if ($event->element instanceof Entry  && !$event->element->isDraft && !$event->element->isRevision) {
 				$entry = $event->element;
 				PapertrainModule::getInstance()->viewService->updateEntryRevisions($entry);
 			}

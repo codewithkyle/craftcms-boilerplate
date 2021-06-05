@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "181cb17de15d6643431b2f53b9be91f6",
+    "content-hash": "a5121e92275a46584bdf8ee5a316530c",
     "packages": [
         {
             "name": "aws/aws-sdk-php",
@@ -219,11 +219,11 @@
         },
         {
             "name": "codewithkyle/lightkeeper",
-            "version": "1.1.2",
+            "version": "1.2.0",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/codewithkyle/craft-lightkeeper/zipball/13f02638d2463b2e2553616fbc25353fca7bf2b1",
-                "reference": "13f02638d2463b2e2553616fbc25353fca7bf2b1",
+                "url": "https://api.github.com/repos/codewithkyle/craft-lightkeeper/zipball/a4df92ebc9afb77fdfc32291cb549e2052236a39",
+                "reference": "a4df92ebc9afb77fdfc32291cb549e2052236a39",
                 "shasum": ""
             },
             "require": {
@@ -247,7 +247,6 @@
                     "codewithkyle\\lightkeeper\\": "src/"
                 }
             },
-            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -257,11 +256,11 @@
                     "homepage": "https://kyleandrews.dev/"
                 }
             ],
-            "description": "Lightkeeper integrates Google Lighthouse testing alongside continuous performance monitoring.",
+            "description": "Continuous performance monitoring for your Craft CMS websites.",
             "keywords": [
-                "Craft",
                 "auditing",
                 "cms",
+                "craft",
                 "craft-plugin",
                 "craftcms",
                 "lighthouse",
@@ -271,10 +270,9 @@
             ],
             "support": {
                 "docs": "https://github.com/codewithkyle/craft-lightkeeper/blob/master/README.md",
-                "issues": "https://github.com/codewithkyle/craft-lightkeeper/issues",
-                "source": "https://github.com/codewithkyle/craft-lightkeeper/tree/v1.1.2"
+                "issues": "https://github.com/codewithkyle/craft-lightkeeper/issues"
             },
-            "time": "2020-10-26T22:02:04+00:00"
+            "time": "2021-06-05T13:17:51+00:00"
         },
         {
             "name": "commerceguys/addressing",

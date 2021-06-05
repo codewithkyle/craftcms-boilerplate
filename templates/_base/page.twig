@@ -9,7 +9,7 @@
         {% include "_components/banner-notification" with { message: notifications.text1 } %}
     {% endif %}
     {% include "_components/header" %}
-    <main class="page" css="soft-loading" style="min-height: calc(100% - 2rem);">
+    <main class="page" style="min-height: calc(100% - 2rem);">
         {% block content %}{% endblock %}
     </main>
     {% include "_components/footer" %}

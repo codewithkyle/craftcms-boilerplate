@@ -42,73 +42,105 @@ class ViewService extends Component
 
 	public function getCachedPage(Element $element)
 	{
-		$pageCachePath = FileHelper::normalizePath(Craft::$app->path->runtimePath . '/page-cache/' . $element->uid . ".html");
+		$pageCachePath = FileHelper::normalizePath($this->getPageCachePath() . "/" . $element->uid . ".html");
 		if (file_exists($pageCachePath)) {
-			return file_get_contents($pageCachePath);
+			return \file_get_contents($pageCachePath);
 		}
 		return null;
 	}
 
 	public function clearCache(): void
 	{
-		$pageCachePath = FileHelper::normalizePath(Craft::$app->path->runtimePath . '/page-cache');
+		$pageCachePath = $this->getPageCachePath();
 		if (is_dir($pageCachePath)) {
 			array_map('unlink', glob("$pageCachePath/*"));
 		}
 	}
 
-	public function cachePage(Element $element): void
+	public function purgeCSS(string $cssPath, string $htmlPath, string $pageCachePath): string
+	{
+		$nodejs = getenv("NODEJS");
+		if (empty($nodejs)) {
+			throw new \Exception("Your .env file is missing the path to your NODEJS binary.");
+		}
+		$uid = StringHelper::UUID();
+		$tempCSS = FileHelper::normalizePath($pageCachePath . "/" . $uid . ".css");
+		$files = array_diff(scandir($cssPath), array('.', '..'));
+		foreach ($files as $file) {
+			file_put_contents($tempCSS, \file_get_contents(FileHelper::normalizePath($cssPath . "/" . $file)), FILE_APPEND);
+		}
+		$css = shell_exec($nodejs . " " . FileHelper::normalizePath(Yii::getAlias("@root") . '/modules/papertrainmodule/purgecss/purge.js') . " --html=" . $htmlPath . " --css=" . $tempCSS);
+		\unlink($tempCSS);
+		if (\is_null($css)){
+			throw new \Exception("Failed to purge CSS");
+		}
+		return $css;
+	}
+
+	public function renderTemplate(string $template, Element $page): string
+	{
+		$oldMode = Craft::$app->view->getTemplateMode();
+		Craft::$app->view->setTemplateMode(View::TEMPLATE_MODE_SITE);
+		$html = Craft::$app->view->renderTemplate($template, [
+			"entry" => $page,
+			"product" => $page,
+			"category" => $page,
+			"nocache" => "1",
+			"isPrecacheRender" => "1",
+		]);
+		Craft::$app->view->setTemplateMode($oldMode);
+		$html = TemplateHelper::raw($html);
+		return $html;
+	}
+
+	public function getPageCSS(Element $page): string
+	{
+		$template = $page->route[1]["template"] ?? null;
+		$variables = $page->route[1]["variables"] ?? [];
+		$css = "";
+		if (!is_null($template)) {
+			$pageCachePath = $this->getPageCachePath();
+			$uid = StringHelper::UUID();
+			$tempHTML = FileHelper::normalizePath($pageCachePath . "/" . $uid . ".tmp");
+			$html = $this->renderTemplate($template, $page, $pageCachePath);
+			file_put_contents($tempHTML, $html);
+			$cssPath = FileHelper::normalizePath(Yii::getAlias("@webroot") . '/css');
+			$css = $this->purgeCSS($cssPath, $tempHTML, $pageCachePath);
+			\unlink($tempHTML);
+		}
+		return $css;
+	}
+
+	public function cachePage(Element $page): void
 	{
 		if (getenv("env") !== "production") {
 			return;
 		}
 
-		$template = $element->route[1]["template"] ?? null;
-		$variables = $element->route[1]["variables"] ?? [];
+		$template = $page->route[1]["template"] ?? null;
+		$variables = $page->route[1]["variables"] ?? [];
+
 		if (!is_null($template)) {
-
-			$pageCachePath = FileHelper::normalizePath(Craft::$app->path->runtimePath . '/page-cache');
-			if (!file_exists($pageCachePath)) {
-				mkdir($pageCachePath);
+			$pageCachePath = $this->getPageCachePath();
+			$cachedHTML = FileHelper::normalizePath($pageCachePath . "/" . $page->uid . ".html");
+			if (file_exists($cachedHTML)) {
+				unlink($cachedHTML);
 			}
-
-			$uid = StringHelper::UUID();
-			$tempHTML = FileHelper::normalizePath($pageCachePath . "/" . $uid . ".tmp");
-			$outputHTML = FileHelper::normalizePath($pageCachePath . "/" . $element->uid . ".html");
-
-			if (file_exists($outputHTML)) {
-				unlink($outputHTML);
-			}
-
-			$oldMode = Craft::$app->view->getTemplateMode();
-			Craft::$app->view->setTemplateMode(View::TEMPLATE_MODE_SITE);
-			$html = Craft::$app->view->renderTemplate($template, [
-				"entry" => $element,
-				"product" => $element,
-				"category" => $element,
-				"nocache" => "1",
-			]);
-			Craft::$app->view->setTemplateMode($oldMode);
-			$html = TemplateHelper::raw($html);
-			file_put_contents($tempHTML, $html);
-
-			$cssPath = FileHelper::normalizePath(Yii::getAlias("@webroot") . '/css/noscript.css');
-			$brixiPath = FileHelper::normalizePath(Yii::getAlias("@webroot") . '/css/brixi.css');
-			$css = file_get_contents($brixiPath);
-			
-			$nodejs = getenv("NODEJS");
-			if (empty($nodejs)) {
-				throw new \Exception("Your .env file is missing the path to your NODEJS binary.");
-			}
-
-			if (file_exists($cssPath)) {
-				$css .= shell_exec($nodejs . " " . FileHelper::normalizePath(Yii::getAlias("@root") . '/purgecss/purge.js') . " --html=" . $tempHTML . " --css=" . $cssPath);
-			}
-			$html = str_replace("</head>", "\n<style>" . $css . "</style>\n" . "</head>", $html);
+			$html = $this->renderTemplate($template, $page);
+			$css = $this->getPageCSS($page);
+			$html = str_replace("<!-- PURGE_CSS_INJECTION -->", "\n<style>" . $css . "</style>\n" . "</head>", $html);
 			$html = trim($html);
-			file_put_contents($outputHTML, $html);
-			unlink($tempHTML);
+			\file_put_contents($cachedHTML, $html);
 		}
+	}
+
+	private function getPageCachePath(): string
+	{
+		$pageCachePath = FileHelper::normalizePath(Craft::$app->path->runtimePath . '/page-cache');
+		if (!file_exists($pageCachePath)) {
+			mkdir($pageCachePath);
+		}
+		return $pageCachePath;
 	}
 
 	public function renderBlock(int $ownerId, int $id): string

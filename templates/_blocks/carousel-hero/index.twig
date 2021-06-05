@@ -1,5 +1,5 @@
 {% set slides = data.slides.all() %}
-<carousel-hero css="carousel-hero buttons" web-component>
+<carousel-hero web-component>
     {% for slide in slides %}
         <carousel-slide class="{{ (loop.first) ? 'is-active' : '' }}">
             {% set transformedImage = craft.jitter.transformImage(slide.backgroundImage[0], { w: 320, h: 600 }) %}
@@ -36,7 +36,7 @@
         </carousel-slide>
     {% endfor %}
     {% if slides|length > 1 %}
-        <carousel-controls eager-css="carousel-hero-controls" style="opacity:0;visibility:hidden;transition:all 150ms ease-in-out;">
+        <carousel-controls style="opacity:0;visibility:hidden;transition:all 150ms ease-in-out;">
             {% for slide in slides %}
                 <button class="{{ loop.first ? 'is-active': '' }}" data-index="{{ loop.index0 }}" aria-label="switch to slide {{ loop.index }}"></button>
             {% endfor %}

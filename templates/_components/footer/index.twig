@@ -5,7 +5,8 @@
         'descendants'
     ]
 }).all() %}
-<footer css="footer" class="-base" style="content-visibility: auto;contain-intrinsic-size: 512px;">
+{% cache %}
+<footer class="-base" style="content-visibility: auto;contain-intrinsic-size: 512px;">
     {% if footerLinks|length %}
         <div class="primary">
             <div class="container">
@@ -108,3 +109,4 @@
         </div>
     </div>
 </footer>
+{% endcache %}

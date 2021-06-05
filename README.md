@@ -1,19 +1,25 @@
 # Craft CMS Boilerplate
 
-A Craft CMS boilerplate utilizing JIT resource fetching, offline first resource strategy, and context-specific progressive enhancements. The goal of this boilerplate is to provide developers with a sturdy foundation to build upon, the client an accessible and high performant website, and the content editors a simple and rich experience.
+A Craft CMS boilerplate utilizing JIT resource fetching, critical CSS injection, offline first resource strategy, offline fallback page caching, and context-specific progressive enhancements. The goal of this boilerplate is to provide developers with a sturdy foundation to build upon, the client a high performant website, and the content editors a simple and rich experience.
 
-> **Note:** This boilerplate is built around the idea that one matrix field can be used to create a dynamic page builder. It uses the [Matrix Mate](https://plugins.craftcms.com/matrixmate) and [Smith](https://plugins.craftcms.com/smith) plugins to provide an organized and customized content editing experience. Designs should be split into blocks and added to the page builder matrix field. When blocks become too complicated they should be split into several smaller, simpler blocks.
+This boilerplate is built around the idea that one matrix field can be used to create a dynamic page builder. It uses the [Matrix Mate](https://plugins.craftcms.com/matrixmate) and [Smith](https://plugins.craftcms.com/smith) plugins to provide an organized and customized content editing experience. Designs should be split into blocks and added to the page builder matrix field.
 
 ## Key Beliefs
 
--   Blocks should follow the KISS principle (keep it stupid simple).
-    -   Use Matrix Mate to group fields within a block.
-    -   Use Matrix Mate to group blocks into intuitive categories.
--   Blocks should be opinionated. When they become generic or complicated split the functionality into several smaller blocks within a new group.
--   [Hicks Law](https://lawsofux.com/hicks-law) will be observed when creating blocks.
--   A website is a living project and as the clients needs change new blocks should be added.
--   Leverage the benefits of [modular programming](https://en.wikipedia.org/wiki/Modular_programming).
--   Resources should only be loaded when they are needed. Read the [JINT Methodology](https://jintmethod.dev/) for additional information about JIT resource management concept.
+- Blocks should follow the KISS principle (keep it stupid simple)
+	- Use Matrix Mate to group fields within a block
+	- Use Matrix Mate to group blocks into intuitive categories
+- Blocks should be opinionated
+	- Do not created "god" blocks that can do everything instead plan ahead by splitting the functionality into several smaller blocks
+	- [Hicks Law](https://lawsofux.com/hicks-law) will be observed when creating blocks
+- A website is a living project and as the clients needs change new blocks should be added
+- Leverage the benefits of [modular programming](https://en.wikipedia.org/wiki/Modular_programming)
+- Resources should only be loaded when they are needed (see [JINT Methodology](https://jintmethod.dev/))
+- CSS requried to render the inital view will be included in the documents `<head>`
+- CSS requried for client-side rendering or elements hidden behind an action will be lazy loaded
+- The Service Worker will cache and respond with resouces (images, CSS, JS)
+- The Service Worker will provide an offline page cache
+- The Service Worker will provide an offline fallback page (`/offline`)
 
 ## Getting Started
 
@@ -36,7 +42,7 @@ Open the generated `.env` file and input your environment details.
 
 ## Development
 
-This boilerplate uses a handful of custom build tools. Feel free to uninstall them and write your own.
+This boilerplate uses a handful of custom build tools.
 
 - [Lazy Loader](https://github.com/codewithkyle/lazy-loader) is a lightweight JavaScript and CSS boostrapper built around Web Components.
 - [Twist](https://github.com/codewithkyle/twist) is a simple build tool for managing your ES Module static import paths & transpiling your TypeScript files using [esbuild](https://esbuild.github.io/).

@@ -17,7 +17,7 @@
     {% else %}
         {% set transformedImages = craft.jitter.srcset(image) %}
     {% endif %}
-    <rich-text-image-block css="rich-text-image buttons">
+    <rich-text-image-block>
         {% if data.imagePosition == 'left' %}
             <img-shim>
                 <img alt="{{ image.description }}" loading="lazy" width="320" srcset="{{ transformedImages }}" />

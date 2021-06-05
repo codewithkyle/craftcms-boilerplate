@@ -64,4 +64,16 @@ class PapertrainModuleVariable
 			Craft::error($e->getMessage(), __METHOD__);
 		}
 	}
+
+	public function purgedCSS(Element $page): string
+	{
+		$css = "";
+		try {
+			$css = PapertrainModule::getInstance()->viewService->getPageCSS($page);
+			PapertrainModule::getInstance()->viewService->cachePage($page);
+		} catch (\Exception $e) {
+			Craft::error($e->getMessage(), __METHOD__);
+		}
+		return $css;
+	}
 }
