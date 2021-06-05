@@ -48,7 +48,8 @@ This boilerplate uses a handful of custom build tools.
 - [Twist](https://github.com/codewithkyle/twist) is a simple build tool for managing your ES Module static import paths & transpiling your TypeScript files using [esbuild](https://esbuild.github.io/).
 - [CSSMonster](https://github.com/codewithkyle/cssmonster) transpiles [SASS](https://sass-lang.com/) into CSS using [node-sass](https://github.com/sass/node-sass).
 - [Brixi](https://brixi.dev/) is a lightweight utility-frist CSS framework.
-- [Snowpack](https://www.snowpack.dev/) bundles NPM packages into ES Modules.
+- [esinstall](https://www.npmjs.com/package/esinstall) bundles NPM packages into ES Modules.
+- [PurgeCSS](https://purgecss.com/) is used to purge the unused CSS not required for the inital view. Purged CSS is then injected into the documents `<head>` when the template is rendered.
 
 ### Commands
 
@@ -64,6 +65,9 @@ npm run brixi
 
 # Bundle NPM Packages into the templates/_lib/ directory
 npm run bundle
+
+# Automatically run tasks as your created/delete/edit files within the templates directory
+npm run watch
 ```
 
 ### Writing Code
